@@ -1,0 +1,29 @@
+"""Get summary statistics about messages without returning all data.
+
+This function processes a list of message dictionaries and returns a summary containing the total number of messages, counts by message type, counts by model, and the total number of tokens used across all messages. The function handles edge cases such as an empty list of messages gracefully.
+
+Args:
+    messages (List[Dict[str, Any]]): A list of message dictionaries. Each message dictionary should contain at least the keys 'type', 'model', and 'tokens'. The 'tokens' key should map to a dictionary with 'input' and 'output' keys representing the number of tokens used.
+
+Returns:
+    Dict[str, Any]: A dictionary containing the following keys:
+        - 'total': The total number of messages.
+        - 'by_type': A dictionary mapping message types to their respective counts.
+        - 'by_model': A dictionary mapping models to their respective counts.
+        - 'total_tokens': The total number of tokens used across all messages.
+
+Example:
+    >>> messages = [
+    ...     {'type': 'user', 'model': 'gpt-3.5-turbo', 'tokens': {'input': 10, 'output': 20}},
+    ...     {'type': 'user', 'model': 'gpt-4', 'tokens': {'input': 668, 'output': 366}},
+    ...     {'type': 'assistant', 'model': 'gpt-4', 'tokens': {'input': 339, 'output': 654}}
+    ... ]
+    >>> get_messages_summary(messages)
+    {'total': 3, 'by_type': {'user': 2, 'assistant': 1}, 'by_model': {'gpt-4': 2, 'gpt-3.5-turbo': 1}, 'total_tokens': 2057}
+"""
+You should write code starting with:
+from typing import List, Dict, Any
+
+def get_messages_summary(messages: List[Dict[str, Any]]) -> Dict[str, Any]:
+    pass
+

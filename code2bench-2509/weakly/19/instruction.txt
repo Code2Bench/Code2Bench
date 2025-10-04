@@ -1,0 +1,19 @@
+"""Searches for a JSON object within the string and returns the loaded JSON if found, otherwise returns None.
+
+The function uses a greedy regular expression to match the first occurrence of a JSON object (enclosed in curly braces) within the input string. If a match is found, it attempts to parse the matched substring as JSON. If the parsing is successful, the parsed JSON object is returned; otherwise, None is returned.
+
+Args:
+    s (str): The input string to search for a JSON object.
+
+Returns:
+    Optional[Any]: The parsed JSON object if a valid JSON is found and successfully parsed, otherwise None.
+"""
+You should write code starting with:
+import json
+import re
+from typing import Any, Optional
+
+def extract_json_from_string(s: str) -> Optional[Any]:
+    # TODO: Implement this function
+    pass
+

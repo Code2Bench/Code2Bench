@@ -1,0 +1,94 @@
+package p10;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import java.io.*;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
+import net.jqwik.api.*;
+import net.jqwik.api.lifecycle.AfterContainer;
+import p10.GroundTruth;
+
+public class TestCaseGenerator {
+
+    static class TestCase {
+        Map<String, Object> Inputs;
+        Object Expected;
+        TestCase(Map<String, Object> inputs, Object expected) {
+            this.Inputs = inputs;
+            this.Expected = expected;
+        }
+    }
+
+    static List<TestCase> generatedCases = new ArrayList<>();
+    static AtomicInteger caseCount = new AtomicInteger(0);
+    static final int MAX_CASES = 500;
+
+    @Property(tries = 10000)
+    void generateTestCases(@ForAll("serverUrl") String serverUrl) {
+        if (caseCount.get() >= MAX_CASES) {
+            return;
+        }
+
+        String result;
+        try {
+            result = GroundTruth.parseServerUrl(serverUrl);
+        } catch (Exception e) {
+            return;
+        }
+
+        Map<String, Object> inputs = new LinkedHashMap<>();
+        inputs.put("serverUrl", serverUrl);
+        generatedCases.add(new TestCase(inputs, result));
+        caseCount.incrementAndGet();
+    }
+
+    @Example
+    void example1() {
+        generateTestCases("http://example.com");
+    }
+
+    @Example
+    void example2() {
+        generateTestCases("https://example.com");
+    }
+
+    @Example
+    void example3() {
+        generateTestCases("example.com:8080");
+    }
+
+    @Provide
+    Arbitrary<String> serverUrl() {
+        return Arbitraries.strings()
+                .withChars("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-.:/")
+                .filter(url -> url.length() > 0 && !url.contains(" "))
+                .map(url -> {
+                    if (Arbitraries.integers().between(0, 1).sample() == 0) {
+                        return "http://" + url;
+                    } else if (Arbitraries.integers().between(0, 1).sample() == 1) {
+                        return "https://" + url;
+                    } else {
+                        return url;
+                    }
+                });
+    }
+
+    @AfterContainer
+    static void saveTestCases() throws IOException {
+        if (generatedCases.isEmpty()) {
+            return;
+        }
+        String dirPath = "src/test/java/test_cases";
+        File dir = new File(dirPath);
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+        String filePath = dirPath + "/test_cases.json";
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        try (Writer writer = new FileWriter(filePath)) {
+            gson.toJson(generatedCases, writer);
+        }
+        System.out.println("✅ Saved " + generatedCases.size() + " test cases to " + filePath);
+    }
+}

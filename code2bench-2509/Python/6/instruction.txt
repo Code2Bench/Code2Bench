@@ -1,0 +1,20 @@
+"""Extracts all boxed expressions from a given text.
+
+This function searches for all occurrences of the pattern `\boxed{...}` in the input text and extracts the content within the braces. It handles nested boxed expressions by tracking the depth of the braces.
+
+Args:
+    text (str): The input text containing zero or more `\boxed{...}` patterns.
+
+Returns:
+    List[str]: A list of strings, each representing the content extracted from a `\boxed{...}` pattern. If no patterns are found, an empty list is returned.
+
+Note:
+    - The function correctly handles nested boxed expressions by counting the depth of the braces.
+    - The search is case-sensitive and assumes the exact pattern `\boxed{...}`.
+"""
+You should write code starting with:
+from typing import List
+
+def extract_boxed(text: str) -> List[str]:
+    pass
+

@@ -1,0 +1,18 @@
+"""Constructs a URI string from a display description dictionary.
+
+This function builds a URI string by concatenating the 'path', 'display', and 'options_str' 
+fields from the provided dictionary. The fields are combined in a specific order:
+1. 'path' is added first if present.
+2. 'display' is added next, prefixed by '#' if 'path' is also present. Leading colons in 'display' are stripped.
+3. 'options_str' is added last, prefixed by '?' if present.
+
+Args:
+    display_desc (Dict[str, Any]): A dictionary containing the keys 'path', 'display', and 'options_str'.
+        - 'path' (Optional[str]): The base path of the URI.
+        - 'display' (Optional[str]): The display component of the URI, often used for fragments.
+        - 'options_str' (Optional[str]): The query string component of the URI.
+
+Returns:
+    str: A URI string constructed from the provided dictionary fields. If none of the fields are present,
+         an empty string is returned.
+"""

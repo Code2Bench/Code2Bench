@@ -1,0 +1,11 @@
+"""Quantizes a list of values into bins.
+
+Given a list of values `x` and a list of bins, this function quantizes each value in `x` by determining the index of the bin it falls into. The bins are first sorted in ascending order. The quantization is performed using the `bisect_right` method, which returns the insertion point for each value in the sorted bins.
+
+Args:
+    x (list): A list of values to be quantized.
+    bins (list): A list of bin boundaries. These will be sorted in ascending order before quantization.
+
+Returns:
+    list: A list of indices representing the bin each value in `x` falls into.
+"""

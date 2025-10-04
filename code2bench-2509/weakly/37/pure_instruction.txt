@@ -1,0 +1,10 @@
+"""Decode a base64 string to its original bytes representation.
+
+This function decodes a base64 encoded string into its original bytes. The input string is first validated to ensure it conforms to the base64 format. If the input is not a valid base64 string, the function returns None. The function handles both standard and URL-safe base64 strings.
+
+Args:
+    s (str): A base64 encoded string that can be used in text files.
+
+Returns:
+    Optional[bytes]: The original decoded data as bytes. Returns None if the input is not a valid base64 string.
+"""

@@ -1,0 +1,17 @@
+"""Check if the policy string is a URL.
+
+This function parses the input string using `urllib.parse.urlparse` and checks if the scheme is either 'http' or 'https'. If the parsing fails or the scheme is not valid, the function returns False.
+
+Args:
+    policy_string (str): The string to be checked for being a URL.
+
+Returns:
+    bool: True if the string is a valid URL with 'http' or 'https' scheme, False otherwise.
+"""
+You should write code starting with:
+import urllib.parse
+
+def _is_url(policy_string: str) -> bool:
+    # TODO: Implement this function
+    pass
+

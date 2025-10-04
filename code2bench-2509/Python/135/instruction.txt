@@ -1,0 +1,22 @@
+"""Convert full-width characters in a string to their half-width equivalents.
+
+This function processes each character in the input string and converts full-width characters
+(including spaces, letters, numbers, and punctuation) to their corresponding half-width characters.
+The conversion is based on Unicode code points, ensuring accurate transformation.
+
+Args:
+    s (str): The input string containing full-width characters to be converted.
+
+Returns:
+    str: A new string with all full-width characters converted to half-width characters.
+
+The function handles the following conversions:
+    - Full-width space (U+3000) is converted to half-width space (U+0020).
+    - Full-width characters in the range U+FF01 to U+FF5E are converted to their half-width
+      equivalents by subtracting 0xFEE0 from their Unicode code points.
+    - Characters outside these ranges remain unchanged.
+"""
+You should write code starting with:
+def fullwidth_to_halfwidth(s: str) -> str:
+    pass
+

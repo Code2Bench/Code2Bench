@@ -1,0 +1,28 @@
+"""Decodes a given ciphertext using a series of transformations and a lookup table.
+
+The function processes the ciphertext by applying character shifts, removing patterns specified in the lookup table, and decoding the result using base64. The final output is a JSON object.
+
+Args:
+    ct (str): The ciphertext to be decoded.
+    luts (str): A string representing the lookup table, which contains patterns to be removed from the ciphertext.
+
+Returns:
+    dict: The decoded JSON object.
+
+The function performs the following steps:
+1. Processes the lookup table to escape special characters.
+2. Shifts characters in the ciphertext based on their ASCII values.
+3. Removes patterns from the ciphertext using the processed lookup table.
+4. Decodes the resulting string using base64.
+5. Applies a final character shift and decodes the string again using base64.
+6. Parses the final string as a JSON object and returns it.
+"""
+You should write code starting with:
+import json
+import re
+import base64
+
+def voe_decode(ct: str, luts: str) -> dict:
+    # TODO: Implement this function
+    pass
+

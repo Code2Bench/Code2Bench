@@ -1,0 +1,13 @@
+"""Extracts the root URL from a given URL string.
+
+The function parses the input URL and constructs the root URL by combining the protocol and the network location (netloc). It supports URLs with the protocols 'omniverse', 'http', and 'https'. If the protocol is not supported, a RuntimeError is raised.
+
+Args:
+    url (str): The URL string from which to extract the root URL.
+
+Returns:
+    str: The root URL in the format 'protocol://netloc'.
+
+Raises:
+    RuntimeError: If the URL's protocol is not one of the supported protocols ('omniverse', 'http', 'https').
+"""

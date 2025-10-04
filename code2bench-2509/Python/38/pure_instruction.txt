@@ -1,0 +1,27 @@
+"""Converts a version string into a list of integers, handling release candidates.
+
+This function processes a version string, splitting it by periods ('.') and converting
+each segment into an integer. If a segment contains a release candidate (denoted by 'rc'),
+it splits the segment into the base version and the release candidate number. The base
+version is decremented by 1, and both the decremented base version and the release candidate
+number are added to the result list.
+
+Args:
+    version_str (str): The version string to convert. Expected to contain numbers and
+        optionally 'rc' for release candidates.
+
+Returns:
+    List[int]: A list of integers representing the version. For segments with release
+        candidates, the base version is decremented by 1, followed by the release candidate
+        number.
+
+Examples:
+    >>> digit_version('1.2.3')
+    [1, 2, 3]
+    >>> digit_version('1.2.3rc4')
+    [1, 2, 2, 4]
+    >>> digit_version('1.2.3.4.5')
+    [1, 2, 3, 4, 5]
+    >>> digit_version('1.2.3rc4.5rc6')
+    [1, 2, 2, 4, 4, 6]
+"""

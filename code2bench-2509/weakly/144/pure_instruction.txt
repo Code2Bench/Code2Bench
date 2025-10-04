@@ -1,0 +1,10 @@
+"""Extracts the base name and fragment from a given URL.
+
+This function parses the provided URL and extracts the base name from the path. It handles special cases for URLs from 'sourceforge.net' where the base name is adjusted if the path ends with 'download'. Additionally, it separates the fragment from the base name if present.
+
+Args:
+    url (str): The URL from which to extract the base name and fragment.
+
+Returns:
+    tuple: A tuple containing the base name (str) and the fragment (str). If no fragment is present, the second element will be an empty string.
+"""

@@ -1,0 +1,16 @@
+"""Compute the boolean result based on a syndrome and corresponding measurements.
+
+This function processes a syndrome and a list of measurements to compute a boolean result. The syndrome and measurements are treated as boolean values, where `0` or `False` represents a logical `False`, and any other value represents a logical `True`. The function applies a logical AND operation between the measurements, negating them based on the corresponding syndrome value.
+
+Args:
+    syndrome (List[int] or List[bool]): A list of integers or booleans representing the syndrome. Each element indicates whether the corresponding measurement should be negated (`0` or `False`) or kept as is (`1` or `True`).
+    measurements (List[int] or List[bool]): A list of integers or booleans representing the measurements. Each element is treated as a boolean value.
+
+Returns:
+    int or bool: The result of the logical AND operation applied to the measurements, modified according to the syndrome. The return type depends on the input types and the result of the operation.
+
+The function first processes the first element of the syndrome and measurements separately. If the first element of the syndrome is `0` or `False`, the corresponding measurement is negated. Otherwise, it is kept as is. For the remaining elements, the function iterates through the syndrome and measurements, applying the logical AND operation between the current result and the measurement (negated if the syndrome element is `0` or `False`).
+
+Note:
+    The function assumes that the length of the syndrome and measurements lists are the same. If the lists are of different lengths, the behavior is undefined.
+"""

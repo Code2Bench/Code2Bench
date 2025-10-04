@@ -1,0 +1,20 @@
+"""Converts a cookie string into a dictionary.
+
+The function parses a cookie string formatted as key-value pairs separated by semicolons.
+Each key-value pair is expected to be separated by an equals sign. The function ignores
+malformed pairs and empty strings. If the cookie string is empty, an empty dictionary is returned.
+
+Args:
+    cookie_str (str): A string representing the cookie, formatted as key-value pairs.
+
+Returns:
+    Dict[str, str]: A dictionary where keys are cookie names and values are corresponding
+    cookie values. Returns an empty dictionary if the input string is empty or malformed.
+"""
+You should write code starting with:
+from typing import Dict
+
+def convert_str_cookie_to_dict(cookie_str: str) -> Dict[str, str]:
+    # TODO: Implement this function
+    pass
+

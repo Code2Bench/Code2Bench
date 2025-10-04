@@ -1,0 +1,11 @@
+"""Filters and returns only the valid keyword arguments for a given function.
+
+This function inspects the signature of the provided function and filters out any keyword arguments that do not match the function's parameter names. If the function's signature cannot be inspected (e.g., due to a ValueError or TypeError), all provided keyword arguments are returned as-is.
+
+Args:
+    func (callable): The function whose valid keyword arguments are to be determined.
+    kwargs (dict): A dictionary of keyword arguments to be filtered.
+
+Returns:
+    dict: A dictionary containing only the keyword arguments that are valid for the function. If the function's signature cannot be inspected, the original `kwargs` dictionary is returned.
+"""

@@ -1,0 +1,20 @@
+"""Format a positive integer as a sequence of lowercase letters.
+
+This function converts a positive integer into a string representation using lowercase letters (a-z). The conversion follows a base-26 numbering system where 'a' corresponds to 1, 'b' to 2, ..., 'z' to 26, 'aa' to 27, 'ab' to 28, and so on.
+
+Args:
+    value (int): A positive integer to be formatted. Must be greater than 0.
+
+Returns:
+    str: The formatted string representation of the integer using lowercase letters.
+
+Raises:
+    AssertionError: If `value` is not a positive integer.
+"""
+You should write code starting with:
+import string
+
+def format_int_alpha(value: int) -> str:
+    # TODO: Implement this function
+    pass
+

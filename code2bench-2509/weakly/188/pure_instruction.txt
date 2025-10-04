@@ -1,0 +1,11 @@
+Implement a Python function that infers whether a given set of values is categorical based on their data type, using the pandas library.
+
+- **Input**: A collection of values (e.g., list, tuple, or array-like) that can be converted into a pandas Series.
+- **Output**: A boolean value (`True` or `False`), where:
+  - `True` indicates the values are inferred to be categorical.
+  - `False` indicates the values cannot be determined as categorical.
+- **Special Rules**:
+  - Convert the input values into a pandas Series and infer the best possible data type using `convert_dtypes()`.
+  - Check if the inferred data type is one of the following: "category", "string", or "boolean" (case-insensitive).
+  - Return `True` if the data type matches any of the specified types; otherwise, return `False`.
+  - Handle edge cases: empty input, mixed data types, or unsupported data types.

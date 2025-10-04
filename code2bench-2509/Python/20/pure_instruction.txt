@@ -1,0 +1,28 @@
+/**
+ * Compute, for each metric, the rank of each model (1 = best accuracy).
+ *
+ * This function processes a list of model performance data and computes the rank of each model
+ * for specified metrics. The rank is determined by the accuracy of the model, with 1 being the
+ * highest rank. The function allows filtering by specific models and metrics.
+ *
+ * Args:
+ *     data (List[Dict]): A JSON-like list of dictionaries where each dictionary contains model
+ *         performance data. Each dictionary must have a 'model' key and keys for each metric
+ *         ending with '_acc'.
+ *     selected_models (List[str], optional): A list of clean model names (with "_temp0_n1_seed2"
+ *         already stripped) whose ranks are to be computed. If None, ranks for all models are
+ *         returned.
+ *     selected_data (List[str], optional): A list of metric names without the '_acc' suffix. If
+ *         None, defaults to all keys ending in '_acc' except 'avg_acc'.
+ *
+ * Returns:
+ *     Dict[str, Dict[str, int]]: A nested dictionary where the outer key is the metric name,
+ *         and the inner dictionary maps model names to their ranks (1 = highest accuracy).
+ *
+ * Notes:
+ *     - Ties in accuracy are handled by assigning the same rank to models with identical accuracy.
+ *     - If `selected_models` is provided, only the ranks for those models are included in the
+ *       result.
+ *     - If `selected_data` is None, the function automatically selects all metrics ending in
+ *       '_acc' except 'avg_acc'.
+ */

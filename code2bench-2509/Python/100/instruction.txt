@@ -1,0 +1,29 @@
+"""Extract all strings that start with 'weave:///' from a given value.
+
+This function recursively traverses through the input value to find all strings that begin with the prefix 'weave:///'. It handles nested dictionaries and lists, ensuring that all occurrences of such strings are collected.
+
+Args:
+    value (Union[str, dict, list]): The input value to search for 'weave:///' strings. Can be a string, dictionary, or list.
+
+Returns:
+    List[str]: A list of all strings found that start with 'weave:///'.
+
+Examples:
+    >>> extract_weave_refs_from_value('weave:///example')
+    ['weave:///example']
+    >>> extract_weave_refs_from_value({'key': 'weave:///example'})
+    ['weave:///example']
+    >>> extract_weave_refs_from_value(['weave:///example'])
+    ['weave:///example']
+    >>> extract_weave_refs_from_value({'key': {'nested_key': 'weave:///example'}})
+    ['weave:///example']
+    >>> extract_weave_refs_from_value([{'key': 'weave:///example'}])
+    ['weave:///example']
+"""
+You should write code starting with:
+from typing import List, Union, Dict
+
+def extract_weave_refs_from_value(value: Union[str, Dict, List]) -> List[str]:
+    # TODO: Implement this function based on the docstring.
+    pass
+

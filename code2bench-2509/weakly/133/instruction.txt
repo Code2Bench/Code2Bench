@@ -1,0 +1,21 @@
+"""Computes the exchange integrals matrix K_{p,q} from two-electron integrals.
+
+Given a numpy array of two-electron integrals in OpenFermion ordering, this function
+transforms the integrals to chemist notation and computes the exchange integrals
+matrix K_{p,q} = (pq|qp).
+
+Args:
+    two_body_integrals: Numpy array of two-electron integrals with OpenFermion ordering.
+        Expected shape is (n, n, n, n), where n is the number of orbitals.
+
+Returns:
+    k_matr: Numpy array of the exchange integrals K_{p,q} = (pq|qp) in chemist notation.
+        The shape of the returned array is (n, n), where n is the number of orbitals.
+"""
+You should write code starting with:
+import numpy as np
+
+def k_mat(two_body_integrals: np.ndarray) -> np.ndarray:
+    # TODO: Implement this function
+    pass
+

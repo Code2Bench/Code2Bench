@@ -1,0 +1,20 @@
+"""Converts a datetime string from one format to another.
+
+Given an input datetime string and its format, this function converts it to a new datetime string in the specified output format.
+
+Args:
+    ds (str): Input string containing a date.
+    input_format (str): Format of the input datetime string (e.g., '%Y-%m-%d').
+    output_format (str): Desired format of the output datetime string (e.g., '%Y-%m-%d').
+
+Returns:
+    str: Datetime string formatted according to the output format.
+
+Examples:
+    >>> ds_format("2015-01-01", "%Y-%m-%d", "%m-%d-%y")
+    '01-01-15'
+    >>> ds_format("1/5/2015", "%m/%d/%Y", "%Y-%m-%d")
+    '2015-01-05'
+    >>> ds_format("12/07/2024", "%d/%m/%Y", "%A %d %B %Y", "en_US")
+    'Friday 12 July 2024'
+"""

@@ -1,0 +1,25 @@
+/**
+ * Partitions a list of sequence lengths into k partitions using a greedy algorithm.
+
+ * This function distributes the sequence lengths into k partitions in a way that minimizes the
+ * difference in the sum of sequence lengths across partitions. The function can operate in two modes:
+ * 1. Unequal partition sizes: The sum of sequence lengths in each partition may vary.
+ * 2. Equal partition sizes: Each partition must contain the same number of sequence lengths.
+
+ * Args:
+ *     seqlen_list (List[int]): A list of sequence lengths to be partitioned.
+ *     k_partitions (int): The number of partitions to create.
+ *     equal_size (bool): If True, each partition must contain the same number of sequence lengths.
+ *         If False, partitions may contain different numbers of sequence lengths.
+
+ * Returns:
+ *     List[List[int]]: A list of partitions, where each partition is a list of indices from seqlen_list.
+
+ * Raises:
+ *     AssertionError: If equal_size is True and the number of sequence lengths is not divisible by
+ *         the number of partitions, indicating that equal-sized partitions are not possible.
+
+ * Note:
+ *     - The function uses a greedy algorithm to assign sequence lengths to the partition with the
+ *       smallest current sum.
+ */

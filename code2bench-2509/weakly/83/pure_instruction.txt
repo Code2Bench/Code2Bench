@@ -1,0 +1,13 @@
+"""Calculate the duration between two times in HH:MM format.
+
+Args:
+    start_time (str): The start time in "HH:MM" format.
+    end_time (str): The end time in "HH:MM" format.
+
+Returns:
+    str: The duration between the two times in the format "{hours} hours and {minutes} minutes". 
+         If the input times are not in the correct format, returns "Invalid time format. Please use HH:MM format."
+
+Note:
+    The function assumes that both `start_time` and `end_time` are in the 24-hour format (e.g., "13:45" for 1:45 PM).
+"""

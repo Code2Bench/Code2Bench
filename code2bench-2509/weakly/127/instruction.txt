@@ -1,0 +1,19 @@
+"""Converts a quaternion into extrinsic Euler angles in the 'xyz' rotation sequence.
+
+Args:
+    quat (np.array): A quaternion represented as a numpy array of shape (4,) with elements (x, y, z, w).
+
+Returns:
+    np.array: A numpy array of shape (3,) containing the Euler angles (roll, pitch, yaw) in radians.
+
+Raises:
+    AssertionError: If the input quaternion does not have the expected shape (4,).
+"""
+You should write code starting with:
+from scipy.spatial.transform import Rotation as R
+import numpy as np
+
+def quat2euler(quat: np.array) -> np.array:
+    # TODO: Implement this function
+    pass
+

@@ -1,0 +1,83 @@
+package p91;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import java.io.*;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
+import net.jqwik.api.*;
+import net.jqwik.api.lifecycle.AfterContainer;
+import p91.GroundTruth;
+
+public class TestCaseGenerator {
+
+    static class TestCase {
+        Map<String, Object> Inputs;
+        Object Expected;
+        TestCase(Map<String, Object> inputs, Object expected) {
+            this.Inputs = inputs;
+            this.Expected = expected;
+        }
+    }
+
+    static List<TestCase> generatedCases = new ArrayList<>();
+    static AtomicInteger caseCount = new AtomicInteger(0);
+    static final int MAX_CASES = 500;
+
+    @Property(tries = 10000)
+    void generateTestCases(@ForAll("timestamp") Long firstTimestamp, @ForAll("timestamp") Long secondTimestamp) {
+        if (caseCount.get() >= MAX_CASES) {
+            return;
+        }
+
+        boolean result;
+        try {
+            result = GroundTruth.isLessThanSecondOfDays(firstTimestamp, secondTimestamp);
+        } catch (Exception e) {
+            return;
+        }
+
+        Map<String, Object> inputs = new LinkedHashMap<>();
+        inputs.put("firstTimestamp", firstTimestamp);
+        inputs.put("secondTimestamp", secondTimestamp);
+        generatedCases.add(new TestCase(inputs, result));
+        caseCount.incrementAndGet();
+    }
+
+    @Example
+    void exampleSameDay() {
+        generateTestCases(0L, 86400000L);
+    }
+
+    @Example
+    void exampleNextDay() {
+        generateTestCases(0L, 172800000L);
+    }
+
+    @Example
+    void examplePreviousDay() {
+        generateTestCases(86400000L, 0L);
+    }
+
+    @Provide
+    Arbitrary<Long> timestamp() {
+        return Arbitraries.longs().between(0L, 3153600000000L); // 100 years in milliseconds
+    }
+
+    @AfterContainer
+    static void saveTestCases() throws IOException {
+        if (generatedCases.isEmpty()) {
+            return;
+        }
+        String dirPath = "src/test/java/test_cases";
+        File dir = new File(dirPath);
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+        String filePath = dirPath + "/test_cases.json";
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        try (Writer writer = new FileWriter(filePath)) {
+            gson.toJson(generatedCases, writer);
+        }
+        System.out.println("✅ Saved " + generatedCases.size() + " test cases to " + filePath);
+    }
+}

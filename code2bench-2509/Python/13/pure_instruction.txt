@@ -1,0 +1,18 @@
+"""Formats a dictionary of product context data into a Markdown string.
+
+This function takes a dictionary where keys represent product attributes and values can be strings, lists, or other types. It converts this dictionary into a structured Markdown document with headings and appropriate formatting for each value type.
+
+Args:
+    data (Dict[str, Any]): A dictionary containing product context information. Keys are attribute names, and values can be strings, lists, or other types.
+
+Returns:
+    str: A Markdown-formatted string representing the product context. The string includes a main heading "# Product Context" followed by sections for each key-value pair in the dictionary. Each section has a heading derived from the key (converted to title case with underscores replaced by spaces). Values are formatted as follows:
+        - Strings are directly included.
+        - Lists are formatted as bullet points.
+        - Other types are converted to strings.
+
+Example:
+    >>> data = {'product_name': 'Smartphone X', 'features': ['5G', '128GB Storage']}
+    >>> _format_product_context_md(data)
+    '# Product Context\\n## Product Name\\nSmartphone X\\n\\n## Features\\n*   5G\\n*   128GB Storage\\n\\n'
+"""

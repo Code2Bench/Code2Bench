@@ -1,0 +1,276 @@
+{
+    "Statistics": [
+        {
+            "DeepSeek-V3": [
+                {
+                    "Total": 1,
+                    "Success": 0,
+                    "Error": 1,
+                    "Success Rate": 0.0,
+                    "Time": "2025-09-21 14:55:28",
+                    "Completed": 1
+                },
+                {
+                    "Total": 2,
+                    "Success": 0,
+                    "Error": 2,
+                    "Success Rate": 0.0,
+                    "Time": "2025-09-21 14:55:31",
+                    "Completed": 2
+                },
+                {
+                    "Total": 1,
+                    "Success": 0,
+                    "Error": 1,
+                    "Success Rate": 0.0,
+                    "Time": "2025-09-21 14:55:51",
+                    "Completed": 1
+                },
+                {
+                    "Total": 5,
+                    "Success": 2,
+                    "Error": 3,
+                    "Success Rate": 0.4,
+                    "Time": "2025-09-21 15:15:11",
+                    "Completed": 5
+                },
+                {
+                    "Total": 3,
+                    "Success": 2,
+                    "Error": 1,
+                    "Success Rate": 0.6666666666666666,
+                    "Time": "2025-09-21 15:18:23",
+                    "Completed": 3
+                },
+                {
+                    "Total": 217,
+                    "Success": 75,
+                    "Error": 142,
+                    "Success Rate": 0.3440366972477064,
+                    "Time": "2025-09-21 23:10:54",
+                    "Completed": 217
+                }
+            ],
+            "Qwen/qwen3-32b": [
+                {
+                    "Total": 1,
+                    "Success": 1,
+                    "Error": 0,
+                    "Success Rate": 1.0,
+                    "Time": "2025-09-21 15:19:44",
+                    "Completed": 1
+                },
+                {
+                    "Total": 2,
+                    "Success": 1,
+                    "Error": 1,
+                    "Success Rate": 0.5,
+                    "Time": "2025-09-21 15:19:47",
+                    "Completed": 2
+                },
+                {
+                    "Total": 1,
+                    "Success": 1,
+                    "Error": 0,
+                    "Success Rate": 1.0,
+                    "Time": "2025-09-21 15:20:04",
+                    "Completed": 1
+                },
+                {
+                    "Total": 3,
+                    "Success": 2,
+                    "Error": 1,
+                    "Success Rate": 0.6666666666666666,
+                    "Time": "2025-09-21 15:20:23",
+                    "Completed": 3
+                },
+                {
+                    "Total": 18,
+                    "Success": 1,
+                    "Error": 17,
+                    "Success Rate": 0.05555555555555555,
+                    "Time": "2025-09-21 15:22:17",
+                    "Completed": 18
+                },
+                {
+                    "Total": 44,
+                    "Success": 11,
+                    "Error": 33,
+                    "Success Rate": 0.25,
+                    "Time": "2025-09-21 15:26:21",
+                    "Completed": 44
+                },
+                {
+                    "Total": 169,
+                    "Success": 53,
+                    "Error": 116,
+                    "Success Rate": 0.3136094674556213,
+                    "Time": "2025-09-21 15:54:10",
+                    "Completed": 169
+                },
+                {
+                    "Total": 217,
+                    "Success": 68,
+                    "Error": 149,
+                    "Success Rate": 0.31336405529953915,
+                    "Time": "2025-09-22 11:12:07",
+                    "Completed": 217
+                }
+            ],
+            "deepseek-r1-250528": [
+                {
+                    "Total": 1,
+                    "Success": 1,
+                    "Error": 0,
+                    "Success Rate": 1.0,
+                    "Time": "2025-09-21 16:11:12",
+                    "Completed": 1
+                },
+                {
+                    "Total": 5,
+                    "Success": 2,
+                    "Error": 3,
+                    "Success Rate": 0.4,
+                    "Time": "2025-09-21 16:18:57",
+                    "Completed": 5
+                },
+                {
+                    "Total": 24,
+                    "Success": 6,
+                    "Error": 18,
+                    "Success Rate": 0.25,
+                    "Time": "2025-09-21 17:47:58",
+                    "Completed": 24
+                }
+            ],
+            "google/gemini-2.5-flash": [
+                {
+                    "Total": 1,
+                    "Success": 1,
+                    "Error": 0,
+                    "Success Rate": 1.0,
+                    "Time": "2025-09-22 11:26:49",
+                    "Completed": 1
+                },
+                {
+                    "Total": 217,
+                    "Success": 82,
+                    "Error": 135,
+                    "Success Rate": 0.3778801843317972,
+                    "Time": "2025-09-22 11:49:51",
+                    "Completed": 217
+                }
+            ],
+            "Qwen/qwen3-8b": [
+                {
+                    "Total": 1,
+                    "Success": 1,
+                    "Error": 0,
+                    "Success Rate": 1.0,
+                    "Time": "2025-09-22 12:39:37",
+                    "Completed": 1
+                },
+                {
+                    "Total": 92,
+                    "Success": 27,
+                    "Error": 65,
+                    "Success Rate": 0.29347826086956524,
+                    "Time": "2025-09-22 12:48:09",
+                    "Completed": 92
+                },
+                {
+                    "Total": 217,
+                    "Success": 55,
+                    "Error": 162,
+                    "Success Rate": 0.2534562211981567,
+                    "Time": "2025-09-23 10:08:15",
+                    "Completed": 217
+                }
+            ],
+            "Meta-Llama/LLAMA-4-scout": [
+                {
+                    "Total": 217,
+                    "Success": 56,
+                    "Error": 161,
+                    "Success Rate": 0.25806451612903225,
+                    "Time": "2025-09-22 13:40:50",
+                    "Completed": 217
+                }
+            ],
+            "Qwen/qwen3-235b-a22b": [
+                {
+                    "Total": 217,
+                    "Success": 75,
+                    "Error": 142,
+                    "Success Rate": 0.3456221198156682,
+                    "Time": "2025-09-22 14:31:01",
+                    "Completed": 217
+                }
+            ],
+            "Mistral/mistral-small-3.1-24b-instruct": [
+                {
+                    "Total": 217,
+                    "Success": 66,
+                    "Error": 151,
+                    "Success Rate": 0.30414746543778803,
+                    "Time": "2025-09-22 15:22:17",
+                    "Completed": 217
+                }
+            ],
+            "google/gemma-3n-e4b-it": [
+                {
+                    "Total": 1,
+                    "Success": 1,
+                    "Error": 0,
+                    "Success Rate": 1.0,
+                    "Time": "2025-09-23 10:18:07",
+                    "Completed": 1
+                },
+                {
+                    "Total": 217,
+                    "Success": 49,
+                    "Error": 168,
+                    "Success Rate": 0.22580645161290322,
+                    "Time": "2025-09-23 10:50:38",
+                    "Completed": 217
+                }
+            ],
+            "anthropic/claude-sonnet-4": [
+                {
+                    "Total": 1,
+                    "Success": 1,
+                    "Error": 0,
+                    "Success Rate": 1.0,
+                    "Time": "2025-09-23 11:04:01",
+                    "Completed": 1
+                },
+                {
+                    "Total": 217,
+                    "Success": 87,
+                    "Error": 130,
+                    "Success Rate": 0.4009216589861751,
+                    "Time": "2025-09-23 11:30:14",
+                    "Completed": 217
+                }
+            ],
+            "Qwen/qwen3-1.7b": [
+                {
+                    "Total": 1,
+                    "Success": 1,
+                    "Error": 0,
+                    "Success Rate": 1.0,
+                    "Time": "2025-09-23 13:52:00",
+                    "Completed": 1
+                },
+                {
+                    "Total": 217,
+                    "Success": 31,
+                    "Error": 186,
+                    "Success Rate": 0.14285714285714285,
+                    "Time": "2025-09-23 14:23:48",
+                    "Completed": 217
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,23 @@
+"""Compute the integer square root of a non-negative integer using Newton's method.
+
+The integer square root of a number `n` is the largest integer `x` such that `x^2 <= n`. This function uses Newton's method (also known as the Heron's method) to iteratively approximate the square root. The method converges quickly and is efficient for large integers.
+
+Args:
+    n (int): A non-negative integer for which the integer square root is to be computed.
+
+Returns:
+    int: The integer square root of `n`, i.e., the largest integer `x` such that `x^2 <= n`.
+
+Raises:
+    ValueError: If `n` is negative, as the square root of a negative number is not defined in the set of integers.
+
+Examples:
+    >>> isqrt(25)
+    5
+    >>> isqrt(10)
+    3
+    >>> isqrt(65536)
+    256
+    >>> isqrt(2147483647)
+    46340
+"""

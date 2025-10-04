@@ -1,0 +1,21 @@
+"""Analyze the content structure of the markdown.
+
+This function takes a markdown content string and performs a structural analysis by counting various elements such as lines, words, headers, lists, tables, and links. Based on the counts, it determines the type of content.
+
+Args:
+    markdown_content (str): The markdown content to be analyzed.
+
+Returns:
+    dict: A dictionary containing the analysis results with the following keys:
+        - 'lines': Number of lines in the content.
+        - 'words': Number of words in the content.
+        - 'headers': Number of header elements (indicated by '#').
+        - 'lists': Number of list elements (indicated by '-' or '*').
+        - 'tables': Number of table elements (indicated by '|').
+        - 'links': Number of link elements (indicated by '[').
+        - 'type': The determined type of content, which can be one of:
+            * 'structured_data': If the content contains more than 10 table elements.
+            * 'document': If the content contains more than 5 header elements.
+            * 'list_content': If the content contains more than 5 list elements.
+            * 'text': If none of the above conditions are met.
+"""

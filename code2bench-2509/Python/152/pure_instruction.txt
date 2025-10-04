@@ -1,0 +1,24 @@
+"""Extract the queue number and the metric name from an ethtool stat name.
+
+This function parses a given ethtool stat name to extract the queue number and the associated metric name. The stat name is expected to follow the pattern where the queue number is embedded within the 'tx' or 'rx' prefix, e.g., 'tx0_bytes' or 'rx1_packets'.
+
+Args:
+    stat_name (str): The ethtool stat name to parse. It should contain 'tx' or 'rx' followed by a queue number.
+
+Returns:
+    tuple: A tuple containing two elements:
+        - str: The queue number in the format 'queue:<queue_num>'.
+        - str: The metric name with the queue number removed, joined by underscores.
+
+    If the stat name does not contain 'tx' or 'rx', or if the queue number is not found or is invalid, the function returns (None, None).
+
+Examples:
+    >>> _parse_ethtool_unprefixed_queue_num('tx0_bytes')
+    ('queue:0', 'tx_bytes')
+    >>> _parse_ethtool_unprefixed_queue_num('rx1_packets')
+    ('queue:1', 'rx_packets')
+    >>> _parse_ethtool_unprefixed_queue_num('tx0')
+    ('queue:0', 'tx')
+    >>> _parse_ethtool_unprefixed_queue_num('rx0_0')
+    ('queue:0', 'rx_0')
+"""

@@ -1,0 +1,18 @@
+"""Calculate the volatility of Free Cash Flow (FCF) as the coefficient of variation.
+
+The function computes the volatility of FCF based on the historical FCF values provided. The volatility is calculated as the coefficient of variation (standard deviation divided by the mean) of the positive FCF values. If the historical data contains fewer than 3 values, a default moderate volatility of 0.5 is returned. If the majority of the FCF values are non-positive, a high volatility of 0.8 is returned. The result is capped at a maximum value of 1.0.
+
+Args:
+    fcf_history (list[float]): A list of historical Free Cash Flow values.
+
+Returns:
+    float: The calculated FCF volatility, ranging between 0.0 and 1.0.
+"""
+You should write code starting with:
+import statistics
+from typing import List
+
+def calculate_fcf_volatility(fcf_history: List[float]) -> float:
+    # TODO: Implement this function
+    pass
+

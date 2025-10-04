@@ -1,0 +1,18 @@
+"""Finds the closest value in a sorted list to a given value.
+
+Given a value and a sorted list, this function returns the element in the list that is closest to the value. If the value is exactly between two elements, the smaller one is returned.
+
+Args:
+    value (int or float): The value to find the closest element for.
+    sorted_list (list of int or float): A sorted list of numerical values.
+
+Returns:
+    int or float: The element in `sorted_list` that is closest to `value`.
+"""
+You should write code starting with:
+from bisect import bisect_left
+
+def closest(value: float | int, sorted_list: list[float | int]) -> float | int:
+    # TODO: Implement this function
+    pass
+

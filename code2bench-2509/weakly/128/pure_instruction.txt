@@ -1,0 +1,13 @@
+"""Converts a quaternion to axis-angle format.
+
+The function transforms a quaternion representation of a rotation into its corresponding
+axis-angle format, where the rotation is represented by a unit vector (axis) scaled by the
+angle of rotation in radians.
+
+Args:
+    quat (np.array): A quaternion represented as a 4-element array (x, y, z, w) of float values.
+
+Returns:
+    np.array: A 3-element array (ax, ay, az) representing the axis-angle exponential coordinates,
+              where the vector is the axis of rotation scaled by the angle in radians.
+"""

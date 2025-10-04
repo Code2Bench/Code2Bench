@@ -1,0 +1,18 @@
+from typing import List
+
+def _prime_factors(x: int) -> List[int]:
+    """
+    Finds and returns the prime factors of a given integer.
+
+    This function computes the prime factors of the input integer `x` and 
+    returns them as a sorted list. It handles both even and odd numbers, 
+    and includes any remaining prime number greater than 1 if applicable.
+
+    Args:
+        x (int): The integer to factorize. Must be a positive integer.
+
+    Returns:
+        list[int]: A sorted list of prime factors of the input integer.
+    """
+    # TODO: Implement this function
+    pass

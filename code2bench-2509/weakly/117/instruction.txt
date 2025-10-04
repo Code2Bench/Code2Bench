@@ -1,0 +1,21 @@
+"""Parse a database URI and extract connection parameters.
+
+This function takes a database URI and parses it to extract essential connection
+parameters such as host, port, database name, user, and password. The URI scheme
+is simplified by removing any driver-specific parts (e.g., 'postgresql+pg8000' becomes 'postgresql').
+If the port is not specified in the URI, it defaults to 5432.
+
+Args:
+    uri (str): The database URI to be parsed.
+
+Returns:
+    dict: A dictionary containing the connection parameters with keys 'host', 'port',
+          'database', 'user', and 'password'.
+"""
+You should write code starting with:
+from urllib.parse import urlparse
+
+def parse_database_uri(uri: str) -> dict:
+    # TODO: Implement this function
+    pass
+

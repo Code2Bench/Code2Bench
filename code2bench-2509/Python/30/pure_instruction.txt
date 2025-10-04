@@ -1,0 +1,59 @@
+def format_duration(duration_seconds: float) -> str:
+    """
+    Convert seconds to a human-friendly time string.
+
+    This function takes a duration in seconds and formats it into a readable string representation. The output includes hours, minutes, seconds, and milliseconds as appropriate. The function handles edge cases such as negative durations and ensures the output is concise and user-friendly.
+
+    Args:
+        duration_seconds (float): The duration in seconds. Can be any float value.
+
+    Returns:
+        str: A formatted time string. Examples include:
+            - For durations less than 1 second: "500"
+            - For durations between 1 and 10 seconds: "1s"
+            - For durations with hours, minutes, and seconds: "1h0m1s"
+            - For durations with only minutes and seconds: "0m10s"
+
+    Notes:
+        - If the input is negative, the function returns "0ms".
+        - For durations less than 1 second, the output is in milliseconds without the 'ms' suffix (e.g., "500").
+        - For durations between 1 and 10 seconds, the output uses whole seconds (e.g., "1s").
+        - For durations 10 seconds or longer, the output includes minutes and seconds (e.g., "0m10s").
+        - The function includes all units, even if they are zero (e.g., "1h0m1s").
+    """
+    if duration_seconds < 0:
+        return "0ms"
+
+    # Convert to milliseconds
+    total_ms = int(duration_seconds * 1000)
+
+    # If less than 1 second, display milliseconds
+    if total_ms < 1000:
+        return f"{total_ms}ms"
+
+    # Convert to each time unit
+    hours = int(duration_seconds // 3600)
+    minutes = int((duration_seconds % 3600) // 60)
+    seconds = duration_seconds % 60
+
+    # Build the time string
+    time_parts = []
+
+    if hours > 0:
+        time_parts.append(f"{hours}h")
+
+    if minutes > 0:
+        time_parts.append(f"{minutes}m")
+
+    # For seconds, if there is a decimal part and the total duration is less than 10 seconds, keep 1 decimal place
+    if seconds > 0:
+        if duration_seconds < 10 and seconds != int(seconds):
+            time_parts.append(f"{seconds:.1f}s")
+        else:
+            time_parts.append(f"{int(seconds)}s")
+
+    # If there are no time parts (theoretically should not happen), return 0ms
+    if not time_parts:
+        return "0ms"
+
+    return "".join(time_parts)

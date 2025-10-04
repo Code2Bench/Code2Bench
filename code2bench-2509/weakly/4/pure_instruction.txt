@@ -1,0 +1,12 @@
+"""Find the 0-based chunk index that contains the given index.
+
+Args:
+    chunks: List of tuples where each tuple contains the begin and end indices of a chunk.
+    idx: The index to search for within the chunks.
+
+Returns:
+    int: The 0-based index of the chunk that contains the given index.
+
+Raises:
+    ValueError: If the index is not found within any of the chunks.
+"""

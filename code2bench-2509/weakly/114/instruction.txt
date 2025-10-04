@@ -1,0 +1,25 @@
+"""Clean and validate the PO Token by stripping invalid characters.
+
+This function processes the input PO Token by decoding it from URL-safe base64, 
+then re-encoding it to ensure it is properly formatted. Invalid characters, such as 
+additional URL parameters, are removed during this process. If the token is invalid 
+or cannot be decoded, a `ValueError` is raised.
+
+Args:
+    po_token (str): The PO Token to be cleaned and validated.
+
+Returns:
+    str: The cleaned and validated PO Token in URL-safe base64 format.
+
+Raises:
+    ValueError: If the PO Token is invalid or cannot be decoded.
+"""
+You should write code starting with:
+import base64
+import binascii
+import urllib.parse
+
+def clean_pot(po_token: str) -> str:
+    # TODO: Implement this function
+    pass
+

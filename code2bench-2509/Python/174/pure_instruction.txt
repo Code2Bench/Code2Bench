@@ -1,0 +1,13 @@
+"""Adjusts the width and height of a rectangle to fit within specified maximum dimensions while preserving the aspect ratio.
+
+The function first checks if the given width and height are already within the maximum limits. If so, it returns the original dimensions. If not, it adjusts the dimensions to fit within the maximum limits while maintaining the original aspect ratio. The final dimensions are adjusted to be even numbers by subtracting the remainder when divided by 2.
+
+Args:
+    w (int): The original width of the rectangle.
+    h (int): The original height of the rectangle.
+    max_w (int): The maximum allowed width.
+    max_h (int): The maximum allowed height.
+
+Returns:
+    tuple[int, int]: A tuple containing the adjusted width and height, both of which are even numbers.
+"""

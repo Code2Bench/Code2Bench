@@ -1,0 +1,29 @@
+"""Replace symbols in the input text based on the specified language tag.
+
+This function modifies the input text by replacing specific symbols with language-appropriate equivalents. The replacements include semicolons, hyphens, colons, ampersands, and apostrophes, depending on the language specified.
+
+Args:
+    text (str): The input text to be modified.
+    lang (str, optional): The language identifier that determines the specific replacements. 
+        Supported values are "en" (English), "fr" (French), "pt" (Portuguese), "ca" (Catalan), and "es" (Spanish). 
+        Defaults to "en".
+
+Returns:
+    str: The modified text with symbols replaced according to the specified language rules.
+
+Examples:
+    >>> replace_symbols("si l'avi cau, diguem-ho", lang="ca")
+    'si lavi cau, diguemho'
+    >>> replace_symbols("bread & butter", lang="en")
+    'bread  and  butter'
+    >>> replace_symbols("pain & beurre", lang="fr")
+    'pain  et  beurre'
+    >>> replace_symbols("pão & manteiga", lang="pt")
+    'pão  e  manteiga'
+    >>> replace_symbols("pan & mantequilla", lang="es")
+    'pan y mantequilla'
+"""
+You should write code starting with:
+def replace_symbols(text: str, lang: str = "en") -> str:
+    pass
+

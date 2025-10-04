@@ -1,0 +1,14 @@
+"""Deduplicates a list of Python code solutions by comparing their abstract syntax trees (ASTs).
+
+This function removes duplicate solutions by parsing each solution into an AST and comparing the AST representations. Solutions are considered duplicates if their ASTs are identical. Comments and docstrings are removed from the solutions before parsing to ensure they do not affect the deduplication process.
+
+Args:
+    solutions (List[str]): A list of Python code solutions as strings.
+
+Returns:
+    List[str]: A list of deduplicated Python code solutions, preserving the original order of the first occurrence of each unique solution.
+
+Note:
+    - Solutions that result in a SyntaxError or MemoryError during parsing are skipped and not included in the output.
+    - Comments and docstrings are stripped from the solutions before deduplication to avoid false negatives.
+"""

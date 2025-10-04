@@ -1,0 +1,12 @@
+"""Extracts the argument names of a specified function from its source code.
+
+This function parses the provided source code and identifies the argument names of the function
+whose name matches the given `tool_name`. It handles both synchronous and asynchronous functions.
+
+Args:
+    source_code (str): The source code containing the function definition.
+    tool_name (str): The name of the function whose arguments are to be extracted.
+
+Returns:
+    list: A list of strings representing the argument names of the specified function.
+"""

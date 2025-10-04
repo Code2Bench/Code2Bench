@@ -1,0 +1,17 @@
+"""Parses a JSON string or a Python literal string into a Python object.
+
+This function attempts to parse the input string first as JSON. If that fails, it tries to parse it as a Python literal using `ast.literal_eval`. If both attempts fail, the original string is returned along with a boolean indicating the parsing failure.
+
+Args:
+    json_value (str): The string to be parsed, which can be a JSON string or a Python literal string.
+
+Returns:
+    tuple: A tuple containing the parsed Python object (or the original string if parsing fails) and a boolean indicating whether the parsing was successful (True if successful, False otherwise).
+You should write code starting with:
+import json
+import ast
+
+def parse_arguments(json_value: str) -> tuple:
+    # TODO: Implement this function
+    pass
+

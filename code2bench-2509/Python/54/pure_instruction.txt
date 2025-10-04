@@ -1,0 +1,16 @@
+"""Processes a given text by applying a list of stop words.
+
+This function checks if the input text contains any of the provided stop words. If a stop word is found, the function returns the portion of the text before the first occurrence of the stop word, stripped of leading and trailing whitespace. If no stop words are found or the stop list is empty, the function returns the original text, stripped of leading and trailing whitespace.
+
+Args:
+    text (str): The input text to be processed.
+    stop (List[str]): A list of stop words to search for in the text. If empty or None, the function returns the original text.
+
+Returns:
+    str: The processed text, which is either the portion of the text before the first stop word or the original text if no stop words are found.
+
+Note:
+    - If the input text is an empty string, the function returns an empty string.
+    - The function only processes the first occurrence of any stop word in the text.
+    - The function is case-sensitive; stop words must match the text exactly.
+"""

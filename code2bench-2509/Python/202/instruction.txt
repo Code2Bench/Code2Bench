@@ -1,0 +1,26 @@
+"""Parses a response string into a list of keywords, applying fallback rules for formatting.
+
+This function processes a multi-line string response, extracting keywords by stripping unnecessary
+characters and formatting. It handles various edge cases such as leading dashes, asterisks, bullet
+points, and numbered lists. The function also removes surrounding single or double quotes from
+keywords. The final list is truncated to the first 10 keywords.
+
+Args:
+    response (str): A multi-line string containing potential keywords, each on a separate line.
+
+Returns:
+    List[str]: A list of parsed keywords, limited to the first 10 entries.
+
+The function performs the following steps for each line in the response:
+    1. Strips leading and trailing whitespace.
+    2. Removes leading dashes, asterisks, or bullet points.
+    3. Skips lines that start with numbered lists (e.g., "1.", "2.", etc.).
+    4. Strips surrounding single or double quotes.
+    5. Adds the keyword to the list if it is non-empty.
+"""
+You should write code starting with:
+from typing import List
+
+def _parse_keywords_fallback(response: str) -> List[str]:
+    pass
+

@@ -1,0 +1,22 @@
+"""Extracts and validates operating system classifiers from a list of classifiers.
+
+This function filters out classifiers that start with "Operating System :: " and validates
+them against a set of predefined valid prefixes. If any classifier does not match the
+valid prefixes, the function returns an empty list. Otherwise, it returns the extracted
+OS values.
+
+Args:
+    classifiers (list): A list of strings representing classifiers, typically from a Python
+                         package's metadata.
+
+Returns:
+    list: A list of extracted OS values if all classifiers are valid; otherwise, an empty list.
+
+Examples:
+    >>> validate_and_extract_os_classifiers(['Operating System :: Microsoft Windows'])
+    ['Microsoft Windows']
+    >>> validate_and_extract_os_classifiers(['Operating System :: Microsoft Windows', 'Operating System :: POSIX Linux'])
+    ['Microsoft Windows', 'POSIX Linux']
+    >>> validate_and_extract_os_classifiers(['Operating System :: OS Independent'])
+    ['OS Independent']
+"""

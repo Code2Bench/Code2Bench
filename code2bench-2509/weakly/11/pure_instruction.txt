@@ -1,0 +1,10 @@
+"""Calculate AlgoTune Score as the harmonic mean of speedups.
+
+This function computes the harmonic mean of a list of speedup values. It handles edge cases by returning 0.0 if the input list is empty or contains no valid speedup values. Valid speedup values are defined as positive, non-None numbers.
+
+Args:
+    speedups: A list of speedup values, where each value is a float. None and non-positive values are filtered out.
+
+Returns:
+    float: The harmonic mean of the valid speedup values. Returns 0.0 if no valid speedups are found or the input list is empty.
+"""

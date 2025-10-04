@@ -1,0 +1,37 @@
+"""Parses a Content-Type header string into its content type and parameters.
+
+This function takes a Content-Type header string and splits it into the main content type
+and any associated parameters. Parameters are returned as a dictionary where keys are
+lowercased parameter names and values are stripped of any surrounding whitespace or quotes.
+
+Args:
+    header (str): The Content-Type header string to parse.
+
+Returns:
+    tuple: A tuple containing two elements:
+        - The content type as a string.
+        - A dictionary of parameters, where keys are parameter names (lowercased) and
+          values are the corresponding parameter values (stripped of quotes and whitespace).
+
+Examples:
+    >>> _parse_content_type_header('text/plain')
+    ('text/plain', {})
+
+    >>> _parse_content_type_header('text/plain; charset=utf-8')
+    ('text/plain', {'charset': 'utf-8'})
+
+    >>> _parse_content_type_header('text/plain; charset=utf-8; boundary=abc')
+    ('text/plain', {'charset': 'utf-8', 'boundary': 'abc'})
+
+    >>> _parse_content_type_header("text/plain; charset='utf-8'")
+    ('text/plain', {'charset': 'utf-8'})
+
+    >>> _parse_content_type_header('text/plain; charset="utf-8"')
+    ('text/plain', {'charset': 'utf-8'})
+"""
+You should write code starting with:
+from typing import Tuple, Dict
+
+def _parse_content_type_header(header: str) -> Tuple[str, Dict[str, str]]:
+    pass
+

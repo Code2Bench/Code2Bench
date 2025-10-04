@@ -1,0 +1,14 @@
+Implement a Python function that calculates the mean and confidence interval of a dataset using NumPy and SciPy.
+
+- **Inputs**:
+  - A list or array-like object containing numerical data.
+  - A float representing the confidence level (default: 0.95).
+- **Output**: A tuple of three floats:
+  - The mean of the data.
+  - The lower bound of the confidence interval.
+  - The upper bound of the confidence interval.
+- **Special Rules**:
+  - Convert the input data to a NumPy array for computation.
+  - Compute the standard error of the mean using SciPy's `sem` function.
+  - Calculate the confidence interval using the t-distribution's percent-point function (PPF) from SciPy.
+  - Handle edge cases: empty data, single-element data, or invalid confidence levels.

@@ -1,0 +1,15 @@
+"""Normalizes the input text by converting it to lowercase, removing punctuation, and reducing multiple spaces to a single space.
+
+Args:
+    text (str): The input text to be normalized.
+
+Returns:
+    str: The normalized text with lowercase letters, no punctuation, and single spaces.
+"""
+You should write code starting with:
+import string
+
+def normalize_text(text: str) -> str:
+    # TODO: Implement this function
+    pass
+

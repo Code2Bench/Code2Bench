@@ -1,0 +1,21 @@
+"""Parse interval string or integer into seconds.
+
+This function converts an interval, which can be specified as an integer (representing seconds) or a string (with a number and a unit), into the total number of seconds. The string format should consist of a number followed by a unit (e.g., "1h", "30m", "7d"). If no unit is provided in the string, it is assumed to be in seconds.
+
+Args:
+    interval: Can be:
+        - Integer: seconds (e.g., 3600)
+        - String: number + unit (e.g., "1h", "30m", "7d")
+
+Returns:
+    int: Total seconds
+
+Raises:
+    ValueError: If the interval string is in an invalid format or contains an unsupported unit.
+
+Examples:
+    parse_interval(3600) -> 3600
+    parse_interval("1h") -> 3600
+    parse_interval("30m") -> 1800
+    parse_interval("7d") -> 604800
+"""

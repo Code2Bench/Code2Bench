@@ -1,0 +1,29 @@
+"""Parse a model string to extract the provider and model name.
+
+This function processes a model string that typically follows the format 'provider/model_name'.
+It handles cases where the provider may include a prefix (e.g., 'text-completion-openai') and
+normalizes the output by lowercasing the provider and stripping any trailing slashes.
+
+Args:
+    model_str (Optional[str]): The model string to parse. Expected formats include 'openai/gpt-4',
+        'text-completion-openai/gpt-3.5-turbo-instruct/', or simply 'gpt-4'.
+
+Returns:
+    tuple[Optional[str], Optional[str]]: A tuple containing the provider and model name, both lowercased
+        and stripped of trailing slashes. If the input is invalid or empty, returns (None, None).
+        If the input contains only a model name without a provider, returns (None, model_name).
+
+Examples:
+    >>> parse_provider_and_model('openai/gpt-4')
+    ('openai', 'gpt-4')
+    >>> parse_provider_and_model('text-completion-openai/gpt-3.5-turbo-instruct')
+    ('openai', 'gpt-3.5-turbo-instruct')
+    >>> parse_provider_and_model('gpt-4')
+    (None, 'gpt-4')
+"""
+You should write code starting with:
+from typing import Optional, Tuple
+
+def parse_provider_and_model(model_str: Optional[str]) -> Tuple[Optional[str], Optional[str]]:
+    pass
+

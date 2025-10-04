@@ -1,0 +1,100 @@
+package p6;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import java.io.*;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
+import net.jqwik.api.*;
+import net.jqwik.api.lifecycle.AfterContainer;
+import p6.GroundTruth;
+
+public class TestCaseGenerator {
+
+    static class TestCase {
+        Map<String, Object> Inputs;
+        Object Expected;
+        TestCase(Map<String, Object> inputs, Object expected) {
+            this.Inputs = inputs;
+            this.Expected = expected;
+        }
+    }
+
+    static List<TestCase> generatedCases = new ArrayList<>();
+    static AtomicInteger caseCount = new AtomicInteger(0);
+    static final int MAX_CASES = 500;
+
+    @Property(tries = 10000)
+    void generateTestCases(@ForAll("jsonString") String jsonStr, @ForAll("position") int pos) {
+        if (caseCount.get() >= MAX_CASES) {
+            return;
+        }
+
+        boolean result;
+        try {
+            result = GroundTruth.isWithinString(jsonStr, pos);
+        } catch (Exception e) {
+            return;
+        }
+
+        Map<String, Object> inputs = new LinkedHashMap<>();
+        inputs.put("jsonStr", jsonStr);
+        inputs.put("pos", pos);
+        generatedCases.add(new TestCase(inputs, result));
+        caseCount.incrementAndGet();
+    }
+
+    @Example
+    void example1() {
+        generateTestCases("{\"key\":\"value\"}", 5);
+    }
+
+    @Example
+    void example2() {
+        generateTestCases("{\"key\":\"value\"}", 10);
+    }
+
+    @Example
+    void example3() {
+        generateTestCases("{\"key\":\"value\\\"\"}", 12);
+    }
+
+    @Example
+    void example4() {
+        generateTestCases("{\"key\":\"value\"}", 0);
+    }
+
+    @Example
+    void example5() {
+        generateTestCases("{\"key\":\"value\"}", 15);
+    }
+
+    @Provide
+    Arbitrary<String> jsonString() {
+        return Arbitraries.strings().withChars('a', 'z').withChars('A', 'Z').withChars('0', '9')
+                .withChars("\\\"{}:,").ofMinLength(1).ofMaxLength(100);
+    }
+
+    @Provide
+    Arbitrary<Integer> position() {
+        return Arbitraries.integers().between(0, 100);
+    }
+
+    @AfterContainer
+    static void saveTestCases() throws IOException {
+        if (generatedCases.isEmpty()) {
+            return;
+        }
+        String dirPath = "src/test/java/test_cases";
+        File dir = new File(dirPath);
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+        String filePath = dirPath + "/test_cases.json";
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        try (Writer writer = new FileWriter(filePath)) {
+            gson.toJson(generatedCases, writer);
+        }
+        System.out.println("✅ Saved " + generatedCases.size() + " test cases to " + filePath);
+    }
+}

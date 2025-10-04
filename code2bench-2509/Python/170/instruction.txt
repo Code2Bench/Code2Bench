@@ -1,0 +1,21 @@
+"""Recursively updates a YAML dictionary with values from a vocabulary dictionary.
+
+This function merges the contents of the `vocabulary` dictionary into the `yaml_dict`. If a key exists in both dictionaries and the corresponding values are also dictionaries, the function recursively merges these nested dictionaries. If a key exists in both dictionaries but the values are not dictionaries, the value in `yaml_dict` remains unchanged.
+
+Args:
+    yaml_dict (dict): The original YAML dictionary to be updated.
+    vocabulary (dict): The dictionary containing new key-value pairs to merge into `yaml_dict`.
+
+Returns:
+    dict: The updated YAML dictionary with merged values from `vocabulary`.
+
+Note:
+    This function modifies `yaml_dict` in place and also returns it for convenience.
+"""
+You should write code starting with:
+from typing import Dict, Any
+
+def update_yaml_dict(yaml_dict: Dict[str, Any], vocabulary: Dict[str, Any]) -> Dict[str, Any]:
+    # TODO: Implement this function based on the docstring.
+    pass
+

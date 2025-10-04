@@ -1,0 +1,16 @@
+"""Extracts and formats the text content from a message dictionary.
+
+This function processes the 'content' field of a message dictionary, which can be a string, a list of dictionaries, or another type. If the content is a string, it is returned directly. If the content is a list, the function iterates through the list, extracting text from dictionaries with the type 'text' and appending '[IMAGE]' for dictionaries with the type 'image_url'. The extracted parts are then joined into a single string with spaces in between. If the content is neither a string nor a list, it is converted to a string and returned.
+
+Args:
+    msg (Dict[str, Any]): A dictionary representing a message, expected to contain a 'content' key.
+
+Returns:
+    str: The extracted and formatted text content from the message.
+"""
+You should write code starting with:
+from typing import Dict, Any
+
+def _extract_message_text(msg: Dict[str, Any]) -> str:
+    pass
+

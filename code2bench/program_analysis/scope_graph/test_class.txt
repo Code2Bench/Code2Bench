@@ -1,0 +1,787 @@
+
+Edge: 1:(class RepoFs:
+
+
+    def __init__(self, repo_path: Path):
+        self.path = repo_path
+        self._all_paths = self._get_all_paths()
+
+        # TODO: fix this later to actually parse the Paths
+
+    def get_files_content(self) -> Iterator[Tuple[Path, bytes]]:
+        for file in self._all_paths:
+            if file.suffix == SRC_EXT:
+                yield file, file.read_bytes()
+
+    # TODO: need to account for relative paths
+    # we miss the following case:
+    # - import a => will match any file in the repo that ends with "a"
+    def match_file(self, ns_path: Path) -> Path:
+
+
+        for path in self._all_paths:
+            path_name = path.name.replace(SRC_EXT, "")
+            match_path = list(path.parts[-len(ns_path.parts) : -1]) + [path_name]
+
+            if match_path == list(ns_path.parts):
+                if path.suffix == SRC_EXT:
+                    return path.resolve()
+                elif path.is_dir():
+                    return (path / "__init__.py").resolve()
+
+        return None
+
+    def _get_all_paths(self):
+
+
+        return [p for p in self.path.rglob("*") if p.suffix == SRC_EXT or p.is_dir()])(Point(row=1, column=0), Point(row=36, column=85))                 
+--ScopeToScope-> 
+0:(class RepoFs:
+
+
+    def __init__(self, repo_path: Path):
+        self.path = repo_path
+        self._all_paths = self._get_all_paths()
+
+        # TODO: fix this later to actually parse the Paths
+
+    def get_files_content(self) -> Iterator[Tuple[Path, bytes]]:
+        for file in self._all_paths:
+            if file.suffix == SRC_EXT:
+                yield file, file.read_bytes()
+
+    # TODO: need to account for relative paths
+    # we miss the following case:
+    # - import a => will match any file in the repo that ends with "a"
+    def match_file(self, ns_path: Path) -> Path:
+
+
+        for path in self._all_paths:
+            path_name = path.name.replace(SRC_EXT, "")
+            match_path = list(path.parts[-len(ns_path.parts) : -1]) + [path_name]
+
+            if match_path == list(ns_path.parts):
+                if path.suffix == SRC_EXT:
+                    return path.resolve()
+                elif path.is_dir():
+                    return (path / "__init__.py").resolve()
+
+        return None
+
+    def _get_all_paths(self):
+
+
+        return [p for p in self.path.rglob("*") if p.suffix == SRC_EXT or p.is_dir()]
+)(Point(row=1, column=0), Point(row=36, column=85))
+
+Edge: 2:(def __init__(self, repo_path: Path):
+        self.path = repo_path
+        self._all_paths = self._get_all_paths()
+
+        # TODO: fix this later to actually parse the Paths)(Point(row=4, column=4), Point(row=8, column=58))                 
+--ScopeToScope-> 
+1:(class RepoFs:
+
+
+    def __init__(self, repo_path: Path):
+        self.path = repo_path
+        self._all_paths = self._get_all_paths()
+
+        # TODO: fix this later to actually parse the Paths
+
+    def get_files_content(self) -> Iterator[Tuple[Path, bytes]]:
+        for file in self._all_paths:
+            if file.suffix == SRC_EXT:
+                yield file, file.read_bytes()
+
+    # TODO: need to account for relative paths
+    # we miss the following case:
+    # - import a => will match any file in the repo that ends with "a"
+    def match_file(self, ns_path: Path) -> Path:
+
+
+        for path in self._all_paths:
+            path_name = path.name.replace(SRC_EXT, "")
+            match_path = list(path.parts[-len(ns_path.parts) : -1]) + [path_name]
+
+            if match_path == list(ns_path.parts):
+                if path.suffix == SRC_EXT:
+                    return path.resolve()
+                elif path.is_dir():
+                    return (path / "__init__.py").resolve()
+
+        return None
+
+    def _get_all_paths(self):
+
+
+        return [p for p in self.path.rglob("*") if p.suffix == SRC_EXT or p.is_dir()])(Point(row=4, column=4), Point(row=8, column=58))
+
+Edge: 3:(def get_files_content(self) -> Iterator[Tuple[Path, bytes]]:
+        for file in self._all_paths:
+            if file.suffix == SRC_EXT:
+                yield file, file.read_bytes())(Point(row=10, column=4), Point(row=13, column=45))                 
+--ScopeToScope-> 
+1:(class RepoFs:
+
+
+    def __init__(self, repo_path: Path):
+        self.path = repo_path
+        self._all_paths = self._get_all_paths()
+
+        # TODO: fix this later to actually parse the Paths
+
+    def get_files_content(self) -> Iterator[Tuple[Path, bytes]]:
+        for file in self._all_paths:
+            if file.suffix == SRC_EXT:
+                yield file, file.read_bytes()
+
+    # TODO: need to account for relative paths
+    # we miss the following case:
+    # - import a => will match any file in the repo that ends with "a"
+    def match_file(self, ns_path: Path) -> Path:
+
+
+        for path in self._all_paths:
+            path_name = path.name.replace(SRC_EXT, "")
+            match_path = list(path.parts[-len(ns_path.parts) : -1]) + [path_name]
+
+            if match_path == list(ns_path.parts):
+                if path.suffix == SRC_EXT:
+                    return path.resolve()
+                elif path.is_dir():
+                    return (path / "__init__.py").resolve()
+
+        return None
+
+    def _get_all_paths(self):
+
+
+        return [p for p in self.path.rglob("*") if p.suffix == SRC_EXT or p.is_dir()])(Point(row=10, column=4), Point(row=13, column=45))
+
+Edge: 4:(for file in self._all_paths:
+            if file.suffix == SRC_EXT:
+                yield file, file.read_bytes())(Point(row=11, column=8), Point(row=13, column=45))                 
+--ScopeToScope-> 
+3:(def get_files_content(self) -> Iterator[Tuple[Path, bytes]]:
+        for file in self._all_paths:
+            if file.suffix == SRC_EXT:
+                yield file, file.read_bytes())(Point(row=11, column=8), Point(row=13, column=45))
+
+Edge: 5:(def match_file(self, ns_path: Path) -> Path:
+
+
+        for path in self._all_paths:
+            path_name = path.name.replace(SRC_EXT, "")
+            match_path = list(path.parts[-len(ns_path.parts) : -1]) + [path_name]
+
+            if match_path == list(ns_path.parts):
+                if path.suffix == SRC_EXT:
+                    return path.resolve()
+                elif path.is_dir():
+                    return (path / "__init__.py").resolve()
+
+        return None)(Point(row=18, column=4), Point(row=31, column=19))                 
+--ScopeToScope-> 
+1:(class RepoFs:
+
+
+    def __init__(self, repo_path: Path):
+        self.path = repo_path
+        self._all_paths = self._get_all_paths()
+
+        # TODO: fix this later to actually parse the Paths
+
+    def get_files_content(self) -> Iterator[Tuple[Path, bytes]]:
+        for file in self._all_paths:
+            if file.suffix == SRC_EXT:
+                yield file, file.read_bytes()
+
+    # TODO: need to account for relative paths
+    # we miss the following case:
+    # - import a => will match any file in the repo that ends with "a"
+    def match_file(self, ns_path: Path) -> Path:
+
+
+        for path in self._all_paths:
+            path_name = path.name.replace(SRC_EXT, "")
+            match_path = list(path.parts[-len(ns_path.parts) : -1]) + [path_name]
+
+            if match_path == list(ns_path.parts):
+                if path.suffix == SRC_EXT:
+                    return path.resolve()
+                elif path.is_dir():
+                    return (path / "__init__.py").resolve()
+
+        return None
+
+    def _get_all_paths(self):
+
+
+        return [p for p in self.path.rglob("*") if p.suffix == SRC_EXT or p.is_dir()])(Point(row=18, column=4), Point(row=31, column=19))
+
+Edge: 6:(for path in self._all_paths:
+            path_name = path.name.replace(SRC_EXT, "")
+            match_path = list(path.parts[-len(ns_path.parts) : -1]) + [path_name]
+
+            if match_path == list(ns_path.parts):
+                if path.suffix == SRC_EXT:
+                    return path.resolve()
+                elif path.is_dir():
+                    return (path / "__init__.py").resolve())(Point(row=21, column=8), Point(row=29, column=59))                 
+--ScopeToScope-> 
+5:(def match_file(self, ns_path: Path) -> Path:
+
+
+        for path in self._all_paths:
+            path_name = path.name.replace(SRC_EXT, "")
+            match_path = list(path.parts[-len(ns_path.parts) : -1]) + [path_name]
+
+            if match_path == list(ns_path.parts):
+                if path.suffix == SRC_EXT:
+                    return path.resolve()
+                elif path.is_dir():
+                    return (path / "__init__.py").resolve()
+
+        return None)(Point(row=21, column=8), Point(row=29, column=59))
+
+Edge: 7:(def _get_all_paths(self):
+
+
+        return [p for p in self.path.rglob("*") if p.suffix == SRC_EXT or p.is_dir()])(Point(row=33, column=4), Point(row=36, column=85))                 
+--ScopeToScope-> 
+1:(class RepoFs:
+
+
+    def __init__(self, repo_path: Path):
+        self.path = repo_path
+        self._all_paths = self._get_all_paths()
+
+        # TODO: fix this later to actually parse the Paths
+
+    def get_files_content(self) -> Iterator[Tuple[Path, bytes]]:
+        for file in self._all_paths:
+            if file.suffix == SRC_EXT:
+                yield file, file.read_bytes()
+
+    # TODO: need to account for relative paths
+    # we miss the following case:
+    # - import a => will match any file in the repo that ends with "a"
+    def match_file(self, ns_path: Path) -> Path:
+
+
+        for path in self._all_paths:
+            path_name = path.name.replace(SRC_EXT, "")
+            match_path = list(path.parts[-len(ns_path.parts) : -1]) + [path_name]
+
+            if match_path == list(ns_path.parts):
+                if path.suffix == SRC_EXT:
+                    return path.resolve()
+                elif path.is_dir():
+                    return (path / "__init__.py").resolve()
+
+        return None
+
+    def _get_all_paths(self):
+
+
+        return [p for p in self.path.rglob("*") if p.suffix == SRC_EXT or p.is_dir()])(Point(row=33, column=4), Point(row=36, column=85))
+
+Edge: 8:([p for p in self.path.rglob("*") if p.suffix == SRC_EXT or p.is_dir()])(Point(row=36, column=15), Point(row=36, column=85))                 
+--ScopeToScope-> 
+7:(def _get_all_paths(self):
+
+
+        return [p for p in self.path.rglob("*") if p.suffix == SRC_EXT or p.is_dir()])(Point(row=36, column=15), Point(row=36, column=85))
+
+Edge: 9:RepoFs(RepoFs)(Point(row=1, column=6), Point(row=1, column=12))                 
+--DefToScope-> 
+1:(class RepoFs:
+
+
+    def __init__(self, repo_path: Path):
+        self.path = repo_path
+        self._all_paths = self._get_all_paths()
+
+        # TODO: fix this later to actually parse the Paths
+
+    def get_files_content(self) -> Iterator[Tuple[Path, bytes]]:
+        for file in self._all_paths:
+            if file.suffix == SRC_EXT:
+                yield file, file.read_bytes()
+
+    # TODO: need to account for relative paths
+    # we miss the following case:
+    # - import a => will match any file in the repo that ends with "a"
+    def match_file(self, ns_path: Path) -> Path:
+
+
+        for path in self._all_paths:
+            path_name = path.name.replace(SRC_EXT, "")
+            match_path = list(path.parts[-len(ns_path.parts) : -1]) + [path_name]
+
+            if match_path == list(ns_path.parts):
+                if path.suffix == SRC_EXT:
+                    return path.resolve()
+                elif path.is_dir():
+                    return (path / "__init__.py").resolve()
+
+        return None
+
+    def _get_all_paths(self):
+
+
+        return [p for p in self.path.rglob("*") if p.suffix == SRC_EXT or p.is_dir()])(Point(row=1, column=6), Point(row=1, column=12))
+
+Edge: 10:__init__(__init__)(Point(row=4, column=8), Point(row=4, column=16))                 
+--DefToScope-> 
+2:(def __init__(self, repo_path: Path):
+        self.path = repo_path
+        self._all_paths = self._get_all_paths()
+
+        # TODO: fix this later to actually parse the Paths)(Point(row=4, column=8), Point(row=4, column=16))
+
+Edge: 11:self(self)(Point(row=4, column=17), Point(row=4, column=21))                 
+--DefToScope-> 
+2:(def __init__(self, repo_path: Path):
+        self.path = repo_path
+        self._all_paths = self._get_all_paths()
+
+        # TODO: fix this later to actually parse the Paths)(Point(row=4, column=17), Point(row=4, column=21))
+
+Edge: 12:repo_path(repo_path)(Point(row=4, column=23), Point(row=4, column=32))                 
+--DefToScope-> 
+2:(def __init__(self, repo_path: Path):
+        self.path = repo_path
+        self._all_paths = self._get_all_paths()
+
+        # TODO: fix this later to actually parse the Paths)(Point(row=4, column=23), Point(row=4, column=32))
+
+Edge: 13:get_files_content(get_files_content)(Point(row=10, column=8), Point(row=10, column=25))                 
+--DefToScope-> 
+3:(def get_files_content(self) -> Iterator[Tuple[Path, bytes]]:
+        for file in self._all_paths:
+            if file.suffix == SRC_EXT:
+                yield file, file.read_bytes())(Point(row=10, column=8), Point(row=10, column=25))
+
+Edge: 14:self(self)(Point(row=10, column=26), Point(row=10, column=30))                 
+--DefToScope-> 
+3:(def get_files_content(self) -> Iterator[Tuple[Path, bytes]]:
+        for file in self._all_paths:
+            if file.suffix == SRC_EXT:
+                yield file, file.read_bytes())(Point(row=10, column=26), Point(row=10, column=30))
+
+Edge: 15:file(file)(Point(row=11, column=12), Point(row=11, column=16))                 
+--DefToScope-> 
+4:(for file in self._all_paths:
+            if file.suffix == SRC_EXT:
+                yield file, file.read_bytes())(Point(row=11, column=12), Point(row=11, column=16))
+
+Edge: 16:match_file(match_file)(Point(row=18, column=8), Point(row=18, column=18))                 
+--DefToScope-> 
+5:(def match_file(self, ns_path: Path) -> Path:
+
+
+        for path in self._all_paths:
+            path_name = path.name.replace(SRC_EXT, "")
+            match_path = list(path.parts[-len(ns_path.parts) : -1]) + [path_name]
+
+            if match_path == list(ns_path.parts):
+                if path.suffix == SRC_EXT:
+                    return path.resolve()
+                elif path.is_dir():
+                    return (path / "__init__.py").resolve()
+
+        return None)(Point(row=18, column=8), Point(row=18, column=18))
+
+Edge: 17:self(self)(Point(row=18, column=19), Point(row=18, column=23))                 
+--DefToScope-> 
+5:(def match_file(self, ns_path: Path) -> Path:
+
+
+        for path in self._all_paths:
+            path_name = path.name.replace(SRC_EXT, "")
+            match_path = list(path.parts[-len(ns_path.parts) : -1]) + [path_name]
+
+            if match_path == list(ns_path.parts):
+                if path.suffix == SRC_EXT:
+                    return path.resolve()
+                elif path.is_dir():
+                    return (path / "__init__.py").resolve()
+
+        return None)(Point(row=18, column=19), Point(row=18, column=23))
+
+Edge: 18:ns_path(ns_path)(Point(row=18, column=25), Point(row=18, column=32))                 
+--DefToScope-> 
+5:(def match_file(self, ns_path: Path) -> Path:
+
+
+        for path in self._all_paths:
+            path_name = path.name.replace(SRC_EXT, "")
+            match_path = list(path.parts[-len(ns_path.parts) : -1]) + [path_name]
+
+            if match_path == list(ns_path.parts):
+                if path.suffix == SRC_EXT:
+                    return path.resolve()
+                elif path.is_dir():
+                    return (path / "__init__.py").resolve()
+
+        return None)(Point(row=18, column=25), Point(row=18, column=32))
+
+Edge: 19:path(path)(Point(row=21, column=12), Point(row=21, column=16))                 
+--DefToScope-> 
+6:(for path in self._all_paths:
+            path_name = path.name.replace(SRC_EXT, "")
+            match_path = list(path.parts[-len(ns_path.parts) : -1]) + [path_name]
+
+            if match_path == list(ns_path.parts):
+                if path.suffix == SRC_EXT:
+                    return path.resolve()
+                elif path.is_dir():
+                    return (path / "__init__.py").resolve())(Point(row=21, column=12), Point(row=21, column=16))
+
+Edge: 20:path_name(path_name)(Point(row=22, column=12), Point(row=22, column=21))                 
+--DefToScope-> 
+6:(for path in self._all_paths:
+            path_name = path.name.replace(SRC_EXT, "")
+            match_path = list(path.parts[-len(ns_path.parts) : -1]) + [path_name]
+
+            if match_path == list(ns_path.parts):
+                if path.suffix == SRC_EXT:
+                    return path.resolve()
+                elif path.is_dir():
+                    return (path / "__init__.py").resolve())(Point(row=22, column=12), Point(row=22, column=21))
+
+Edge: 21:match_path(match_path)(Point(row=23, column=12), Point(row=23, column=22))                 
+--DefToScope-> 
+6:(for path in self._all_paths:
+            path_name = path.name.replace(SRC_EXT, "")
+            match_path = list(path.parts[-len(ns_path.parts) : -1]) + [path_name]
+
+            if match_path == list(ns_path.parts):
+                if path.suffix == SRC_EXT:
+                    return path.resolve()
+                elif path.is_dir():
+                    return (path / "__init__.py").resolve())(Point(row=23, column=12), Point(row=23, column=22))
+
+Edge: 22:_get_all_paths(_get_all_paths)(Point(row=33, column=8), Point(row=33, column=22))                 
+--DefToScope-> 
+7:(def _get_all_paths(self):
+
+
+        return [p for p in self.path.rglob("*") if p.suffix == SRC_EXT or p.is_dir()])(Point(row=33, column=8), Point(row=33, column=22))
+
+Edge: 23:self(self)(Point(row=33, column=23), Point(row=33, column=27))                 
+--DefToScope-> 
+7:(def _get_all_paths(self):
+
+
+        return [p for p in self.path.rglob("*") if p.suffix == SRC_EXT or p.is_dir()])(Point(row=33, column=23), Point(row=33, column=27))
+
+Edge: 24:p(p)(Point(row=36, column=22), Point(row=36, column=23))                 
+--DefToScope-> 
+8:([p for p in self.path.rglob("*") if p.suffix == SRC_EXT or p.is_dir()])(Point(row=36, column=22), Point(row=36, column=23))
+
+Edge: 25:self(self)(Point(row=5, column=8), Point(row=5, column=12))                 
+--RefToDef-> 
+11:self(self)(Point(row=5, column=8), Point(row=5, column=12))
+
+Edge: 25:self(self)(Point(row=5, column=8), Point(row=5, column=12))                 
+--RefToOrigin-> 
+2:(def __init__(self, repo_path: Path):
+        self.path = repo_path
+        self._all_paths = self._get_all_paths()
+
+        # TODO: fix this later to actually parse the Paths)(Point(row=5, column=8), Point(row=5, column=12))
+
+Edge: 26:self(self)(Point(row=6, column=8), Point(row=6, column=12))                 
+--RefToDef-> 
+11:self(self)(Point(row=6, column=8), Point(row=6, column=12))
+
+Edge: 26:self(self)(Point(row=6, column=8), Point(row=6, column=12))                 
+--RefToOrigin-> 
+2:(def __init__(self, repo_path: Path):
+        self.path = repo_path
+        self._all_paths = self._get_all_paths()
+
+        # TODO: fix this later to actually parse the Paths)(Point(row=6, column=8), Point(row=6, column=12))
+
+Edge: 27:self(self)(Point(row=6, column=26), Point(row=6, column=30))                 
+--RefToDef-> 
+11:self(self)(Point(row=6, column=26), Point(row=6, column=30))
+
+Edge: 27:self(self)(Point(row=6, column=26), Point(row=6, column=30))                 
+--RefToOrigin-> 
+2:(def __init__(self, repo_path: Path):
+        self.path = repo_path
+        self._all_paths = self._get_all_paths()
+
+        # TODO: fix this later to actually parse the Paths)(Point(row=6, column=26), Point(row=6, column=30))
+
+Edge: 28:self(self)(Point(row=11, column=20), Point(row=11, column=24))                 
+--RefToDef-> 
+14:self(self)(Point(row=11, column=20), Point(row=11, column=24))
+
+Edge: 28:self(self)(Point(row=11, column=20), Point(row=11, column=24))                 
+--RefToOrigin-> 
+4:(for file in self._all_paths:
+            if file.suffix == SRC_EXT:
+                yield file, file.read_bytes())(Point(row=11, column=20), Point(row=11, column=24))
+
+Edge: 29:file(file)(Point(row=12, column=15), Point(row=12, column=19))                 
+--RefToDef-> 
+15:file(file)(Point(row=12, column=15), Point(row=12, column=19))
+
+Edge: 29:file(file)(Point(row=12, column=15), Point(row=12, column=19))                 
+--RefToOrigin-> 
+4:(for file in self._all_paths:
+            if file.suffix == SRC_EXT:
+                yield file, file.read_bytes())(Point(row=12, column=15), Point(row=12, column=19))
+
+Edge: 30:file(file)(Point(row=13, column=22), Point(row=13, column=26))                 
+--RefToDef-> 
+15:file(file)(Point(row=13, column=22), Point(row=13, column=26))
+
+Edge: 30:file(file)(Point(row=13, column=22), Point(row=13, column=26))                 
+--RefToOrigin-> 
+4:(for file in self._all_paths:
+            if file.suffix == SRC_EXT:
+                yield file, file.read_bytes())(Point(row=13, column=22), Point(row=13, column=26))
+
+Edge: 31:file(file)(Point(row=13, column=28), Point(row=13, column=32))                 
+--RefToDef-> 
+15:file(file)(Point(row=13, column=28), Point(row=13, column=32))
+
+Edge: 31:file(file)(Point(row=13, column=28), Point(row=13, column=32))                 
+--RefToOrigin-> 
+4:(for file in self._all_paths:
+            if file.suffix == SRC_EXT:
+                yield file, file.read_bytes())(Point(row=13, column=28), Point(row=13, column=32))
+
+Edge: 32:self(self)(Point(row=21, column=20), Point(row=21, column=24))                 
+--RefToDef-> 
+17:self(self)(Point(row=21, column=20), Point(row=21, column=24))
+
+Edge: 32:self(self)(Point(row=21, column=20), Point(row=21, column=24))                 
+--RefToOrigin-> 
+6:(for path in self._all_paths:
+            path_name = path.name.replace(SRC_EXT, "")
+            match_path = list(path.parts[-len(ns_path.parts) : -1]) + [path_name]
+
+            if match_path == list(ns_path.parts):
+                if path.suffix == SRC_EXT:
+                    return path.resolve()
+                elif path.is_dir():
+                    return (path / "__init__.py").resolve())(Point(row=21, column=20), Point(row=21, column=24))
+
+Edge: 33:path(path)(Point(row=22, column=24), Point(row=22, column=28))                 
+--RefToDef-> 
+19:path(path)(Point(row=22, column=24), Point(row=22, column=28))
+
+Edge: 33:path(path)(Point(row=22, column=24), Point(row=22, column=28))                 
+--RefToOrigin-> 
+6:(for path in self._all_paths:
+            path_name = path.name.replace(SRC_EXT, "")
+            match_path = list(path.parts[-len(ns_path.parts) : -1]) + [path_name]
+
+            if match_path == list(ns_path.parts):
+                if path.suffix == SRC_EXT:
+                    return path.resolve()
+                elif path.is_dir():
+                    return (path / "__init__.py").resolve())(Point(row=22, column=24), Point(row=22, column=28))
+
+Edge: 34:path(path)(Point(row=23, column=30), Point(row=23, column=34))                 
+--RefToDef-> 
+19:path(path)(Point(row=23, column=30), Point(row=23, column=34))
+
+Edge: 34:path(path)(Point(row=23, column=30), Point(row=23, column=34))                 
+--RefToOrigin-> 
+6:(for path in self._all_paths:
+            path_name = path.name.replace(SRC_EXT, "")
+            match_path = list(path.parts[-len(ns_path.parts) : -1]) + [path_name]
+
+            if match_path == list(ns_path.parts):
+                if path.suffix == SRC_EXT:
+                    return path.resolve()
+                elif path.is_dir():
+                    return (path / "__init__.py").resolve())(Point(row=23, column=30), Point(row=23, column=34))
+
+Edge: 35:ns_path(ns_path)(Point(row=23, column=46), Point(row=23, column=53))                 
+--RefToDef-> 
+18:ns_path(ns_path)(Point(row=23, column=46), Point(row=23, column=53))
+
+Edge: 35:ns_path(ns_path)(Point(row=23, column=46), Point(row=23, column=53))                 
+--RefToOrigin-> 
+6:(for path in self._all_paths:
+            path_name = path.name.replace(SRC_EXT, "")
+            match_path = list(path.parts[-len(ns_path.parts) : -1]) + [path_name]
+
+            if match_path == list(ns_path.parts):
+                if path.suffix == SRC_EXT:
+                    return path.resolve()
+                elif path.is_dir():
+                    return (path / "__init__.py").resolve())(Point(row=23, column=46), Point(row=23, column=53))
+
+Edge: 36:path_name(path_name)(Point(row=23, column=71), Point(row=23, column=80))                 
+--RefToDef-> 
+20:path_name(path_name)(Point(row=23, column=71), Point(row=23, column=80))
+
+Edge: 36:path_name(path_name)(Point(row=23, column=71), Point(row=23, column=80))                 
+--RefToOrigin-> 
+6:(for path in self._all_paths:
+            path_name = path.name.replace(SRC_EXT, "")
+            match_path = list(path.parts[-len(ns_path.parts) : -1]) + [path_name]
+
+            if match_path == list(ns_path.parts):
+                if path.suffix == SRC_EXT:
+                    return path.resolve()
+                elif path.is_dir():
+                    return (path / "__init__.py").resolve())(Point(row=23, column=71), Point(row=23, column=80))
+
+Edge: 37:match_path(match_path)(Point(row=25, column=15), Point(row=25, column=25))                 
+--RefToDef-> 
+21:match_path(match_path)(Point(row=25, column=15), Point(row=25, column=25))
+
+Edge: 37:match_path(match_path)(Point(row=25, column=15), Point(row=25, column=25))                 
+--RefToOrigin-> 
+6:(for path in self._all_paths:
+            path_name = path.name.replace(SRC_EXT, "")
+            match_path = list(path.parts[-len(ns_path.parts) : -1]) + [path_name]
+
+            if match_path == list(ns_path.parts):
+                if path.suffix == SRC_EXT:
+                    return path.resolve()
+                elif path.is_dir():
+                    return (path / "__init__.py").resolve())(Point(row=25, column=15), Point(row=25, column=25))
+
+Edge: 38:ns_path(ns_path)(Point(row=25, column=34), Point(row=25, column=41))                 
+--RefToDef-> 
+18:ns_path(ns_path)(Point(row=25, column=34), Point(row=25, column=41))
+
+Edge: 38:ns_path(ns_path)(Point(row=25, column=34), Point(row=25, column=41))                 
+--RefToOrigin-> 
+6:(for path in self._all_paths:
+            path_name = path.name.replace(SRC_EXT, "")
+            match_path = list(path.parts[-len(ns_path.parts) : -1]) + [path_name]
+
+            if match_path == list(ns_path.parts):
+                if path.suffix == SRC_EXT:
+                    return path.resolve()
+                elif path.is_dir():
+                    return (path / "__init__.py").resolve())(Point(row=25, column=34), Point(row=25, column=41))
+
+Edge: 39:path(path)(Point(row=26, column=19), Point(row=26, column=23))                 
+--RefToDef-> 
+19:path(path)(Point(row=26, column=19), Point(row=26, column=23))
+
+Edge: 39:path(path)(Point(row=26, column=19), Point(row=26, column=23))                 
+--RefToOrigin-> 
+6:(for path in self._all_paths:
+            path_name = path.name.replace(SRC_EXT, "")
+            match_path = list(path.parts[-len(ns_path.parts) : -1]) + [path_name]
+
+            if match_path == list(ns_path.parts):
+                if path.suffix == SRC_EXT:
+                    return path.resolve()
+                elif path.is_dir():
+                    return (path / "__init__.py").resolve())(Point(row=26, column=19), Point(row=26, column=23))
+
+Edge: 40:path(path)(Point(row=27, column=27), Point(row=27, column=31))                 
+--RefToDef-> 
+19:path(path)(Point(row=27, column=27), Point(row=27, column=31))
+
+Edge: 40:path(path)(Point(row=27, column=27), Point(row=27, column=31))                 
+--RefToOrigin-> 
+6:(for path in self._all_paths:
+            path_name = path.name.replace(SRC_EXT, "")
+            match_path = list(path.parts[-len(ns_path.parts) : -1]) + [path_name]
+
+            if match_path == list(ns_path.parts):
+                if path.suffix == SRC_EXT:
+                    return path.resolve()
+                elif path.is_dir():
+                    return (path / "__init__.py").resolve())(Point(row=27, column=27), Point(row=27, column=31))
+
+Edge: 41:path(path)(Point(row=28, column=21), Point(row=28, column=25))                 
+--RefToDef-> 
+19:path(path)(Point(row=28, column=21), Point(row=28, column=25))
+
+Edge: 41:path(path)(Point(row=28, column=21), Point(row=28, column=25))                 
+--RefToOrigin-> 
+6:(for path in self._all_paths:
+            path_name = path.name.replace(SRC_EXT, "")
+            match_path = list(path.parts[-len(ns_path.parts) : -1]) + [path_name]
+
+            if match_path == list(ns_path.parts):
+                if path.suffix == SRC_EXT:
+                    return path.resolve()
+                elif path.is_dir():
+                    return (path / "__init__.py").resolve())(Point(row=28, column=21), Point(row=28, column=25))
+
+Edge: 42:path(path)(Point(row=29, column=28), Point(row=29, column=32))                 
+--RefToDef-> 
+19:path(path)(Point(row=29, column=28), Point(row=29, column=32))
+
+Edge: 42:path(path)(Point(row=29, column=28), Point(row=29, column=32))                 
+--RefToOrigin-> 
+6:(for path in self._all_paths:
+            path_name = path.name.replace(SRC_EXT, "")
+            match_path = list(path.parts[-len(ns_path.parts) : -1]) + [path_name]
+
+            if match_path == list(ns_path.parts):
+                if path.suffix == SRC_EXT:
+                    return path.resolve()
+                elif path.is_dir():
+                    return (path / "__init__.py").resolve())(Point(row=29, column=28), Point(row=29, column=32))
+
+Edge: 43:p(p)(Point(row=36, column=16), Point(row=36, column=17))                 
+--RefToDef-> 
+24:p(p)(Point(row=36, column=16), Point(row=36, column=17))
+
+Edge: 43:p(p)(Point(row=36, column=16), Point(row=36, column=17))                 
+--RefToOrigin-> 
+8:([p for p in self.path.rglob("*") if p.suffix == SRC_EXT or p.is_dir()])(Point(row=36, column=16), Point(row=36, column=17))
+
+Edge: 44:self(self)(Point(row=36, column=27), Point(row=36, column=31))                 
+--RefToDef-> 
+23:self(self)(Point(row=36, column=27), Point(row=36, column=31))
+
+Edge: 44:self(self)(Point(row=36, column=27), Point(row=36, column=31))                 
+--RefToOrigin-> 
+8:([p for p in self.path.rglob("*") if p.suffix == SRC_EXT or p.is_dir()])(Point(row=36, column=27), Point(row=36, column=31))
+
+Edge: 45:p(p)(Point(row=36, column=51), Point(row=36, column=52))                 
+--RefToDef-> 
+24:p(p)(Point(row=36, column=51), Point(row=36, column=52))
+
+Edge: 45:p(p)(Point(row=36, column=51), Point(row=36, column=52))                 
+--RefToOrigin-> 
+8:([p for p in self.path.rglob("*") if p.suffix == SRC_EXT or p.is_dir()])(Point(row=36, column=51), Point(row=36, column=52))
+
+Edge: 46:p(p)(Point(row=36, column=74), Point(row=36, column=75))                 
+--RefToDef-> 
+24:p(p)(Point(row=36, column=74), Point(row=36, column=75))
+
+Edge: 46:p(p)(Point(row=36, column=74), Point(row=36, column=75))                 
+--RefToOrigin-> 
+8:([p for p in self.path.rglob("*") if p.suffix == SRC_EXT or p.is_dir()])(Point(row=36, column=74), Point(row=36, column=75))
+
+
+unresolved refs: 
+name: Path, text range: (Point(row=4, column=34), Point(row=4, column=38))
+name: path, text range: (Point(row=5, column=13), Point(row=5, column=17))
+name: _all_paths, text range: (Point(row=6, column=13), Point(row=6, column=23))
+name: _get_all_paths, text range: (Point(row=6, column=31), Point(row=6, column=45))
+name: _all_paths, text range: (Point(row=11, column=25), Point(row=11, column=35))
+name: SRC_EXT, text range: (Point(row=12, column=30), Point(row=12, column=37))
+name: Path, text range: (Point(row=18, column=34), Point(row=18, column=38))
+name: Path, text range: (Point(row=18, column=43), Point(row=18, column=47))
+name: _all_paths, text range: (Point(row=21, column=25), Point(row=21, column=35))
+name: SRC_EXT, text range: (Point(row=22, column=42), Point(row=22, column=49))
+name: list, text range: (Point(row=23, column=25), Point(row=23, column=29))
+name: len, text range: (Point(row=23, column=42), Point(row=23, column=45))
+name: list, text range: (Point(row=25, column=29), Point(row=25, column=33))
+name: SRC_EXT, text range: (Point(row=26, column=34), Point(row=26, column=41))
+name: path, text range: (Point(row=36, column=32), Point(row=36, column=36))
+name: SRC_EXT, text range: (Point(row=36, column=63), Point(row=36, column=70))
+None

@@ -1,0 +1,10 @@
+"""Extracts the domain from a given URL or domain string.
+
+This function takes a URL or domain string and attempts to extract the domain name. It handles various URL components such as ports, paths, query parameters, and fragments. If the input is already a domain, it cleans and returns it in lowercase. If parsing fails, it returns the input string in lowercase.
+
+Args:
+    url_or_domain (str): A URL or domain string from which to extract the domain.
+
+Returns:
+    str: The extracted domain in lowercase, or the original input in lowercase if parsing fails.
+"""

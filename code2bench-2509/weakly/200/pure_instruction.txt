@@ -1,0 +1,11 @@
+Implement a Python function that determines the majority-voted move from a list of moves, with a tie-breaking mechanism based on a previous move.
+
+- **Inputs**:
+  - A list of moves (`moves_list`), where each move is a hashable type (e.g., string, integer).
+  - An optional previous move (`prev_move`), which is of the same type as the moves in the list or `None`.
+- **Output**: The majority-voted move, or `None` if the list is empty.
+- **Special Rules**:
+  - Count the frequency of each move in the list.
+  - If there is a tie for the most frequent move, and `prev_move` is among the tied moves, return `prev_move`.
+  - If `prev_move` is not among the tied moves or is `None`, return the first move in the tie.
+  - Handle edge cases: empty list, single move, or all moves tied.

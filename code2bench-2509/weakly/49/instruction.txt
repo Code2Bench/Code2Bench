@@ -1,0 +1,23 @@
+"""Normalizes a run path into its constituent parts: entity, project, and run ID.
+
+This function processes a target string that can either be a URL or a path-like string. It extracts the entity, project, and run ID from the target string. If the target is a URL, it parses the URL to extract these components. If the target is a path-like string, it splits the string to extract the components. The function raises a ValueError if the target string cannot be parsed into the required components.
+
+Args:
+    target (str): The target string to be normalized. This can be a URL or a path-like string.
+    entity (Optional[str]): The entity name. Required if the target is a bare run ID.
+    project (Optional[str]): The project name. Required if the target is a bare run ID.
+
+Returns:
+    Tuple[str, str, str]: A tuple containing the entity, project, and run ID extracted from the target string.
+
+Raises:
+    ValueError: If the target string cannot be parsed into the required components or if a bare run ID is provided without the entity and project.
+"""
+You should write code starting with:
+from urllib.parse import urlparse
+from typing import Optional, Tuple
+
+def normalize_run_path(target: str, entity: Optional[str], project: Optional[str]) -> Tuple[str, str, str]:
+    # TODO: Implement this function
+    pass
+

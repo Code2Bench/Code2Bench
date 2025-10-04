@@ -1,0 +1,33 @@
+"""Quote an argument for later parsing by shlex.split().
+
+This function ensures that the argument is properly quoted so that it can be safely parsed by shlex.split(). 
+The function checks for the presence of special characters (double quotes, single quotes, backslashes, and hash symbols) 
+or spaces in the argument. If any of these are found, the argument is wrapped in quotes using Python's repr() function. 
+Otherwise, the argument is returned as is.
+
+Args:
+    arg (str): The string argument to be quoted.
+
+Returns:
+    str: The quoted string if necessary, otherwise the original string.
+
+Examples:
+    >>> shquote('simple')
+    'simple'
+    >>> shquote('with spaces')
+    "'with spaces'"
+    >>> shquote('with"quote')
+    "'with\"quote'"
+    >>> shquote("with'quote")
+    '"with\'quote"'
+    >>> shquote('with\\backslash')
+    "'with\\\\backslash'"
+    >>> shquote('with#hash')
+    "'with#hash'"
+    >>> shquote('with spaces and"quote')
+    "'with spaces and\"quote'"
+    >>> shquote('0')
+    '0'
+    >>> shquote('Ī¸')
+    'Ī¸'
+"""

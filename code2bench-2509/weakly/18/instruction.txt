@@ -1,0 +1,23 @@
+"""将非标准的、基于行的纯文本弹幕格式转换为标准的XML格式。
+
+支持的输入格式为 "时间,模式,?,颜色,... | 弹幕内容"，其中：
+- 时间：弹幕出现的时间（秒）
+- 模式：弹幕的模式
+- 颜色：弹幕的颜色
+- 弹幕内容：弹幕的文本内容
+
+函数会忽略不符合格式的行，并将符合格式的行转换为XML格式的弹幕数据。输出的XML格式包含弹幕服务器、任务ID、来源等元信息，以及每条弹幕的时间、模式、字体大小、颜色等属性。
+
+Args:
+    text_content (str): 包含弹幕数据的纯文本字符串，每行代表一条弹幕。
+
+Returns:
+    str: 转换后的XML格式字符串，包含所有符合格式的弹幕数据。
+"""
+You should write code starting with:
+from xml.sax.saxutils import escape as xml_escape
+
+def _convert_text_danmaku_to_xml(text_content: str) -> str:
+    # TODO: Implement this function
+    pass
+

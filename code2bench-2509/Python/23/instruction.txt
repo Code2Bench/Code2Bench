@@ -1,0 +1,35 @@
+"""Normalize model name for consistent usage across the application.
+
+This function handles various model name formats and maps them to standard keys. It ensures that model names are consistently formatted by converting them to lowercase and applying specific normalization rules based on the model type and version.
+
+Args:
+    model (str): Raw model name from usage data. This can include version numbers, dates, and various formatting styles.
+
+Returns:
+    str: Normalized model key. The returned string is a standardized version of the input model name, ensuring consistency across the application.
+
+Examples:
+    >>> normalize_model_name("claude-3-opus-20240229")
+    'claude-3-opus'
+    >>> normalize_model_name("Claude 3.5 Sonnet")
+    'claude-3-5-sonnet'
+    >>> normalize_model_name("claude-opus-4-20240229")
+    'claude-opus-4-20240229'
+    >>> normalize_model_name("sonnet-4-20240229")
+    'sonnet-4-20240229'
+    >>> normalize_model_name("haiku-4-20240229")
+    'haiku-4-20240229'
+    >>> normalize_model_name("claude-3-5-sonnet")
+    'claude-3-5-sonnet'
+    >>> normalize_model_name("claude-3-5-haiku")
+    'claude-3-5-haiku'
+    >>> normalize_model_name("claude-3-opus")
+    'claude-3-opus'
+    >>> normalize_model_name("claude-3-sonnet")
+    'claude-3-sonnet'
+"""
+You should write code starting with:
+def normalize_model_name(model: str) -> str:
+    # TODO: Implement this function based on the docstring.
+    pass
+

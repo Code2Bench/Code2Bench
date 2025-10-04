@@ -1,0 +1,22 @@
+"""Calculate the alpha value based on the average distance from a list of distances.
+
+This function computes the alpha value (ranging from 0 to 255) based on the average distance from a list of distances. The alpha value is determined by comparing the average distance against predefined thresholds: fade_end, fade_start, max_fade_start, and max_fade_end. The function uses linear interpolation to calculate the alpha value when the average distance falls between these thresholds.
+
+Args:
+    distances (List[float]): A list of distances. If empty, the function returns 0.
+    fade_end (float, optional): The distance below which the alpha value is 0. Defaults to 10.
+    fade_start (float, optional): The distance above which the alpha value starts to increase linearly from 0 to 255. Defaults to 30.
+    max_fade_start (float, optional): The distance above which the alpha value is 255. Defaults to 150.
+    max_fade_end (float, optional): The distance above which the alpha value starts to decrease linearly from 255 to 0. Defaults to 170.
+    verbose (bool, optional): If True, additional debug information may be printed. Defaults to False.
+
+Returns:
+    float: The calculated alpha value, ranging from 0 to 255.
+
+The function follows these rules:
+    - If the average distance is less than `fade_end`, the alpha value is 0.
+    - If the average distance is between `fade_end` and `fade_start`, the alpha value increases linearly from 0 to 255.
+    - If the average distance is between `fade_start` and `max_fade_start`, the alpha value is 255.
+    - If the average distance is between `max_fade_start` and `max_fade_end`, the alpha value decreases linearly from 255 to 0.
+    - If the average distance is greater than or equal to `max_fade_end`, the alpha value is 0.
+"""

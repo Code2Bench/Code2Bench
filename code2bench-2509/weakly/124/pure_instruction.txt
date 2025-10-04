@@ -1,0 +1,12 @@
+"""Filters a list of periods to include only those that end on or before a specified document period end date.
+
+The function handles two types of periods: 'instant' and 'duration'. For 'instant' periods, the period's date is compared to the document end date. For 'duration' periods, the period's end date is compared. If the document end date is invalid or not provided, all periods are returned. If a period's date or end date is invalid, the period is included in the result to ensure no data is lost.
+
+Args:
+    periods (List[Dict]): A list of period dictionaries, each containing either a 'date' or 'end_date' key.
+    document_period_end_date (str): The end date of the document period in 'YYYY-MM-DD' format.
+    period_type (str): The type of period, either 'instant' or 'duration'.
+
+Returns:
+    List[Dict]: A filtered list of periods that end on or before the document period end date.
+"""

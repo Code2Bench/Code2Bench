@@ -1,0 +1,20 @@
+"""Validate the structure and content of a script dictionary.
+
+The function checks if the script contains all required sections, ensures each section has both 'text' and 'duration' fields, and verifies that the total duration does not exceed 90 seconds.
+
+Args:
+    script (Dict): A dictionary representing the script, where keys are section names and values are dictionaries containing 'text' and 'duration' fields.
+
+Returns:
+    Tuple[bool, str]: A tuple where the first element is a boolean indicating whether the script is valid, and the second element is an error message (empty string if valid).
+
+Raises:
+    None: This function does not raise any exceptions but returns a tuple with validation results.
+"""
+You should write code starting with:
+from typing import Dict, Tuple
+
+def validate_script(script: Dict) -> Tuple[bool, str]:
+    # TODO: Implement this function
+    pass
+

@@ -1,0 +1,19 @@
+/**
+ * Extracts location information for specified files from a list of location strings.
+ *
+ * This function processes a list of location strings (`locs`) and extracts relevant lines for each file specified in `file_names`. The function can maintain the original order of files or use insertion order based on the `keep_old_order` parameter.
+ *
+ * Args:
+ *     locs (List[str]): A list of strings where each string contains file names and associated lines.
+ *     file_names (List[str]): A list of file names for which to extract location information.
+ *     keep_old_order (bool, optional): If True, the results will maintain the order of `file_names`. If False, the results will use insertion order. Defaults to False.
+ *
+ * Returns:
+ *     Dict[str, List[str]]: A dictionary where each key is a file name from `file_names` and the value is a list of strings containing the extracted lines for that file. If a file name in `file_names` is not found in `locs`, it will still be included in the results with an empty list.
+ *
+ * Example:
+ *     >>> locs = ['file1.py\nline: 1\nfile2.py\nline: 2']
+ *     >>> file_names = ['file1.py', 'file2.py']
+ *     >>> extract_locs_for_files(locs, file_names, keep_old_order=True)
+ *     {'file1.py': ['line: 1'], 'file2.py': ['line: 2']}
+ */

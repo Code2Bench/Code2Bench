@@ -1,0 +1,11 @@
+Implement a Python function that clips a list of messages to ensure the total number of tokens does not exceed a specified maximum, using NumPy for efficient computation.
+
+- **Inputs**:
+  - A `list[dict[str, str]]` where each dictionary contains a message with a "content" key (string value).
+  - An integer `max_tokens` specifying the maximum allowed number of tokens.
+- **Output**: A `list[dict[str, str]]` containing the clipped messages, starting from the first message that ensures the total token count does not exceed `max_tokens`.
+- **Special Rules**:
+  - Tokens are approximated as the length of the "content" string divided by 3 (e.g., `len(content) // 3`).
+  - The messages are processed in reverse order, and the cumulative token count is computed using NumPy.
+  - The function clips the messages from the left, retaining only the portion that fits within the token limit.
+  - Handle edge cases: empty messages list, messages with missing or empty "content", or `max_tokens` being zero or negative.

@@ -1,0 +1,10 @@
+"""Extracts GitHub issue references from a given message.
+
+This function searches for both URLs and issue numbers in the message. It identifies GitHub issue URLs that point to the 'microsoft/wsl' repository and extracts the issue numbers. Additionally, it captures standalone issue numbers prefixed with '#'.
+
+Args:
+    message (str): The input message containing potential GitHub issue references.
+
+Returns:
+    set: A set of unique issue references, each prefixed with '#'.
+"""

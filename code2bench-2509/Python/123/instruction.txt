@@ -1,0 +1,18 @@
+"""Identifies the unclosed braces and brackets in the JSON string.
+
+This function iterates through the JSON string and tracks the opening and closing of braces `{}` and brackets `[]`. It ignores characters within string literals, ensuring that braces and brackets inside strings are not mistakenly counted. The function returns a list of unclosed elements in the order they were opened.
+
+Args:
+    json_str (str): The JSON string to analyze. The string is expected to be a valid JSON or a partial JSON string.
+
+Returns:
+    list: A list of unclosed elements in the order they were opened. Each element is either '{' or '['. If all braces and brackets are properly closed, the list will be empty.
+
+Note:
+    - The function does not validate the JSON string as a whole; it only identifies unclosed braces and brackets.
+    - Characters within string literals (enclosed in double quotes) are ignored, including escaped quotes.
+"""
+You should write code starting with:
+def _find_unclosed(json_str: str) -> list:
+    pass
+

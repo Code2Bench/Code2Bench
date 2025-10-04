@@ -1,0 +1,14 @@
+"""Recommends a timing profile based on the given confidence level.
+
+The function categorizes the confidence level into one of four timing profiles:
+- 'stealth' for confidence levels of 0.8 or higher.
+- 'conservative' for confidence levels between 0.5 and 0.8.
+- 'normal' for confidence levels between 0.2 and 0.5.
+- 'aggressive' for confidence levels below 0.2.
+
+Args:
+    confidence (float): A confidence level between 0.0 and 1.0, inclusive.
+
+Returns:
+    str: The recommended timing profile based on the confidence level. Possible values are 'stealth', 'conservative', 'normal', or 'aggressive'.
+"""

@@ -1,0 +1,19 @@
+"""Clean DDL statements for PGlite compatibility.
+
+This function processes Data Definition Language (DDL) statements to make them compatible with PGlite by removing or replacing PostgreSQL-specific features that PGlite does not support. The function performs the following transformations:
+
+1. Replaces vector column types with TEXT.
+2. Removes GIN indexes.
+3. Simplifies constraint names by removing the 'CONSTRAINT' keyword.
+4. Removes PostgreSQL-specific column constraints like '::text'.
+5. Converts TIMESTAMP WITH TIME ZONE to TIMESTAMP.
+6. Replaces SERIAL and BIGSERIAL types with INTEGER.
+
+Additionally, the function filters out lines containing unsupported PostgreSQL features such as GIN, GIST, TSVECTOR, TO_TSVECTOR, PG_TRGM, BTREE_GIN, and BTREE_GIST.
+
+Args:
+    ddl (str): The DDL statement to be cleaned.
+
+Returns:
+    str: The cleaned DDL statement compatible with PGlite.
+"""

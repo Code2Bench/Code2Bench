@@ -1,0 +1,32 @@
+"""Determines if a given gap description is of high quality based on specific criteria.
+
+This function evaluates a gap description by applying a series of checks to ensure it meets
+quality standards. The criteria include the length of the description, the presence of generic
+terms, and the meaningfulness of the content.
+
+Args:
+    gap (str): The gap description to be evaluated. Leading and trailing whitespace is removed
+               before processing.
+
+Returns:
+    bool: True if the gap description is considered high quality, False otherwise.
+
+The function performs the following checks in sequence:
+1. Length Check: The description must be at least 10 characters long after stripping whitespace.
+2. Generic Gap Check: The description must not be a generic term (e.g., 'general', 'overview').
+3. Meaningful Content Check: The description must contain at least three words.
+
+Examples:
+    >>> _is_gap_high_quality('meaningful gap analysis')
+    True
+    >>> _is_gap_high_quality('detailed analysis of the gap in the market')
+    True
+    >>> _is_gap_high_quality('general')
+    False
+    >>> _is_gap_high_quality('short')
+    False
+"""
+You should write code starting with:
+def _is_gap_high_quality(gap: str) -> bool:
+    pass
+

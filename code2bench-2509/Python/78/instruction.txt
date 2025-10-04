@@ -1,0 +1,26 @@
+"""Simple text wrapping for SVG - split into lines that fit within max_width characters.
+
+This function takes a string of text and splits it into lines such that each line does not exceed the specified maximum width in characters. The function ensures that words are not split across lines and that the text is wrapped at word boundaries.
+
+Args:
+    text (str): The input text to be wrapped.
+    max_width (int, optional): The maximum number of characters allowed per line. Defaults to 80.
+
+Returns:
+    List[str]: A list of strings, where each string represents a line of wrapped text.
+
+Examples:
+    >>> wrap_text_for_svg('Hello World', 20)
+    ['Hello World']
+    >>> wrap_text_for_svg('This is exactly twenty characters', 30)
+    ['This is exactly twenty', 'characters']
+    >>> wrap_text_for_svg('This is a long sentence that should be wrapped.', 20)
+    ['This is a long', 'sentence that should', 'be wrapped.']
+"""
+You should write code starting with:
+from typing import List
+
+def wrap_text_for_svg(text: str, max_width: int = 80) -> List[str]:
+    # TODO: Implement this function based on the docstring.
+    pass
+

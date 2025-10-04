@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+      "target": "ES6",       // 或者更高
+      "module": "commonjs",  // Jest 使用 CommonJS 模块
+      "strict": true,
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "forceConsistentCasingInFileNames": true,
+      "noImplicitAny": false
+    }
+  }

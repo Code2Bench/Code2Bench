@@ -1,0 +1,30 @@
+"""Generates a list of manual recommendations based on the specified operation and failed components.
+
+This function provides a set of manual recommendations tailored to the given operation and any failed components. It first retrieves a base set of recommendations based on the operation. Then, it appends additional recommendations specific to each failed component.
+
+Args:
+    operation (str): The type of operation for which recommendations are needed. Supported operations include 'network_discovery', 'web_discovery', 'vulnerability_scanning', and 'subdomain_enumeration'.
+    failed_components (List[str]): A list of components that have failed during the operation. Supported components include 'nmap', 'gobuster', and 'nuclei'.
+
+Returns:
+    List[str]: A list of manual recommendations. The list includes base recommendations for the operation and additional recommendations for each failed component.
+
+Examples:
+    >>> _get_manual_recommendations('network_discovery', [])
+    ['Manually test common ports using telnet or nc', 'Check for service banners manually', 'Use online port scanners as alternative']
+
+    >>> _get_manual_recommendations('web_discovery', ['nmap'])
+    ['Manually browse common directories', 'Check robots.txt and sitemap.xml', 'Use browser developer tools for endpoint discovery', 'Consider using online port scanners']
+
+    >>> _get_manual_recommendations('vulnerability_scanning', ['gobuster', 'nuclei'])
+    ['Manually test for common vulnerabilities', 'Check security headers using browser tools', 'Perform manual input validation testing', 'Try manual directory browsing', 'Perform manual vulnerability testing']
+
+    >>> _get_manual_recommendations('subdomain_enumeration', [])
+    ['Use online subdomain discovery tools', 'Check certificate transparency logs', 'Perform manual DNS queries']
+"""
+You should write code starting with:
+from typing import List
+
+def _get_manual_recommendations(operation: str, failed_components: List[str]) -> List[str]:
+    pass
+

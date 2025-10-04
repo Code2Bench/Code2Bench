@@ -1,0 +1,10 @@
+"""Filters and extracts submodule names under the 'thirdparty/' directory from `git ls-files --stage` output.
+
+This function processes lines from the `git ls-files --stage` command, specifically targeting entries with mode '160000' (indicating submodules). It filters these entries to only include those whose paths start with 'thirdparty/'. The function then extracts the first directory name under 'thirdparty/' and returns a sorted list of unique submodule names.
+
+Args:
+    ls_stage_lines (List[str]): A list of strings, each representing a line from the `git ls-files --stage` command output.
+
+Returns:
+    List[str]: A sorted list of unique submodule names found under the 'thirdparty/' directory.
+"""

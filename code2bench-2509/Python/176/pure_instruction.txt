@@ -1,0 +1,33 @@
+"""Selects specific columns from data represented as a list of dictionaries.
+
+This function processes a list of dictionaries and retains only the specified columns. It performs
+validation on the input data structure and handles errors gracefully by returning informative messages.
+
+Args:
+    current_data: The input data, expected to be a list of dictionaries. Each dictionary represents
+                  a row of data with keys as column names.
+    cols_str: A comma-separated string of column names to keep in the output data.
+    mime_type: The original MIME type of the data, which is passed through unchanged.
+    log_id: An identifier used for logging purposes.
+
+Returns:
+    Tuple: A tuple containing three elements:
+        - result_data: A list of dictionaries containing only the selected columns. If an error occurs,
+                      the original data is returned.
+        - original_mime_type: The original MIME type passed as input.
+        - error_string: A string describing any error that occurred during processing. If no error
+                       occurred, this is None.
+
+Raises:
+    This function does not raise exceptions but returns error messages as part of the tuple.
+
+Examples:
+    >>> _apply_select_cols([{'a': 1}], 'a', 'text/csv', 'log1')
+    ([{'a': 1}], 'text/csv', None)
+
+    >>> _apply_select_cols([{'a': 1, 'b': 2}], 'a,b', 'application/json', 'log2')
+    ([{'a': 1, 'b': 2}], 'application/json', None)
+
+    >>> _apply_select_cols([{'a': 1, 'b': 2}, {'a': 3, 'b': 4}], 'a,b', 'text/csv', 'log3')
+    ([{'a': 1, 'b': 2}, {'a': 3, 'b': 4}], 'text/csv', None)
+"""

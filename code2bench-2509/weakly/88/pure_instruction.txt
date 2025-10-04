@@ -1,0 +1,10 @@
+"""Parse data and update the date of the last bump in it.
+
+The function searches for a specific pattern in the input string that represents a date in the format '### HEAD as of DD.MM.YYYY ###'. It then replaces this date with the current date in the same format.
+
+Args:
+    data (str): The string to parse and update.
+
+Returns:
+    str: The input string with the current date replacing the old date in the specified pattern.
+"""

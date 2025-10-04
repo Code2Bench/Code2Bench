@@ -1,0 +1,20 @@
+"""Convert a flattened list of pixels to a 2-D grism image of that source.
+
+This function takes the coordinates and fluxes of pixels and constructs a 2-D grism image. The image is built by mapping the pixel coordinates to a sparse matrix, which is then converted to a dense array. The function also returns the bounds of the image in the original coordinate system.
+
+Parameters
+----------
+x : ndarray
+    X coordinates of pixels in the grism image.
+y : ndarray
+    Y coordinates of pixels in the grism image.
+flux : ndarray
+    Fluxes of pixels in the grism image.
+
+Returns
+-------
+tuple
+    A tuple containing two elements:
+    - A 2-D numpy array representing the grism image.
+    - A list of bounds [minx, maxx, miny, maxy] defining the image's extent in the original coordinate system.
+"""

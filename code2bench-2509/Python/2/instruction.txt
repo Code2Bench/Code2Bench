@@ -1,0 +1,10 @@
+/**
+ * Formats error messages into user-friendly notifications.
+ * 
+ * Returns:
+ *     str: A formatted error message.
+ */
+You should write code starting with:
+def format_llm_error_message(model_name: str, error_str: str) -> str:
+    pass
+

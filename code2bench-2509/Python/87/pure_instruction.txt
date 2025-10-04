@@ -1,0 +1,18 @@
+"""Enclose an executable path in quotes if it contains spaces, handling special cases for `/usr/bin/env`.
+
+This function ensures that executable paths containing spaces are properly quoted to avoid issues with command-line parsing. It handles a special case where the executable starts with `/usr/bin/env` by only quoting the subsequent part of the path, not the entire string.
+
+Args:
+    executable (str): The path to the executable, which may contain spaces.
+
+Returns:
+    str: The executable path, enclosed in quotes if necessary. If the executable starts with `/usr/bin/env`, only the subsequent part of the path is quoted.
+
+Examples:
+    >>> enquote_executable('/usr/bin/python')
+    '/usr/bin/python'
+    >>> enquote_executable('/path with spaces/python')
+    '"/path with spaces/python"'
+    >>> enquote_executable('/usr/bin/env python script')
+    '/usr/bin/env "python script"'
+"""

@@ -1,0 +1,23 @@
+from typing import List, Dict
+
+def _clip(messages: List[Dict[str, str]], max_tokens: int) -> List[Dict[str, str]]:
+    """
+    Clips a list of message dictionaries from the left to ensure the total token count does not exceed a given limit.
+
+    The function calculates the cumulative token count from the end of the list and identifies the first message that keeps 
+    the total token count within the `max_tokens` limit. Messages beyond this point are excluded.
+
+    Args:
+        messages (list[dict[str, str]]): A list of dictionaries, each containing a "content" key with a string value.
+        max_tokens (int): The maximum allowed token count.
+
+    Returns:
+        list[dict[str, str]]: A clipped list of message dictionaries, preserving messages from the right while excluding 
+        sufficient messages from the left to meet the token limit.
+
+    Notes:
+        - The token count for each message is approximated by dividing the length of its "content" string by 3.
+        - If the "content" key is missing or has a `None` value, the token count for that message is considered as 0.
+    """
+    # TODO: Implement this function
+    pass

@@ -1,0 +1,25 @@
+"""Flatten a nested dictionary or list into a single-level dictionary.
+
+This function recursively traverses a nested dictionary or list, constructing a flat dictionary where the keys are formed by concatenating the nested keys with a specified separator. The function handles both dictionaries and lists, treating list indices as keys.
+
+Args:
+    obj (Union[dict, list, Any]): The nested dictionary or list to flatten. If `obj` is neither a dictionary nor a list, it is treated as a leaf node and directly assigned to the parent key.
+    parent_key (str): The base key used to construct the new keys in the flattened dictionary. Defaults to an empty string.
+    sep (str): The separator used to concatenate keys. Defaults to '.'.
+
+Returns:
+    dict: A single-level dictionary where the keys represent the path to the values in the original nested structure.
+
+Examples:
+    >>> flatten({'a': 1})
+    {'a': 1}
+
+    >>> flatten({'a': {'b': 2}})
+    {'a.b': 2}
+
+    >>> flatten({'a': [1, 2]})
+    {'a.0': 1, 'a.1': 2}
+
+    >>> flatten([{'a': 1}, {'b': 2}])
+    {'0.a': 1, '1.b': 2}
+"""

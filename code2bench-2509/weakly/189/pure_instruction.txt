@@ -1,0 +1,12 @@
+Implement a Python function that computes camera-to-world transformation matrices from world-to-camera matrices, optionally applying a relative transformation and a global transformation matrix.
+
+- **Inputs**:
+  - A `numpy.ndarray` of world-to-camera matrices (shape: [N, 4, 4], where N is the number of matrices).
+  - A `numpy.ndarray` of shape (4, 4) representing a global transformation matrix.
+  - A boolean flag indicating whether to compute relative camera-to-world transformations (default: `True`).
+- **Output**: A `numpy.ndarray` of shape (N, 4, 4) containing the computed camera-to-world transformation matrices.
+- **Special Rules**:
+  - If the relative transformation flag is `True`, compute the camera-to-world matrices relative to the first world-to-camera matrix.
+  - If the relative transformation flag is `False`, compute the absolute camera-to-world matrices by inverting each world-to-camera matrix.
+  - Apply the global transformation matrix to all computed camera-to-world matrices.
+  - Return the result as a `numpy.ndarray` with `float32` data type.

@@ -1,0 +1,25 @@
+"""Get summary information about a chain of messages.
+
+This function processes a chain of message nodes to extract and summarize key information, including the total number of messages, the number of user and assistant messages, the tools used, and the first and last messages in the chain.
+
+Args:
+    chain (List[Dict]): A list of dictionaries, where each dictionary represents a node in the chain. Each node should contain a 'data' key with a 'messages' list.
+
+Returns:
+    Dict: A dictionary containing the following summary information:
+        - length (int): The number of nodes in the chain.
+        - total_messages (int): The total number of messages across all nodes.
+        - user_messages (int): The number of messages with the 'user' role.
+        - assistant_messages (int): The number of messages with the 'assistant' role.
+        - tools_used (List[str]): A list of unique tools used in the messages.
+        - first_message (Dict): The first message in the chain.
+        - last_message (Dict): The last message in the chain.
+"""
+You should write code starting with:
+from typing import Dict, List
+import re
+
+def get_chain_summary(chain: List[Dict]) -> Dict:
+    # TODO: Implement this function
+    pass
+

@@ -1,0 +1,34 @@
+/**
+ * Extracts the last occurrence of a boxed or fboxed string from the input string.
+ *
+ * This function searches for the last occurrence of either "\\boxed" or "\\fbox" in the input string. 
+ * If "\\boxed " is found, it returns the substring starting from "\\boxed " up to the next "$" character. 
+ * If "\\boxed" or "\\fbox" is found without the "$" character, it returns the entire boxed or fboxed content. 
+ * If the input string is empty or does not contain "\\boxed" or "\\fbox", the function returns None.
+ *
+ * Args:
+ *     string (str): The input string to search for boxed or fboxed content.
+ *
+ * Returns:
+ *     str: The last occurrence of the boxed or fboxed string, or None if neither is found or the input string is empty.
+ *
+ * Examples:
+ *     >>> last_boxed_only_string('\\boxed{value}')
+ *     '\\boxed{value}'
+ *     >>> last_boxed_only_string('\\fbox{value}')
+ *     '\\fbox{value}'
+ *     >>> last_boxed_only_string('\\boxed value$')
+ *     '\\boxed value'
+ *     >>> last_boxed_only_string('\\boxed{value} and \\fbox{another}')
+ *     '\\boxed{value}'
+ *     >>> last_boxed_only_string('\\boxed{value} and \\boxed{another}')
+ *     '\\boxed{another}'
+ *     >>> last_boxed_only_string('')
+ *     None
+ *     >>> last_boxed_only_string('no boxed content here')
+ *     None
+ */
+You should write code starting with:
+def last_boxed_only_string(string: str) -> str | None:
+    pass
+

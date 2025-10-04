@@ -1,0 +1,18 @@
+"""Parse a JSON field from the database, handling potential errors.
+
+This function takes a field that can be either a string or a dictionary and attempts to parse it into a dictionary. If the field is already a dictionary, it is returned as is. If the field is a string, it is parsed as JSON. If parsing fails, an error dictionary is returned. If the field is neither a string nor a dictionary, an error dictionary is returned indicating an invalid format.
+
+Args:
+    field (Any): The field to parse, which can be a string or a dictionary.
+
+Returns:
+    Dict[str, Any]: The parsed dictionary if successful, or an error dictionary if parsing fails or the format is invalid.
+"""
+You should write code starting with:
+from typing import Any, Dict
+import json
+
+def _parse_json_fields(field: Any) -> Dict[str, Any]:
+    # TODO: Implement this function
+    pass
+

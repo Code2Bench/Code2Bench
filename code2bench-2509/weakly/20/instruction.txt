@@ -1,0 +1,19 @@
+"""Calculates the resize factor and new dimensions for an image based on the original shape, a target pixel range, and a shape multiplier.
+
+The function determines the closest number of pixels within the specified range and calculates the resize factor to achieve this. The new dimensions are adjusted to be multiples of the shape multiplier.
+
+Args:
+    original_shape (tuple[int, int]): The original height and width of the image.
+    pixels_range (tuple[int, int]): The minimum and maximum number of pixels allowed for the resized image.
+    shape_multiplier (int, optional): The multiplier to ensure the new dimensions are divisible by this value. Defaults to 14.
+
+Returns:
+    tuple[float, tuple[int, int]]: A tuple containing the resize factor and the new height and width of the image.
+"""
+You should write code starting with:
+from math import ceil
+
+def get_resize_factor(original_shape: tuple[int, int], pixels_range: tuple[int, int], shape_multiplier: int = 14) -> tuple[float, tuple[int, int]]:
+    # TODO: Implement this function
+    pass
+

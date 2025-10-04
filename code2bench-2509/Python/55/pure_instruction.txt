@@ -1,0 +1,16 @@
+"""Determine the number of GPUs required based on the model name.
+
+This function maps specific keywords in the model name to the number of GPUs required.
+The model name is case-insensitive, as it is converted to lowercase before processing.
+The function uses a predefined mapping of GPU counts to lists of keywords. It iterates
+through the mapping in descending order of GPU counts and returns the first match found.
+If no match is found, it defaults to 8 GPUs.
+
+Args:
+    model_name (str): The name of the model, which may contain keywords indicating the
+                      number of GPUs required.
+
+Returns:
+    int: The number of GPUs required for the model. Defaults to 8 if no specific keyword
+         is found in the model name.
+"""

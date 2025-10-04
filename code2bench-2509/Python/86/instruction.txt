@@ -1,0 +1,27 @@
+"""Modifies a list of conditioning tuples by updating or appending values in their associated dictionaries.
+
+This function processes a list of conditioning tuples, where each tuple consists of a key and a dictionary. 
+It updates the dictionaries with the provided values, either by replacing the existing values or appending to them 
+based on the `append` flag.
+
+Args:
+    conditioning (List[Tuple[str, Dict[str, Any]]]): A list of tuples where each tuple contains a key and a dictionary.
+    values (Dict[str, Any], optional): A dictionary of key-value pairs to update or append in the conditioning dictionaries. 
+        Defaults to an empty dictionary.
+    append (bool, optional): If True, appends the provided values to the existing values in the dictionaries. 
+        If False, replaces the existing values with the provided ones. Defaults to False.
+
+Returns:
+    List[Tuple[str, Dict[str, Any]]]: A new list of tuples with the updated dictionaries.
+
+Note:
+    - If `append` is True and the key already exists in the dictionary, the new value is concatenated to the existing value.
+    - If `append` is False, the existing value is replaced by the new value.
+    - The function does not modify the original `conditioning` list but returns a new list with the updated dictionaries.
+"""
+You should write code starting with:
+from typing import List, Tuple, Dict, Any
+
+def conditioning_set_values(conditioning: List[Tuple[str, Dict[str, Any]]], values: Dict[str, Any] = {}, append: bool = False) -> List[Tuple[str, Dict[str, Any]]]:
+    pass
+

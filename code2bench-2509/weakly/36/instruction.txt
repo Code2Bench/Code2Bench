@@ -1,0 +1,23 @@
+"""Parse PostgreSQL URI and extract connection details.
+
+Parses a PostgreSQL URI string and extracts the connection details such as host, port, user, and database. 
+If any of these details are not provided in the URI, default values are used:
+- host defaults to 'localhost'
+- port defaults to '5432'
+- user defaults to 'mirix'
+- database defaults to 'mirix'
+
+Args:
+    uri (str): The PostgreSQL URI string to be parsed.
+
+Returns:
+    Dict[str, str]: A dictionary containing the extracted connection details with keys 'host', 'port', 'user', and 'database'.
+"""
+You should write code starting with:
+from urllib.parse import urlparse
+from typing import Dict
+
+def parse_pg_uri(uri: str) -> Dict[str, str]:
+    # TODO: Implement this function
+    pass
+

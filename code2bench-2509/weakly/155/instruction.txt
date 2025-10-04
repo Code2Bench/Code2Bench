@@ -1,0 +1,18 @@
+"""Normalizes a given tag name by converting it to a standardized format.
+
+This function processes the input string by normalizing Unicode characters, removing diacritical marks, converting to lowercase, and replacing spaces with underscores. It also filters out any characters that are not alphanumeric, underscores, periods, colons, or hyphens.
+
+Args:
+    tag_name (str): The input string representing the tag name to be normalized.
+
+Returns:
+    str: The normalized tag name in a standardized format.
+"""
+You should write code starting with:
+import re
+import unicodedata
+
+def normalize_name(tag_name: str) -> str:
+    # TODO: Implement this function
+    pass
+

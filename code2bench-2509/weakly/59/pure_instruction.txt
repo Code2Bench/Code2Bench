@@ -1,0 +1,15 @@
+"""Extracts the body of a specified function from the given source code.
+
+This function parses the source code and searches for a function definition matching the provided function name. If found, it extracts and returns the function body, excluding the function definition line and any leading indentation. If the function is not found, it returns None.
+
+Assumptions:
+- The function is defined at the top level of the source code.
+- The function is multiline.
+
+Args:
+    source_code (str): The source code containing the function definition.
+    function_name (str): The name of the function to extract.
+
+Returns:
+    Optional[str]: The extracted function body as a string, or None if the function is not found.
+"""

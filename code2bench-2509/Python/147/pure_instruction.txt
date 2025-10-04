@@ -1,0 +1,19 @@
+"""Pretty formats a time value in nanoseconds to a human-readable string.
+
+This function converts a given time value in nanoseconds to a more readable format by
+scaling it to the appropriate unit (nanoseconds, microseconds, milliseconds, or seconds)
+and formatting it with two decimal places.
+
+Args:
+    value (int): The time value in nanoseconds to be formatted.
+
+Returns:
+    str: A human-readable string representation of the time value, scaled to the
+         appropriate unit and formatted to two decimal places.
+
+The function follows these rules:
+    - If the value is less than 1000, it is returned in nanoseconds (ns).
+    - If the value is between 1000 and 999,999, it is converted to microseconds (us).
+    - If the value is between 1,000,000 and 999,999,999, it is converted to milliseconds (ms).
+    - If the value is 1,000,000,000 or greater, it is converted to seconds (s).
+"""

@@ -1,0 +1,21 @@
+"""Encode a number in base-n representation using a custom or default character table.
+
+The function converts a given integer `num` into its base-n string representation. The base `n` must be between 2 and the length of the character table. If no custom table is provided, the default table includes digits (0-9) and lowercase letters (a-z). Negative numbers are prefixed with a '-' sign.
+
+Args:
+    num (int): The integer to encode.
+    n (int): The base to use for encoding. Must be between 2 and the length of the character table.
+    table (Optional[str]): Custom character table to use for encoding. Defaults to digits and lowercase letters.
+
+Returns:
+    str: The string representation of the number in base-n.
+
+Raises:
+    ValueError: If the base `n` is outside the valid range (2 to length of the table).
+
+Examples:
+    >>> encode_base_n(255, 16)
+    'ff'
+    >>> encode_base_n(42, 36)
+    '16'
+"""

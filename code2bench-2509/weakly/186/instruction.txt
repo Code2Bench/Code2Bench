@@ -1,0 +1,18 @@
+import numpy as np
+
+def post_process_sampled_indices(*, sampled_inds_list: list, attn_map: np.ndarray, image_size: int) -> tuple:
+    """
+    Post-processes sampled indices from an attention map and normalizes them based on the image size.
+
+    Args:
+        sampled_inds_list (list): A list of sampled indices from the attention map. The indices are expected to be flattened.
+        attn_map (numpy.ndarray): The attention map from which the indices were sampled. Used for unraveling the indices into coordinates.
+        image_size (int): The size of the image to normalize the indices. Assumes square images.
+
+    Returns:
+        tuple:
+            - inds (numpy.ndarray): 2D array of unraveled indices as coordinates in the attention map, with shape (n, 2).
+            - inds_normalised (list): List of normalized coordinates where each coordinate is represented as `[x/image_size, y/image_size]`.
+    """
+    # TODO: Implement this function
+    pass

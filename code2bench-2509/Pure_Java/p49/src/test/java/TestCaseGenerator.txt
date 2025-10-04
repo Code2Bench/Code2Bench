@@ -1,0 +1,110 @@
+package p49;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import java.io.*;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
+import net.jqwik.api.*;
+import net.jqwik.api.lifecycle.AfterContainer;
+import p49.GroundTruth;
+
+public class TestCaseGenerator {
+
+    static class TestCase {
+        Map<String, Object> Inputs;
+        Object Expected;
+        TestCase(Map<String, Object> inputs, Object expected) {
+            this.Inputs = inputs;
+            this.Expected = expected;
+        }
+    }
+
+    static List<TestCase> generatedCases = new ArrayList<>();
+    static AtomicInteger caseCount = new AtomicInteger(0);
+    static final int MAX_CASES = 500;
+
+    @Property(tries = 10000)
+    void generateTestCases(@ForAll("bytes") long bytes, @ForAll("targetUnit") String targetUnit) {
+        if (caseCount.get() >= MAX_CASES) {
+            return;
+        }
+
+        double result;
+        try {
+            result = GroundTruth.convertBytes(bytes, targetUnit);
+        } catch (Exception e) {
+            if (!targetUnit.equals("KB") && !targetUnit.equals("MB") && !targetUnit.equals("GB") && !targetUnit.equals("TB") && !targetUnit.equals("PB")) {
+                Map<String, Object> inputs = new LinkedHashMap<>();
+                inputs.put("bytes", bytes);
+                inputs.put("targetUnit", targetUnit);
+                generatedCases.add(new TestCase(inputs, "Unsupported target unit: " + targetUnit));
+                caseCount.incrementAndGet();
+            }
+            return;
+        }
+
+        Map<String, Object> inputs = new LinkedHashMap<>();
+        inputs.put("bytes", bytes);
+        inputs.put("targetUnit", targetUnit);
+        generatedCases.add(new TestCase(inputs, result));
+        caseCount.incrementAndGet();
+    }
+
+    @Example
+    void example1() {
+        generateTestCases(1024L, "KB");
+    }
+
+    @Example
+    void example2() {
+        generateTestCases(1048576L, "MB");
+    }
+
+    @Example
+    void example3() {
+        generateTestCases(1073741824L, "GB");
+    }
+
+    @Example
+    void example4() {
+        generateTestCases(1099511627776L, "TB");
+    }
+
+    @Example
+    void example5() {
+        generateTestCases(1125899906842624L, "PB");
+    }
+
+    @Example
+    void example6() {
+        generateTestCases(1024L, "UNSUPPORTED");
+    }
+
+    @Provide
+    Arbitrary<Long> bytes() {
+        return Arbitraries.longs().between(0, Long.MAX_VALUE);
+    }
+
+    @Provide
+    Arbitrary<String> targetUnit() {
+        return Arbitraries.of("KB", "MB", "GB", "TB", "PB", "UNSUPPORTED");
+    }
+
+    @AfterContainer
+    static void saveTestCases() throws IOException {
+        if (generatedCases.isEmpty()) {
+            return;
+        }
+        String dirPath = "src/test/java/test_cases";
+        File dir = new File(dirPath);
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+        String filePath = dirPath + "/test_cases.json";
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        try (Writer writer = new FileWriter(filePath)) {
+            gson.toJson(generatedCases, writer);
+        }
+        System.out.println("✅ Saved " + generatedCases.size() + " test cases to " + filePath);
+    }
+}

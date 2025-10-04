@@ -1,0 +1,18 @@
+"""Parse a diff.txt file to extract changed lines per file.
+
+This function reads a diff.txt file and identifies the lines that have been changed for each file. It uses the diff format to determine the starting line and the number of lines changed, then records these lines for each file.
+
+Args:
+    diff_txt_path (str): The path to the diff.txt file to be parsed.
+
+Returns:
+    defaultdict: A dictionary where keys are file names and values are sets of line numbers that have been changed in those files.
+"""
+You should write code starting with:
+from collections import defaultdict
+import re
+
+def get_changed_lines_from_file(diff_txt_path: str) -> defaultdict:
+    # TODO: Implement this function
+    pass
+

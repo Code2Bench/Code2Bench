@@ -1,0 +1,28 @@
+"""Remove trailing JSON delimiters that can leak into assistant text.
+
+This function is designed to clean up message strings that may have trailing JSON
+delimiters due to streaming. It specifically handles cases where a message string
+is immediately followed by a JSON delimiter in the stream (e.g., '"', '",', '"}', '" ]').
+Internal commas within the message are preserved.
+
+Args:
+    text (str): The input string that may contain trailing JSON delimiters.
+
+Returns:
+    str: The sanitized string with trailing JSON delimiters removed. If the input
+         string is empty, it is returned as is.
+
+Examples:
+    >>> sanitize_streamed_message_content('Hello, world!",')
+    'Hello, world!'
+    >>> sanitize_streamed_message_content('Hello, world!"}')
+    'Hello, world!'
+    >>> sanitize_streamed_message_content('Hello, world!" ]')
+    'Hello, world!" ]'
+    >>> sanitize_streamed_message_content('Hello, world!"')
+    'Hello, world!'
+"""
+You should write code starting with:
+def sanitize_streamed_message_content(text: str) -> str:
+    pass
+

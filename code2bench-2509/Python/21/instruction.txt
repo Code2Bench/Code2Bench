@@ -1,0 +1,25 @@
+/**
+ * Processes a string containing LaTeX fractions to ensure proper formatting.
+
+ * This function takes a string that may contain LaTeX fractions (denoted by `\\frac`) and ensures that each fraction is properly formatted with curly braces around the numerator and denominator. If a fraction is already correctly formatted, it is left unchanged. If a fraction is not properly formatted, the function attempts to correct it by adding the necessary curly braces.
+
+ * Args:
+ *     string (str): The input string containing LaTeX fractions.
+
+ * Returns:
+ *     str: The processed string with all fractions properly formatted.
+
+ * Examples:
+ *     >>> fix_fracs('\\fracab')
+ *     '\\frac{a}{b}'
+ *     >>> fix_fracs('\\frac{a}{b}')
+ *     '\\frac{a}{b}'
+ *     >>> fix_fracs('\\frac{a}{b}\\frac{c}d')
+ *     '\\frac{a}{b}\\frac{c}d'
+ *     >>> fix_fracs('\\frac{a}{b}\\frac{c}{d}\\frac{e}{f}')
+ *     '\\frac{a}{b}\\frac{c}{d}\\frac{e}{f}'
+ */
+You should write code starting with:
+def fix_fracs(string: str) -> str:
+    pass
+

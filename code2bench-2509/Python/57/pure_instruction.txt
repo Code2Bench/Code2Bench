@@ -1,0 +1,21 @@
+"""Parses a string of key-value pairs into a dictionary, with automatic type conversion.
+
+This function takes a string of comma-separated key-value pairs and converts it into a
+dictionary. The values are automatically converted to their appropriate types (int, float,
+bool, or str). Nested keys are supported using dot notation (e.g., 'parent.child=value').
+
+Args:
+    hp_string (str): A string of comma-separated key-value pairs (e.g., 'key1=value1,key2=value2').
+
+Returns:
+    dict: A dictionary where keys are the parsed keys and values are the parsed and
+          type-converted values. Nested keys are represented as nested dictionaries.
+
+Example:
+    >>> parse_hp_string('key1=123,key2=456.789')
+    {'key1': 123, 'key2': 456.789}
+    >>> parse_hp_string('key1=true,key2=false')
+    {'key1': True, 'key2': False}
+    >>> parse_hp_string('parent.child=value')
+    {'parent': {'child': 'value'}}
+"""

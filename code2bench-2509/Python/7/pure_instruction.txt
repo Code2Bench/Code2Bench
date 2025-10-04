@@ -1,0 +1,20 @@
+"""Strip LaTeX formatting from a given string.
+
+This function removes common LaTeX formatting elements from a string. It specifically handles:
+- Strings wrapped in `$` symbols (e.g., `$x$` becomes `x`).
+- Strings wrapped in `boxed{}` (e.g., `boxed{x}` becomes `x`).
+- Strings wrapped in `text{}` (e.g., `text{x}` becomes `x`).
+- Strings wrapped in `texttt{}` (e.g., `texttt{x}` becomes `x`).
+
+The function processes the string in a specific order:
+1. Removes `$` symbols if the string starts and ends with them.
+2. Removes `boxed{}` if present and the string ends with `}`.
+3. Removes `text{}` if present and the string ends with `}`.
+4. Removes `texttt{}` if present and the string ends with `}`.
+
+Args:
+    response (str): The string containing LaTeX formatting to be stripped.
+
+Returns:
+    str: The string with LaTeX formatting removed.
+"""

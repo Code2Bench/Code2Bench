@@ -1,0 +1,13 @@
+"""Given the contents of an entry-points file, process it into a 2-level dictionary.
+
+The first level keys are entry-point groups, the second level keys are entry-point names, 
+and the second level values are references to objects (that correspond to the entry-point value).
+
+Args:
+    text (str): The contents of the entry-points file.
+    text_source (str, optional): The source identifier for the text. Defaults to "entry-points".
+
+Returns:
+    dict[str, dict[str, str]]: A 2-level dictionary where the first level keys are entry-point groups,
+    the second level keys are entry-point names, and the second level values are references to objects.
+"""

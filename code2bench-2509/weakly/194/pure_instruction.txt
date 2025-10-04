@@ -1,0 +1,11 @@
+Implement a Python function that calculates the proportion of repeated n-grams in a given text.
+
+- **Inputs**:
+  - A string `text` containing the input text.
+  - An integer `n` specifying the length of the n-grams.
+- **Output**: A float representing the proportion of repeated n-grams in the text.
+- **Special Rules**:
+  - Split the text into words and generate all possible n-grams of length `n`.
+  - Count the occurrences of each n-gram using a `Counter`.
+  - Calculate the proportion of n-grams that appear more than once.
+  - Return 0 if no n-grams are generated (e.g., if the text is empty or `n` is larger than the number of words).

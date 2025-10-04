@@ -1,0 +1,22 @@
+from typing import List
+import numpy as np
+
+def get_c2w(w2cs: List[np.ndarray], transform_matrix: np.ndarray, relative_c2w: bool = True) -> np.ndarray:
+    """
+    Calculates camera-to-world (c2w) transformations from world-to-camera (w2c) matrices, with optional relative transformations.
+
+    Args:
+        w2cs (List[np.ndarray]): A list of 4x4 world-to-camera transformation matrices.
+        transform_matrix (np.ndarray): A 4x4 matrix applied to transform the resulting c2w matrices.
+        relative_c2w (bool): If True, computes c2w matrices relative to the first camera in the list. If False, computes absolute c2w matrices.
+
+    Returns:
+        np.ndarray: A NumPy array of 4x4 camera-to-world matrices transformed by the `transform_matrix`.
+
+    Special Rules:
+        - When `relative_c2w` is True, the function computes relative transformations using the first camera as a reference.
+        - The `transform_matrix` is applied to all resulting c2w matrices before returning the result.
+        - All matrices are converted to type `np.float32` before being returned.
+    """
+    # TODO: Implement this function
+    pass

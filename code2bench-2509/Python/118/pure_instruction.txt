@@ -1,0 +1,25 @@
+"""Convert a large integer into a human-readable string with appropriate scale labels.
+
+This function takes an integer and converts it into a more readable format by appending
+a scale label (K for thousand, M for million, B for billion, T for trillion) and rounding
+to two decimal places. If the number is less than 1,000, it is returned as is. Negative
+numbers are also returned as is without any scaling.
+
+Args:
+    n (int): The integer to be converted.
+
+Returns:
+    str: A string representation of the number with an appropriate scale label if applicable.
+
+Examples:
+    >>> human_count(999)
+    '999'
+    >>> human_count(1000)
+    '1.00K'
+    >>> human_count(1000000)
+    '1.00M'
+    >>> human_count(1000000000)
+    '1.00B'
+    >>> human_count(1000000000000)
+    '1.00T'
+"""

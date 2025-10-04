@@ -1,0 +1,24 @@
+"""Parses a TLV (Type-Length-Value) structure from a binary buffer.
+
+The function extracts the type, length, and value from the buffer, and also returns the remaining buffer after the TLV structure. The buffer is expected to be in big-endian format, and the length is used to determine the value and any padding required to align to a 4-byte boundary.
+
+Args:
+    buf (bytes): A binary buffer containing the TLV structure. The buffer must be at least 4 bytes long to extract the type and length.
+
+Returns:
+    tuple: A tuple containing:
+        - t (int): The type extracted from the buffer.
+        - l_ (int): The length of the value extracted from the buffer.
+        - v (bytes): The value extracted from the buffer.
+        - buf (bytes): The remaining buffer after the TLV structure and any padding.
+
+Note:
+    The function assumes the buffer is in big-endian format and that the length field is 2 bytes long.
+"""
+You should write code starting with:
+import struct
+
+def tlv(buf: bytes) -> tuple[int, int, bytes, bytes]:
+    # TODO: Implement this function
+    pass
+

@@ -1,0 +1,11 @@
+Implement a Python function that appends shifted versions of a DataFrame's columns to itself, based on a list of specified shift values.
+
+- **Inputs**:
+  - A `pandas.DataFrame` containing the data to be processed.
+  - A `List[int]` of shift values, where each value specifies how many rows to shift the DataFrame's columns.
+- **Output**: A `pandas.DataFrame` where the original columns are appended with shifted versions of themselves, based on the provided shift values.
+- **Special Rules**:
+  - If the list of shifts is empty, return the original DataFrame unchanged.
+  - For each shift value, create a new DataFrame where all columns are shifted by the specified number of rows.
+  - Append these shifted DataFrames to the original DataFrame, maintaining the original column names.
+  - Handle edge cases: empty DataFrame, shifts larger than the number of rows, or negative shifts.

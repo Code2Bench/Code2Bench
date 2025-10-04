@@ -1,0 +1,17 @@
+"""Removes all lines within and including the SEMANTIC INDEX section from the input content.
+
+This function processes a multi-line string and removes any lines that are part of a SEMANTIC INDEX section. 
+A SEMANTIC INDEX section is identified by a line starting with '## SEMANTIC INDEX'. The section continues until 
+the next line that starts with '##' but is not '## SEMANTIC INDEX'. The function preserves all other lines 
+outside of these sections.
+
+Args:
+    content (str): The input string containing the content to be processed.
+
+Returns:
+    str: The processed string with all SEMANTIC INDEX sections removed.
+
+Note:
+    - If the input content contains multiple SEMANTIC INDEX sections, all of them will be removed.
+    - Lines outside of SEMANTIC INDEX sections are preserved in their original order.
+"""

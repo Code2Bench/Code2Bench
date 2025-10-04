@@ -1,0 +1,19 @@
+import math
+
+def total_byte_entropy_stats(python_code: str) -> dict:
+    """
+    Calculates the total byte entropy of a given Python code string.
+
+    The function encodes the input Python code string into UTF-8 bytes, counts the occurrences
+    of each byte, and computes the entropy based on their frequency distribution. The entropy
+    is a measure of the randomness or unpredictability of the byte distribution.
+
+    Args:
+        python_code (str): A string representing Python code.
+
+    Returns:
+        dict: A dictionary containing a single key, 'total_byte_entropy', which maps to
+            the computed entropy value as a float.
+    """
+    # TODO: Implement this function
+    pass

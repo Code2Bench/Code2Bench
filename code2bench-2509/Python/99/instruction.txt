@@ -1,0 +1,32 @@
+"""Convert a given number of bytes into a human-readable string format.
+
+This function takes an integer representing a number of bytes and converts it into a more readable format, using appropriate units (B, KB, MB, GB, TB). The function uses a series of conditional checks to determine the appropriate unit and formats the result to two decimal places.
+
+Args:
+    bytes (int): The number of bytes to be formatted.
+
+Returns:
+    str: A string representing the bytes in a human-readable format, with the appropriate unit appended.
+
+Examples:
+    >>> format_bytes_to_human_readable(500)
+    '500 B'
+    >>> format_bytes_to_human_readable(1000)
+    '1000 B'
+    >>> format_bytes_to_human_readable(500000)
+    '500.00 KB'
+    >>> format_bytes_to_human_readable(1000000)
+    '1000.00 KB'
+    >>> format_bytes_to_human_readable(500000000)
+    '500.00 MB'
+    >>> format_bytes_to_human_readable(1000000000)
+    '1000.00 MB'
+    >>> format_bytes_to_human_readable(500000000000)
+    '500.00 GB'
+    >>> format_bytes_to_human_readable(1000000000000)
+    '1000.00 GB'
+"""
+You should write code starting with:
+def format_bytes_to_human_readable(bytes: int) -> str:
+    pass
+

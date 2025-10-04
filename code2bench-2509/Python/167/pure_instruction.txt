@@ -1,0 +1,23 @@
+"""Compute the new version based on the previous value and specified increments.
+
+This function takes a version string represented as a list of strings and a tuple of integers
+indicating which parts of the version to increment. It returns a new version string as a list
+of strings. When a part is incremented, all subsequent parts are reset to "0".
+
+Args:
+    old_version (List[str]): The parts of the version string for the last release.
+    increment (Tuple[int]): A tuple of integers indicating which positions to increment.
+
+Returns:
+    List[str]: The new version parts after applying the increments.
+
+Example:
+    >>> increment_version(['1', '0', '0'], (1, 0, 0))
+    ['2', '0', '0']
+    >>> increment_version(['1', '2', '3'], (0, 1, 0))
+    ['1', '3', '0']
+    >>> increment_version(['9', '9', '9'], (0, 0, 1))
+    ['9', '9', '10']
+    >>> increment_version(['1', '0', '0'], (0, 0, 0))
+    ['1', '0', '0']
+"""

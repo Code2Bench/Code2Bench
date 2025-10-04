@@ -1,0 +1,23 @@
+/**
+ * Removes duplicate items from a list based on a specific key.
+ *
+ * This function processes a list of items, where each item is a tuple containing four elements: 
+ * two integers and two tuples of integers. The function removes duplicates by considering the 
+ * combination of the first and third elements of each tuple as a key. If the combination of the 
+ * first and third elements has been seen before, the item is skipped. Otherwise, the item is 
+ * added to the result list.
+ *
+ * Args:
+ *     data_list (List[Tuple[int, Tuple[int, int], int, Tuple[int, int]]]): A list of tuples, where each tuple 
+ *     contains four elements: two integers and two tuples of integers.
+ *
+ * Returns:
+ *     List[Tuple[int, Tuple[int, int], int, Tuple[int, int]]]: A list of tuples with duplicates removed based 
+ *     on the combination of the first and third elements of each tuple.
+ */
+You should write code starting with:
+from typing import List, Tuple
+
+def remove_duplicates(data_list: List[Tuple[int, Tuple[int, int], int, Tuple[int, int]]]) -> List[Tuple[int, Tuple[int, int], int, Tuple[int, int]]]:
+    pass
+

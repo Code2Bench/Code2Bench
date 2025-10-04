@@ -1,0 +1,21 @@
+"""Separates a dictionary of parameters into two dictionaries based on specified patterns.
+
+This function takes a dictionary of parameters and separates them into two dictionaries: one for normal parameters and one for parameters that match any of the specified B patterns. The B patterns are used to identify keys in the parameters dictionary that should be moved to the `parameters_B` dictionary.
+
+Args:
+    parameters (Dict[str, Any]): A dictionary of parameters where keys are strings and values can be of any type.
+    B_patterns (Optional[List[str]]): A list of string patterns used to identify keys that should be moved to the `parameters_B` dictionary. If not provided, defaults to ['.lora_B.', '__zero__'].
+
+Returns:
+    Tuple[Dict[str, Any], Dict[str, Any]]: A tuple containing two dictionaries:
+        - The first dictionary contains parameters that do not match any of the B patterns.
+        - The second dictionary contains parameters that match any of the B patterns.
+
+Example:
+    >>> parameters = {'key.lora_B.key': 1.0, 'key': 2.0}
+    >>> normal_params, b_params = separate_lora_AB(parameters)
+    >>> normal_params
+    {'key': 2.0}
+    >>> b_params
+    {'key.lora_B.key': 1.0}
+"""

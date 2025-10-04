@@ -1,0 +1,32 @@
+"""Format multi-turn conversation into a prompt string suitable for chat models using Qwen2 style.
+
+This function processes a list of message dictionaries, each containing a 'role' and 'content' key, and formats them into a single prompt string. The formatting uses specific tokens `<|im_start|>` and `<|im_end|>` to denote the start and end of each message. The function appends a final `<|im_start|>assistant\n` token to indicate the start of the assistant's response.
+
+Args:
+    messages (List[Dict[str, str]]): A list of message dictionaries where each dictionary contains:
+        - 'role' (str): The role of the message sender, either 'user' or 'assistant'.
+        - 'content' (str): The content of the message.
+
+Returns:
+    str: A formatted prompt string with each message enclosed in `<|im_start|>` and `<|im_end|>` tokens, followed by a final `<|im_start|>assistant\n` token.
+
+Example:
+    >>> messages = [{'role': 'user', 'content': 'Hello'}]
+    >>> format_chat_prompt(messages)
+    '<|im_start|>user\nHello<|im_end|>\n<|im_start|>assistant\n'
+
+    >>> messages = [{'role': 'assistant', 'content': 'Hi there!'}]
+    >>> format_chat_prompt(messages)
+    '<|im_start|>assistant\nHi there!<|im_end|>\n<|im_start|>assistant\n'
+
+    >>> messages = [{'role': 'user', 'content': 'How are you?'}, {'role': 'assistant', 'content': "I'm fine, thank you!"}]
+    >>> format_chat_prompt(messages)
+    "<|im_start|>user\nHow are you?<|im_end|>\n<|im_start|>assistant\nI'm fine, thank you!<|im_end|>\n<|im_start|>assistant\n"
+"""
+You should write code starting with:
+from typing import List, Dict
+
+def format_chat_prompt(messages: List[Dict[str, str]]) -> str:
+    # TODO: Implement this function based on the docstring.
+    pass
+

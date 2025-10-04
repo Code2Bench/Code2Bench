@@ -1,0 +1,17 @@
+"""Groups sentences into chunks with optional overlap, ensuring each chunk does not exceed a specified maximum size.
+
+This function processes a list of sentences and combines them into chunks, where each chunk is a string of concatenated sentences. The length of each chunk (in characters) does not exceed `max_chunk_size`. If `overlap_sentences` is greater than zero, the last `overlap_sentences` sentences of the previous chunk are included at the start of the next chunk to ensure continuity.
+
+Args:
+    sentences (List[str]): A list of sentences to be chunked.
+    max_chunk_size (int): The maximum allowed length (in characters) for each chunk.
+    overlap_sentences (int): The number of sentences to overlap between consecutive chunks. If zero, no overlap is applied.
+
+Returns:
+    List[str]: A list of chunks, where each chunk is a string of concatenated sentences.
+
+Note:
+    - The function ensures that the length of each chunk does not exceed `max_chunk_size` by splitting sentences appropriately.
+    - If `overlap_sentences` is greater than zero, the overlapping sentences are included at the start of the next chunk.
+    - The function handles edge cases such as empty input lists gracefully.
+"""

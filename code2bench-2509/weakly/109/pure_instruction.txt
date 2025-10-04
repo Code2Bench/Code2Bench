@@ -1,0 +1,10 @@
+"""Format Unix timestamp to ISO format string.
+
+This function takes a Unix timestamp in milliseconds and converts it to an ISO format string. If the input timestamp is None, the function returns None. If the conversion fails due to an exception, the function returns an error message as a string.
+
+Args:
+    timestamp (Optional[int]): Unix timestamp in milliseconds. If None, the function returns None.
+
+Returns:
+    Optional[str]: ISO format string representation of the timestamp, or an error message as a string if conversion fails.
+"""

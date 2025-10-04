@@ -1,0 +1,18 @@
+import pandas as pd
+
+def _is_categorical(values: Iterable) -> bool:
+    """
+    Determine if the input values are categorical based on their inferred data type.
+
+    The function attempts to infer the data type of the input values using pandas' `convert_dtypes` method
+    and checks whether the inferred type corresponds to categories such as "category", "string", or "boolean".
+    If the data type matches one of these categories, the function returns `True`. Otherwise, it returns `False`.
+
+    Args:
+        values (iterable): An iterable containing the values to check. It can be a list, tuple, or other iterable.
+
+    Returns:
+        bool: `True` if the input values are inferred to be categorical, otherwise `False`.
+    """
+    # TODO: Implement this function
+    pass

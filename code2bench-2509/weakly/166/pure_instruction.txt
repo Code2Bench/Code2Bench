@@ -1,0 +1,10 @@
+"""Computes the first-order approximation of a rotation matrix from a rotation vector.
+
+The function constructs a 3x3 rotation matrix using the first-order terms of the rotation vector. The diagonal elements are set to 1.0, and the off-diagonal elements are derived from the components of the rotation vector.
+
+Args:
+    rotvec (np.ndarray): A 3-element rotation vector representing the rotation.
+
+Returns:
+    np.ndarray: A 3x3 rotation matrix as a first-order approximation.
+"""

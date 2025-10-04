@@ -1,0 +1,13 @@
+"""Determine if a period is truly annual (300-400 days).
+
+Annual periods should be approximately one year, allowing for:
+- Leap years (366 days)
+- Slight variations in fiscal year end dates
+- But rejecting multi-year cumulative periods
+
+Args:
+    period (Dict): A dictionary containing 'start_date' and 'end_date' keys with date strings in 'YYYY-MM-DD' format.
+
+Returns:
+    bool: True if the period duration is between 300 and 400 days (inclusive), False otherwise or if an error occurs.
+"""

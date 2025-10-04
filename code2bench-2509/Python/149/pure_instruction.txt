@@ -1,0 +1,22 @@
+"""Convert a duration in seconds into a human-readable string format.
+
+The function formats the given duration in seconds into a more readable string, 
+representing the duration in days, hours, minutes, or seconds, depending on the 
+magnitude of the input. The function handles edge cases such as durations less 
+than 1 second and ensures the output is grammatically correct (e.g., '1 min' 
+instead of '1 mins').
+
+Args:
+    secs (float): The duration in seconds to be formatted. Must be a non-negative 
+                 number.
+
+Returns:
+    str: A human-readable string representing the duration. The string will be in 
+         one of the following formats: 'X days', 'X hrs', 'X mins', 'X secs', or 
+         '0 secs' if the duration is less than 1 second. If an error occurs during 
+         processing, an empty string is returned.
+
+Raises:
+    This function does not explicitly raise exceptions but returns an empty string 
+    if an error occurs during processing.
+"""

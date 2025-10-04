@@ -1,0 +1,26 @@
+"""Group messages into "steps" based on user interactions.
+
+This function processes a list of message dictionaries and groups them into steps, where each step ends with a user message. This mimics the pagination behavior seen in the UI.
+
+Args:
+    messages (list[dict]): A list of message dictionaries, where each dictionary contains at least a 'role' key indicating the sender (e.g., 'user' or 'assistant').
+
+Returns:
+    list[list[dict]]: A list of steps, where each step is a list of message dictionaries. Each step ends with a user message, and all messages following a user message (until the next user message) are grouped into the same step.
+
+Example:
+    >>> _messages_to_steps([{'role': 'user', 'content': 'Hello'}])
+    [[{'role': 'user', 'content': 'Hello'}]]
+    >>> _messages_to_steps([{'role': 'user', 'content': 'Hello'}, {'role': 'assistant', 'content': 'Hi there'}])
+    [[{'role': 'user', 'content': 'Hello'}], [{'role': 'assistant', 'content': 'Hi there'}]]
+    >>> _messages_to_steps([{'role': 'assistant', 'content': 'Hi there'}, {'role': 'user', 'content': 'Hello'}])
+    [[{'role': 'assistant', 'content': 'Hi there'}, {'role': 'user', 'content': 'Hello'}]]
+    >>> _messages_to_steps([{'role': 'user', 'content': 'Hello'}, {'role': 'user', 'content': 'Hi there'}])
+    [[{'role': 'user', 'content': 'Hello'}], [{'role': 'user', 'content': 'Hi there'}]]
+"""
+You should write code starting with:
+from typing import List, Dict
+
+def _messages_to_steps(messages: List[Dict]) -> List[List[Dict]]:
+    pass
+

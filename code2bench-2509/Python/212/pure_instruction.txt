@@ -1,0 +1,18 @@
+"""Convert JSON list to list of selected values.
+
+This function processes a value that can be in various formats and converts it into a list. 
+The function handles the following cases:
+- If the value is `None` or an empty string, it returns an empty list.
+- If the value is already a list, it returns the list as is.
+- If the value is a string, it treats it as a comma-separated list of values, strips whitespace, 
+  converts each value to lowercase, and returns a list of these processed values.
+- For any other type of value, it returns the value unchanged.
+
+Args:
+    value (Any): The input value to be processed. Can be `None`, a string, a list, or any other type.
+
+Returns:
+    List[Any]: A list of processed values. If the input is `None` or an empty string, returns an empty list. 
+    If the input is a list, returns the list unchanged. If the input is a string, returns a list of 
+    processed values. For any other type, returns the value unchanged.
+"""

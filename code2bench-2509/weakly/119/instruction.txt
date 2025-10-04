@@ -1,0 +1,17 @@
+"""Calculate and format summary statistics for a time series.
+
+This function computes key statistical measures (count, maximum, minimum, mean, and median) for a given time series and formats the results into a markdown string. If the input time series is empty, it returns a message indicating no data points.
+
+Args:
+    ts (list): List of numeric values representing a time series.
+
+Returns:
+    str: Markdown formatted string containing summary statistics. If the input list is empty, returns "No data points".
+"""
+You should write code starting with:
+import statistics
+
+def _timeseries_stats(ts: list) -> str:
+    # TODO: Implement this function
+    pass
+

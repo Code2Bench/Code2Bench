@@ -1,0 +1,19 @@
+"""Detect and normalize Unicode homograph characters used to bypass security checks.
+
+This function checks for the presence of Unicode homograph characters in the input text and normalizes them to their Latin equivalents. It also applies Unicode NFKD normalization to further standardize the text.
+
+Args:
+    text (str): The input text to be checked for homograph characters.
+
+Returns:
+    tuple[bool, str]: A tuple containing:
+        - has_homographs (bool): True if the text contains any homograph characters, False otherwise.
+        - normalized_text (str): The text with homograph characters replaced by their Latin equivalents and normalized using Unicode NFKD.
+"""
+You should write code starting with:
+import unicodedata
+
+def detect_unicode_homographs(text: str) -> tuple[bool, str]:
+    # TODO: Implement this function
+    pass
+

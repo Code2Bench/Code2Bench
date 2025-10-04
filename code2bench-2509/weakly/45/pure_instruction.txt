@@ -1,0 +1,13 @@
+"""Get all pairs of names that have a charge difference of 1.
+
+Assumes that the names are in the format "name_charge_spin", where `charge` is an integer
+representing the charge and `spin` is an integer representing the spin. The function extracts
+the charge from each name and checks if the absolute difference between the charges is exactly 1.
+
+Args:
+    names (List[str]): A list of strings where each string follows the format "name_charge_spin".
+
+Returns:
+    List[Tuple[str, str]]: A list of tuples, where each tuple contains a pair of names whose
+    charges differ by exactly 1.
+"""

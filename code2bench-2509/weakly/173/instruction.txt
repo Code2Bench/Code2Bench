@@ -1,0 +1,22 @@
+"""Smooths a depth map by applying a minimum filter.
+
+The function processes a depth map by replacing zero values with a large constant (1e5), 
+applies a minimum filter with a kernel size of 11 to smooth the depth map, and then 
+restores the zero values by replacing the large constant back to zero.
+
+Args:
+    depth (numpy.ndarray): A 2D array representing the depth map. Zero values in the 
+        depth map are treated as missing or invalid data.
+
+Returns:
+    numpy.ndarray: A smoothed 2D depth map with the same shape as the input, where 
+        zero values are preserved.
+"""
+You should write code starting with:
+import scipy.ndimage
+import numpy as np
+
+def smooth_depth(depth: np.ndarray) -> np.ndarray:
+    # TODO: Implement this function
+    pass
+

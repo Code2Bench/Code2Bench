@@ -1,0 +1,23 @@
+"""Calculate timing statistics from a list of execution times.
+
+This function computes key statistical measures including mean, median, standard deviation, minimum, and maximum from a list of execution times. If the input list is empty, it returns a dictionary with all values set to 0.
+
+Args:
+    times (list[float]): A list of execution times as floating-point numbers.
+
+Returns:
+    dict[str, float]: A dictionary containing the following keys:
+        - 'mean': The arithmetic mean of the execution times.
+        - 'median': The median of the execution times.
+        - 'std_dev': The standard deviation of the execution times. Returns 0 if the list contains fewer than 2 elements.
+        - 'min': The minimum execution time.
+        - 'max': The maximum execution time.
+
+Examples:
+    >>> times = [1.0, 2.0, 3.0, 4.0, 5.0]
+    >>> stats = calculate_stats(times)
+    >>> stats['mean']
+    3.0
+    >>> stats['median']
+    3.0
+"""

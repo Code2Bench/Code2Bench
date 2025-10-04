@@ -1,0 +1,17 @@
+package p19;
+
+public class Tested {
+    /**
+     * Converts a byte array into a hexadecimal string representation. Each byte is converted to a two-digit
+     * hexadecimal value. If the hexadecimal representation of a byte is a single digit, a leading zero is
+     * appended to ensure it is two digits long.
+     *
+     * @param hash The byte array to be converted. Must not be null.
+     * @return A string representing the hexadecimal value of the byte array. The length of the string will
+     *         be exactly twice the length of the input byte array.
+     * @throws NullPointerException if the input byte array is null.
+     */
+    public static String bytesToHex(byte[] hash) {
+        // TODO: implement this method
+    }
+}

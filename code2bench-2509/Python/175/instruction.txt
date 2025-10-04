@@ -1,0 +1,28 @@
+"""Groups lines of an SDP (Session Description Protocol) string into session and media sections.
+
+This function processes an SDP string by splitting it into lines and categorizing each line into either the session section or one of the media sections. Lines starting with "m=" are considered media lines, and all subsequent lines until the next "m=" line are grouped under that media section. Lines before the first "m=" line are considered part of the session section.
+
+Args:
+    sdp (str): The SDP string to be processed.
+
+Returns:
+    tuple[list[str], list[list[str]]]: A tuple containing two elements:
+        - The first element is a list of strings representing the session section.
+        - The second element is a list of lists of strings, where each inner list represents a media section.
+
+Example:
+    >>> grouplines('m=audio 49170 RTP/AVP 0')
+    ([], [['m=audio 49170 RTP/AVP 0']])
+    >>> grouplines('m=video 51372 RTP/AVP 99\\na=rtpmap:99 h263-1998/90000')
+    ([], [['m=video 51372 RTP/AVP 99', 'a=rtpmap:99 h263-1998/90000']])
+    >>> grouplines('c=IN IP4 192.0.2.3\\nm=audio 49170 RTP/AVP 0')
+    (['c=IN IP4 192.0.2.3'], [['m=audio 49170 RTP/AVP 0']])
+    >>> grouplines('s=Session SDP\\nt=0 0\\nm=audio 49170 RTP/AVP 0')
+    (['s=Session SDP', 't=0 0'], [['m=audio 49170 RTP/AVP 0']])
+"""
+You should write code starting with:
+from typing import List, Tuple
+
+def grouplines(sdp: str) -> Tuple[List[str], List[List[str]]]:
+    pass
+

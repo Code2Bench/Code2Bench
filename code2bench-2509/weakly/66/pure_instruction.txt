@@ -1,0 +1,22 @@
+"""Parse a response string formatted with specific XML-like tags into a structured dictionary.
+
+The response is expected to follow the format: `<think><reasoning>...</reasoning><prediction>...</prediction></think><answer>...</answer>`.
+The function extracts and processes the content within these tags, returning a dictionary with the parsed data.
+
+Args:
+    response (str): The input string to be parsed, containing the XML-like tags.
+    special_token_list (List[str], optional): A list of special tokens to remove from the extracted content. Defaults to None.
+    action_sep (str, optional): The separator used to split the action content into individual actions. Defaults to ','.
+    max_actions (int, optional): The maximum number of actions to extract from the action content. Defaults to 3.
+
+Returns:
+    Dict: A dictionary containing the following keys:
+        - llm_raw_response: The original response string.
+        - llm_response: The response string with all tags reconstructed.
+        - think_content: The entire content inside the `<think>` tag.
+        - reasoning_content: The content inside the `<reasoning>` tag.
+        - prediction_content: The content inside the `<prediction>` tag.
+        - action_content: The content inside the `<answer>` tag.
+        - actions: A list of actions extracted from the action_content.
+        - format_correct: A boolean indicating whether the response strictly follows the expected format.
+"""

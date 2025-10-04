@@ -1,0 +1,22 @@
+"""Rounds the given integer `x` up to the nearest multiple of 128, without exceeding the specified `limit`.
+
+The function follows these rules:
+- If `x` is less than or equal to 128, returns 128.
+- If `x` is less than `limit`, returns the smallest multiple of 128 greater than or equal to `x`.
+- If `x` is greater than or equal to `limit`, searches for the largest multiple of 128 less than or equal to `limit` (down to 512) that divides `x` evenly, and returns it.
+- If no such candidate is found, returns `limit`.
+
+Args:
+    x (int): The integer to round up.
+    limit (int): The upper bound (must be a multiple of 128 and at least 128).
+
+Returns:
+    int: The rounded value according to the rules above.
+
+Raises:
+    AssertionError: If `limit` is less than 128 or not a multiple of 128.
+"""
+You should write code starting with:
+def _round_up_to_multiple_of_128_within_limit(x: int, limit: int) -> int:
+    pass
+

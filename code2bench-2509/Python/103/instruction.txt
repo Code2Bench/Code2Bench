@@ -1,0 +1,22 @@
+"""Optimize prompt for Imagen API by removing Gemini-specific formatting and enhancing it with Imagen best practices.
+
+This function processes a given prompt to make it suitable for the Imagen API. It removes Gemini-specific formatting, cleans up extra whitespace, and adds enhancements based on the content of the prompt. Additionally, it ensures the prompt does not exceed Imagen's token limit.
+
+Args:
+    prompt (str): The input prompt to be optimized for the Imagen API.
+
+Returns:
+    str: The optimized prompt, cleaned and enhanced according to Imagen best practices.
+
+The function performs the following steps:
+1. Removes Gemini-specific formatting such as 'Enhanced prompt:' and 'Aspect ratio:'.
+2. Cleans up extra whitespace by joining the prompt into a single line.
+3. Adds specific enhancements if the prompt contains keywords related to LinkedIn professional content or technology.
+4. Ensures the prompt does not exceed Imagen's 480 token limit by truncating it if necessary.
+
+Based on Imagen prompt guide: https://ai.google.dev/gemini-api/docs/imagen
+"""
+You should write code starting with:
+def _optimize_prompt_for_imagen(prompt: str) -> str:
+    pass
+

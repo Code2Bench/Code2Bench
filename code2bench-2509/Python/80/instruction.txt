@@ -1,0 +1,27 @@
+"""Extracts content and reasoning content from a list of Gemini response parts.
+
+This function processes a list of parts, each potentially containing text and a 'thought' flag. 
+It separates the text into two categories: general content and reasoning content, based on the 
+presence of the 'thought' flag.
+
+Args:
+    parts (list): A list of dictionaries where each dictionary may contain 'text' and 'thought' keys.
+        - 'text' (str, optional): The text content of the part.
+        - 'thought' (bool, optional): A flag indicating whether the text is part of the reasoning content.
+
+Returns:
+    tuple: A tuple containing two strings:
+        - The first string is the concatenated general content from parts where 'thought' is False.
+        - The second string is the concatenated reasoning content from parts where 'thought' is True.
+
+Note:
+    - If a part does not contain the 'text' key, it is ignored.
+    - The 'thought' key is assumed to be False if not present.
+"""
+You should write code starting with:
+from typing import List, Dict, Tuple
+
+def _extract_content_and_reasoning(parts: List[Dict[str, Any]]) -> Tuple[str, str]:
+    # TODO: Implement this function based on the docstring.
+    pass
+

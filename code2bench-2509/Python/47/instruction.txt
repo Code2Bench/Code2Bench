@@ -1,0 +1,30 @@
+/**
+ * Removes unindented lines from a code block based on specified rules.
+ *
+ * This function processes a multi-line string of code and removes lines that are not indented, 
+ * except for those protected by specific conditions. The function starts removing lines only 
+ * after encountering a line that starts with the `protect_before` string. Additionally, lines 
+ * that start with any string in the `exceptions` list are preserved. If a line starts with any 
+ * string in the `trim_tails` list, all subsequent lines are removed.
+ *
+ * Args:
+ *     code (str): The multi-line string of code to process.
+ *     protect_before (str): The string that, when found at the start of a line, enables the 
+ *         protection of subsequent lines from being removed.
+ *     exceptions (list[str]): A list of strings. Lines starting with any of these strings 
+ *         are preserved even if they are unindented.
+ *     trim_tails (list[str]): A list of strings. If a line starts with any of these strings, 
+ *         all subsequent lines are removed.
+ *
+ * Returns:
+ *     str: The processed code with unindented lines removed according to the specified rules.
+ */
+You should write code starting with:
+from typing import List
+
+def remove_unindented_lines(
+    code: str, protect_before: str, execeptions: List[str], trim_tails: List[str]
+) -> str:
+    # TODO: Implement this function based on the docstring.
+    pass
+

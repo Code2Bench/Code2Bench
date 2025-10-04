@@ -1,0 +1,661 @@
+{
+  "anthropic/claude-sonnet-4": [
+    {
+      "2": {
+        "status": "Execution-Failure (Crash/Import)"
+      },
+      "3": {
+        "status": "Critical-Failure (Syntax/Crash)"
+      },
+      "4": {
+        "status": "Execution-Failure (Crash/Import)"
+      },
+      "5": {
+        "status": "Mediocre (20-75%)",
+        "pass_rate": 0.43
+      },
+      "7": {
+        "status": "Execution-Failure (Crash/Import)"
+      },
+      "8": {
+        "status": "SUCCESS"
+      },
+      "9": {
+        "status": "Execution-Failure (Crash/Import)"
+      },
+      "10": {
+        "status": "Almost-Failing (0-20%)",
+        "pass_rate": 0.004
+      },
+      "11": {
+        "status": "SUCCESS"
+      },
+      "12": {
+        "status": "SUCCESS"
+      },
+      "13": {
+        "status": "Mediocre (20-75%)",
+        "pass_rate": 0.474
+      },
+      "14": {
+        "status": "Execution-Failure (Crash/Import)"
+      },
+      "16": {
+        "status": "Execution-Failure (Crash/Import)"
+      },
+      "18": {
+        "status": "Total-Failure (Logic)"
+      },
+      "19": {
+        "status": "SUCCESS"
+      },
+      "20": {
+        "status": "Almost-Failing (0-20%)",
+        "pass_rate": 0.182
+      },
+      "21": {
+        "status": "Good (75-98%)",
+        "pass_rate": 0.962
+      },
+      "22": {
+        "status": "Almost-Failing (0-20%)",
+        "pass_rate": 0.046
+      },
+      "23": {
+        "status": "Mediocre (20-75%)",
+        "pass_rate": 0.682
+      },
+      "25": {
+        "status": "Mediocre (20-75%)",
+        "pass_rate": 0.354
+      },
+      "26": {
+        "status": "Execution-Failure (Crash/Import)"
+      },
+      "27": {
+        "status": "Execution-Failure (Crash/Import)"
+      },
+      "28": {
+        "status": "Almost-Failing (0-20%)",
+        "pass_rate": 0.008
+      },
+      "29": {
+        "status": "Almost-Failing (0-20%)",
+        "pass_rate": 0.16
+      },
+      "30": {
+        "status": "Execution-Failure (Crash/Import)"
+      },
+      "32": {
+        "status": "SUCCESS"
+      },
+      "33": {
+        "status": "Good (75-98%)",
+        "pass_rate": 0.818
+      },
+      "34": {
+        "status": "SUCCESS"
+      },
+      "35": {
+        "status": "Execution-Failure (Crash/Import)"
+      },
+      "36": {
+        "status": "SUCCESS"
+      },
+      "37": {
+        "status": "Near-Perfect (98-100%)",
+        "pass_rate": 0.996
+      },
+      "38": {
+        "status": "Near-Perfect (98-100%)",
+        "pass_rate": 0.982
+      },
+      "39": {
+        "status": "SUCCESS"
+      },
+      "40": {
+        "status": "Good (75-98%)",
+        "pass_rate": 0.888
+      },
+      "41": {
+        "status": "Env-Failure (Unknown)"
+      },
+      "42": {
+        "status": "Almost-Failing (0-20%)",
+        "pass_rate": 0.1
+      },
+      "43": {
+        "status": "Near-Perfect (98-100%)",
+        "pass_rate": 0.996
+      },
+      "44": {
+        "status": "Good (75-98%)",
+        "pass_rate": 0.764
+      },
+      "45": {
+        "status": "Execution-Failure (Crash/Import)"
+      },
+      "46": {
+        "status": "SUCCESS"
+      },
+      "47": {
+        "status": "SUCCESS"
+      },
+      "48": {
+        "status": "Execution-Failure (Crash/Import)"
+      },
+      "49": {
+        "status": "Mediocre (20-75%)",
+        "pass_rate": 0.66
+      },
+      "50": {
+        "status": "Almost-Failing (0-20%)",
+        "pass_rate": 0.002
+      },
+      "51": {
+        "status": "Env-Failure (Unknown)"
+      },
+      "52": {
+        "status": "Good (75-98%)",
+        "pass_rate": 0.858
+      },
+      "53": {
+        "status": "Almost-Failing (0-20%)",
+        "pass_rate": 0.198
+      },
+      "54": {
+        "status": "Almost-Failing (0-20%)",
+        "pass_rate": 0.024
+      },
+      "55": {
+        "status": "Env-Failure (Unknown)"
+      },
+      "56": {
+        "status": "SUCCESS"
+      },
+      "57": {
+        "status": "Total-Failure (Logic)"
+      },
+      "58": {
+        "status": "Critical-Failure (Syntax/Crash)"
+      },
+      "59": {
+        "status": "SUCCESS"
+      },
+      "60": {
+        "status": "SUCCESS"
+      },
+      "61": {
+        "status": "SUCCESS"
+      },
+      "62": {
+        "status": "Execution-Failure (Crash/Import)"
+      },
+      "63": {
+        "status": "Mediocre (20-75%)",
+        "pass_rate": 0.716
+      },
+      "64": {
+        "status": "Mediocre (20-75%)",
+        "pass_rate": 0.426
+      },
+      "65": {
+        "status": "Mediocre (20-75%)",
+        "pass_rate": 0.456
+      },
+      "66": {
+        "status": "Mediocre (20-75%)",
+        "pass_rate": 0.508
+      },
+      "67": {
+        "status": "Mediocre (20-75%)",
+        "pass_rate": 0.708
+      },
+      "68": {
+        "status": "SUCCESS"
+      },
+      "69": {
+        "status": "Execution-Failure (Crash/Import)"
+      },
+      "70": {
+        "status": "SUCCESS"
+      },
+      "72": {
+        "status": "Mediocre (20-75%)",
+        "pass_rate": 0.586
+      },
+      "75": {
+        "status": "SUCCESS"
+      },
+      "76": {
+        "status": "Env-Failure (Unknown)"
+      },
+      "77": {
+        "status": "SUCCESS"
+      },
+      "78": {
+        "status": "Mediocre (20-75%)",
+        "pass_rate": 0.268
+      },
+      "79": {
+        "status": "SUCCESS"
+      },
+      "80": {
+        "status": "SUCCESS"
+      },
+      "82": {
+        "status": "Mediocre (20-75%)",
+        "pass_rate": 0.282
+      },
+      "83": {
+        "status": "SUCCESS"
+      },
+      "84": {
+        "status": "Env-Failure (Unknown)"
+      },
+      "87": {
+        "status": "SUCCESS"
+      },
+      "88": {
+        "status": "Near-Perfect (98-100%)",
+        "pass_rate": 0.998
+      },
+      "89": {
+        "status": "Total-Failure (Logic)"
+      },
+      "90": {
+        "status": "Mediocre (20-75%)",
+        "pass_rate": 0.698
+      },
+      "91": {
+        "status": "Almost-Failing (0-20%)",
+        "pass_rate": 0.028
+      },
+      "92": {
+        "status": "Execution-Failure (Crash/Import)"
+      },
+      "93": {
+        "status": "Mediocre (20-75%)",
+        "pass_rate": 0.3333333333333333
+      },
+      "94": {
+        "status": "Critical-Failure (Syntax/Crash)"
+      },
+      "95": {
+        "status": "SUCCESS"
+      },
+      "96": {
+        "status": "Good (75-98%)",
+        "pass_rate": 0.916
+      },
+      "97": {
+        "status": "SUCCESS"
+      },
+      "98": {
+        "status": "SUCCESS"
+      },
+      "99": {
+        "status": "SUCCESS"
+      },
+      "100": {
+        "status": "SUCCESS"
+      },
+      "102": {
+        "status": "SUCCESS"
+      },
+      "103": {
+        "status": "Near-Perfect (98-100%)",
+        "pass_rate": 0.992
+      },
+      "104": {
+        "status": "SUCCESS"
+      },
+      "105": {
+        "status": "Critical-Failure (Syntax/Crash)"
+      },
+      "106": {
+        "status": "Critical-Failure (Syntax/Crash)"
+      },
+      "107": {
+        "status": "Env-Failure (Unknown)"
+      },
+      "108": {
+        "status": "SUCCESS"
+      },
+      "109": {
+        "status": "Mediocre (20-75%)",
+        "pass_rate": 0.696
+      },
+      "110": {
+        "status": "Mediocre (20-75%)",
+        "pass_rate": 0.67
+      },
+      "111": {
+        "status": "SUCCESS"
+      },
+      "112": {
+        "status": "Total-Failure (Logic)"
+      },
+      "113": {
+        "status": "SUCCESS"
+      },
+      "114": {
+        "status": "Almost-Failing (0-20%)",
+        "pass_rate": 0.136
+      },
+      "115": {
+        "status": "Almost-Failing (0-20%)",
+        "pass_rate": 0.002
+      },
+      "116": {
+        "status": "Almost-Failing (0-20%)",
+        "pass_rate": 0.14
+      },
+      "117": {
+        "status": "Near-Perfect (98-100%)",
+        "pass_rate": 0.992
+      },
+      "118": {
+        "status": "Critical-Failure (Syntax/Crash)"
+      },
+      "120": {
+        "status": "Mediocre (20-75%)",
+        "pass_rate": 0.652
+      },
+      "122": {
+        "status": "Good (75-98%)",
+        "pass_rate": 0.888
+      },
+      "123": {
+        "status": "SUCCESS"
+      },
+      "124": {
+        "status": "Env-Failure (Unknown)"
+      },
+      "125": {
+        "status": "SUCCESS"
+      },
+      "126": {
+        "status": "SUCCESS"
+      },
+      "127": {
+        "status": "SUCCESS"
+      },
+      "128": {
+        "status": "SUCCESS"
+      },
+      "129": {
+        "status": "Execution-Failure (Crash/Import)"
+      },
+      "130": {
+        "status": "Mediocre (20-75%)",
+        "pass_rate": 0.472
+      },
+      "131": {
+        "status": "Execution-Failure (Crash/Import)"
+      },
+      "132": {
+        "status": "Mediocre (20-75%)",
+        "pass_rate": 0.518
+      },
+      "133": {
+        "status": "Mediocre (20-75%)",
+        "pass_rate": 0.554
+      },
+      "134": {
+        "status": "SUCCESS"
+      },
+      "135": {
+        "status": "SUCCESS"
+      },
+      "137": {
+        "status": "SUCCESS"
+      },
+      "138": {
+        "status": "SUCCESS"
+      },
+      "139": {
+        "status": "SUCCESS"
+      },
+      "140": {
+        "status": "SUCCESS"
+      },
+      "141": {
+        "status": "SUCCESS"
+      },
+      "142": {
+        "status": "Execution-Failure (Crash/Import)"
+      },
+      "143": {
+        "status": "Good (75-98%)",
+        "pass_rate": 0.79
+      },
+      "144": {
+        "status": "Near-Perfect (98-100%)",
+        "pass_rate": 0.998
+      },
+      "145": {
+        "status": "SUCCESS"
+      },
+      "146": {
+        "status": "SUCCESS"
+      },
+      "147": {
+        "status": "Execution-Failure (Crash/Import)"
+      },
+      "148": {
+        "status": "SUCCESS"
+      },
+      "149": {
+        "status": "SUCCESS"
+      },
+      "150": {
+        "status": "SUCCESS"
+      },
+      "152": {
+        "status": "Mediocre (20-75%)",
+        "pass_rate": 0.454
+      },
+      "153": {
+        "status": "Good (75-98%)",
+        "pass_rate": 0.934
+      },
+      "154": {
+        "status": "Near-Perfect (98-100%)",
+        "pass_rate": 0.996
+      },
+      "155": {
+        "status": "Good (75-98%)",
+        "pass_rate": 0.754
+      },
+      "156": {
+        "status": "Execution-Failure (Crash/Import)"
+      },
+      "157": {
+        "status": "SUCCESS"
+      },
+      "158": {
+        "status": "SUCCESS"
+      },
+      "160": {
+        "status": "Almost-Failing (0-20%)",
+        "pass_rate": 0.002
+      },
+      "161": {
+        "status": "Critical-Failure (Syntax/Crash)"
+      },
+      "162": {
+        "status": "SUCCESS"
+      },
+      "163": {
+        "status": "Mediocre (20-75%)",
+        "pass_rate": 0.722
+      },
+      "164": {
+        "status": "SUCCESS"
+      },
+      "165": {
+        "status": "SUCCESS"
+      },
+      "166": {
+        "status": "SUCCESS"
+      },
+      "167": {
+        "status": "Almost-Failing (0-20%)",
+        "pass_rate": 0.058
+      },
+      "168": {
+        "status": "Total-Failure (Logic)"
+      },
+      "169": {
+        "status": "Mediocre (20-75%)",
+        "pass_rate": 0.366
+      },
+      "170": {
+        "status": "Execution-Failure (Crash/Import)"
+      },
+      "171": {
+        "status": "Mediocre (20-75%)",
+        "pass_rate": 0.228
+      },
+      "172": {
+        "status": "Execution-Failure (Crash/Import)"
+      },
+      "173": {
+        "status": "SUCCESS"
+      },
+      "174": {
+        "status": "Execution-Failure (Crash/Import)"
+      },
+      "175": {
+        "status": "Execution-Failure (Crash/Import)"
+      },
+      "176": {
+        "status": "Mediocre (20-75%)",
+        "pass_rate": 0.38
+      },
+      "177": {
+        "status": "Good (75-98%)",
+        "pass_rate": 0.95
+      },
+      "178": {
+        "status": "Mediocre (20-75%)",
+        "pass_rate": 0.498
+      },
+      "179": {
+        "status": "Good (75-98%)",
+        "pass_rate": 0.97
+      },
+      "180": {
+        "status": "Env-Failure (Unknown)"
+      },
+      "181": {
+        "status": "SUCCESS"
+      },
+      "182": {
+        "status": "SUCCESS"
+      },
+      "183": {
+        "status": "Near-Perfect (98-100%)",
+        "pass_rate": 0.988
+      },
+      "184": {
+        "status": "SUCCESS"
+      },
+      "185": {
+        "status": "Critical-Failure (Syntax/Crash)"
+      },
+      "186": {
+        "status": "Almost-Failing (0-20%)",
+        "pass_rate": 0.17
+      },
+      "187": {
+        "status": "Mediocre (20-75%)",
+        "pass_rate": 0.396
+      },
+      "188": {
+        "status": "SUCCESS"
+      },
+      "189": {
+        "status": "Mediocre (20-75%)",
+        "pass_rate": 0.532
+      },
+      "190": {
+        "status": "Mediocre (20-75%)",
+        "pass_rate": 0.38
+      },
+      "191": {
+        "status": "SUCCESS"
+      },
+      "192": {
+        "status": "SUCCESS"
+      },
+      "193": {
+        "status": "Good (75-98%)",
+        "pass_rate": 0.972
+      },
+      "194": {
+        "status": "Near-Perfect (98-100%)",
+        "pass_rate": 0.998
+      },
+      "195": {
+        "status": "SUCCESS"
+      },
+      "196": {
+        "status": "SUCCESS"
+      },
+      "197": {
+        "status": "Good (75-98%)",
+        "pass_rate": 0.972
+      },
+      "198": {
+        "status": "SUCCESS"
+      },
+      "199": {
+        "status": "Good (75-98%)",
+        "pass_rate": 0.75
+      },
+      "200": {
+        "status": "SUCCESS"
+      },
+      "201": {
+        "status": "SUCCESS"
+      },
+      "202": {
+        "status": "SUCCESS"
+      },
+      "15": {
+        "status": "SUCCESS"
+      },
+      "17": {
+        "status": "Total-Failure (Logic)"
+      },
+      "71": {
+        "status": "SUCCESS"
+      },
+      "73": {
+        "status": "SUCCESS"
+      },
+      "74": {
+        "status": "Mediocre (20-75%)",
+        "pass_rate": 0.354
+      },
+      "81": {
+        "status": "SUCCESS"
+      },
+      "86": {
+        "status": "SUCCESS"
+      },
+      "119": {
+        "status": "Almost-Failing (0-20%)",
+        "pass_rate": 0.004
+      },
+      "121": {
+        "status": "SUCCESS"
+      },
+      "136": {
+        "status": "SUCCESS"
+      }
+    }
+  ]
+}

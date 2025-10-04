@@ -1,0 +1,17 @@
+"""Calculates a similarity score between two texts based on the presence of matching phrases.
+
+The function evaluates the similarity by checking for matching two-word and three-word phrases
+between the two input texts. Each matching two-word phrase contributes 0.1 to the similarity score,
+while each matching three-word phrase contributes 0.15. The total similarity score is capped at 0.3.
+
+Args:
+    text1 (str): The first text to compare.
+    text2 (str): The second text to compare.
+
+Returns:
+    float: A similarity score between 0.0 and 0.3, inclusive. Returns 0.0 if either input text is empty.
+
+Note:
+    The comparison is case-insensitive. The function only considers consecutive words in `text1`
+    to form phrases and checks if these phrases exist in `text2`.
+"""

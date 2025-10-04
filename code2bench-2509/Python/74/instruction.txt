@@ -1,0 +1,26 @@
+"""Normalize a base URL by ensuring it has a protocol and a trailing slash.
+
+This function processes a given URL to ensure it is in a standardized format. It adds
+'http://' or 'https://' if no protocol is specified, with 'http://' being used for
+local IP addresses or 'localhost'. It also ensures the URL ends with a trailing slash.
+
+Args:
+    url (str): The URL to normalize. If empty, it is returned as is.
+
+Returns:
+    str: The normalized URL with a protocol and trailing slash.
+
+Examples:
+    >>> normalize_base_url('example.com')
+    'https://example.com/'
+    >>> normalize_base_url('http://example.com')
+    'http://example.com/'
+    >>> normalize_base_url('localhost')
+    'http://localhost/'
+    >>> normalize_base_url('192.168.1.1')
+    'http://192.168.1.1/'
+"""
+You should write code starting with:
+def normalize_base_url(url: str) -> str:
+    pass
+

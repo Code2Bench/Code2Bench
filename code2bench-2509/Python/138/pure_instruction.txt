@@ -1,0 +1,10 @@
+"""Compact signals by keeping only the essential fields and dropping empty agents.
+
+This function processes a dictionary of signals by ticker, where each ticker maps to a dictionary of agents. Each agent's payload is expected to contain either 'sig' or 'signal' and either 'conf' or 'confidence'. The function compacts the payload to only include 'sig' and 'conf' fields, and drops any agents that do not have both fields. Additionally, it ensures that tickers with no valid agents are mapped to an empty dictionary.
+
+Args:
+    signals_by_ticker (dict[str, dict]): A dictionary where each key is a ticker symbol, and each value is a dictionary of agents. Each agent's payload should contain either 'sig' or 'signal' and either 'conf' or 'confidence'.
+
+Returns:
+    dict[str, dict]: A compacted dictionary where each ticker maps to a dictionary of agents. Each agent's payload contains only 'sig' and 'conf' fields. Tickers with no valid agents are mapped to an empty dictionary.
+"""

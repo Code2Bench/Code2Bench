@@ -1,0 +1,23 @@
+"""Recursively parses a JSON-like string or nested structure into a Python object.
+
+This function traverses a nested structure (dict, list, tuple) and attempts to parse any string
+that resembles a JSON object or array into a Python object. If the string cannot be parsed as JSON,
+it attempts to use `ast.literal_eval` or applies additional fixes (e.g., replacing single quotes
+with double quotes or wrapping the string in brackets) before returning the original string if all
+attempts fail.
+
+Args:
+    data (Any): The input data, which can be a string, dictionary, list, tuple, or any other type.
+
+Returns:
+    Any: The parsed Python object if successful, otherwise the original input data.
+"""
+You should write code starting with:
+import json
+import ast
+from typing import Any
+
+def parse_json_string_recursively(data: Any) -> Any:
+    # TODO: Implement this function
+    pass
+

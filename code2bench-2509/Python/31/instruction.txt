@@ -1,0 +1,14 @@
+"""Extracts the content within the last occurrence of a LaTeX `\boxed{}` command in the given string.
+
+This function searches for the last instance of the `\boxed{}` command in the input string and extracts the content within it. It handles nested braces correctly and returns the extracted content. If no `\boxed{}` command is found, the original string is returned. If the braces are unbalanced, the original string is also returned.
+
+Args:
+    ans (str): The input string potentially containing a `\boxed{}` command.
+
+Returns:
+    str: The content within the last `\boxed{}` command if found and balanced; otherwise, the original string.
+"""
+You should write code starting with:
+def extract_boxed_content(ans: str) -> str:
+    pass
+

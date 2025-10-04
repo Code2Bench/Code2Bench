@@ -1,0 +1,15 @@
+"""Extracts and processes a JSON-like object from a string enclosed within specific markers.
+
+The function searches for a substring enclosed between `<|begin_of_box|>` and `<|end_of_box|>` markers. If found, it processes the substring to handle leading zeros in numeric arrays and attempts to parse it as a JSON object. If JSON parsing fails, it evaluates the string as a Python expression with specific mappings for 'true', 'false', and 'null'.
+
+Args:
+    s (str): The input string containing the potential JSON-like object enclosed within markers.
+
+Returns:
+    dict or None: The parsed JSON-like object if successful, otherwise None.
+
+Special Rules:
+    - The function returns None if the markers `<|begin_of_box|>` or `<|end_of_box|>` are not found in the input string.
+    - Numeric arrays within the substring are processed to remove leading zeros (e.g., `[[ 1, 2, 3, 4 ]]` becomes `[[1,2,3,4]]`).
+    - If JSON parsing fails, the function evaluates the string as a Python expression, mapping 'true' to True, 'false' to False, and 'null' to None.
+"""

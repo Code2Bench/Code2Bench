@@ -1,0 +1,22 @@
+"""Parse DOS 8.3 format filename from mdir output.
+
+This function extracts the filename and determines whether it is a directory from a line of mdir output. The line is expected to follow the DOS 8.3 format, which includes the filename, optional extension, size, date, and time.
+
+Args:
+    line (str): A line from mdir output representing a file or directory entry.
+
+Returns:
+    tuple: A tuple containing the parsed filename (str) and a boolean indicating whether the entry is a directory (True) or a file (False). If the line is invalid or empty, returns (None, False).
+
+The function handles the following cases:
+    - Directory entries: Identified by the presence of "<DIR>" in the line.
+    - File entries with extensions: Parses the filename and extension, separated by a dot.
+    - File entries without extensions: Returns the filename as is.
+    - Special cases: Ignores lines containing "bytes" or "files" in the second part of the split line.
+"""
+You should write code starting with:
+from typing import Tuple, Optional
+
+def _parse_dos_filename(line: str) -> Tuple[Optional[str], bool]:
+    pass
+

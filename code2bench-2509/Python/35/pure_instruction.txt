@@ -1,0 +1,32 @@
+"""Compares two numerical answers after normalizing their formats.
+
+This function normalizes the input answers by removing commas and dollar signs, and
+converting percentages to their decimal equivalents. It then compares the numerical
+values to determine if they are approximately equal within a small tolerance.
+
+Args:
+    ans_p (str or None): The first answer to compare. Can be a string representing a
+        number, optionally including commas, dollar signs, or a percentage. If None,
+        the function immediately returns False.
+    ans_l (str): The second answer to compare. Can be a string representing a number,
+        optionally including commas, dollar signs, or a percentage.
+
+Returns:
+    bool: True if the normalized numerical values of `ans_p` and `ans_l` are within
+        1e-3 of each other, False otherwise. Returns False if `ans_p` is None or if
+        any conversion to float fails.
+
+Examples:
+    >>> compare_numerical_ans('100', '100')
+    True
+    >>> compare_numerical_ans('100.001', '100.001')
+    True
+    >>> compare_numerical_ans('$100', '100')
+    True
+    >>> compare_numerical_ans('100%', '1')
+    True
+    >>> compare_numerical_ans('1,000', '1000')
+    True
+    >>> compare_numerical_ans('0.000', '0.000')
+    True
+"""

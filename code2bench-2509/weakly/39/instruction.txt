@@ -1,0 +1,17 @@
+"""Determines if the given path is a valid URL.
+
+A path is considered a valid URL if it contains both a scheme (e.g., 'http', 'https') and a netloc (e.g., 'www.example.com').
+
+Args:
+    path (str): The path to be checked for URL validity.
+
+Returns:
+    bool: True if the path is a valid URL, False otherwise.
+"""
+You should write code starting with:
+from urllib.parse import urlparse
+
+def is_url(path: str) -> bool:
+    # TODO: Implement this function
+    pass
+

@@ -1,0 +1,19 @@
+"""Extracts the content of a block enclosed by curly braces from a given text starting at a specified index.
+
+This function searches for the first occurrence of an opening curly brace '{' starting from the given index and extracts the entire block, including nested blocks, until the corresponding closing brace '}' is found. The function handles nested blocks by maintaining a count of open braces.
+
+Args:
+    text (str): The text from which to extract the block content.
+    start_idx (int): The index in the text from which to start searching for the block.
+
+Returns:
+    str: The extracted block content, including the enclosing curly braces. If no valid block is found, an empty string is returned.
+
+Note:
+    - The function returns an empty string if no opening brace is found or if the block is not properly closed.
+    - The function is case-sensitive and only recognizes '{' and '}' as block delimiters.
+"""
+You should write code starting with:
+def extract_block_content(text: str, start_idx: int) -> str:
+    pass
+

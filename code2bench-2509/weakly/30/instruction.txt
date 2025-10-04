@@ -1,0 +1,25 @@
+"""Parses a web response to extract thought, action, and memory information.
+
+The function searches for specific patterns in the response to extract the thought, action, and memory components. If the response does not contain the expected patterns or is incomplete, the function returns `None`.
+
+Args:
+    response (str): The web response string to be parsed.
+
+Returns:
+    dict or None: A dictionary containing the keys 'thought', 'action', and 'memory' with their respective values. If the response does not contain the expected patterns or is incomplete, returns `None`.
+
+The function expects the response to contain an `<answer>` tag with the following structure:
+- 'Thought:' followed by the thought content.
+- 'Action:' followed by the action content.
+- 'Memory_Updated:' followed by the memory content, which should be a valid JSON string.
+
+If the memory content is empty, the 'memory' key in the returned dictionary will be an empty dictionary.
+"""
+You should write code starting with:
+import re
+import json
+
+def parse_web_response(response: str) -> dict | None:
+    # TODO: Implement this function
+    pass
+

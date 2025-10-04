@@ -1,0 +1,29 @@
+from typing import Iterable, Tuple
+import scipy
+import numpy as np
+
+def mean_confidence_interval(data: Iterable[float], confidence: float = 0.95) -> Tuple[float, float, float]:
+    """
+    Computes the confidence interval around the mean for a given dataset.
+
+    This function calculates the mean of the input data, the standard error of the mean,
+    and constructs a confidence interval around the mean based on the specified confidence level.
+
+    Args:
+        data (Iterable[float]): A sequence of numerical data points.
+        confidence (float, optional): The confidence level for the interval. Defaults to 0.95.
+
+    Returns:
+        Tuple[float, float, float]: A tuple containing the mean of the data, the lower bound, 
+        and the upper bound of the confidence interval.
+
+    Raises:
+        ValueError: If the input data is empty.
+
+    Notes:
+        - The computation assumes the data is normally distributed or sufficiently large for 
+          the Central Limit Theorem to hold.
+        - Uses Student's t-distribution for calculating the confidence interval.
+    """
+    # TODO: Implement this function
+    pass

@@ -1,0 +1,19 @@
+"""Calculate the Levenshtein distance between two strings.
+
+The Levenshtein distance is a measure of the difference between two strings, defined as the minimum number of single-character edits (insertions, deletions, or substitutions) required to change one string into the other. This function uses dynamic programming to efficiently compute the distance.
+
+Args:
+    s1 (str): The first string to compare.
+    s2 (str): The second string to compare.
+
+Returns:
+    int: The Levenshtein distance between `s1` and `s2`.
+
+The function initializes a matrix where the cell at position (i, j) represents the minimum number of edits required to transform the first `i` characters of `s1` into the first `j` characters of `s2`. The matrix is filled by considering the cost of deletion, insertion, and substitution operations.
+
+Example:
+    >>> levenshtein('kitten', 'sitten')
+    1
+    >>> levenshtein('saturday', 'sunday')
+    3
+"""

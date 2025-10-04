@@ -1,0 +1,22 @@
+"""Parse evolve blocks from source code.
+
+This function identifies and extracts blocks of code that are marked by specific
+comment delimiters. It searches for lines containing '# EVOLVE-BLOCK-START' and
+'# EVOLVE-BLOCK-END' to determine the boundaries of each block. The content
+between these delimiters is captured and returned along with the line numbers
+indicating the start and end of each block.
+
+Args:
+    code (str): The source code containing evolve blocks. The code should be
+        provided as a single string, typically read from a file or input source.
+
+Returns:
+    List[Tuple[int, int, str]]: A list of tuples, where each tuple contains:
+        - The starting line number (0-based index) of the block
+        - The ending line number (0-based index) of the block
+        - The content of the block as a single string, with lines joined by newline characters
+
+The function handles multiple blocks and ignores any content outside the marked
+blocks. If a block is empty (i.e., no content between start and end markers),
+the block content will be an empty string.
+"""

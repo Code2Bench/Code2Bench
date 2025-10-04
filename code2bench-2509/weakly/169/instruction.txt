@@ -1,0 +1,19 @@
+"""Computes the derivative of the inverse Euler ZYX body transformation matrix.
+
+Given Euler angles and angular velocity, this function calculates the derivative of the inverse transformation matrix for the ZYX Euler sequence. The function constructs two intermediate matrices, J_y and J_z, based on the Euler angles and then combines them with the angular velocity to produce the final derivative matrix.
+
+Args:
+    euler_coordinates (numpy.ndarray): A 3-element array containing the Euler angles [roll, pitch, yaw] in radians.
+    omega (numpy.ndarray): A 3-element array representing the angular velocity in the body frame.
+
+Returns:
+    numpy.ndarray: A 3x3 matrix representing the derivative of the inverse Euler ZYX body transformation matrix.
+"""
+You should write code starting with:
+import numpy as np
+import math
+
+def S_inv_eulerZYX_body_deriv(euler_coordinates: np.ndarray, omega: np.ndarray) -> np.ndarray:
+    # TODO: Implement this function
+    pass
+

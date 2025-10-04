@@ -1,0 +1,10 @@
+"""Parses a principal dictionary into a list of tuples representing principal types and values.
+
+The function takes a dictionary where keys are principal types (e.g., 'AWS', 'Service') and values are either single values or lists of values. It returns a list of tuples, each containing a principal type and its corresponding value. If a value is not a list, it is converted into a single-element list before processing.
+
+Args:
+    principal (Dict): A dictionary mapping principal types to their values or lists of values.
+
+Returns:
+    List[Tuple[Any, Any]]: A list of tuples where each tuple contains a principal type and its corresponding value.
+"""

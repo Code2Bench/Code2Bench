@@ -1,0 +1,12 @@
+"""Transform commits from a single repository into user-repository relationships.
+
+This function processes a list of commits from a single GitHub repository and transforms them into a list of user-repository relationship records. It is optimized for memory efficiency by processing one repository at a time. The function skips commits where the author's user URL is not available.
+
+Args:
+    repo_name (str): The name of the repository.
+    commits (list[dict[str, Any]]): A list of commit data from the repository. Each commit is a dictionary containing details such as the author and commit date.
+    organization (str): The name of the GitHub organization.
+
+Returns:
+    list[dict[str, Any]]: A list of user-repository relationship records. Each record contains the user URL, repository URL, commit count, and the first and last commit dates.
+"""

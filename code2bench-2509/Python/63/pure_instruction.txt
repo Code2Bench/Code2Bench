@@ -1,0 +1,27 @@
+"""Safely format metrics dictionary for logging, handling both numeric and string values.
+
+This function takes a dictionary of metric names to values and formats them into a string
+representation suitable for logging. Numeric values (integers and floats) are formatted
+to four decimal places, while non-numeric values are converted directly to strings. The
+function handles edge cases such as empty dictionaries and ensures that formatting errors
+do not cause the function to fail.
+
+Args:
+    metrics (Dict[str, Any]): Dictionary of metric names to values. Values can be of any
+                              type, but numeric values (int, float) are formatted to four
+                              decimal places.
+
+Returns:
+    str: Formatted string representation of the metrics. If the input dictionary is empty,
+         an empty string is returned.
+
+Examples:
+    >>> format_metrics_safe({'a': 1})
+    'a=1.0000'
+    >>> format_metrics_safe({'b': 2.345})
+    'b=2.3450'
+    >>> format_metrics_safe({'c': 'string'})
+    'c=string'
+    >>> format_metrics_safe({'a': 1, 'b': 2.345, 'c': 'string', 'd': True, 'e': None})
+    'a=1.0000, b=2.3450, c=string, d=1.0000, e=None'
+"""

@@ -1,0 +1,17 @@
+"""Calculates the best pass rate at 1 for a given set of query results.
+
+This function evaluates the pass rate for each round (round1, round2, round3) across all queries and returns the highest pass rate as a percentage, rounded to two decimal places.
+
+Args:
+    query_results (Dict[str, Dict[str, str]]): A dictionary where each key is a query identifier and the value is another dictionary. The inner dictionary maps round names ("round1", "round2", "round3") to their respective results ("Correct" or "Incorrect").
+
+Returns:
+    float: The highest pass rate among the three rounds, expressed as a percentage and rounded to two decimal places.
+
+The function works as follows:
+1. Initializes a dictionary `round_correct` to count the number of "Correct" results for each round.
+2. Iterates over each query and its results, updating the count of "Correct" results for each round.
+3. Calculates the pass rate for each round by dividing the count of "Correct" results by the total number of queries.
+4. Determines the highest pass rate among the three rounds.
+5. Returns the highest pass rate as a percentage, rounded to two decimal places.
+"""

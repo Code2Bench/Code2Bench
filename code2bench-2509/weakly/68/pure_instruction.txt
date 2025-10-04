@@ -1,0 +1,12 @@
+"""Extracts the file extension from a given URI.
+
+The function parses the URI to extract the path component and then identifies the file extension
+by splitting the path on the '.' character. If a '.' is found in the path, the function returns
+the extension in lowercase, prefixed with a '.'. If no '.' is found, an empty string is returned.
+
+Args:
+    uri (str): The URI from which to extract the file extension.
+
+Returns:
+    str: The file extension in lowercase, prefixed with a '.', or an empty string if no extension is found.
+"""

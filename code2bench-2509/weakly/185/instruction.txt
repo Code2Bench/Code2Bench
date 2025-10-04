@@ -1,0 +1,22 @@
+import numpy as np
+
+def nms(boxes: np.ndarray, scores: np.ndarray, nms_thr: float) -> list[int]:
+    """
+    Performs Non-Maximum Suppression (NMS) for a single class using Numpy.
+
+    NMS is used to filter overlapping bounding boxes based on their intersection-over-union (IoU) and confidence scores.
+    The function selects the highest scoring boxes while suppressing boxes that have significant overlap (as defined by the `nms_thr` threshold).
+
+    Args:
+        boxes (numpy.ndarray): An array of shape (N, 4), where N is the number of bounding boxes.
+            Each box is represented as [x1, y1, x2, y2], where (x1, y1) is the top-left corner,
+            and (x2, y2) is the bottom-right corner.
+        scores (numpy.ndarray): A 1D array of shape (N,) containing the scores for each box.
+        nms_thr (float): The IoU (Intersection over Union) threshold for suppression. 
+            Boxes with IoU greater than this value will be suppressed.
+
+    Returns:
+        list[int]: Indices of the boxes that are kept after applying NMS, in descending order of scores.
+    """
+    # TODO: Implement this function
+    pass

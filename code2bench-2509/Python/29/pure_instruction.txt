@@ -1,0 +1,17 @@
+/**
+ * Selects the image size from a list that best matches the target dimensions.
+ *
+ * The function evaluates each image size in the provided list based on two criteria:
+ * 1. The absolute difference between the maximum dimension of the image size and the maximum target dimension.
+ * 2. The absolute difference between the aspect ratio of the image size and the target dimensions.
+ *
+ * The image size with the smallest size difference is selected. If there is a tie in size difference, the image size with the smallest aspect ratio difference is chosen.
+ *
+ * Args:
+ *     image_size (List[List[int]]): A list of image sizes, where each size is represented as a list of two integers [width, height].
+ *     h (int): The target height.
+ *     w (int): The target width.
+ *
+ * Returns:
+ *     List[int]: The selected image size as a list of two integers [width, height].
+ */

@@ -1,0 +1,26 @@
+"""Convert a number of bytes into a human-readable string with appropriate unit.
+
+This function takes a floating-point number representing a byte count and converts it into a string that is easier to read by appending the appropriate unit (B, KB, MB, GB, TB, PB). The function handles values from 0 bytes up to petabytes (PB).
+
+Args:
+    n (float): The number of bytes to convert. Must be a non-negative number.
+
+Returns:
+    str: A human-readable string representing the byte count with the appropriate unit. The format is as follows:
+        - For bytes (B), the number is rounded to the nearest integer.
+        - For kilobytes (KB) and larger units, the number is rounded to two decimal places.
+
+Examples:
+    >>> _human_bytes(500)
+    '500B'
+    >>> _human_bytes(1024)
+    '1.00KB'
+    >>> _human_bytes(1048576)
+    '1.00MB'
+    >>> _human_bytes(1099511627776)
+    '1.00TB'
+"""
+You should write code starting with:
+def _human_bytes(n: float) -> str:
+    pass
+

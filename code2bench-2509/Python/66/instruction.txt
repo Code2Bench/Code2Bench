@@ -1,0 +1,19 @@
+"""Calculate the Levenshtein edit distance between two code snippets.
+
+The Levenshtein distance is the minimum number of single-character edits (insertions, deletions, or substitutions) required to transform one string into the other. This implementation uses dynamic programming to efficiently compute the distance.
+
+Args:
+    code1 (str): The first code snippet to compare.
+    code2 (str): The second code snippet to compare.
+
+Returns:
+    int: The edit distance between the two code snippets, representing the number of operations needed to transform `code1` into `code2`.
+
+Note:
+    - If the two code snippets are identical, the function returns 0 immediately without further computation.
+    - The function uses a dynamic programming approach with a space complexity of O(m*n), where m and n are the lengths of `code1` and `code2`, respectively.
+"""
+You should write code starting with:
+def calculate_edit_distance(code1: str, code2: str) -> int:
+    pass
+

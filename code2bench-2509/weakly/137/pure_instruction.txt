@@ -1,0 +1,11 @@
+"""Serialize bytes into a base64 encoded string, with optional formatting.
+
+This function encodes the input bytes into a base64 string. If the `format` parameter is set to "base64url", the output is modified to be URL-safe by stripping padding characters and replacing '+' with '-' and '/' with '_'.
+
+Args:
+    o (bytes): The bytes to be serialized.
+    format (Optional[str]): The format of the output. If "base64url", the output is URL-safe. Defaults to None.
+
+Returns:
+    str: The base64 encoded string, optionally formatted for URL safety.
+"""

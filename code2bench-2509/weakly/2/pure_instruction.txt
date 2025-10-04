@@ -1,0 +1,11 @@
+"""Encodes a DNA sequence into k-mer frequencies.
+
+This function takes a DNA sequence and encodes it into a dictionary of k-mer frequencies. The sequence is first converted to uppercase. The k-mers are then extracted from the sequence, and their frequencies are calculated. The frequencies are normalized by the total number of k-mers in the sequence. The function returns a dictionary containing all possible k-mers of length `k` (based on the alphabet 'ACGT') and their corresponding frequencies.
+
+Args:
+    sequence (str): The DNA sequence to be encoded.
+    k (int, optional): The length of the k-mers. Defaults to 3.
+
+Returns:
+    dict: A dictionary where keys are all possible k-mers of length `k` and values are their normalized frequencies in the sequence.
+"""

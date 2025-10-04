@@ -1,0 +1,22 @@
+"""Recursively merges the 'source' dictionary into the 'destination' dictionary.
+
+The function performs a deep merge where keys from 'source' overwrite existing keys in 'destination'.
+If a key in 'source' corresponds to a dictionary, a recursive merge is performed. The 'destination'
+dictionary is modified in place. If a key in 'destination' is not a dictionary, it is overwritten
+entirely by the corresponding value from 'source'.
+
+Args:
+    source (Dict): The dictionary to merge into 'destination'.
+    destination (Dict): The dictionary to be merged into, modified in place.
+
+Returns:
+    Dict: The modified 'destination' dictionary after merging.
+"""
+You should write code starting with:
+from typing import Dict
+from copy import deepcopy
+
+def _deep_merge_dicts(source: Dict, destination: Dict) -> Dict:
+    # TODO: Implement this function
+    pass
+

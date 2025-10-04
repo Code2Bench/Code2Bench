@@ -1,0 +1,22 @@
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+
+def cosine_sim(text1: str, text2: str) -> float:
+    """
+    Calculates the cosine similarity between two input texts using TF-IDF vectorization.
+
+    This function processes the two input strings using the `TfidfVectorizer` to convert
+    them into TF-IDF feature vectors and then computes their cosine similarity using the 
+    `cosine_similarity` function from scikit-learn.
+
+    Args:
+        text1 (str): The first input text.
+        text2 (str): The second input text.
+
+    Returns:
+        float: A value between -1 and 1 representing the cosine similarity between the two texts,
+               where 1 indicates perfect similarity, 0 indicates no similarity, and -1 indicates
+               perfect dissimilarity in the vector space.
+    """
+    # TODO: Implement this function
+    pass

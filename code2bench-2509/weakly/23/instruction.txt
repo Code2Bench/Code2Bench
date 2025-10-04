@@ -1,0 +1,23 @@
+"""Parse the tool result from agent.tool calls that may return serialized data.
+
+Agent calls typically return a dictionary with the following structure:
+{'toolUseId': ..., 'status': 'success', 'content': [{'text': '...'}]}. 
+Some tools may serialize complex data in the `content[0]['text']` field.
+
+This function attempts to parse the serialized data in the `text` field. It first tries to parse the text as JSON. If that fails, it attempts to evaluate the text as a Python literal (e.g., dict, list, etc.) using `ast.literal_eval`. If parsing fails or the `status` is not 'success', the original result is returned.
+
+This helper is kept for backward compatibility with other tools that may still serialize their results, but should not be needed for properly implemented tools.
+
+Example:
+- mcp_client calls: Use results directly (no parsing needed)
+- Other tools that serialize: May still need parse_tool_result()
+- Loaded MCP tools: Use results directly (no parsing needed)
+"""
+You should write code starting with:
+import json
+import ast
+
+def parse_tool_result(result: dict) -> dict:
+    # TODO: Implement this function
+    pass
+

@@ -1,0 +1,28 @@
+"""Truncates a string to a specified maximum length, appending an ellipsis if necessary.
+
+This function truncates the input string to ensure its length does not exceed the specified
+maximum number of characters. If the string is longer than the maximum allowed length, it is
+truncated and an ellipsis is appended. The ellipsis is only added if it fits within the maximum
+length constraint. If the ellipsis itself is longer than the maximum length, the string is
+hard-cut without the ellipsis.
+
+Args:
+    value (str): The input string to be truncated.
+    max_chars (int): The maximum number of characters allowed in the truncated string.
+        If `None`, the original string is returned without truncation.
+    ellipsis (str): The string to append as an ellipsis when truncating. If empty or `None`,
+        no ellipsis is appended.
+
+Returns:
+    str: The truncated string, possibly with an ellipsis appended. If `max_chars` is less than
+        or equal to 0, an empty string is returned. If `max_chars` is `None`, the original
+        string is returned.
+
+Examples:
+    >>> _truncate('short', 10, '...')
+    'short'
+    >>> _truncate('longer than max', 5, '...')
+    'lo...'
+    >>> _truncate('exact length', 12, '...')
+    'exact length'
+"""

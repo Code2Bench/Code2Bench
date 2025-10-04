@@ -1,0 +1,18 @@
+"""Extracts error files and their associated error messages from a given output string.
+
+The function processes the output line by line, using a regular expression to identify lines that contain error messages. Each error message is associated with a file path, and the function returns a dictionary where each key is a file path and the value is a list of error messages for that file.
+
+Args:
+    output (str): The output string from which to extract error files and messages.
+
+Returns:
+    defaultdict[str, list[str]]: A dictionary where keys are file paths and values are lists of error messages associated with those files.
+"""
+You should write code starting with:
+from collections import defaultdict
+import re
+
+def extract_error_files(output: str) -> defaultdict[str, list[str]]:
+    # TODO: Implement this function
+    pass
+

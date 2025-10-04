@@ -1,0 +1,16 @@
+/**
+ * Processes a LaTeX string by replacing instances of `\\frac` with `\\frac{}{}`.
+ *
+ * This function takes a LaTeX string and replaces all occurrences of `\\frac` with `\\frac{}{}`.
+ * It does not handle the numerator and denominator separately or check if they are already enclosed in curly braces.
+ *
+ * Args:
+ *     string (str): The LaTeX string to be processed.
+ *
+ * Returns:
+ *     str: The processed LaTeX string with `\\frac` replaced by `\\frac{}{}`.
+ */
+You should write code starting with:
+def _fix_fracs(string: str) -> str:
+    pass
+

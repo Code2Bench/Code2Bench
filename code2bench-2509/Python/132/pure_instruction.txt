@@ -1,0 +1,12 @@
+"""Extracts context factors from a user query based on predefined keywords.
+
+This function processes a user query to identify and extract context factors by checking for the presence of specific keywords. The keywords are categorized into two groups: technology-related and complexity-related. Each keyword is mapped to a corresponding context factor, which is added to the result list if the keyword is found in the query.
+
+Args:
+    user_query (str): The user's query string from which context factors are to be extracted.
+
+Returns:
+    List[str]: A list of context factors identified in the query. The factors are derived from the predefined keyword mappings.
+
+The function performs a case-insensitive search by converting the query to lowercase before checking for keywords. The context factors are added to the list in the order they are found, without any deduplication.
+"""

@@ -1,0 +1,18 @@
+"""Determines if the given text has properly closed quotes and brackets.
+
+This function checks two conditions:
+1. The number of single quotes (') in the text must be even, indicating that all quotes are properly closed.
+   Escaped quotes (preceded by a backslash) are ignored.
+2. All square brackets ([ and ]) must be properly nested and closed. This is verified using a stack-based approach.
+
+Args:
+    text (str): The input string to be checked for properly closed quotes and brackets.
+
+Returns:
+    bool: True if the text has properly closed quotes and brackets, False otherwise.
+
+Note:
+    - The function only considers single quotes (') and square brackets ([ and ]).
+    - Escaped quotes (e.g., \') are not counted as quotes.
+    - The function does not handle other types of quotes or brackets.
+"""

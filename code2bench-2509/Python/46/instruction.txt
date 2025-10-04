@@ -1,0 +1,24 @@
+"""Processes a string containing LaTeX square root expressions to ensure proper curly brace formatting.
+
+This function scans the input string for LaTeX square root expressions (`\\sqrt`). If any `\\sqrt` expressions are found, it ensures that the argument of the square root is enclosed in curly braces. If the argument is not already enclosed in braces, the function adds them.
+
+Args:
+    string (str): The input string containing LaTeX square root expressions.
+
+Returns:
+    str: The processed string with all `\\sqrt` expressions properly formatted with curly braces.
+
+Examples:
+    >>> _fix_sqrt('\\sqrt{a}')
+    '\\sqrt{a}'
+    >>> _fix_sqrt('\\sqrta')
+    '\\sqrt{a}'
+    >>> _fix_sqrt('\\sqrt{a} + \\sqrtb + \\sqrt{c}')
+    '\\sqrt{a} + \\sqrt{b} + \\sqrt{c}'
+    >>> _fix_sqrt('x + \\sqrt{y} + z + \\sqrt{w}')
+    'x + \\sqrt{y} + z + \\sqrt{w}'
+"""
+You should write code starting with:
+def _fix_sqrt(string: str) -> str:
+    pass
+

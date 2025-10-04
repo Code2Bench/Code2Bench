@@ -1,0 +1,10 @@
+"""Converts an image object to a data URL in PNG format.
+
+The function takes an image object, encodes it as a PNG, and converts it to a base64-encoded string. This string is then formatted as a data URL, which can be used to embed the image directly in HTML or CSS.
+
+Args:
+    image: An image object that supports the `save` method (e.g., a PIL Image object).
+
+Returns:
+    str: A data URL string in the format "data:image/png;base64,<base64_encoded_image>".
+"""

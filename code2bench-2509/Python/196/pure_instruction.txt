@@ -1,0 +1,15 @@
+"""Generates a transition sentence based on the content of the previous text and the current heading.
+
+This function analyzes the last 240 characters of the previous text to determine the context and constructs a transition sentence that smoothly introduces the current heading. The transition sentence is chosen based on the presence of specific keywords in the previous text.
+
+Args:
+    previous_text (str): The text that precedes the current heading. Only the last 240 characters are considered for analysis.
+    current_heading (str): The heading that the transition sentence will introduce.
+
+Returns:
+    str: A transition sentence that connects the previous text to the current heading. The sentence is constructed based on the presence of specific keywords in the previous text:
+        - If the previous text contains any of the words "problem", "issue", or "challenge", the transition sentence will focus on identifying challenges and exploring solutions.
+        - If the previous text contains any of the words "solution", "approach", or "method", the transition sentence will build on the approach and introduce the next step.
+        - If the previous text contains any of the words "important", "crucial", or "essential", the transition sentence will emphasize the importance and introduce the next focus area.
+        - If none of the above keywords are found, a generic transition sentence is used to lead into the current heading.
+"""

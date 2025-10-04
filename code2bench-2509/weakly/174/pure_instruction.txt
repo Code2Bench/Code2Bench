@@ -1,0 +1,14 @@
+"""Parses a nested string representation of a list into a Python object.
+
+This function takes a string that represents a nested list structure, where elements are separated by spaces or other delimiters. It adds quotation marks around each word in the string to ensure proper parsing, then attempts to evaluate the string as a Python object using `ast.literal_eval`. If the evaluation fails due to a `ValueError` or `SyntaxError`, the original input string is returned.
+
+Args:
+    input_string (str): A string representing a nested list structure.
+
+Returns:
+    object: The parsed Python object (e.g., list, tuple, etc.) if successful; otherwise, the original input string.
+
+Raises:
+    ValueError: If the string cannot be evaluated as a Python object.
+    SyntaxError: If the string contains invalid syntax for a Python object.
+"""

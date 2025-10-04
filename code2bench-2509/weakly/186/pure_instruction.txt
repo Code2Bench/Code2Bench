@@ -1,0 +1,13 @@
+Implement a Python function that processes sampled indices from an attention map and normalizes them based on the image size, using NumPy arrays.
+
+- **Inputs**:
+  - `sampled_inds_list`: A list of sampled indices (flattened into a 1D array).
+  - `attn_map`: A 2D `numpy.ndarray` representing the attention map.
+  - `image_size`: An integer specifying the size of the image (assumed to be square).
+- **Output**: A tuple containing:
+  - A 2D `numpy.ndarray` of shape (N, 2), where each row represents the original (row, column) indices in the attention map.
+  - A list of lists, where each inner list contains the normalized (x, y) coordinates of the indices, scaled by the image size.
+- **Special Rules**:
+  - Flatten the `sampled_inds_list` into a 1D array and convert it into 2D indices using the shape of the attention map.
+  - Normalize the indices by dividing the column indices by `image_size` for the x-coordinate and the row indices by `image_size` for the y-coordinate.
+  - Return both the original indices and the normalized coordinates.

@@ -1,0 +1,37 @@
+{
+  "name": "autocodebench1",
+  "version": "1.0.0",
+  "description": "```\r git config diff.renameLimit 5000\r ```",
+  "main": "index.js",
+  "type": "module",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/code2bench/code2bench.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/code2bench/code2bench/issues"
+  },
+  "homepage": "https://github.com/code2bench/code2bench#readme",
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "jest": "^29.7.0",
+    "path": "^0.12.7",
+    "ts-node": "^10.9.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.26.10",
+    "@babel/preset-env": "^7.26.9",
+    "@types/jest": "^29.5.14",
+    "babel-jest": "^29.7.0",
+    "ts-jest": "^29.3.1"
+  }
+}

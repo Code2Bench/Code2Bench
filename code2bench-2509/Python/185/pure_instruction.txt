@@ -1,0 +1,11 @@
+"""Build a dictionary of variable/value pairs from the provided arguments.
+
+Parameters can be either named or unnamed. For unnamed parameters, their names are derived from the `vars` list in order. The function first attempts to retrieve values using the variable names. If a value is not found, it falls back to retrieving values using positional indices (starting from 1). If no value is found for a parameter, it defaults to an empty string.
+
+Args:
+    args (Dict[str, str]): A dictionary containing the arguments, where keys can be either variable names or positional indices (as strings).
+    vars (List[str]): A list of variable names to map the arguments to.
+
+Returns:
+    Dict[str, str]: A dictionary where keys are the variable names from `vars` and values are the corresponding values from `args`. If a value is not found, it defaults to an empty string.
+"""

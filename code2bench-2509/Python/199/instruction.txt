@@ -1,0 +1,24 @@
+"""Get distribution of confidence scores.
+
+This function categorizes a list of confidence scores into three categories: 'high', 'medium', and 'low'. 
+The categorization is based on the following thresholds:
+- 'high': Confidence score >= 0.8
+- 'medium': 0.6 <= Confidence score < 0.8
+- 'low': Confidence score < 0.6
+
+The function returns a dictionary with the count of confidence scores in each category.
+
+Args:
+    confidences (List[float]): A list of confidence scores, where each score is a float between 0.0 and 1.0.
+
+Returns:
+    Dict[str, int]: A dictionary with keys 'high', 'medium', and 'low', and values representing the count of 
+    confidence scores in each category.
+"""
+You should write code starting with:
+from typing import List, Dict
+
+def _get_confidence_distribution(confidences: List[float]) -> Dict[str, int]:
+    # TODO: Implement this function based on the docstring.
+    pass
+

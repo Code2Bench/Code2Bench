@@ -1,0 +1,18 @@
+"""Decomposes a given path string or bytes into its Unicode NFD (Normalization Form D) form.
+
+This function normalizes the input path using Unicode NFD decomposition. If the input is a string, it directly applies the normalization. If the input is bytes, it attempts to decode it as UTF-8, applies the normalization, and then re-encodes it back to bytes. If the bytes cannot be decoded as UTF-8, the original bytes are returned unchanged.
+
+Args:
+    path (Union[str, bytes]): The path to be decomposed. Can be a string or bytes.
+
+Returns:
+    Union[str, bytes]: The decomposed path in NFD form. Returns a string if the input is a string, otherwise returns bytes.
+"""
+You should write code starting with:
+import unicodedata
+from typing import Union
+
+def decompose(path: Union[str, bytes]) -> Union[str, bytes]:
+    # TODO: Implement this function
+    pass
+

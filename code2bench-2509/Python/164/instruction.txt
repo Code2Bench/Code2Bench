@@ -1,0 +1,21 @@
+"""Helper function to build command-line options from the test options dictionary.
+
+This function processes a dictionary of test options and converts it into a list of command-line arguments. 
+The function handles different types of values in the dictionary:
+- Boolean values are converted into `--key` or `--no-key` format, depending on whether the value is `True` or `False`.
+- List values are expanded into multiple arguments, with each element in the list being a separate argument.
+- Other types of values are converted into `--key value` format.
+
+Args:
+    test_options (Dict[str, Any]): A dictionary where keys are option names and values are the corresponding values.
+
+Returns:
+    List[str]: A list of command-line arguments derived from the test options dictionary.
+"""
+You should write code starting with:
+from typing import Dict, Any, List
+
+def _build_command_line_options(test_options: Dict[str, Any]) -> List[str]:
+    # TODO: Implement this function based on the docstring.
+    pass
+

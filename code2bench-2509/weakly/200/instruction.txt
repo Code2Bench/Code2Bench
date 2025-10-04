@@ -1,0 +1,30 @@
+from collections import Counter
+
+def majority_vote_move(moves_list: list, prev_move=None) -> str:
+    """
+    Determines the majority-voted move from a list of moves, with a resolution mechanism for ties.
+
+    If there is a tie for the highest vote count:
+    - If `prev_move` is among the tied moves, it is chosen.
+    - Otherwise, the first move in the tie list is returned.
+
+    If the input `moves_list` is empty, the function returns `None`.
+
+    Args:
+        moves_list (list): A list of moves (strings or other hashable types) to be voted on.
+        prev_move (optional): A move (string or hashable type) that can be used as a tiebreaker if it belongs to the tied moves.
+
+    Returns:
+        str or hashable: The majority-voted move based on the input list and the tiebreaker logic.
+        None: If the input `moves_list` is empty.
+
+    Examples:
+        >>> majority_vote_move(['rock', 'paper', 'rock'], prev_move='paper')
+        'rock'
+        >>> majority_vote_move(['rock', 'paper', 'rock', 'paper'], prev_move='paper')
+        'paper'
+        >>> majority_vote_move([], prev_move='scissors')
+        None
+    """
+    # TODO: Implement this function
+    pass

@@ -1,0 +1,27 @@
+"""Packs a domain name into a DNS message format.
+
+This function encodes a domain name into a DNS-compatible format, handling label compression
+by reusing previously stored pointers to common suffixes. The function ensures that the
+encoded name adheres to DNS message constraints, including label length limits and pointer
+handling.
+
+Args:
+    name (str): The domain name to be packed.
+    off (int): The current offset in the DNS message where the name will be placed.
+    label_ptrs (dict): A dictionary mapping label suffixes to their corresponding pointers
+                       in the DNS message.
+
+Returns:
+    bytes: The packed domain name in DNS message format.
+
+Behavior:
+    - The domain name is encoded in UTF-8 and split into labels.
+    - Each label is processed sequentially, and if a label suffix already exists in
+      `label_ptrs`, a pointer to the existing suffix is used instead of encoding the label
+      again.
+    - Labels are encoded with their length followed by the label content.
+    - If a label suffix does not exist in `label_ptrs` and the pointer is within the valid
+      range (less than 0xc000), it is added to `label_ptrs` for future reuse.
+    - The function terminates when a pointer to an existing suffix is used or all labels
+      are processed.
+"""

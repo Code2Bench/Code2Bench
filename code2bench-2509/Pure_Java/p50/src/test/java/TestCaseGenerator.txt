@@ -1,0 +1,99 @@
+package p50;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import java.io.*;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
+import net.jqwik.api.*;
+import net.jqwik.api.lifecycle.AfterContainer;
+import p50.GroundTruth;
+
+public class TestCaseGenerator {
+
+    static class TestCase {
+        Map<String, Object> Inputs;
+        Object Expected;
+        TestCase(Map<String, Object> inputs, Object expected) {
+            this.Inputs = inputs;
+            this.Expected = expected;
+        }
+    }
+
+    static List<TestCase> generatedCases = new ArrayList<>();
+    static AtomicInteger caseCount = new AtomicInteger(0);
+    static final int MAX_CASES = 500;
+
+    @Property(tries = 10000)
+    void generateTestCases(@ForAll("size") long size, @ForAll("unit") String unit) {
+        if (caseCount.get() >= MAX_CASES) {
+            return;
+        }
+
+        Object result;
+        try {
+            result = GroundTruth.convertToBytes(size, unit);
+        } catch (IllegalArgumentException e) {
+            result = e.getMessage();
+        }
+
+        Map<String, Object> inputs = new LinkedHashMap<>();
+        inputs.put("size", size);
+        inputs.put("unit", unit);
+        generatedCases.add(new TestCase(inputs, result));
+        caseCount.incrementAndGet();
+    }
+
+    @Example
+    void example1() {
+        generateTestCases(1L, "KB");
+    }
+
+    @Example
+    void example2() {
+        generateTestCases(2L, "MB");
+    }
+
+    @Example
+    void example3() {
+        generateTestCases(3L, "GB");
+    }
+
+    @Example
+    void example4() {
+        generateTestCases(4L, "TB");
+    }
+
+    @Example
+    void example5() {
+        generateTestCases(5L, "UNSUPPORTED");
+    }
+
+    @Provide
+    Arbitrary<Long> size() {
+        return Arbitraries.longs().between(0, Long.MAX_VALUE);
+    }
+
+    @Provide
+    Arbitrary<String> unit() {
+        return Arbitraries.of("KB", "MB", "GB", "TB", "UNSUPPORTED");
+    }
+
+    @AfterContainer
+    static void saveTestCases() throws IOException {
+        if (generatedCases.isEmpty()) {
+            return;
+        }
+        String dirPath = "src/test/java/test_cases";
+        File dir = new File(dirPath);
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+        String filePath = dirPath + "/test_cases.json";
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        try (Writer writer = new FileWriter(filePath)) {
+            gson.toJson(generatedCases, writer);
+        }
+        System.out.println("✅ Saved " + generatedCases.size() + " test cases to " + filePath);
+    }
+}

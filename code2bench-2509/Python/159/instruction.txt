@@ -1,0 +1,19 @@
+"""Validate and normalize a page range within a document.
+
+This function ensures that the provided start and end page numbers are valid and within the bounds of the total number of pages in the document. It handles special cases such as when the end page is set to 0, which indicates the last page of the document. The function raises a ValueError if the page range is invalid.
+
+Args:
+    start_page (int): The starting page number (1-based indexing).
+    end_page (int): The ending page number (1-based indexing). A value of 0 indicates the last page.
+    total_pages (int): The total number of pages in the document.
+
+Returns:
+    tuple[int, int]: A tuple containing the normalized start and end page numbers.
+
+Raises:
+    ValueError: If the start page is less than 1, if the start page exceeds the total number of pages, or if the end page is less than the start page.
+"""
+You should write code starting with:
+def validate_page_range(start_page: int, end_page: int, total_pages: int) -> tuple[int, int]:
+    pass
+

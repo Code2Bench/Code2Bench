@@ -1,0 +1,94 @@
+package p102;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import java.io.*;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
+import net.jqwik.api.*;
+import net.jqwik.api.lifecycle.AfterContainer;
+import p102.GroundTruth;
+
+public class TestCaseGenerator {
+
+    static class TestCase {
+        Map<String, Object> Inputs;
+        Object Expected;
+        TestCase(Map<String, Object> inputs, Object expected) {
+            this.Inputs = inputs;
+            this.Expected = expected;
+        }
+    }
+
+    static List<TestCase> generatedCases = new ArrayList<>();
+    static AtomicInteger caseCount = new AtomicInteger(0);
+    static final int MAX_CASES = 500;
+
+    @Property(tries = 10000)
+    void generateTestCases(@ForAll("int32") int numBytes) {
+        if (caseCount.get() >= MAX_CASES) {
+            return;
+        }
+
+        int result;
+        try {
+            result = GroundTruth.roundNumberOfBytesToNearestWord(numBytes);
+        } catch (Exception e) {
+            return;
+        }
+
+        int remainder = numBytes & 0x07;
+        boolean isRemainderZero = remainder == 0;
+        boolean isRemainderNonZero = remainder != 0;
+        if (!isRemainderZero && !isRemainderNonZero) {
+            return;
+        }
+
+        Map<String, Object> inputs = new LinkedHashMap<>();
+        inputs.put("numBytes", numBytes);
+        generatedCases.add(new TestCase(inputs, result));
+        caseCount.incrementAndGet();
+    }
+
+    @Example
+    void example1() {
+        generateTestCases(0);
+    }
+
+    @Example
+    void example2() {
+        generateTestCases(8);
+    }
+
+    @Example
+    void example3() {
+        generateTestCases(7);
+    }
+
+    @Example
+    void example4() {
+        generateTestCases(15);
+    }
+
+    @Provide
+    Arbitrary<Integer> int32() {
+        return Arbitraries.integers().between(-2147483648, 2147483647);
+    }
+
+    @AfterContainer
+    static void saveTestCases() throws IOException {
+        if (generatedCases.isEmpty()) {
+            return;
+        }
+        String dirPath = "src/test/java/test_cases";
+        File dir = new File(dirPath);
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+        String filePath = dirPath + "/test_cases.json";
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        try (Writer writer = new FileWriter(filePath)) {
+            gson.toJson(generatedCases, writer);
+        }
+        System.out.println("✅ Saved " + generatedCases.size() + " test cases to " + filePath);
+    }
+}

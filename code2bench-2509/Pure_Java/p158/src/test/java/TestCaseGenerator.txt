@@ -1,0 +1,124 @@
+package p158;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import java.io.*;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
+import net.jqwik.api.*;
+import net.jqwik.api.lifecycle.AfterContainer;
+import p158.GroundTruth;
+
+public class TestCaseGenerator {
+
+    static class TestCase {
+        Map<String, Object> Inputs;
+        Object Expected;
+        TestCase(Map<String, Object> inputs, Object expected) {
+            this.Inputs = inputs;
+            this.Expected = expected;
+        }
+    }
+
+    static List<TestCase> generatedCases = new ArrayList<>();
+    static AtomicInteger caseCount = new AtomicInteger(0);
+    static final int MAX_CASES = 500;
+
+    @Property(tries = 10000)
+    void generateTestCases(@ForAll("string") String field, @ForAll("stringWithColon") String duedateDescription) {
+        if (caseCount.get() >= MAX_CASES) {
+            return;
+        }
+
+        String result;
+        try {
+            result = GroundTruth.removeValueFrom(field, duedateDescription);
+        } catch (Exception e) {
+            return;
+        }
+
+        Map<String, Object> inputs = new LinkedHashMap<>();
+        inputs.put("field", field);
+        inputs.put("duedateDescription", duedateDescription);
+        generatedCases.add(new TestCase(inputs, result));
+        caseCount.incrementAndGet();
+    }
+
+    @Example
+    void example1() {
+        generateTestCases("field1", "field1:value1 field2:value2");
+    }
+
+    @Example
+    void example2() {
+        generateTestCases("field2", "field1:value1 field2:value2");
+    }
+
+    @Example
+    void example3() {
+        generateTestCases("field3", "field1:value1 field2:value2");
+    }
+
+    @Example
+    void example4() {
+        generateTestCases("field1", "field1:value1");
+    }
+
+    @Example
+    void example5() {
+        generateTestCases("field1", "field1:value1 ");
+    }
+
+    @Example
+    void example6() {
+        generateTestCases("field1", "field1:value1 field2:value2 field3:value3");
+    }
+
+    @Example
+    void example7() {
+        generateTestCases("field1", "field1:value1field2:value2");
+    }
+
+    @Example
+    void example8() {
+        generateTestCases("field1", "field1:value1field2:value2 ");
+    }
+
+    @Example
+    void example9() {
+        generateTestCases("field1", "field1:value1field2:value2field3:value3");
+    }
+
+    @Example
+    void example10() {
+        generateTestCases("field1", "field1:value1field2:value2field3:value3 ");
+    }
+
+    @Provide
+    Arbitrary<String> string() {
+        return Arbitraries.strings().alpha().ofMinLength(1).ofMaxLength(10);
+    }
+
+    @Provide
+    Arbitrary<String> stringWithColon() {
+        return Arbitraries.strings().alpha().ofMinLength(1).ofMaxLength(20)
+                .map(s -> s + ":" + Arbitraries.strings().alpha().ofMinLength(1).ofMaxLength(10).sample());
+    }
+
+    @AfterContainer
+    static void saveTestCases() throws IOException {
+        if (generatedCases.isEmpty()) {
+            return;
+        }
+        String dirPath = "src/test/java/test_cases";
+        File dir = new File(dirPath);
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+        String filePath = dirPath + "/test_cases.json";
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        try (Writer writer = new FileWriter(filePath)) {
+            gson.toJson(generatedCases, writer);
+        }
+        System.out.println("✅ Saved " + generatedCases.size() + " test cases to " + filePath);
+    }
+}

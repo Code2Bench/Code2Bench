@@ -1,0 +1,23 @@
+"""Validates and extracts accelerator classifiers from a list of classifiers.
+
+This function filters and validates accelerator classifiers from a given list of classifiers. 
+Accelerator classifiers are those that start with "Environment ::". The function checks if 
+the extracted accelerator classifiers are valid based on a predefined set of valid accelerators.
+
+Args:
+    classifiers (list): A list of classifier strings to be processed.
+
+Returns:
+    list: A list of valid accelerator classifiers without the "Environment :: " prefix. 
+          Returns an empty list if no valid accelerator classifiers are found or if any 
+          extracted classifier is invalid.
+
+Note:
+    The function is case-sensitive and expects exact matches for valid accelerators.
+    The predefined set of valid accelerators includes:
+    - "GPU :: NVIDIA CUDA"
+    - "GPU :: AMD ROCm"
+    - "GPU :: Intel Arc"
+    - "NPU :: Huawei Ascend"
+    - "GPU :: Apple Metal"
+"""

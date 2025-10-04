@@ -1,0 +1,17 @@
+"""Constructs a summary request text for an AI memory-recall helper based on the given parameters.
+
+The function generates a formatted string that instructs the AI on how to summarize the conversation history. The instructions vary depending on the number of messages the AI can retain (`retain_count`), the messages that are about to be evicted (`evicted_messages`), and the messages that remain in context (`in_context_messages`).
+
+Args:
+    retain_count (int): The number of messages the AI can retain. If 0, the AI is about to forget all prior messages.
+    evicted_messages (List[str]): A list of older messages that are about to be evicted from the AI's memory.
+    in_context_messages (List[str]): A list of newer messages that remain in the AI's memory context.
+
+Returns:
+    str: A formatted string containing instructions for the AI to summarize the conversation history. The string includes:
+        - A primary instruction based on the `retain_count`.
+        - A section listing evicted messages, if any.
+        - A section listing in-context messages, if `retain_count` is greater than 0 and there are in-context messages.
+
+The function ensures that the output string is properly formatted with newlines and indentation for readability.
+"""

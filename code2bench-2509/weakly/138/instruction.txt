@@ -1,0 +1,20 @@
+"""Removes symbols and non-spacing marks from a string.
+
+This function normalizes the input string using the NFKC (Normalization Form KC) form, which 
+canonically composes characters and replaces compatibility characters with their equivalents. 
+It then removes characters that are categorized as marks (M), punctuation (P), or symbols (S) 
+according to the Unicode standard, replacing them with spaces.
+
+Args:
+    s (str): The input string from which symbols and non-spacing marks are to be removed.
+
+Returns:
+    str: The cleaned string with symbols and non-spacing marks replaced by spaces.
+"""
+You should write code starting with:
+import unicodedata
+
+def remove_symbols(s: str) -> str:
+    # TODO: Implement this function
+    pass
+

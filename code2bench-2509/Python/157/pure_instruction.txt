@@ -1,0 +1,21 @@
+"""Computes a linear warmup schedule value based on the current step.
+
+This function calculates a linearly increasing value from `start_value` to `end_value` over the course of `warmup_steps`. If the current `step` exceeds `warmup_steps`, the function returns `end_value`.
+
+Args:
+    step (int): The current step number. Must be non-negative.
+    warmup_steps (int): The number of steps over which the warmup occurs. Must be non-negative.
+    start_value (float): The initial value at step 0. Must be non-negative.
+    end_value (float): The target value after warmup_steps. Must be positive and greater than or equal to start_value.
+
+Returns:
+    float: The computed value based on the linear warmup schedule.
+
+Raises:
+    ValueError: If any of the following conditions are met:
+        - `warmup_steps` is negative.
+        - `step` is negative.
+        - `start_value` is negative.
+        - `end_value` is non-positive.
+        - `start_value` is greater than `end_value`.
+"""

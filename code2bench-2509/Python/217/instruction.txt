@@ -1,0 +1,32 @@
+"""Splits a string into parts, respecting brackets and limiting to three parts.
+
+This function processes a string by splitting it into parts based on commas, but it respects
+bracketed content (i.e., content within '[' and ']') by not splitting within brackets. The
+function ensures that the result contains at most three parts. If more than two commas are
+encountered outside of brackets, the remaining content is treated as the third part.
+
+Args:
+    content (str): The string to be split. It may contain commas and bracketed content.
+
+Returns:
+    List[str]: A list of strings, each representing a part of the original string. The list
+    will contain at most three elements. Each part is stripped of leading and trailing whitespace.
+
+Examples:
+    >>> _split_respecting_brackets('a,b,c')
+    ['a', 'b', 'c']
+    >>> _split_respecting_brackets('a,[b,c],d')
+    ['a', '[b,c]', 'd']
+    >>> _split_respecting_brackets('[a,b],c,d')
+    ['[a,b]', 'c', 'd']
+    >>> _split_respecting_brackets('a,b,[c,d]')
+    ['a', 'b', '[c,d]']
+    >>> _split_respecting_brackets('a,b,c,d')
+    ['a', 'b', 'c,d']
+"""
+You should write code starting with:
+from typing import List
+
+def _split_respecting_brackets(content: str) -> List[str]:
+    pass
+

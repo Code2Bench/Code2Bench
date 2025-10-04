@@ -1,0 +1,20 @@
+"""Helper function to transform a list of flat dictionaries into a dictionary of lists.
+
+A "flat" dictionary is defined as a dictionary where none of the values are nested dictionaries, but instead are simple types such as numpy arrays, floats, etc.
+
+Args:
+    list_of_dict (list): A list of flat dictionaries. Each dictionary in the list must have the same set of keys.
+
+Returns:
+    dict_of_list (dict): A dictionary where each key corresponds to a list of values from the input dictionaries. The order of keys is preserved using `collections.OrderedDict`.
+
+Raises:
+    AssertionError: If the input `list_of_dict` is not a list.
+"""
+You should write code starting with:
+import collections
+
+def list_of_flat_dict_to_dict_of_list(list_of_dict: list) -> collections.OrderedDict:
+    # TODO: Implement this function
+    pass
+

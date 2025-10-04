@@ -1,0 +1,22 @@
+"""Calculates the optimal patched size given the height, width, and a power-of-2 size.
+
+This function iteratively reduces the height and width of the patched area based on the
+provided `sp_size`, which must be a power of 2. The reduction process ensures that the
+final dimensions are as close as possible to the original dimensions while being
+compatible with the `sp_size`.
+
+Args:
+    patched_h (int): The original height of the patched area.
+    patched_w (int): The original width of the patched area.
+    sp_size (int): The size parameter, which must be a power of 2.
+
+Returns:
+    tuple[int, int]: A tuple containing the optimal height and width after adjustment.
+
+Raises:
+    AssertionError: If `sp_size` is not a power of 2.
+
+Note:
+    The function prioritizes reducing the larger dimension when both dimensions are odd.
+    This ensures a balanced reduction in size.
+"""

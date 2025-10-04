@@ -1,0 +1,20 @@
+"""Remove a function definition from the source code.
+
+This function parses the provided source code and removes the definition of the specified function. 
+If the function is found, it removes the entire block of code corresponding to the function definition. 
+If the function is not found, the original source code is returned unchanged.
+
+Args:
+    source_code (str): The source code from which to remove the function.
+    function_name (str): The name of the function to remove.
+
+Returns:
+    str: The modified source code with the function removed, or the original source code if the function is not found.
+"""
+You should write code starting with:
+import ast
+
+def remove_function(source_code: str, function_name: str) -> str:
+    # TODO: Implement this function
+    pass
+

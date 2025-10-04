@@ -1,0 +1,20 @@
+"""Generates all possible non-empty combinations of device indices.
+
+This function takes a list of device indices and returns all possible non-empty combinations of these indices. The combinations are sorted first by their length and then lexicographically. The input indices are sorted before processing to ensure consistent ordering in the output.
+
+Args:
+    device_indices (List[int]): A list of integers representing device indices.
+
+Returns:
+    List[List[int]]: A list of lists, where each inner list represents a unique combination of device indices. The combinations are sorted by length and then lexicographically.
+
+Examples:
+    >>> _get_device_combinations([1])
+    [[1]]
+    >>> _get_device_combinations([1, 2])
+    [[1], [2], [1, 2]]
+    >>> _get_device_combinations([1, 2, 3])
+    [[1], [2], [3], [1, 2], [1, 3], [2, 3], [1, 2, 3]]
+    >>> _get_device_combinations([9, 5, 6, 7])
+    [[5], [6], [7], [9], [5, 6], [5, 7], [5, 9], [6, 7], [6, 9], [7, 9], [5, 6, 7], [5, 6, 9], [5, 7, 9], [6, 7, 9], [5, 6, 7, 9]]
+"""

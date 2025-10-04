@@ -1,0 +1,118 @@
+package p150;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import java.io.*;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
+import net.jqwik.api.*;
+import net.jqwik.api.lifecycle.AfterContainer;
+import p150.GroundTruth;
+
+public class TestCaseGenerator {
+
+    static class TestCase {
+        Map<String, Object> Inputs;
+        Object Expected;
+        TestCase(Map<String, Object> inputs, Object expected) {
+            this.Inputs = inputs;
+            this.Expected = expected;
+        }
+    }
+
+    static List<TestCase> generatedCases = new ArrayList<>();
+    static AtomicInteger caseCount = new AtomicInteger(0);
+    static final int MAX_CASES = 500;
+
+    @Property(tries = 10000)
+    void generateTestCases(@ForAll("stringArbitrary") String fullSig) {
+        if (caseCount.get() >= MAX_CASES) {
+            return;
+        }
+
+        String[] result;
+        try {
+            result = GroundTruth.sepClassAndMthSig(fullSig);
+        } catch (Exception e) {
+            return;
+        }
+
+        Map<String, Object> inputs = new LinkedHashMap<>();
+        inputs.put("fullSig", fullSig);
+        generatedCases.add(new TestCase(inputs, result));
+        caseCount.incrementAndGet();
+    }
+
+    @Provide
+    Arbitrary<String> stringArbitrary() {
+        return Arbitraries.strings().withChars("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789()., ");
+    }
+
+    @AfterContainer
+    static void saveTestCases() throws IOException {
+        if (generatedCases.isEmpty()) {
+            return;
+        }
+        String dirPath = "src/test/java/test_cases";
+        File dir = new File(dirPath);
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+        String filePath = dirPath + "/test_cases.json";
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        try (Writer writer = new FileWriter(filePath)) {
+            gson.toJson(generatedCases, writer);
+        }
+        System.out.println("✅ Saved " + generatedCases.size() + " test cases to " + filePath);
+    }
+
+    @Example
+    void example1() {
+        generateTestCases("p150.GroundTruth.sepClassAndMthSig(String)");
+    }
+
+    @Example
+    void example2() {
+        generateTestCases("p150.GroundTruth.sepClassAndMthSig()");
+    }
+
+    @Example
+    void example3() {
+        generateTestCases("p150.GroundTruth.sepClassAndMthSig");
+    }
+
+    @Example
+    void example4() {
+        generateTestCases("p150.GroundTruth.sepClassAndMthSig(");
+    }
+
+    @Example
+    void example5() {
+        generateTestCases("p150.GroundTruth.sepClassAndMthSig)");
+    }
+
+    @Example
+    void example6() {
+        generateTestCases("p150.GroundTruth.sepClassAndMthSig((");
+    }
+
+    @Example
+    void example7() {
+        generateTestCases("p150.GroundTruth.sepClassAndMthSig))");
+    }
+
+    @Example
+    void example8() {
+        generateTestCases("p150.GroundTruth.sepClassAndMthSig(())");
+    }
+
+    @Example
+    void example9() {
+        generateTestCases("p150.GroundTruth.sepClassAndMthSig(p150.GroundTruth.sepClassAndMthSig(String))");
+    }
+
+    @Example
+    void example10() {
+        generateTestCases("p150.GroundTruth.sepClassAndMthSig(p150.GroundTruth.sepClassAndMthSig())");
+    }
+}

@@ -1,0 +1,31 @@
+"""Recursively flattens a nested state dictionary or list into a single-level dictionary.
+
+This function traverses a nested dictionary or list, constructing new keys by concatenating
+parent keys with child keys using a specified separator. The result is a flat dictionary where
+each key represents the path to the corresponding value in the original nested structure.
+
+Args:
+    obj (Union[dict, list, Any]): The nested dictionary, list, or other object to flatten.
+    parent_key (str): The base key used for constructing new keys in the flattened dictionary.
+                      Defaults to an empty string.
+    sep (str): The separator used to join parent and child keys. Defaults to '.'.
+
+Returns:
+    Dict[str, Any]: A single-level dictionary where keys are paths to the original values.
+
+Examples:
+    >>> flatten_state_dict({'a': 1})
+    {'a': 1}
+
+    >>> flatten_state_dict({'a': {'b': 2}})
+    {'a.b': 2}
+
+    >>> flatten_state_dict({'a': [1, 2]})
+    {'a.0': 1, 'a.1': 2}
+
+    >>> flatten_state_dict([1, 2])
+    {'0': 1, '1': 2}
+
+    >>> flatten_state_dict({'a': {'b': {'c': 3}}})
+    {'a.b.c': 3}
+"""

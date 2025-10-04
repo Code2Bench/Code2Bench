@@ -1,0 +1,20 @@
+package p225;
+
+public class Tested {
+    /**
+     * Determines if two integers are approximately equal within a specified tolerance (epsilon).
+     *
+     * <p>This method compares the absolute difference between the two integers to the given epsilon.
+     * If the difference is less than or equal to epsilon, the integers are considered equal.
+     *
+     * @param a       the first integer to compare
+     * @param b       the second integer to compare
+     * @param epsilon the tolerance value (must be non-negative)
+     * @return {@code true} if the absolute difference between {@code a} and {@code b} is less than or equal to {@code epsilon},
+     *         {@code false} otherwise
+     * @throws IllegalArgumentException if {@code epsilon} is negative
+     */
+    public static boolean equal(int a, int b, int epsilon) {
+        // TODO: implement this method
+    }
+}

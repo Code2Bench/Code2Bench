@@ -1,0 +1,19 @@
+"""Get the quality grade corresponding to a given quality score.
+
+The function maps a quality score to a letter grade based on the following thresholds:
+- A: 0.9 <= score <= 1.0
+- B: 0.8 <= score < 0.9
+- C: 0.7 <= score < 0.8
+- D: 0.6 <= score < 0.7
+- F: score < 0.6
+
+Args:
+    quality_score (float): A numeric score representing the quality, typically in the range [0.0, 1.0].
+
+Returns:
+    str: The corresponding letter grade as a single character ('A', 'B', 'C', 'D', or 'F').
+
+Note:
+    The function assumes that the input `quality_score` is a float within the range [0.0, 1.0]. 
+    Scores outside this range may produce unexpected results.
+"""

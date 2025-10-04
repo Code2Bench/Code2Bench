@@ -1,0 +1,10 @@
+"""Validate channel information before processing.
+
+This function checks if the provided channel information dictionary contains all required fields and validates the length of specific fields. The required fields are 'channel_name', 'channel_niche', 'target_audience', 'key_topics', and 'unique_points'. Additionally, it ensures that 'channel_name' is at least 3 characters long, and 'target_audience', 'key_topics', and 'unique_points' are each at least 10 characters long.
+
+Args:
+    channel_info (Dict): A dictionary containing channel information.
+
+Returns:
+    Tuple[bool, str]: A tuple where the first element is a boolean indicating whether the validation passed, and the second element is an error message if validation failed.
+"""

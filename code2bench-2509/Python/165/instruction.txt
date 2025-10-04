@@ -1,0 +1,24 @@
+"""Build the Content Security Policy (CSP) header value from the configuration.
+
+This function constructs a CSP header value by processing a dictionary of CSP directives and their corresponding values. Each directive-value pair is formatted appropriately, and the resulting directives are concatenated into a single string separated by semicolons.
+
+Args:
+    csp_config (Dict[str, str]): A dictionary where keys are CSP directives (e.g., 'default-src', 'img-src') and values are the corresponding CSP values (e.g., "'self'", 'https://example.com'). If a value is an empty string, the directive is included without a value.
+
+Returns:
+    Optional[str]: The constructed CSP header value as a string. If the input `csp_config` is empty or `None`, the function returns `None`.
+
+Examples:
+    >>> build_csp_header({'default-src': "'self'"})
+    "default-src 'self'"
+    >>> build_csp_header({'img-src': 'https://example.com', 'font-src': 'https://fonts.gstatic.com'})
+    'img-src https://example.com; font-src https://fonts.gstatic.com'
+    >>> build_csp_header({'script-src': "'unsafe-inline'", 'style-src': ''})
+    "script-src 'unsafe-inline'; style-src"
+"""
+You should write code starting with:
+from typing import Dict, Optional
+
+def build_csp_header(csp_config: Dict[str, str]) -> Optional[str]:
+    pass
+

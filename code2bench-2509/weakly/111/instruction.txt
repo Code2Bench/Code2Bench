@@ -1,0 +1,17 @@
+"""Convert ISO 8601 string to epoch milliseconds.
+
+This function converts an ISO 8601 formatted datetime string to epoch milliseconds, matching the behavior of Java's `iso8601StringToEpochLong`. The function handles the 'Z' timezone indicator by replacing it with '+00:00' before conversion.
+
+Args:
+    iso8601_string: ISO 8601 formatted datetime string, e.g., '2023-10-01T12:34:56Z'.
+
+Returns:
+    int: Time as epoch milliseconds.
+"""
+You should write code starting with:
+from datetime import datetime
+
+def iso8601_to_epoch_ms(iso8601_string: str) -> int:
+    # TODO: Implement this function
+    pass
+

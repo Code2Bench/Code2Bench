@@ -1,0 +1,120 @@
+package p97;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import java.io.*;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
+import net.jqwik.api.*;
+import net.jqwik.api.lifecycle.AfterContainer;
+import p97.GroundTruth;
+
+public class TestCaseGenerator {
+
+    static class TestCase {
+        Map<String, Object> Inputs;
+        Object Expected;
+        TestCase(Map<String, Object> inputs, Object expected) {
+            this.Inputs = inputs;
+            this.Expected = expected;
+        }
+    }
+
+    static List<TestCase> generatedCases = new ArrayList<>();
+    static AtomicInteger caseCount = new AtomicInteger(0);
+    static final int MAX_CASES = 500;
+
+    @Property(tries = 10000)
+    void generateTestCases(@ForAll("debugInfoStrings") String debugInfo) {
+        if (caseCount.get() >= MAX_CASES) {
+            return;
+        }
+
+        Integer result;
+        try {
+            result = GroundTruth.extractStatusCodeFromDebugInfo(debugInfo);
+        } catch (Exception e) {
+            return;
+        }
+
+        Map<String, Object> inputs = new LinkedHashMap<>();
+        inputs.put("debugInfo", debugInfo);
+        generatedCases.add(new TestCase(inputs, result));
+        caseCount.incrementAndGet();
+    }
+
+    @Example
+    void example1() {
+        generateTestCases("Status Code: 200\nOther Info: Test");
+    }
+
+    @Example
+    void example2() {
+        generateTestCases("Invalid Debug Info");
+    }
+
+    @Example
+    void example3() {
+        generateTestCases("Status Code: 404\nStatus Code: 500");
+    }
+
+    @Example
+    void example4() {
+        generateTestCases("Status Code: abc\nOther Info: Test");
+    }
+
+    @Example
+    void example5() {
+        generateTestCases("Status Code: 200");
+    }
+
+    @Example
+    void example6() {
+        generateTestCases("Status Code: 200\nStatus Code: 404");
+    }
+
+    @Example
+    void example7() {
+        generateTestCases("Status Code: 200\nStatus Code: 404\nStatus Code: 500");
+    }
+
+    @Example
+    void example8() {
+        generateTestCases("Status Code: 200\nStatus Code: 404\nStatus Code: 500\nOther Info: Test");
+    }
+
+    @Example
+    void example9() {
+        generateTestCases("Status Code: 200\nStatus Code: 404\nStatus Code: 500\nOther Info: Test\nStatus Code: 600");
+    }
+
+    @Example
+    void example10() {
+        generateTestCases("Status Code: 200\nStatus Code: 404\nStatus Code: 500\nOther Info: Test\nStatus Code: 600\nStatus Code: 700");
+    }
+
+    @Provide
+    Arbitrary<String> debugInfoStrings() {
+        return Arbitraries.strings()
+                .withChars("Status Code: 0123456789\nOther Info: abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
+                .ofMinLength(1)
+                .ofMaxLength(100);
+    }
+
+    @AfterContainer
+    static void saveTestCases() throws IOException {
+        if (generatedCases.isEmpty()) {
+            return;
+        }
+        String dirPath = "src/test/java/test_cases";
+        File dir = new File(dirPath);
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+        String filePath = dirPath + "/test_cases.json";
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        try (Writer writer = new FileWriter(filePath)) {
+            gson.toJson(generatedCases, writer);
+        }
+        System.out.println("✅ Saved " + generatedCases.size() + " test cases to " + filePath);
+    }
+}

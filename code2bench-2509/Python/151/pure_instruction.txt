@@ -1,0 +1,22 @@
+"""Convert a time string with units to seconds.
+
+This function takes a string representing a time duration with units (e.g., '20 sec', '30 min', '2 hrs') and converts it to the equivalent number of seconds. The function handles units of seconds, minutes, and hours, and can also process strings with underscores (e.g., '20_sec').
+
+Args:
+    time_str (str, optional): The time string to convert. If None or an empty string, the function returns 0. Defaults to None.
+
+Returns:
+    int: The number of seconds equivalent to the input time string. Returns 0 if the input is invalid, negative, or if an error occurs during conversion.
+
+Examples:
+    >>> time_str_to_secs('20 sec')
+    20
+    >>> time_str_to_secs('30 min')
+    1800
+    >>> time_str_to_secs('2 hrs')
+    7200
+    >>> time_str_to_secs('20_sec')
+    20
+    >>> time_str_to_secs(None)
+    0
+"""

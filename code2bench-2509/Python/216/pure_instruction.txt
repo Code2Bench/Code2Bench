@@ -1,0 +1,29 @@
+"""Formats community content by appending entities and keywords to the base text.
+
+This function takes a base text and two lists (entities and keywords) and appends a formatted
+string to the base text indicating the presence of entities and keywords. If both lists are empty,
+the function returns the base text unchanged. If either list contains more than three items, only
+the first three are shown, followed by a count of the remaining items.
+
+Args:
+    base_text (str): The base text to which entities and keywords will be appended.
+    entities (list[str]): A list of entities to be included in the formatted content.
+    keywords (list[str]): A list of keywords to be included in the formatted content.
+
+Returns:
+    str: The formatted content string, which includes the base text and any appended entities
+         and keywords.
+
+Examples:
+    >>> _format_community_content("Sample text", [], [])
+    'Sample text'
+
+    >>> _format_community_content("Sample text", ["entity1"], [])
+    'Sample text\n  Contains:\n    Entities: entity1'
+
+    >>> _format_community_content("Sample text", [], ["keyword1"])
+    'Sample text\n  Contains:\n    Keywords: keyword1'
+
+    >>> _format_community_content("Sample text", ["entity1", "entity2", "entity3", "entity4"], ["keyword1", "keyword2", "keyword3", "keyword4"])
+    'Sample text\n  Contains:\n    Entities: entity1, entity2, entity3 and 1 more\n    Keywords: keyword1, keyword2, keyword3 and 1 more'
+"""

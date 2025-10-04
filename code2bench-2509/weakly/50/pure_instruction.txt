@@ -1,0 +1,17 @@
+"""Flattens a nested dictionary into a single-level dictionary with concatenated keys.
+
+The function recursively traverses the input dictionary, concatenating keys with a specified
+separator to create flattened keys. Nested dictionaries are handled by recursively flattening
+them and merging the results.
+
+Args:
+    dictionary (MutableMapping): The nested dictionary to flatten.
+    prefix (str, optional): A prefix to prepend to all keys. Defaults to an empty string.
+    sep (str, optional): The separator used to concatenate keys. Defaults to "_".
+
+Returns:
+    dict: A single-level dictionary with flattened keys and corresponding values.
+
+Example:
+    >>> flatten_dict({'a': 1, 'b': {'c': 2, 'd': {'e': 3}}})
+    {'a': 1, 'b_c': 2, 'b_d_e': 3}

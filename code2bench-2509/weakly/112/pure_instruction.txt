@@ -1,0 +1,20 @@
+"""Generate a test report in JSON format summarizing the test results.
+
+The report includes a summary of the total number of tests, passed tests, failed tests, 
+total execution time, and average execution time. It also includes the detailed test results.
+
+Args:
+    test_results: A list of dictionaries where each dictionary represents a test result. 
+                 Each dictionary must contain the keys "success" (bool) and "execution_time" (float).
+
+Returns:
+    Dict[str, Any]: A dictionary containing the test report with the following keys:
+        - "timestamp": The ISO format timestamp of when the report was generated.
+        - "summary": A dictionary with the following keys:
+            - "total_tests": Total number of tests.
+            - "passed_tests": Number of tests that passed.
+            - "failed_tests": Number of tests that failed.
+            - "total_execution_time": Total execution time of all tests.
+            - "average_execution_time": Average execution time per test.
+        - "test_results": The original list of test results.
+"""

@@ -1,0 +1,30 @@
+/**
+ * Calculates the token counts and frame IDs for a specified rank in a distributed system.
+ *
+ * This function determines how tokens and their corresponding frames should be distributed
+ * for a given rank, ensuring an even distribution across all ranks. Any remainder tokens
+ * are assigned to the first few ranks.
+ *
+ * Args:
+ *     T (int): Total number of tokens.
+ *     token_frame (int): Number of frames per token.
+ *     world_size (int): Total number of ranks in the distributed system.
+ *     rank (int): The rank for which to calculate the token counts and frame IDs.
+ *
+ * Returns:
+ *     tuple: A tuple containing two lists specific to the specified rank:
+ *         - List[int]: Token counts for the rank.
+ *         - List[int]: Frame IDs corresponding to the token counts.
+ *
+ * The function calculates the total number of frames by multiplying T and token_frame.
+ * It then determines the distribution of frames across ranks, ensuring an even split
+ * with any remainder frames assigned to the first few ranks. For the specified rank,
+ * the function calculates the appropriate token counts and their corresponding frame IDs.
+ */
+ */
+You should write code starting with:
+from typing import List, Tuple
+
+def split_token_counts_and_frame_ids(T: int, token_frame: int, world_size: int, rank: int) -> Tuple[List[int], List[int]]:
+    pass
+

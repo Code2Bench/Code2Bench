@@ -1,0 +1,23 @@
+"""Cleans the code by handling the `if __name__ == '__main__'` block.
+
+This function processes the input code string to handle the common Python idiom `if __name__ == '__main__'`. 
+If the last block in the code is an `if` statement checking `__name__ == '__main__'`, it removes the `if` condition 
+and retains only the body of the `if` block. The rest of the code remains unchanged.
+
+Args:
+    code (str): The input code string to be processed.
+
+Returns:
+    str: The cleaned code string with the `if __name__ == '__main__'` block handled.
+
+Note:
+    If the code parsing fails or the last block is not an `if` statement checking `__name__ == '__main__'`, 
+    the function returns the original code unchanged.
+"""
+You should write code starting with:
+import ast
+
+def clean_if_name(code: str) -> str:
+    # TODO: Implement this function
+    pass
+

@@ -1,0 +1,26 @@
+"""Remove accelerator markers (&) from a label, handling escaped ampersands (&&) correctly.
+
+This function processes a string label and removes all single ampersands (&) that are used as accelerator markers. 
+Escaped ampersands (&&) are preserved in the output. The function iterates through the label character by character, 
+skipping the character immediately following a single ampersand and preserving double ampersands.
+
+Args:
+    label (str): The input string containing accelerator markers and possibly escaped ampersands.
+
+Returns:
+    str: The label with all single ampersands removed and escaped ampersands preserved.
+
+Examples:
+    >>> remove_mnemonic_marker("&a")
+    'a'
+    >>> remove_mnemonic_marker("a&b&c")
+    'abc'
+    >>> remove_mnemonic_marker("a&&b")
+    'a&&b'
+    >>> remove_mnemonic_marker("&a&&b&c")
+    'a&&bc'
+"""
+You should write code starting with:
+def remove_mnemonic_marker(label: str) -> str:
+    pass
+

@@ -1,0 +1,41 @@
+"""Filters a list of dictionaries based on a column's value equality.
+
+This function takes a list of dictionaries and filters it to include only the rows where the specified column's value matches the given filter value. The function handles various edge cases, such as invalid input data, empty lists, and incorrect filter specifications.
+
+Args:
+    current_data (List[Dict]): The input data, expected to be a list of dictionaries.
+    filter_spec (str): A string in the format 'column_name:value' specifying the column and value to filter by.
+    mime_type (Optional[str]): The original mime type of the data, which is passed through unchanged.
+    log_id (str): An identifier used for logging purposes.
+
+Returns:
+    Tuple[Any, Optional[str], Optional[str]]: A tuple containing:
+        - result_data (List[Dict]): The filtered list of dictionaries.
+        - original_mime_type (Optional[str]): The original mime type passed in.
+        - error_string (Optional[str]): An error message if an issue occurred, otherwise None.
+
+Raises:
+    This function does not raise exceptions but returns error messages in the tuple.
+
+Examples:
+    >>> _apply_filter_rows_eq([{'key': 'value'}], 'key:value', 'application/json', 'test')
+    ([{'key': 'value'}], 'application/json', None)
+
+    >>> _apply_filter_rows_eq([{'key': 'value'}, {'key': 'other'}], 'key:value', 'text/csv', 'test')
+    ([{'key': 'value'}], 'text/csv', None)
+
+    >>> _apply_filter_rows_eq([{'0': 0}], '0:0', 'application/json', '0')
+    ([{'0': 0}], 'application/json', None)
+"""
+You should write code starting with:
+from typing import List, Dict, Optional, Tuple, Any
+
+def _apply_filter_rows_eq(
+    current_data: List[Dict], 
+    filter_spec: str, 
+    mime_type: Optional[str], 
+    log_id: str
+) -> Tuple[Any, Optional[str], Optional[str]]:
+    # TODO: Implement this function based on the docstring.
+    pass
+

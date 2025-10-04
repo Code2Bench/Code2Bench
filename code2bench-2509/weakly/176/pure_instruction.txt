@@ -1,0 +1,10 @@
+"""Sorts a list of model names based on their checkpoint or global step numbers.
+
+The function groups model names by their base name (everything before 'checkpoint-' or 'global_step') and then sorts the models within each group based on the checkpoint or global step number extracted from the model name. Models with 'checkpoint-final' are treated as having the highest priority (infinite checkpoint number). If no checkpoint or global step number is found, the model is treated as having the highest priority.
+
+Args:
+    models (list of str): A list of model names to be sorted.
+
+Returns:
+    list of str: A list of model names sorted by their checkpoint or global step numbers within each base name group.
+"""

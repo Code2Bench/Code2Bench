@@ -1,0 +1,12 @@
+"""Parses Python source code from a string and extracts top-level classes, functions, and try/if blocks. It ignores methods inside classes and any blocks nested within functions.
+
+Args:
+    source_code (str): The Python source code as a string.
+    file_path_for_logging (str): The path of the file being scraped, for logging purposes.
+
+Returns:
+    list: A list of strings, where each string is a source code block. The blocks include top-level functions, classes, try/except/finally blocks, and if blocks. Methods within classes and nested blocks within functions are excluded.
+
+Note:
+    - If the source code contains syntax errors or cannot be parsed, an empty list is returned, and an error message is logged.
+"""

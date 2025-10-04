@@ -1,0 +1,19 @@
+"""Return orthogonalization matrix for crystallographic cell coordinates.
+
+The function computes the orthogonalization matrix based on the given cell lengths and angles. The angles are expected in degrees. The de-orthogonalization matrix is the inverse of the returned matrix.
+
+Args:
+    lengths (list or numpy.ndarray): A sequence of three numbers representing the lengths of the crystallographic cell axes.
+    angles (list or numpy.ndarray): A sequence of three numbers representing the angles between the crystallographic cell axes in degrees.
+
+Returns:
+    numpy.ndarray: A 4x4 orthogonalization matrix for the crystallographic cell coordinates.
+
+Examples:
+    >>> O = orthogonalization_matrix([10, 10, 10], [90, 90, 90])
+    >>> numpy.allclose(O[:3, :3], numpy.identity(3, float) * 10)
+    True
+    >>> O = orthogonalization_matrix([9.8, 12.0, 15.5], [87.2, 80.7, 69.7])
+    >>> numpy.allclose(numpy.sum(O), 43.063229)
+    True
+"""

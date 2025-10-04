@@ -1,0 +1,19 @@
+"""Performs a rule-based analysis on the transition between two text segments.
+
+This function evaluates the flow, consistency, and progression between a previous text segment and a current text segment based on specific linguistic rules. The analysis is performed by adjusting initial scores based on the presence of certain keywords and punctuation marks.
+
+Args:
+    previous_text (str): The text segment that precedes the current segment. It is used to assess the flow based on its ending punctuation.
+    current_text (str): The text segment being analyzed. It is used to assess progression and consistency based on its content and length.
+
+Returns:
+    Dict[str, float]: A dictionary containing the scores for flow, consistency, and progression. Each score is a float value between 0.0 and 1.0, inclusive.
+
+The function applies the following rules:
+    - If the previous text ends with a sentence-ending punctuation mark (., !, ?), the flow score is increased by 0.1.
+    - If the current text contains progression keywords (e.g., "therefore", "next"), the progression score is increased by 0.2.
+    - If the current text is longer than 120 words, the consistency score is increased by 0.1.
+    - If the current text contains flow keywords (e.g., "however", "but"), the flow score is increased by 0.1.
+
+The scores are capped at 1.0 to ensure they remain within a valid range.
+"""

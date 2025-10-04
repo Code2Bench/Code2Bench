@@ -1,0 +1,151 @@
+package p240;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import java.io.*;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
+import net.jqwik.api.*;
+import net.jqwik.api.lifecycle.AfterContainer;
+import p240.GroundTruth;
+
+public class TestCaseGenerator {
+
+    static class TestCase {
+        Map<String, Object> Inputs;
+        Object Expected;
+        TestCase(Map<String, Object> inputs, Object expected) {
+            this.Inputs = inputs;
+            this.Expected = expected;
+        }
+    }
+
+    static List<TestCase> generatedCases = new ArrayList<>();
+    static AtomicInteger caseCount = new AtomicInteger(0);
+    static final int MAX_CASES = 500;
+
+    @Property(tries = 10000)
+    void generateTestCases(@ForAll("capabilities") String capabilities) {
+        if (caseCount.get() >= MAX_CASES) {
+            return;
+        }
+
+        boolean result;
+        try {
+            result = GroundTruth.isSecuredNetwork(capabilities);
+        } catch (Exception e) {
+            return;
+        }
+
+        Map<String, Object> inputs = new LinkedHashMap<>();
+        inputs.put("capabilities", capabilities);
+        generatedCases.add(new TestCase(inputs, result));
+        caseCount.incrementAndGet();
+    }
+
+    @Example
+    void exampleNull() {
+        generateTestCases(null);
+    }
+
+    @Example
+    void exampleEmpty() {
+        generateTestCases("");
+    }
+
+    @Example
+    void exampleESS() {
+        generateTestCases("[ESS]");
+    }
+
+    @Example
+    void exampleWPA() {
+        generateTestCases("WPA");
+    }
+
+    @Example
+    void exampleWEP() {
+        generateTestCases("WEP");
+    }
+
+    @Example
+    void examplePSK() {
+        generateTestCases("PSK");
+    }
+
+    @Example
+    void exampleEAP() {
+        generateTestCases("EAP");
+    }
+
+    @Example
+    void exampleSAE() {
+        generateTestCases("SAE");
+    }
+
+    @Example
+    void exampleOWE() {
+        generateTestCases("OWE");
+    }
+
+    @Example
+    void exampleESSWPA() {
+        generateTestCases("[ESS]WPA");
+    }
+
+    @Example
+    void exampleESSWEP() {
+        generateTestCases("[ESS]WEP");
+    }
+
+    @Example
+    void exampleESSPSK() {
+        generateTestCases("[ESS]PSK");
+    }
+
+    @Example
+    void exampleESSEAP() {
+        generateTestCases("[ESS]EAP");
+    }
+
+    @Example
+    void exampleESSSAE() {
+        generateTestCases("[ESS]SAE");
+    }
+
+    @Example
+    void exampleESSOWE() {
+        generateTestCases("[ESS]OWE");
+    }
+
+    @Provide
+    Arbitrary<String> capabilities() {
+        return Arbitraries.strings()
+                .withChars("ABCDEFGHIJKLMNOPQRSTUVWXYZ[]")
+                .withChars("abcdefghijklmnopqrstuvwxyz[]")
+                .withChars("0123456789[]")
+                .withChars("!@#$%^&*()_+-=[]")
+                .withChars("{}|:;'<>?,./[]")
+                .withChars("\"\\[]")
+                .withChars(" \t\n\r[]")
+                .ofMinLength(0)
+                .ofMaxLength(50);
+    }
+
+    @AfterContainer
+    static void saveTestCases() throws IOException {
+        if (generatedCases.isEmpty()) {
+            return;
+        }
+        String dirPath = "src/test/java/test_cases";
+        File dir = new File(dirPath);
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+        String filePath = dirPath + "/test_cases.json";
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        try (Writer writer = new FileWriter(filePath)) {
+            gson.toJson(generatedCases, writer);
+        }
+        System.out.println("✅ Saved " + generatedCases.size() + " test cases to " + filePath);
+    }
+}

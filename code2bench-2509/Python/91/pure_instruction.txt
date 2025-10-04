@@ -1,0 +1,12 @@
+"""Remove binary file diffs from a git patch.
+
+This function processes a git patch text and removes any sections that represent binary file diffs. It identifies binary diffs by the presence of the 'Binary files' line within a diff block. The function preserves all non-binary diff blocks in their original order.
+
+Args:
+    patch_text (str): The git patch text containing one or more diff blocks.
+
+Returns:
+    str: The cleaned patch text with all binary diffs removed, preserving non-binary diffs.
+
+The function works by iterating through each line of the patch text, grouping lines into blocks based on the 'diff --git' marker. If a block contains a 'Binary files' line, the entire block is excluded from the output. Otherwise, the block is included in the cleaned patch text.
+"""

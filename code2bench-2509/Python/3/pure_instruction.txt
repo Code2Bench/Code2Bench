@@ -1,0 +1,27 @@
+"""Format a file size in bytes into a human-readable string.
+
+This function converts a given size in bytes into a more readable format using
+appropriate units (B, KB, MB, GB, TB). The conversion is done by iteratively
+dividing the size by 1024 until the size is less than 1024 or the largest unit
+is reached. The result is formatted to one decimal place for units larger than
+bytes, and as an integer for bytes.
+
+Args:
+    size_bytes (int): The size in bytes to be formatted.
+
+Returns:
+    str: A string representing the size in a human-readable format, including
+         the appropriate unit.
+
+Examples:
+    >>> _format_file_size(500)
+    '500 B'
+    >>> _format_file_size(1024)
+    '1.0 KB'
+    >>> _format_file_size(1048576)
+    '1.0 MB'
+    >>> _format_file_size(1073741824)
+    '1.0 GB'
+    >>> _format_file_size(1099511627776)
+    '1.0 TB'
+"""

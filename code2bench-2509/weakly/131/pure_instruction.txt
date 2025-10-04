@@ -1,0 +1,10 @@
+"""Converts a given 3x3 rotation matrix to intrinsic Euler angles in radians.
+
+The function uses the XYZ convention for intrinsic Euler angles, which represents rotations around the X, Y, and Z axes in that order. The angles are returned in radians.
+
+Parameters:
+    rmat (np.array): A 3x3 rotation matrix.
+
+Returns:
+    np.array: A vector of three floats representing the intrinsic Euler angles (roll, pitch, yaw) in radians.
+"""

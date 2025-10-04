@@ -1,0 +1,30 @@
+"""Merges overlapping spans on the same line.
+
+Given a list of span coordinates, this function merges any spans that overlap horizontally.
+The spans are represented as tuples of coordinates (x1, y1, x2, y2), where (x1, y1) is the
+top-left corner and (x2, y2) is the bottom-right corner of the span.
+
+Args:
+    spans (List[Tuple[int, int, int, int]]): A list of span coordinates, where each span is
+        represented as a tuple (x1, y1, x2, y2).
+
+Returns:
+    List[Tuple[int, int, int, int]]: A list of merged spans, where overlapping spans have been
+        combined into a single span.
+
+The function first sorts the spans by their starting x-coordinate to ensure proper merging.
+It then iterates through the sorted spans, merging any spans that overlap horizontally.
+If two spans overlap, the merged span's top-left corner is updated to the minimum (x1, y1)
+and the bottom-right corner to the maximum (x2, y2) of the two spans.
+
+Example:
+    >>> merge_overlapping_spans([(0, 0, 10, 10), (5, 5, 15, 15)])
+    [(0, 0, 15, 15)]
+"""
+You should write code starting with:
+from typing import List, Tuple
+
+def merge_overlapping_spans(spans: List[Tuple[int, int, int, int]]) -> List[Tuple[int, int, int, int]]:
+    # TODO: Implement this function based on the docstring.
+    pass
+

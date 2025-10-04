@@ -1,0 +1,18 @@
+"""Suggests similar model names from a list of available models using fuzzy matching.
+
+This function uses the `difflib` library to find close matches to an invalid model name within a list of available models. It returns a list of up to 3 suggestions that are the most similar to the invalid model name, based on a similarity cutoff of 0.3.
+
+Args:
+    invalid_model (str): The model name that is invalid or not found.
+    available_models (list[str]): A list of valid model names to compare against.
+
+Returns:
+    list[str]: A list of up to 3 suggested model names that are similar to the invalid model name. If the list of available models is empty, an empty list is returned.
+"""
+You should write code starting with:
+import difflib
+
+def suggest_similar_models(invalid_model: str, available_models: list[str]) -> list[str]:
+    # TODO: Implement this function
+    pass
+

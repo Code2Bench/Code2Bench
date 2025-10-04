@@ -1,0 +1,20 @@
+"""Builds a list of buckets with increasing powers of 10 multiplied by mantissa values.
+
+This function generates a list of values by multiplying each mantissa in `mantissa_lst` by increasing powers of 10 (starting from 10^0). The process continues until the generated value exceeds `max_value`. The resulting list of values is returned in ascending order.
+
+Args:
+    mantissa_lst (list[int]): A list of integer mantissa values to be multiplied by powers of 10.
+    max_value (int): The maximum value allowed in the resulting bucket list. The function stops generating values once this limit is exceeded.
+
+Returns:
+    list[int]: A list of integer values representing the buckets, sorted in ascending order.
+
+Note:
+    The function ensures that all generated values are less than or equal to `max_value`. If a value exceeds `max_value`, it is not included in the result, and the function terminates.
+"""
+You should write code starting with:
+from typing import List
+
+def build_buckets(mantissa_lst: List[int], max_value: int) -> List[int]:
+    pass
+

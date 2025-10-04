@@ -1,0 +1,19 @@
+"""Aligns the indentation of the first non-empty line to match the second non-empty line in a given code string.
+
+This function processes a multi-line string and adjusts the indentation of the first non-empty line to match that of the second non-empty line. If the indentation of the first line already matches the second line, the original string is returned unchanged. If there are fewer than two non-empty lines, the original string is also returned.
+
+Args:
+    code_string (str): A multi-line string representing code or text with potential indentation.
+
+Returns:
+    str: The modified string with the first non-empty line's indentation aligned to the second non-empty line, or the original string if no changes are needed.
+
+Note:
+    - The function only processes the first two non-empty lines it encounters.
+    - Lines are considered non-empty if they contain any non-whitespace characters.
+    - The function preserves the original content of the lines, only modifying the indentation.
+"""
+You should write code starting with:
+def align_first_line_to_second(code_string: str) -> str:
+    pass
+

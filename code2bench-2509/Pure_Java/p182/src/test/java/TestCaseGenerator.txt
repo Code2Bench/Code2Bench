@@ -1,0 +1,95 @@
+package p182;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import java.io.*;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
+import net.jqwik.api.*;
+import net.jqwik.api.lifecycle.AfterContainer;
+import p182.GroundTruth;
+
+public class TestCaseGenerator {
+
+    static class TestCase {
+        Map<String, Object> Inputs;
+        Object Expected;
+        TestCase(Map<String, Object> inputs, Object expected) {
+            this.Inputs = inputs;
+            this.Expected = expected;
+        }
+    }
+
+    static List<TestCase> generatedCases = new ArrayList<>();
+    static AtomicInteger caseCount = new AtomicInteger(0);
+    static final int MAX_CASES = 500;
+
+    @Property(tries = 10000)
+    void generateTestCases(@ForAll("intervals") int[] intervals, @ForAll("note") int note, @ForAll("tonic") int tonic) {
+        if (caseCount.get() >= MAX_CASES) {
+            return;
+        }
+
+        int result;
+        try {
+            result = GroundTruth.calcNoteIndex(intervals, note, tonic);
+        } catch (Exception e) {
+            return;
+        }
+
+        Map<String, Object> inputs = new LinkedHashMap<>();
+        inputs.put("intervals", intervals);
+        inputs.put("note", note);
+        inputs.put("tonic", tonic);
+        generatedCases.add(new TestCase(inputs, result));
+        caseCount.incrementAndGet();
+    }
+
+    @Example
+    void example1() {
+        generateTestCases(new int[]{0, 4, 7}, 60, 0);
+    }
+
+    @Example
+    void example2() {
+        generateTestCases(new int[]{0, 3, 7}, 62, 2);
+    }
+
+    @Example
+    void example3() {
+        generateTestCases(new int[]{0, 2, 4, 5, 7, 9, 11}, 65, 5);
+    }
+
+    @Provide
+    Arbitrary<int[]> intervals() {
+        return Arbitraries.integers().between(0, 11).array(int[].class).ofMinSize(1).ofMaxSize(12);
+    }
+
+    @Provide
+    Arbitrary<Integer> note() {
+        return Arbitraries.integers().between(0, 127);
+    }
+
+    @Provide
+    Arbitrary<Integer> tonic() {
+        return Arbitraries.integers().between(0, 11);
+    }
+
+    @AfterContainer
+    static void saveTestCases() throws IOException {
+        if (generatedCases.isEmpty()) {
+            return;
+        }
+        String dirPath = "src/test/java/test_cases";
+        File dir = new File(dirPath);
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+        String filePath = dirPath + "/test_cases.json";
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        try (Writer writer = new FileWriter(filePath)) {
+            gson.toJson(generatedCases, writer);
+        }
+        System.out.println("✅ Saved " + generatedCases.size() + " test cases to " + filePath);
+    }
+}

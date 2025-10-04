@@ -1,0 +1,17 @@
+"""将时间戳格式化为可读的日期字符串。
+
+该函数接受一个浮点数时间戳，并将其转换为格式为 "YYYY-MM-DD HH:MM:SS" 的可读日期字符串。如果时间戳无效或无法转换，则返回 "未知时间"。
+
+Args:
+    timestamp (float): 表示时间戳的浮点数。
+
+Returns:
+    str: 格式化后的日期字符串，如果转换失败则返回 "未知时间"。
+"""
+You should write code starting with:
+from datetime import datetime
+
+def format_create_date(timestamp: float) -> str:
+    # TODO: Implement this function
+    pass
+

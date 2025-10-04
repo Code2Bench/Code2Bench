@@ -1,0 +1,17 @@
+"""Computes the Coulomb integrals J_{p,q} = (pp|qq) in chemist notation from two-electron integrals.
+
+Args:
+    two_body_integrals (numpy.ndarray): A 4-dimensional numpy array of two-electron integrals 
+        with OpenFermion ordering.
+
+Returns:
+    numpy.ndarray: A 2-dimensional numpy array representing the Coulomb integrals J_{p,q} = (pp|qq) 
+        in chemist notation.
+"""
+You should write code starting with:
+import numpy as np
+
+def j_mat(two_body_integrals: np.ndarray) -> np.ndarray:
+    # TODO: Implement this function
+    pass
+

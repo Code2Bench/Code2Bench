@@ -1,0 +1,22 @@
+"""Split a parameter string by commas, handling nested types.
+
+This function processes a string of parameters, splitting it by commas but ensuring that commas within nested types (e.g., within brackets, braces, or parentheses) are not treated as separators. This is useful for parsing complex parameter strings where parameters themselves may contain nested structures.
+
+Args:
+    params_str (str): The string of parameters to be split. This string may contain nested types enclosed in '<>', '[]', '{}', or '()'.
+
+Returns:
+    list: A list of strings, each representing a parameter. Commas within nested types are preserved in the resulting parameters.
+
+Examples:
+    >>> split_parameters('a,b,c')
+    ['a', 'b', 'c']
+    >>> split_parameters('a<b,c>')
+    ['a<b,c>']
+    >>> split_parameters('a[b,c],d')
+    ['a[b,c]', 'd']
+    >>> split_parameters('a{b,c},d')
+    ['a{b,c}', 'd']
+    >>> split_parameters('a(b,c),d')
+    ['a(b,c)', 'd']
+"""

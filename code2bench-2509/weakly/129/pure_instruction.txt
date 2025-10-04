@@ -1,0 +1,15 @@
+"""Converts scaled axis-angle representation to a quaternion.
+
+The function takes a 3D vector representing the axis-angle in exponential coordinates
+and converts it to a quaternion. The axis-angle representation is scaled such that
+the vector's direction represents the axis of rotation and its magnitude represents
+the angle of rotation.
+
+Args:
+    vec (np.array): A 3D numpy array (ax, ay, az) representing the axis-angle in
+                    exponential coordinates.
+
+Returns:
+    np.array: A 4D numpy array (x, y, z, w) representing the quaternion, where
+              (x, y, z) is the vector part and w is the scalar part.
+"""

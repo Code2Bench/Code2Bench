@@ -1,0 +1,10 @@
+"""Parses a mobile response string into a structured dictionary.
+
+The function extracts 'Memory', 'Reason', and 'Action' sections from the response string using a regular expression pattern. It also attempts to parse the 'Action' section as JSON if it starts with a '{'. Additionally, it removes any content within '<|begin_of_box|>' and '<|end_of_box|>' tags from the 'Action' section.
+
+Args:
+    response (str): The response string to be parsed.
+
+Returns:
+    dict: A dictionary containing the parsed 'memory', 'reason', 'action', and 'parsed_action' (if applicable). Returns None if the response does not match the expected pattern.
+"""

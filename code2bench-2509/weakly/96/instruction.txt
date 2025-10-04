@@ -1,0 +1,20 @@
+"""Format a date/datetime to be more human-readable.
+
+Converts datetime objects or ISO strings to a format like "Jan 15, 2024 at 2:30 PM". 
+If the input is None or empty, returns "—". For string inputs, attempts to parse common ISO formats. 
+If parsing fails, truncates the string to a maximum of 16 characters. For datetime objects, 
+formats them directly. For other types, converts to string and truncates to 16 characters.
+
+Args:
+    date_value: A datetime object, ISO format string, or other type representing a date/time.
+
+Returns:
+    str: A human-readable date string or a truncated representation of the input.
+"""
+You should write code starting with:
+from datetime import datetime
+
+def human_date(date_value) -> str:
+    # TODO: Implement this function
+    pass
+

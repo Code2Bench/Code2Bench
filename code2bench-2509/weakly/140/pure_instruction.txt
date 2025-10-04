@@ -1,0 +1,10 @@
+"""Decodes a URL-safe Base64 encoded string into a UTF-8 string.
+
+This function takes a URL-safe Base64 encoded string, ensures it has the correct padding by adding '=' characters as needed, and then decodes it into a UTF-8 string.
+
+Args:
+    base64url (str): A URL-safe Base64 encoded string.
+
+Returns:
+    str: The decoded UTF-8 string.
+"""

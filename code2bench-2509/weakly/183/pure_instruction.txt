@@ -1,0 +1,12 @@
+Implement a Python function that computes the first divided difference of a matrix function applied to the eigenvalues of a symmetric matrix, using NumPy arrays.
+
+- **Inputs**:
+  - A `numpy.ndarray` of shape (n,) containing the eigenvalues of a symmetric matrix.
+  - A callable function `fct` that is applied to the eigenvalues.
+  - A callable function `fctder` representing the derivative of `fct`.
+  - Two optional float parameters `atol` and `rtol` (defaulting to 1e-12) for determining equality of eigenvalues using absolute and relative tolerances.
+- **Output**: A `numpy.ndarray` of shape (n, n) representing the first divided difference of the function applied to the eigenvalues.
+- **Special Rules**:
+  - For eigenvalues that are equal (within the specified tolerances), use the derivative function `fctder` to compute the value.
+  - For eigenvalues that are not equal, compute the first divided difference using the formula \((fct(d_i) - fct(d_j)) / (d_i - d_j)\).
+  - Handle edge cases: empty input array, single eigenvalue, or identical eigenvalues.

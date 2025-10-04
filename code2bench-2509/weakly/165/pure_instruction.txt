@@ -1,0 +1,10 @@
+"""Extracts the skew-symmetric components from a 3x3 rotation matrix.
+
+Given a 3x3 rotation matrix `R`, this function extracts the components that form the skew-symmetric part of the matrix. The skew-symmetric components are typically used in applications involving angular velocity or cross-product operations.
+
+Args:
+    R (numpy.ndarray): A 3x3 rotation matrix from which the skew-symmetric components are extracted.
+
+Returns:
+    numpy.ndarray: A 1D array of shape (3,) containing the skew-symmetric components [R[2, 1], R[0, 2], R[1, 0]] as float64 values.
+"""

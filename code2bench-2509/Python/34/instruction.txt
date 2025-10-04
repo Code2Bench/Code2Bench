@@ -1,0 +1,16 @@
+"""Extracts the content following the 'boxed' keyword from a given string.
+
+This function processes a string to extract the content that appears after the 'boxed' keyword. The extraction handles two main cases:
+1. If the content is enclosed in curly braces `{}`, it extracts the entire content within the outermost braces, including any nested braces.
+2. If the content is not enclosed in curly braces, it extracts the content up to the first occurrence of the dollar sign `$` or the end of the string, whichever comes first.
+
+Args:
+    pred_str (str): The input string containing the 'boxed' keyword and the content to be extracted.
+
+Returns:
+    str: The extracted content following the 'boxed' keyword. Returns an empty string if no content is found.
+"""
+You should write code starting with:
+def find_box(pred_str: str) -> str:
+    pass
+

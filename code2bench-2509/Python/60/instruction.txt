@@ -1,0 +1,28 @@
+"""Parse a string of topics into a list of unique topics.
+
+This function takes a string of topics separated by commas, splits it into individual topics, 
+strips any leading or trailing whitespace, and removes any duplicate topics while preserving 
+the original order.
+
+Args:
+    topics_string (str): A string of topics separated by commas. If the string is empty or 
+                         contains only whitespace, an empty list is returned.
+
+Returns:
+    List[str]: A list of unique topics in the order they first appeared in the input string.
+
+Examples:
+    >>> parse_topics_string('topic1')
+    ['topic1']
+    >>> parse_topics_string('topic1,topic2,topic3')
+    ['topic1', 'topic2', 'topic3']
+    >>> parse_topics_string('topic1, topic2, topic3')
+    ['topic1', 'topic2', 'topic3']
+"""
+You should write code starting with:
+from typing import List
+
+def parse_topics_string(topics_string: str) -> List[str]:
+    # TODO: Implement this function based on the docstring.
+    pass
+

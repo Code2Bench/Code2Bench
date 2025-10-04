@@ -1,0 +1,14 @@
+"""Finds and categorizes special Unicode characters in a given string.
+
+This function iterates through each character in the input string and identifies characters that are non-ASCII (i.e., their Unicode code point is greater than 127). For each such character, it records the character along with its Unicode code point and category in a dictionary.
+
+Args:
+    s (str): The input string to search for special Unicode characters.
+
+Returns:
+    dict: A dictionary where each key is a special Unicode character found in the string, and the value is a string containing the character's Unicode code point in hexadecimal format (e.g., 'U+XXXX') and its Unicode category (e.g., 'Lu' for uppercase letter).
+
+Example:
+    >>> find_special_unicode("Hello, 世界!")
+    {'世': 'U+4E16 (Lo)', '界': 'U+754C (Lo)'}
+"""

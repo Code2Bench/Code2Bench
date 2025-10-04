@@ -1,0 +1,27 @@
+"""Computes the nth lexicographically ordered combination of length r from an iterable.
+
+This function efficiently calculates the combination at the specified index without generating all
+previous combinations. The combinations are ordered lexicographically based on the input iterable.
+
+Args:
+    iterable: An iterable from which combinations are to be generated.
+    r: The length of the combinations to be generated.
+    index: The index of the desired combination in the lexicographically ordered list of combinations.
+
+Returns:
+    tuple: The combination at the specified index.
+
+Raises:
+    ValueError: If `r` is negative or greater than the length of the iterable.
+    IndexError: If the specified `index` is out of the valid range for the number of combinations.
+
+Example:
+    >>> nth_combination(range(5), 3, 5)
+    (0, 3, 4)
+"""
+You should write code starting with:
+from typing import Iterable, Tuple
+
+def nth_combination(iterable: Iterable, r: int, index: int) -> Tuple:
+    pass
+

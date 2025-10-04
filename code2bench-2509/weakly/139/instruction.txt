@@ -1,0 +1,21 @@
+"""Calculate the size and number of elements for a given struct format.
+
+This function computes two values based on the provided struct format string:
+1. The size in bytes required to store the data described by the format.
+2. The number of elements that would be unpacked from a byte sequence of that size.
+
+Args:
+    format (str): A format string as defined by the `struct` module, specifying the data layout.
+
+Returns:
+    tuple: A tuple containing two integers:
+        - The first integer is the size in bytes of the data described by the format.
+        - The second integer is the number of elements that would be unpacked from a byte sequence of that size.
+"""
+You should write code starting with:
+import struct
+
+def _formatinfo(format: str) -> tuple[int, int]:
+    # TODO: Implement this function
+    pass
+

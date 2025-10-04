@@ -1,0 +1,29 @@
+"""Parses a string content to extract framework imports categorized by their respective categories.
+
+This function processes a given string content to identify and extract imports from the 'SuperClaude Framework Components' section. The imports are categorized based on the section headers. The function skips lines that are separators or comments not indicating a category. It ensures that each import is unique within its category.
+
+Args:
+    content (str): The string content to parse, typically the content of a file or a string containing framework components.
+
+Returns:
+    Dict[str, List[str]]: A dictionary where each key is a category name and the corresponding value is a list of unique import files associated with that category. If the framework marker is not found in the content, an empty dictionary is returned.
+
+Example:
+    Given the following content:
+    ```
+    # ===================================================
+    # SuperClaude Framework Components
+    # Category1
+    @import1
+    @import2
+    # Category2
+    @import3
+    ```
+    The function will return:
+    ```
+    {
+        'Category1': ['import1', 'import2'],
+        'Category2': ['import3']
+    }
+    ```
+"""

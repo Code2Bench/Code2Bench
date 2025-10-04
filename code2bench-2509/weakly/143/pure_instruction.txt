@@ -1,0 +1,12 @@
+"""Expands an iterable (excluding strings) to a desired length by appending a default value.
+
+If the input `original` is an iterable (excluding strings), it is expanded to `num_desired` length by appending the `default` value. If `original` is not an iterable or is a string, a new list of length `num_desired` filled with the `default` value is returned.
+
+Args:
+    original: The original iterable to expand. If not an iterable or a string, it is treated as a single value.
+    num_desired: The desired length of the resulting iterable.
+    default: The value used to fill the iterable to the desired length.
+
+Returns:
+    A list of length `num_desired` containing the elements of `original` (if applicable) followed by the `default` value.
+"""

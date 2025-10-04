@@ -1,0 +1,21 @@
+"""计算两个字符串之间的 Levenshtein 编辑距离。
+
+Levenshtein 编辑距离是指将一个字符串转换为另一个字符串所需的最少编辑操作次数。允许的编辑操作包括插入、删除和替换字符。
+
+该函数使用动态规划算法来计算编辑距离，确保时间复杂度为 O(n*m)，其中 n 和 m 分别是两个字符串的长度。
+
+Args:
+    s1 (str): 第一个字符串。
+    s2 (str): 第二个字符串。
+
+Returns:
+    int: 两个字符串之间的 Levenshtein 编辑距离。
+
+Note:
+    如果 s1 的长度小于 s2 的长度，函数会自动交换两个字符串的位置以优化计算。
+    如果其中一个字符串为空，则返回另一个字符串的长度。
+"""
+You should write code starting with:
+def levenshtein_distance(s1: str, s2: str) -> int:
+    pass
+

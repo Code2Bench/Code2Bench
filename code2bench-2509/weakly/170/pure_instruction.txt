@@ -1,0 +1,13 @@
+"""Parse a Python assert statement and extract the expected output from the right side of the '==' operator as a string.
+
+This function takes a string containing a Python assert statement and attempts to parse it. If the statement is a valid assert statement with an equality comparison (using '=='), it extracts the right side of the comparison as a string. If the input is not a valid assert statement or does not contain an equality comparison, it returns an appropriate error message.
+
+Args:
+    statement (str): A string containing the assert statement to be parsed.
+
+Returns:
+    str: The expected output from the assert statement as a string, or an error message if the input is invalid or not an equality assertion.
+
+Raises:
+    SyntaxError: If the input string contains invalid Python syntax.
+"""

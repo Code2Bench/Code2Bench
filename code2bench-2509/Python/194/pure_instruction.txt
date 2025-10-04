@@ -1,0 +1,17 @@
+"""Extracts the publication date from a result dictionary by checking various date fields.
+
+This function searches for a publication date in the provided dictionary by iterating over a predefined list of fields. It checks both direct string values and nested dictionaries for common date keys. The function is designed to handle multiple potential locations where a date might be stored, ensuring flexibility in parsing different data structures.
+
+Args:
+    result (Dict[str, Any]): A dictionary containing potential date fields. The function searches within this dictionary for a publication date.
+
+Returns:
+    Optional[str]: The extracted publication date as a string if found; otherwise, None.
+
+The function checks the following fields in order:
+1. 'pagemap': If present, it searches for keys like 'date', 'pubdate', or 'article:published_time'.
+2. 'metatags': If present, it searches for keys like 'date' or 'article:published_time'.
+3. 'date': If present, it directly returns the value if it is a string.
+
+If none of the fields contain a valid date, the function returns None.
+"""

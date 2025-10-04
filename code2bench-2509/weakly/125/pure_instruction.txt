@@ -1,0 +1,10 @@
+"""Converts a given rotation matrix to a quaternion.
+
+The function uses the `Rotation` class from `scipy.spatial.transform` to perform the conversion. The input rotation matrix can have any number of leading dimensions, but the last two dimensions must be (3, 3). The output quaternion is represented in the (x, y, z, w) format.
+
+Args:
+    rmat (np.array): A rotation matrix with shape (..., 3, 3).
+
+Returns:
+    np.array: A quaternion with shape (..., 4) in the (x, y, z, w) format.
+"""

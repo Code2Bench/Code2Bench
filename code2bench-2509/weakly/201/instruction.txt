@@ -1,0 +1,20 @@
+import collections
+from typing import List, Dict, Any
+
+def list_of_flat_dict_to_dict_of_list(list_of_dict: List[Dict[str, Any]]) -> Dict[str, List[Any]]:
+    """
+    Transforms a list of flat dictionaries into a dictionary of lists. A flat dictionary is defined as one where none of the values are nested dictionaries, but instead are simple data types such as numpy arrays, floats, etc.
+
+    This function iterates through the list of dictionaries and organizes the values associated with each key into lists grouped by key. The resulting dictionary has keys corresponding to the original keys from the input dictionaries, and values being lists containing all values associated with the respective key across the dictionaries.
+
+    Args:
+        list_of_dict (list): A list of flat dictionaries, where each dictionary's values are non-nested types (e.g., numpy arrays, floats, etc.).
+
+    Returns:
+        dict: A dictionary where the keys are the keys from the input dictionaries, and the values are lists containing all values associated with those keys across the dictionaries.
+
+    Raises:
+        AssertionError: If the input `list_of_dict` is not of type `list`.
+    """
+    # TODO: Implement this function
+    pass

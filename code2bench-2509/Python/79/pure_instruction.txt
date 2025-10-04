@@ -1,0 +1,14 @@
+"""Finds the index of the matching closing parenthesis for a given opening parenthesis in an expression.
+
+Given an expression and the index of an opening parenthesis '(', this function returns the index of the corresponding closing parenthesis ')'. The function handles nested parentheses by maintaining a stack to track the depth of nesting.
+
+Args:
+    expression (str): The string expression containing parentheses.
+    opening_index (int): The index of the opening parenthesis '(' in the expression.
+
+Returns:
+    int: The index of the matching closing parenthesis ')'.
+
+Raises:
+    ValueError: If the character at `opening_index` is not '(', or if no matching closing parenthesis is found.
+"""

@@ -1,0 +1,17 @@
+"""Generates a list of prime numbers up to a specified maximum number using the Sieve of Eratosthenes algorithm.
+
+Args:
+    max_num (int): The upper limit for generating prime numbers. Must be a non-negative integer.
+
+Returns:
+    list[int]: A list of all prime numbers less than or equal to `max_num`.
+
+The function uses a boolean list to mark non-prime numbers and iteratively marks multiples of each prime starting from 2. The final list of primes is derived from the indices of the boolean list that remain marked as True.
+"""
+You should write code starting with:
+from math import isqrt
+
+def generate_primes(max_num: int) -> list[int]:
+    # TODO: Implement this function
+    pass
+

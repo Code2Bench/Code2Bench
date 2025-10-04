@@ -1,0 +1,24 @@
+"""Extracts string content from various message formats.
+
+This function handles multiple input types, including strings, lists, and other formats. It is particularly designed to process lists that may contain dictionaries with specific keys ('type' and 'text' or 'name') to extract meaningful string content.
+
+Args:
+    content (Union[str, List[Union[str, Dict[str, Any]]], Any]): The message content, which can be a string, a list, or any other format.
+
+Returns:
+    str: The extracted string content. If the input is a string, it is returned as is. If the input is a list, it processes each item to extract text or tool information, joining the results with spaces. For other formats, it converts the input to a string.
+
+Examples:
+    - Simple string input: 'simple string' -> 'simple string'
+    - List with text type dictionary: [{'type': 'text', 'text': 'hello'}] -> 'hello'
+    - List with tool_use type dictionary: [{'type': 'tool_use', 'name': 'tool1'}] -> '[Tool: tool1]'
+    - Mixed list with text and tool_use type dictionaries: [{'type': 'text', 'text': 'hello'}, {'type': 'tool_use', 'name': 'tool1'}] -> 'hello [Tool: tool1]'
+    - List of integers: [1, 2, 3] -> '1 2 3'
+"""
+You should write code starting with:
+from typing import List, Dict, Any, Union
+
+def extract_content_string(content: Union[str, List[Union[str, Dict[str, Any]]], Any]) -> str:
+    # TODO: Implement this function based on the docstring.
+    pass
+

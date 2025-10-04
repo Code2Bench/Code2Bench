@@ -1,0 +1,22 @@
+"""Substitutes placeholders in a template string with corresponding values from a dictionary.
+
+The function performs the following steps:
+1. Deep copies the input dictionary to avoid modifying the original.
+2. Modifies specific keys ("KernelSchedule" and "EpilogueSchedule") by prepending "collective::" if they contain the substring "Auto".
+3. Iteratively replaces placeholders in the template string (formatted as `{key}`) with the corresponding values from the dictionary until no more substitutions are possible.
+
+Args:
+    template (str): The template string containing placeholders to be replaced.
+    values_base (dict): A dictionary where keys correspond to placeholders in the template and values are the replacements.
+
+Returns:
+    str: The template string with all placeholders replaced by their corresponding values.
+"""
+You should write code starting with:
+import re
+import copy
+
+def SubstituteTemplate(template: str, values_base: dict) -> str:
+    # TODO: Implement this function
+    pass
+

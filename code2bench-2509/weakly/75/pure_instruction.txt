@@ -1,0 +1,10 @@
+"""Convert ISO 8601 timestamp string to milliseconds since epoch.
+
+This function parses an ISO 8601 formatted timestamp string and converts it to the number of milliseconds since the Unix epoch (January 1, 1970, 00:00:00 UTC). The function automatically handles Zulu/UTC timezone indicators (Z).
+
+Args:
+    ts (str): ISO 8601 timestamp string, which may include a Zulu/UTC timezone indicator (Z).
+
+Returns:
+    int: The number of milliseconds since the Unix epoch as an integer.
+"""

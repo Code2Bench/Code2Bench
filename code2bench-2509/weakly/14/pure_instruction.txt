@@ -1,0 +1,11 @@
+"""Pads the version segments of two version lists to make them comparable in length.
+
+This function takes two lists of version strings and pads the numeric segments of the shorter list with '0's to ensure both lists have the same length. This is useful for comparing version numbers that may have different lengths.
+
+Args:
+    left (List[str]): The first list of version strings.
+    right (List[str]): The second list of version strings.
+
+Returns:
+    Tuple[List[str], List[str]]: A tuple containing the padded versions of the input lists. The first element is the padded version of `left`, and the second element is the padded version of `right`.
+"""

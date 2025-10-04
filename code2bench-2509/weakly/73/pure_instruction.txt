@@ -1,0 +1,8 @@
+"""Normalize text values by stripping leading/trailing whitespace and applying Unicode NFKC normalization.
+
+Args:
+    s (str): The input string to be normalized.
+
+Returns:
+    str: The normalized string with whitespace removed and Unicode NFKC normalization applied.
+"""

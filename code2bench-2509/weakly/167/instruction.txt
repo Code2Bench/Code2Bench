@@ -1,0 +1,21 @@
+"""Computes the logarithmic map of a rotation matrix in SO(3).
+
+The logarithmic map converts a rotation matrix into a 3D vector in the Lie algebra so(3), which represents the axis-angle representation of the rotation. The function handles special cases where the rotation matrix corresponds to a 180-degree rotation.
+
+Args:
+    R (numpy.ndarray): A 3x3 rotation matrix in SO(3).
+
+Returns:
+    numpy.ndarray: A 3D vector in so(3) representing the logarithmic map of the rotation matrix.
+
+Notes:
+    - The function uses a threshold of 1e-10 to handle numerical precision issues.
+    - Special cases are handled when the trace of the rotation matrix is close to -1, indicating a 180-degree rotation.
+"""
+You should write code starting with:
+import numpy as np
+
+def logmap_so3(R: np.ndarray) -> np.ndarray:
+    # TODO: Implement this function
+    pass
+

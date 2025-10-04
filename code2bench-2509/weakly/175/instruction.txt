@@ -1,0 +1,17 @@
+"""Extracts a multiple-choice answer from a prediction string.
+
+This function processes a prediction string to extract a multiple-choice answer. It first removes any text following "Problem:" if present. Then, it replaces occurrences of "choice is" with "answer is" to standardize the format. Finally, it searches for a pattern matching "answer is" followed by a single letter (a, b, c, d, or e) in parentheses or without, and returns the matched letter in uppercase. If no match is found, it returns "placeholder".
+
+Args:
+    pred_str (str): The prediction string from which to extract the answer.
+
+Returns:
+    str: The extracted multiple-choice answer in uppercase, or "placeholder" if no valid answer is found.
+"""
+You should write code starting with:
+import regex
+
+def extract_multi_choice_answer(pred_str: str) -> str:
+    # TODO: Implement this function
+    pass
+

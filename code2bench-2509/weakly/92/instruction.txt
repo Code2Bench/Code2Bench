@@ -1,0 +1,21 @@
+"""Transforms a Python source code string to mimic Jupyter notebook's behavior for the last expression.
+
+The function processes the input source code to handle the last expression in a way that mimics
+Jupyter's behavior, where the last expression's value is automatically displayed. If the last node
+in the parsed AST is an expression, it is extracted and modified to print its value if it is not None.
+Otherwise, the original source code is returned unchanged.
+
+Args:
+    src (str): The Python source code string to be transformed.
+
+Returns:
+    str: The transformed source code string that mimics Jupyter's behavior for the last expression.
+"""
+You should write code starting with:
+import textwrap
+import ast
+
+def _jupyterize(src: str) -> str:
+    # TODO: Implement this function
+    pass
+

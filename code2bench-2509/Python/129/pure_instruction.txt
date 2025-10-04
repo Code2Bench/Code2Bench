@@ -1,0 +1,15 @@
+"""Collect candidates from the last round of debate.
+
+This function processes a transcript of a debate to extract the final responses (candidates) from each agent in the last round. It prioritizes the 'answer' field for each agent's response; if the 'answer' is empty or invalid, it falls back to the 'argument' field. The function ensures that only non-empty responses are included in the result.
+
+Args:
+    transcript (list): A list of dictionaries representing the debate transcript. Each dictionary should contain at least 'agent_id', 'round', 'answer', and 'argument' keys.
+    num_agents (int): The total number of agents participating in the debate.
+    last_round_index (int): The index of the last round in the debate.
+
+Returns:
+    list: A list of dictionaries, each containing 'agent_id' and 'text' keys. The 'text' is derived from the 'answer' or 'argument' field of the last round's record for each agent. Only agents with non-empty responses are included.
+
+Note:
+    If multiple records exist for an agent in the last round, the function uses the last one. Agents without any records in the last round are skipped.
+"""

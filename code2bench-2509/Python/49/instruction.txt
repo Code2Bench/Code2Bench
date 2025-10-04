@@ -1,0 +1,26 @@
+"""Calculate the minimum number of micro-batches required to fit a list of token lengths into GPU memory.
+
+This function uses a first-fit algorithm to distribute token lengths into batches, ensuring that the sum of lengths in each batch does not exceed the specified maximum tokens per GPU. The function iterates through the list of token lengths and attempts to fit each length into the first available batch that can accommodate it. If no such batch exists, a new batch is created.
+
+Args:
+    total_lengths (List[int]): A list of integers representing the lengths of tokens to be batched.
+    max_tokens_per_gpu (int): The maximum number of tokens that can fit into a single GPU batch.
+
+Returns:
+    int: The minimum number of micro-batches required to fit all token lengths without exceeding the GPU's token limit.
+
+Example:
+    >>> get_minimum_num_micro_batch_size([10, 20, 30], 50)
+    2
+    >>> get_minimum_num_micro_batch_size([5, 5, 5, 5], 10)
+    2
+    >>> get_minimum_num_micro_batch_size([100], 100)
+    1
+"""
+You should write code starting with:
+from typing import List
+
+def get_minimum_num_micro_batch_size(total_lengths: List[int], max_tokens_per_gpu: int) -> int:
+    # TODO: Implement this function based on the docstring.
+    pass
+

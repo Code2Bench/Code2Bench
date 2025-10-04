@@ -1,0 +1,20 @@
+"""Inserts lines into a block based on its dimensions and the page size.
+
+This function calculates the number of lines that can fit into a given block based on its height, width, and the specified line height. The function also considers the page dimensions to determine the optimal number of lines and their positions within the block.
+
+Args:
+    block_bbox (List[float]): The bounding box of the block as a list of four floats [x0, y0, x1, y1], where (x0, y0) is the top-left corner and (x1, y1) is the bottom-right corner.
+    line_height (float): The height of each line to be inserted into the block.
+    page_w (float): The width of the page containing the block.
+    page_h (float): The height of the page containing the block.
+
+Returns:
+    List[List[float]]: A list of bounding boxes for each line inserted into the block. Each bounding box is represented as a list of four floats [x0, y, x1, y + line_height], where y is the starting y-coordinate of the line.
+
+The function follows these rules:
+1. If the block height is less than twice the line height, the block is returned as a single line.
+2. If the block height is greater than 25% of the page height and the block width is between 25% and 50% of the page width, the number of lines is calculated based on the block height and line height.
+3. If the block width is greater than 40% of the page width, the block is divided into 3 lines.
+4. If the block width is between 25% and 40% of the page width, the number of lines is calculated based on the block height and line height.
+5. If the block width is less than 25% of the page width and the block height to width ratio is greater than 1.2, the block is returned as a single line. Otherwise, the block is divided into 2 lines.
+"""

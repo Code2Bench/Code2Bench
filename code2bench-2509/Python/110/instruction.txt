@@ -1,0 +1,21 @@
+"""Determine the termination value based on the provided item.
+
+This function checks the item for a 'termination' key and returns its value if present. If the 'termination' key is absent, it examines the 'messages' key, specifically the content of the last message, to determine the termination value. The function returns specific values based on the content of the last message or defaults to 'unknown' if no relevant information is found.
+
+Args:
+    item (dict): A dictionary containing potential keys 'termination' and 'messages'. The 'messages' key, if present, should be a list of dictionaries, each containing a 'content' key.
+
+Returns:
+    str: The termination value, which can be one of the following:
+        - The value of the 'termination' key if it exists.
+        - 'max_turns_reached' if the last message contains 'max_turns_reached'.
+        - 'max_tokens_reached' if the last message contains 'max_tokens_reached'.
+        - 'answered' if the last message contains both '<answer>' and '</answer>'.
+        - 'unknown' if none of the above conditions are met or if 'messages' is empty.
+"""
+You should write code starting with:
+from typing import Dict, List, Any
+
+def get_termination_value(item: Dict[str, Any]) -> str:
+    pass
+

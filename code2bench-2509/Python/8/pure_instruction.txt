@@ -1,0 +1,20 @@
+"""Fuzzy match function for BigBench Extra Hard.
+
+This function performs a fuzzy match between two strings, `prediction` and `reference`, by considering various edge cases and transformations. The function returns `True` if the strings match under any of the following conditions:
+
+1. Exact match: The strings are identical.
+2. Parentheses match: One string is enclosed in parentheses and the other is the content within the parentheses (e.g., `(a)` matches `a`).
+3. Number match: The strings represent the same numeric value when converted to floats.
+4. Quote match: The strings are identical after removing single quotes.
+5. Bracket match: One string is enclosed in square brackets and the other is the content within the brackets (e.g., `[a]` matches `a`).
+6. Question mark match: One string ends with a question mark and the other is the same string without the question mark (e.g., `a?` matches `a`).
+
+If none of the above conditions are met, the function returns `False`.
+
+Args:
+    prediction (str): The predicted string to match against the reference.
+    reference (str): The reference string to match against the prediction.
+
+Returns:
+    bool: `True` if the strings match under any of the specified conditions, otherwise `False`.
+"""

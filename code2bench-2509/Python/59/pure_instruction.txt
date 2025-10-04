@@ -1,0 +1,26 @@
+"""Checks whether a device with a given compute capability supports a specified thread block cluster shape.
+
+This function validates the thread block cluster shape based on the compute capability (CC) of the device. 
+For devices with CC less than 90, the cluster shape must be [1, 1, 1]. For devices with CC 90 or higher, 
+the cluster shape must be rank-3, with the third dimension being 1, and the product of the first two 
+dimensions must not exceed 8 thread blocks.
+
+Args:
+    cc (int): Compute capability of the device in question.
+    cluster_shape (list): Dimensions of the thread block cluster shape to check.
+
+Returns:
+    tuple: A tuple where the first element is a boolean indicating whether the cluster shape is valid 
+           for the device, and the second element is an error message (empty string if valid).
+
+Raises:
+    None: This function does not raise any exceptions but returns an error message in the tuple.
+
+Examples:
+    >>> valid_cluster_shape(89, [1, 1, 1])
+    (True, '')
+    >>> valid_cluster_shape(90, [1, 1, 1])
+    (True, '')
+    >>> valid_cluster_shape(90, [4, 2, 1])
+    (True, '')
+"""

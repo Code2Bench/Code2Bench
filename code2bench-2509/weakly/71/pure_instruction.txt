@@ -1,0 +1,10 @@
+"""Parse a base URL and return (host, port) as strings.
+
+This function is designed to be more robust than simple string splitting, supporting various URL schemes and shapes, including those with trailing paths. It uses `urlparse` to extract the hostname and port from the base URL. If the hostname is not present, it defaults to "127.0.0.1". If the port is not present, it returns an empty string.
+
+Args:
+    base_url (str): The base URL to parse.
+
+Returns:
+    tuple[str, str]: A tuple containing the host and port as strings. The host defaults to "127.0.0.1" if not found, and the port is an empty string if not found.
+"""

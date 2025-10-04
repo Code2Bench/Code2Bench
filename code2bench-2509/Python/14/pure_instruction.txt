@@ -1,0 +1,21 @@
+"""Normalize an MCP server URL.
+
+This function processes a given URL to ensure it ends with the `/mcp/` suffix. The function handles three specific cases:
+1. If the URL already ends with `/mcp` or `/mcp/`, it ensures the URL ends with `/mcp/`.
+2. If the URL ends with `/sse`, it replaces `/sse` with `/mcp/`.
+3. For all other cases, it appends `/mcp/` to the URL.
+
+Args:
+    url (str): The input server URL to be normalized.
+
+Returns:
+    str: The normalized MCP URL, ensuring it ends with `/mcp/`.
+
+Examples:
+    >>> convert_url("http://localhost:4444/servers/uuid")
+    'http://localhost:4444/servers/uuid/mcp/'
+    >>> convert_url("http://localhost:4444/servers/uuid/sse")
+    'http://localhost:4444/servers/uuid/mcp/'
+    >>> convert_url("http://localhost:4444/servers/uuid/mcp")
+    'http://localhost:4444/servers/uuid/mcp/'
+"""

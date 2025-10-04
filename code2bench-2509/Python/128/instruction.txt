@@ -1,0 +1,24 @@
+"""Format a debate transcript into a readable string representation.
+
+This function takes a list of debate turns, each represented as a dictionary, and formats them into a structured string. Each turn includes details such as the agent ID, round number, role, argument, and answer. The formatted string is designed for clear display, with each turn separated by newlines.
+
+Args:
+    transcript (list): A list of dictionaries, where each dictionary represents a turn in the debate. Each dictionary should contain the keys 'agent_id', 'round', 'role', 'argument', and 'answer'. The 'argument' and 'answer' fields are optional and can be None.
+
+Returns:
+    str: A formatted string representing the debate transcript. If the transcript is empty, the function returns "(empty)".
+
+The format for each turn is as follows:
+- If both 'argument' and 'answer' are present: 
+  "[Round {round}] Agent#{agent_id} ({role})\nArgument: {argument}\nAnswer: {answer}\n"
+- If only 'argument' is present:
+  "[Round {round}] Agent#{agent_id} ({role})\nArgument: {argument}\n"
+- If only 'answer' is present:
+  "[Round {round}] Agent#{agent_id} ({role})\nArgument: \nAnswer: {answer}\n"
+"""
+You should write code starting with:
+from typing import List, Dict, Any
+
+def format_transcript(transcript: List[Dict[str, Any]]) -> str:
+    pass
+

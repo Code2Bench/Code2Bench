@@ -1,0 +1,15 @@
+"""Return a 4x4 translation matrix based on the given direction vector.
+
+The function constructs a 4x4 identity matrix and sets the first three elements of the fourth column to the components of the input direction vector. This results in a translation matrix that can be used to translate points or vectors in 3D space.
+
+Args:
+    direction (numpy.ndarray or array-like): A vector specifying the translation in 3D space. The first three elements are used to populate the translation matrix.
+
+Returns:
+    numpy.ndarray: A 4x4 translation matrix where the first three elements of the fourth column correspond to the input direction vector.
+
+Examples:
+    >>> v = numpy.random.random(3) - 0.5
+    >>> numpy.allclose(v, translation_matrix(v)[:3, 3])
+    True
+"""

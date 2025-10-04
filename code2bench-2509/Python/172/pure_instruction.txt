@@ -1,0 +1,20 @@
+"""Parses and validates a string of triples into a list of tuples.
+
+This function processes a string containing triples in one of two formats:
+1. Newline-separated triples, e.g., '(e1, r1, e2)\n(e3, r2, e4)\n'.
+2. Space-separated triples, e.g., '(e1, r1, e2) (e3, r2, e4)'.
+
+The function performs several checks to ensure the triples are valid:
+- Removes surrounding parentheses and single quotes.
+- Splits each triple into its components (entity, relation, entity).
+- Trims any leading or trailing whitespace from each component.
+- Converts the components to lowercase if they end with a space.
+- Validates that each triple is a tuple of exactly three non-empty strings.
+- Excludes triples that contain 'note:' in the first component.
+
+Args:
+    triples_str (str): A string containing triples in one of the supported formats.
+
+Returns:
+    List[Tuple[str, str, str]]: A list of tuples, where each tuple represents a valid triple.
+"""

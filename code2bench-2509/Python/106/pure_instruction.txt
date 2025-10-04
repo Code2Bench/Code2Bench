@@ -1,0 +1,28 @@
+"""Decompose a given dimension into two factors, optimizing for a specified factor.
+
+This function decomposes the input `dimension` into two factors `(m, n)` such that `m * n = dimension`. The decomposition is optimized to find factors closest to the specified `factor`. If `factor` is not provided (default is -1), the function attempts to find the most balanced pair of factors.
+
+Args:
+    dimension (int): The integer to be factorized. Must be a positive integer.
+    factor (int, optional): The preferred factor to guide the decomposition. Defaults to -1, which means no specific factor is preferred.
+
+Returns:
+    tuple[int, int]: A tuple of two integers `(m, n)` where `m * n = dimension` and `m <= n`. The function ensures that the pair is as close as possible to the specified `factor`.
+
+Examples:
+    >>> factorization(127)
+    (1, 127)
+    >>> factorization(128, 2)
+    (2, 64)
+    >>> factorization(250, 4)
+    (2, 125)
+    >>> factorization(360, 8)
+    (8, 45)
+    >>> factorization(512, 16)
+    (16, 32)
+
+Notes:
+    - If `factor` is positive and divides `dimension` evenly, and `dimension` is at least `factor**2`, the function returns `(factor, dimension // factor)`.
+    - If `factor` is negative, the function searches for the most balanced pair of factors.
+    - The function ensures that the returned pair `(m, n)` satisfies `m <= n`.
+"""

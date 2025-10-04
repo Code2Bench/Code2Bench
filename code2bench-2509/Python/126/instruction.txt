@@ -1,0 +1,22 @@
+"""Combines two numbers by performing arithmetic operations and returns the results with their corresponding equations.
+
+This function takes two inputs, converts them to integers, and performs a series of arithmetic operations (addition, multiplication, subtraction, and division) based on their values. The results of these operations are returned along with their corresponding equations in a list of lists.
+
+Args:
+    a (int or str): The first number, which will be converted to an integer.
+    b (int or str): The second number, which will be converted to an integer.
+
+Returns:
+    List[List[Union[int, str]]]: A list of lists where each sublist contains the result of an arithmetic operation and its corresponding equation as a string. The operations include addition, multiplication, and subtraction. Division is included only if the divisor is non-zero and the dividend is divisible by the divisor.
+
+Note:
+    - The function assumes that the inputs can be converted to integers.
+    - The order of operations and the inclusion of subtraction and division depend on the relative values of `a` and `b`.
+    - Division results are rounded to the nearest integer.
+"""
+You should write code starting with:
+from typing import List, Union
+
+def combine_nums(a: Union[int, str], b: Union[int, str]) -> List[List[Union[int, str]]]:
+    pass
+

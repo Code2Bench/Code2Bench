@@ -1,0 +1,99 @@
+package p198;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import java.io.*;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
+import net.jqwik.api.*;
+import net.jqwik.api.lifecycle.AfterContainer;
+import p198.GroundTruth;
+
+public class TestCaseGenerator {
+
+    static class TestCase {
+        Map<String, Object> Inputs;
+        Object Expected;
+        TestCase(Map<String, Object> inputs, Object expected) {
+            this.Inputs = inputs;
+            this.Expected = expected;
+        }
+    }
+
+    static List<TestCase> generatedCases = new ArrayList<>();
+    static AtomicInteger caseCount = new AtomicInteger(0);
+    static final int MAX_CASES = 500;
+
+    @Property(tries = 10000)
+    void generateTestCases(@ForAll("stringInput") String s) {
+        if (caseCount.get() >= MAX_CASES) {
+            return;
+        }
+
+        float[] result;
+        try {
+            result = GroundTruth.parseFloatArray(s);
+        } catch (Exception e) {
+            return;
+        }
+
+        Map<String, Object> inputs = new LinkedHashMap<>();
+        inputs.put("s", s);
+        generatedCases.add(new TestCase(inputs, result));
+        caseCount.incrementAndGet();
+    }
+
+    @Example
+    void exampleEmptyString() {
+        String s = "";
+        float[] result = GroundTruth.parseFloatArray(s);
+        Map<String, Object> inputs = new LinkedHashMap<>();
+        inputs.put("s", s);
+        generatedCases.add(new TestCase(inputs, result));
+        caseCount.incrementAndGet();
+    }
+
+    @Example
+    void examplePositiveNumbers() {
+        String s = "1.0 2.0 3.0";
+        float[] result = GroundTruth.parseFloatArray(s);
+        Map<String, Object> inputs = new LinkedHashMap<>();
+        inputs.put("s", s);
+        generatedCases.add(new TestCase(inputs, result));
+        caseCount.incrementAndGet();
+    }
+
+    @Example
+    void exampleMixedNumbers() {
+        String s = "0.0 -1.0 1.0";
+        float[] result = GroundTruth.parseFloatArray(s);
+        Map<String, Object> inputs = new LinkedHashMap<>();
+        inputs.put("s", s);
+        generatedCases.add(new TestCase(inputs, result));
+        caseCount.incrementAndGet();
+    }
+
+    @Provide
+    Arbitrary<String> stringInput() {
+        return Arbitraries.strings()
+                .withChars("0123456789. -")
+                .filter(s -> s.trim().isEmpty() || s.matches("([-+]?\\d*\\.?\\d+\\s*)+"));
+    }
+
+    @AfterContainer
+    static void saveTestCases() throws IOException {
+        if (generatedCases.isEmpty()) {
+            return;
+        }
+        String dirPath = "src/test/java/test_cases";
+        File dir = new File(dirPath);
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+        String filePath = dirPath + "/test_cases.json";
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        try (Writer writer = new FileWriter(filePath)) {
+            gson.toJson(generatedCases, writer);
+        }
+        System.out.println("✅ Saved " + generatedCases.size() + " test cases to " + filePath);
+    }
+}

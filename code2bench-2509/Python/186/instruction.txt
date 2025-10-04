@@ -1,0 +1,25 @@
+"""Formats tool schemas into a user-friendly description string.
+
+This function takes a list of tool schemas, each represented as a dictionary, and formats them into a structured, human-readable string. Each tool's description includes its name, description, arguments (with optional default values), examples, and return description if provided.
+
+Args:
+    schemas (List[Dict[str, Any]]): A list of dictionaries where each dictionary represents a tool schema. Each schema must contain the following keys:
+        - 'name': The name of the tool.
+        - 'description': A brief description of the tool.
+        - 'args': A dictionary of arguments, where each key is an argument name and the value is a dictionary containing at least a 'description' key and optionally a 'default' key.
+        - 'examples': A list of example strings (optional).
+        - 'returns': A string describing the return value (optional).
+
+Returns:
+    str: A formatted string where each tool's description is separated by two newlines. Each tool's description includes:
+        - The tool's name and description.
+        - A list of arguments, each with its description and default value if specified.
+        - A list of examples if provided.
+        - A return description if provided.
+"""
+You should write code starting with:
+from typing import List, Dict, Any
+
+def format_tool_descriptions(schemas: List[Dict[str, Any]]) -> str:
+    pass
+

@@ -1,0 +1,21 @@
+"""Parse a response string formatted as <think>...</think><answer>...</answer>.
+
+This function extracts and processes content from the `<think>` and `<answer>` tags in the response string. It returns a dictionary containing the original response, the processed response, and the extracted contents.
+
+Args:
+    response (str): The response string to parse, expected to contain `<think>` and `<answer>` tags.
+    special_token_list (List[str], optional): A list of special tokens to remove from the extracted content. Defaults to None.
+    action_sep (str, optional): The separator used to split actions in the `<answer>` content. Defaults to ','.
+    max_actions (int, optional): The maximum number of actions to extract from the `<answer>` content. Defaults to 3.
+
+Returns:
+    Dict: A dictionary with the following keys:
+        - llm_raw_response (str): The original response string.
+        - llm_response (str): The response string with `<think>` and `<answer>` tags.
+        - think_content (str): The content extracted from the `<think>` tag.
+        - action_content (str): The content extracted from the `<answer>` tag.
+        - actions (List[str]): A list of actions extracted from the `<answer>` content, limited to `max_actions`.
+        - format_correct (bool): Whether the response strictly follows the expected format `<think>...</think><answer>...</answer>`.
+
+The function removes any `<image>` tags from the response and processes the content to ensure it adheres to the expected format. If the response does not strictly follow the format, the `think_content`, `action_content`, and `actions` fields will be empty.
+"""

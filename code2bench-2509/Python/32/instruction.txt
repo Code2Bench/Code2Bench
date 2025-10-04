@@ -1,0 +1,28 @@
+"""Recursively renames keys in a nested dictionary or list based on a key mapping.
+
+This function traverses a nested structure (dictionary or list) and renames keys according to the provided key mapping. If a key is not found in the mapping, it remains unchanged. The function handles nested dictionaries and lists by recursively applying the renaming logic.
+
+Args:
+    data (Union[Dict, List, Any]): The nested dictionary or list whose keys are to be renamed. If the input is neither a dictionary nor a list, it is returned as-is.
+    key_mapping (Dict[str, str]): A dictionary mapping old keys to new keys. If a key in `data` is not present in `key_mapping`, it remains unchanged.
+
+Returns:
+    Union[Dict, List, Any]: The transformed data structure with keys renamed according to `key_mapping`. The structure of nested dictionaries and lists is preserved.
+
+Examples:
+    >>> rename_keys({'a': 1}, {'a': 'b'})
+    {'b': 1}
+
+    >>> rename_keys({'a': {'b': 1}}, {'a': 'c', 'b': 'd'})
+    {'c': {'d': 1}}
+
+    >>> rename_keys({'a': [1]}, {'a': 'b'})
+    {'b': [1]}
+"""
+You should write code starting with:
+from typing import Dict, List, Union, Any
+
+def rename_keys(data: Union[Dict, List, Any], key_mapping: Dict[str, str]) -> Union[Dict, List, Any]:
+    # TODO: Implement this function based on the docstring.
+    pass
+

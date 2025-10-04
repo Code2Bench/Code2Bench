@@ -1,0 +1,23 @@
+from collections.abc import Mapping
+
+def flatten_results_dict(results: dict) -> dict:
+    """
+    Flatten a nested dictionary of scalar values into a single-level dictionary with composite keys.
+
+    This function takes a hierarchical dictionary and recursively flattens its structure. 
+    Keys from nested levels are concatenated using the "/" delimiter to form composite keys in the resulting flat dictionary.
+
+    Args:
+        results (dict): A dictionary that may contain nested dictionaries. The leaf values 
+            must be scalars, and nested dictionaries must be of type `Mapping`.
+
+    Returns:
+        dict: A flattened dictionary where each key is a composite key formed by concatenating 
+        keys from all hierarchical levels separated by "/" and each value is the corresponding scalar value.
+
+    Raises:
+        TypeError: If any nested value is not a scalar or a `Mapping`.
+
+    """
+    # TODO: Implement this function
+    pass

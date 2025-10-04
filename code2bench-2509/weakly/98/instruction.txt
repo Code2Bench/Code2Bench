@@ -1,0 +1,18 @@
+"""Ensure metadata has proper datetime fields and normalized types.
+
+This function processes a metadata dictionary to ensure it contains the required datetime fields (`created_at` and `updated_at`) and normalizes the type of the `embedding` field if present. If `created_at` or `updated_at` are missing, they are set to the current UTC time in ISO 8601 format. If `embedding` is present and is a list, it is converted to a list of floats.
+
+Args:
+    metadata (dict[str, Any]): A dictionary containing metadata fields. Expected keys include `created_at`, `updated_at`, and optionally `embedding`.
+
+Returns:
+    dict[str, Any]: The processed metadata dictionary with ensured datetime fields and normalized `embedding` type.
+"""
+You should write code starting with:
+from datetime import datetime
+from typing import Any
+
+def _prepare_node_metadata(metadata: dict[str, Any]) -> dict[str, Any]:
+    # TODO: Implement this function
+    pass
+

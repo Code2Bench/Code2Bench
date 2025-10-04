@@ -1,0 +1,19 @@
+"""Flattens and merges multiple iterables by interleaving their elements, removing any `None` values.
+
+Given an iterable of iterables, this function interleaves their elements in a round-robin fashion, 
+flattens the result, and removes any `None` values that may have been introduced by uneven lengths.
+
+Args:
+    iterable: An iterable of iterables whose elements are to be interleaved and flattened.
+
+Returns:
+    A list containing the interleaved and flattened elements from the input iterables, 
+    with `None` values removed.
+"""
+You should write code starting with:
+import itertools
+
+def undistribute(iterable) -> list:
+    # TODO: Implement this function
+    pass
+

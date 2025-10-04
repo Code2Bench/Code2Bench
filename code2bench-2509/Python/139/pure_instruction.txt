@@ -1,0 +1,15 @@
+"""Compares two dictionaries and returns a new dictionary containing key-value pairs from the first dictionary that differ from the second.
+
+This function iterates over the key-value pairs in the first dictionary (`dict1`). For each key, it checks if the key is present in the second dictionary (`dict2`). If the key is not present in `dict2`, the key-value pair is added to the result. If the key is present, the function compares the values. If the values differ, the key-value pair from `dict1` is added to the result. The comparison is performed using the `!=` operator, which works for both simple and complex data types (e.g., lists, nested dictionaries).
+
+Note:
+    - The function does not handle cases where `dict2` contains keys not present in `dict1`.
+    - The function silently ignores any exceptions that occur during value comparison, ensuring robustness in cases where comparison might fail (e.g., due to incompatible types).
+
+Args:
+    dict1 (dict): The first dictionary to compare.
+    dict2 (dict): The second dictionary to compare against.
+
+Returns:
+    dict: A dictionary containing key-value pairs from `dict1` that differ from `dict2`.
+"""

@@ -1,0 +1,34 @@
+"""Parse a response string formatted with specific XML-like tags into a structured dictionary.
+
+The function expects the input string to follow the format: 
+`<think><observation>...</observation><reasoning>...</reasoning><prediction>...</prediction></think><answer>...</answer>`.
+It extracts content from the tags and organizes it into a dictionary with specific keys.
+
+Args:
+    response (str): The input string containing the XML-like tags.
+    special_token_list (List[str], optional): A list of special tokens to remove from the extracted content. Defaults to None.
+    action_sep (str, optional): The separator used to split the action content into individual actions. Defaults to ','.
+    max_actions (int, optional): The maximum number of actions to extract from the action content. Defaults to 3.
+
+Returns:
+    Dict: A dictionary with the following keys:
+        - llm_raw_response: The original response string.
+        - llm_response: The response string with all tags.
+        - observation_content: The content inside the `<observation>` tag.
+        - reasoning_content: The content inside the `<reasoning>` tag.
+        - prediction_content: The content inside the `<prediction>` tag.
+        - think_content: The entire content inside the `<think>` tag.
+        - action_content: The content inside the `<answer>` tag.
+        - actions: A list of actions extracted from the action content.
+        - format_correct: A boolean indicating whether the response strictly follows the expected format.
+
+The function also handles special tokens by removing them from the extracted content and limits the number of actions to `max_actions`.
+"""
+You should write code starting with:
+import re
+from typing import Dict, List
+
+def parse_grounding_worldmodeling(response: str, special_token_list: List[str] = None, action_sep: str = ',', max_actions: int = 3) -> Dict:
+    # TODO: Implement this function
+    pass
+

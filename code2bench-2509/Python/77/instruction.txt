@@ -1,0 +1,31 @@
+"""Generates security advice based on detected vulnerabilities.
+
+This function analyzes a list of vulnerability descriptions and provides specific
+security recommendations for each detected vulnerability type. The advice is tailored
+to mitigate the risks associated with common insecure services and protocols.
+
+Args:
+    vulns (List[str]): A list of strings, each describing a detected vulnerability.
+
+Returns:
+    List[str]: A list of unique security advice strings, each corresponding to a
+              specific vulnerability type. The list is deduplicated to avoid
+              redundant recommendations.
+
+The function checks for the following vulnerability types and provides corresponding
+advice:
+    - "FTP": Recommends disabling FTP service or prohibiting anonymous login, and
+             setting strong passwords.
+    - "Telnet": Recommends disabling Telnet service and using SSH or other secure
+                protocols as an alternative.
+    - "SMB": Recommends disabling unnecessary SMB services and applying timely
+             patches.
+    - "远程桌面" (Remote Desktop): Recommends enabling two-factor authentication and
+                                restricting access sources for remote desktop services.
+"""
+You should write code starting with:
+from typing import List
+
+def get_security_advice(vulns: List[str]) -> List[str]:
+    pass
+

@@ -1,0 +1,24 @@
+"""Collapses consecutive repeated lines in a list into a single line with a repetition count.
+
+This function processes a list of strings, identifying consecutive repeated lines and 
+collapsing them into a single line annotated with the number of repetitions. If a line 
+is not repeated, it is added to the result as is. The function handles edge cases such 
+as an empty input list gracefully.
+
+Args:
+    lines (List[str]): A list of strings where each string represents a line.
+
+Returns:
+    List[str]: A list of strings where consecutive repeated lines are collapsed into a 
+    single line with a repetition count annotation.
+
+Example:
+    >>> _collapse_repeated_lines(['line1', 'line1', 'line2', 'line2', 'line2'])
+    ['line1 (Repeated 2 times)', 'line2 (Repeated 3 times)']
+"""
+You should write code starting with:
+from typing import List
+
+def _collapse_repeated_lines(lines: List[str]) -> List[str]:
+    pass
+

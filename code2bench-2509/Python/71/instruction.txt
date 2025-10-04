@@ -1,0 +1,25 @@
+"""Sort and group the input list of token sequences into batches, where each batch's total duration does not exceed the maximum.
+
+The function first sorts the token sequences by their length to minimize padding. It then iterates through the sorted sequences, adding them to the current batch if the total duration (considering both token and prompt durations) does not exceed the maximum allowed duration. If adding a sequence would exceed the limit, the current batch is finalized, and a new batch is started with the current sequence.
+
+Args:
+    tokens_list (List[List[int]]): A list of token sequences, where each inner list represents a sequence of tokens.
+    max_duration (float): The maximum allowed total duration for each batch.
+    prompt_duration (float): The duration cost per prompt in the batch.
+    token_duration (float): The duration cost per token.
+
+Returns:
+    batches (List[List[List[int]]]): A list of batches, where each batch is a list of token sequences that fit within the max duration.
+    index (List[int]): The original index of each sentence, used to recover the sequential order in the future.
+"""
+You should write code starting with:
+from typing import List, Tuple
+
+def batchify_tokens(
+    tokens_list: List[List[int]],
+    max_duration: float,
+    prompt_duration: float,
+    token_duration: float,
+) -> Tuple[List[List[List[int]]], List[int]]:
+    pass
+

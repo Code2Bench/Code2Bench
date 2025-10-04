@@ -1,0 +1,25 @@
+"""Return multiplication of two quaternions.
+
+The function multiplies two quaternions, `quaternion1` and `quaternion0`, and returns the resulting quaternion. 
+Quaternions are represented as lists or arrays of four elements [w, x, y, z], where `w` is the scalar part and 
+`x`, `y`, `z` are the vector parts.
+
+Args:
+    quaternion1 (list or numpy.ndarray): The first quaternion as a list or array of four elements.
+    quaternion0 (list or numpy.ndarray): The second quaternion as a list or array of four elements.
+
+Returns:
+    numpy.ndarray: The resulting quaternion as a numpy array of four elements.
+
+Examples:
+    >>> q = quaternion_multiply([4, 1, -2, 3], [8, -5, 6, 7])
+    >>> numpy.allclose(q, [28, -44, -14, 48])
+    True
+"""
+You should write code starting with:
+import numpy as np
+
+def quaternion_multiply(quaternion1: list | np.ndarray, quaternion0: list | np.ndarray) -> np.ndarray:
+    # TODO: Implement this function
+    pass
+

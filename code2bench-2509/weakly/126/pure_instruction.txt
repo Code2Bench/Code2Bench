@@ -1,0 +1,13 @@
+"""Converts extrinsic Euler angles into quaternion form.
+
+The function takes extrinsic Euler angles in the order of roll, pitch, and yaw (XYZ convention) and converts them into a quaternion representation.
+
+Args:
+    euler (np.array): A 1D numpy array of shape (3,) representing the Euler angles in radians. The order of angles is (roll, pitch, yaw).
+
+Returns:
+    np.array: A 1D numpy array of shape (4,) representing the quaternion in the form (x, y, z, w).
+
+Raises:
+    AssertionError: If the input array does not have the expected shape of (3,).
+"""

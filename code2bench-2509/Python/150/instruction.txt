@@ -1,0 +1,33 @@
+"""Convert a given number of minutes into a human-readable time format.
+
+This function takes a number of minutes and converts it into a string representation
+that is easy to understand, such as '30 min', '1 hr', '2 hrs', or '60.00 days'. The
+function handles edge cases like zero minutes and ensures the output is formatted
+cleanly by removing unnecessary decimal points (e.g., '2.0 hrs' becomes '2 hrs').
+
+Args:
+    mins (int or float): The number of minutes to be formatted. Can be an integer or
+                         a floating-point number.
+
+Returns:
+    str: A string representing the formatted time. If an error occurs during processing,
+         an empty string is returned.
+
+Examples:
+    >>> format_mins_timer(0)
+    '0 min'
+    >>> format_mins_timer(60)
+    '1 hr'
+    >>> format_mins_timer(30)
+    '30 min'
+    >>> format_mins_timer(120)
+    '2 hrs'
+    >>> format_mins_timer(1440)
+    '24 hrs'
+    >>> format_mins_timer(86400)
+    '60.00 days'
+"""
+You should write code starting with:
+def format_mins_timer(mins: float) -> str:
+    pass
+

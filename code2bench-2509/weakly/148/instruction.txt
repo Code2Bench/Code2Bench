@@ -1,0 +1,17 @@
+"""Removes the 'module.' prefix from keys in a state dictionary.
+
+This function processes a state dictionary and removes the 'module.' prefix from any keys that start with it. The resulting dictionary retains the original order of keys.
+
+Args:
+    state_dict (dict or OrderedDict): The input state dictionary, which may contain keys prefixed with 'module.'.
+
+Returns:
+    OrderedDict: A new ordered dictionary with the 'module.' prefix removed from relevant keys, maintaining the original order.
+"""
+You should write code starting with:
+from collections import OrderedDict
+
+def strip_module(state_dict: dict) -> OrderedDict:
+    # TODO: Implement this function
+    pass
+

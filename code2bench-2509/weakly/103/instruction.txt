@@ -1,0 +1,18 @@
+"""Extract URL parameters from a given URL and return them as a dictionary.
+
+This function parses the query parameters from the provided URL and converts them into a dictionary where keys are parameter names and values are their corresponding values. If the URL is empty or contains no query parameters, an empty dictionary is returned.
+
+Args:
+    url (str): The URL from which to extract the query parameters.
+
+Returns:
+    Dict: A dictionary containing the URL parameters. If the URL is empty or has no query parameters, an empty dictionary is returned.
+"""
+You should write code starting with:
+import urllib.parse
+from typing import Dict
+
+def extract_url_params_to_dict(url: str) -> Dict:
+    # TODO: Implement this function
+    pass
+

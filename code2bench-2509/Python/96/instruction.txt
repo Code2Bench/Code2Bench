@@ -1,0 +1,26 @@
+"""Compute the total duration from a metrics dictionary.
+
+This function prioritizes a single wall-clock measurement if present. If not, it sums the
+durations of all per-step metrics (keys ending with "_duration"). Non-numeric and boolean
+values are ignored to avoid double counting and invalid data.
+
+Args:
+    metrics (Dict[str, Any]): A dictionary containing various metrics, potentially including
+        wall-clock duration and per-step durations.
+
+Returns:
+    float: The computed total duration. If a wall-clock measurement is present, it is returned
+        directly. Otherwise, the sum of all valid per-step durations is returned.
+
+Note:
+    - The function ensures that only numeric values are considered for duration calculations.
+    - Boolean values are explicitly ignored to prevent incorrect summation.
+    - Keys not ending with "_duration" are ignored in the fallback calculation.
+"""
+You should write code starting with:
+from typing import Dict, Any
+
+def _compute_duration(metrics: Dict[str, Any]) -> float:
+    # TODO: Implement this function based on the docstring.
+    pass
+

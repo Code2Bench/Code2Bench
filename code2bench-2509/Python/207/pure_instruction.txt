@@ -1,0 +1,20 @@
+"""Parses a response string to extract expressions based on specific patterns.
+
+This function processes a multi-line response string, extracting expressions that follow the pattern:
+'当"<situation>" 使用"<style>"'. Each valid expression is captured as a tuple containing the chat ID,
+the situation, and the style. The function skips empty lines and lines that do not match the expected pattern.
+
+Args:
+    response (str): The multi-line string response to be parsed.
+    chat_id (str): The chat ID to be included in each extracted expression tuple.
+
+Returns:
+    List[Tuple[str, str, str]]: A list of tuples, where each tuple contains the chat ID, situation, and style
+    extracted from the response. If no valid expressions are found, an empty list is returned.
+
+Example:
+    >>> parse_expression_response('当"情况1" 使用"风格1"', 'chat1')
+    [('chat1', '情况1', '风格1')]
+    >>> parse_expression_response('当"情况1" 使用"风格1"\n当"情况2" 使用"风格2"', 'chat2')
+    [('chat2', '情况1', '风格1'), ('chat2', '情况2', '风格2')]
+"""

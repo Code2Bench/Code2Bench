@@ -1,0 +1,32 @@
+def generate_crop_size_list(base_size=256, patch_size=32, max_ratio=4.0):
+    """Generates a list of crop sizes based on the given parameters.
+
+    Args:
+        base_size (int, optional): The base size used to generate the crop sizes. Defaults to 256.
+        patch_size (int, optional): The size of each patch. Defaults to 32.
+        max_ratio (float, optional): The maximum allowed ratio between the width and height of the
+            crop sizes. Defaults to 4.0.
+
+    Returns:
+        List[Tuple[int, int]]: A list of tuples, where each tuple represents a crop size in the
+            format (width, height).
+    """
+    num_patches = round((base_size / patch_size) ** 2)
+    assert max_ratio >= 1.0
+    crop_size_list = []
+    wp, hp = num_patches, 1
+    while wp > 0:
+        if max(wp, hp) / min(wp, hp) <= max_ratio:
+            crop_size_list.append((wp * patch_size, hp * patch_size))
+        if (hp + 1) * wp <= num_patches:
+            hp += 1
+        else:
+            wp -= 1
+    return crop_size_list
+You should write code starting with:
+from typing import List, Tuple
+
+def generate_crop_size_list(base_size: int = 256, patch_size: int = 32, max_ratio: float = 4.0) -> List[Tuple[int, int]]:
+    # TODO: Implement this function based on the docstring.
+    pass
+

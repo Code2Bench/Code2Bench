@@ -1,0 +1,27 @@
+"""Returns the last N lines of text data, handling various edge cases and errors.
+
+This function processes the input string to extract the last N lines, where N is specified by the `n_str` argument. It handles type validation, negative values, and invalid inputs gracefully, returning appropriate error messages when necessary.
+
+Args:
+    current_data: The input data as a string. If not a string, an error is returned.
+    n_str: A string representing the number of lines (N) to extract from the end of `current_data`.
+    mime_type: The original MIME type of the data, which is passed through unchanged.
+    log_id: An identifier used for logging purposes.
+
+Returns:
+    Tuple[Any, Optional[str], Optional[str]]: A tuple containing:
+        - result_data: A string with the last N lines of `current_data`. If N is 0, an empty string is returned.
+        - original_mime_type: The original MIME type passed in as `mime_type`.
+        - error_string: An error message if any validation or processing error occurs; otherwise, None.
+
+Raises:
+    This function does not raise exceptions but returns error messages as part of the tuple.
+"""
+You should write code starting with:
+from typing import Any, Optional, Tuple
+
+def _apply_tail(
+    current_data: str, n_str: str, mime_type: Optional[str], log_id: str
+) -> Tuple[Any, Optional[str], Optional[str]]:
+    pass
+

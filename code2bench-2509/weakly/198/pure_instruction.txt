@@ -1,0 +1,9 @@
+Implement a Python function that calculates the entropy of the byte distribution in a given Python code string.
+
+- **Input**: A string containing Python code.
+- **Output**: A dictionary with a single key `'total_byte_entropy'` whose value is a float representing the entropy of the byte distribution.
+- **Special Rules**:
+  - Convert the input string to bytes using UTF-8 encoding.
+  - Count the occurrence of each byte in the encoded string.
+  - Compute the entropy using the formula: `-sum((count / total_bytes) * log2(count / total_bytes))` for each byte count.
+  - Handle edge cases: empty strings or strings with only one unique byte.

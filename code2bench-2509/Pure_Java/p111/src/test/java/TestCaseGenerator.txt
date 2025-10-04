@@ -1,0 +1,91 @@
+package p111;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import java.io.*;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
+import net.jqwik.api.*;
+import net.jqwik.api.lifecycle.AfterContainer;
+import p111.GroundTruth;
+
+public class TestCaseGenerator {
+
+    static class TestCase {
+        Map<String, Object> Inputs;
+        Object Expected;
+        TestCase(Map<String, Object> inputs, Object expected) {
+            this.Inputs = inputs;
+            this.Expected = expected;
+        }
+    }
+
+    static List<TestCase> generatedCases = new ArrayList<>();
+    static AtomicInteger caseCount = new AtomicInteger(0);
+    static final int MAX_CASES = 500;
+
+    @Property(tries = 10000)
+    void generateTestCases(@ForAll("intArray") int[] array1, @ForAll("intArray") int[] array2) {
+        if (caseCount.get() >= MAX_CASES) {
+            return;
+        }
+
+        int[] result;
+        try {
+            result = GroundTruth.concat(array1, array2);
+        } catch (Exception e) {
+            return;
+        }
+
+        boolean isArray1Empty = array1.length == 0;
+        boolean isArray2Empty = array2.length == 0;
+        boolean isBothNonEmpty = !isArray1Empty && !isArray2Empty;
+        if (!isArray1Empty && !isArray2Empty && !isBothNonEmpty) {
+            return;
+        }
+
+        Map<String, Object> inputs = new LinkedHashMap<>();
+        inputs.put("array1", array1);
+        inputs.put("array2", array2);
+        generatedCases.add(new TestCase(inputs, result));
+        caseCount.incrementAndGet();
+    }
+
+    @Example
+    void example1() {
+        generateTestCases(new int[]{}, new int[]{1, 2, 3});
+    }
+
+    @Example
+    void example2() {
+        generateTestCases(new int[]{4, 5}, new int[]{});
+    }
+
+    @Example
+    void example3() {
+        generateTestCases(new int[]{1, 2}, new int[]{3, 4});
+    }
+
+    @Provide
+    Arbitrary<int[]> intArray() {
+        return Arbitraries.integers().array(int[].class).ofMinSize(0).ofMaxSize(10);
+    }
+
+    @AfterContainer
+    static void saveTestCases() throws IOException {
+        if (generatedCases.isEmpty()) {
+            return;
+        }
+        String dirPath = "src/test/java/test_cases";
+        File dir = new File(dirPath);
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+        String filePath = dirPath + "/test_cases.json";
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        try (Writer writer = new FileWriter(filePath)) {
+            gson.toJson(generatedCases, writer);
+        }
+        System.out.println("✅ Saved " + generatedCases.size() + " test cases to " + filePath);
+    }
+}

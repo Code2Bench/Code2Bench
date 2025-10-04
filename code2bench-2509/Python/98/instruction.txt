@@ -1,0 +1,28 @@
+"""Recursively formats a dictionary into a multi-line string with customizable indentation and separator.
+
+This function takes a dictionary and converts it into a human-readable string format. It supports nested dictionaries,
+custom indentation levels, and the choice between using a colon or space as the separator between keys and values.
+
+Args:
+    data (dict): The dictionary to format. If the input is not a dictionary, it will be converted to a string.
+    indent_level (int): The current indentation level for nested structures. Defaults to 0.
+    use_colon (bool): Whether to use "key: value" or "key value" format. Defaults to True.
+
+Returns:
+    str: A formatted string representation of the dictionary, with each key-value pair on a new line and nested
+         dictionaries indented appropriately.
+
+Example:
+    >>> format_dict_to_string({'key': 'value'})
+    'key: value'
+    >>> format_dict_to_string({'nested': {'key': 'value'}})
+    'nested:\n  key: value'
+    >>> format_dict_to_string({'key': 42})
+    'key: 42'
+    >>> format_dict_to_string({'key': True})
+    'key: True'
+"""
+You should write code starting with:
+def format_dict_to_string(data: dict, indent_level: int = 0, use_colon: bool = True) -> str:
+    pass
+

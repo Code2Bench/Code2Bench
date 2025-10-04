@@ -1,0 +1,33 @@
+"""Finds the starting index of a context within a list of lines, considering different levels of whitespace tolerance.
+
+This function searches for a sequence of lines (`context`) within a larger list of lines (`lines`), starting from a specified index (`start`). It returns the starting index of the first occurrence of the context and a code indicating the level of whitespace tolerance required for the match.
+
+Args:
+    lines (List[str]): The list of lines to search within.
+    context (List[str]): The sequence of lines to search for.
+    start (int): The index in `lines` from which to start the search.
+
+Returns:
+    Tuple[int, int]: A tuple containing:
+        - The starting index of the first occurrence of `context` in `lines`. If no match is found, returns -1.
+        - A code indicating the level of whitespace tolerance:
+            - 0: Exact match (no whitespace tolerance).
+            - 1: Match with trailing whitespace ignored.
+            - 100: Match with both leading and trailing whitespace ignored.
+
+The function performs the search in three stages, each with increasing levels of whitespace tolerance:
+    1. Exact match: The context must match the lines exactly, including whitespace.
+    2. Trailing whitespace ignored: The context matches the lines when trailing whitespace is ignored.
+    3. Leading and trailing whitespace ignored: The context matches the lines when both leading and trailing whitespace are ignored.
+
+If the context is empty, the function immediately returns the start index and a code of 0.
+
+Note:
+    The function stops at the first match found, so if multiple matches exist, only the first one is returned.
+"""
+You should write code starting with:
+from typing import List, Tuple
+
+def find_context_core(lines: List[str], context: List[str], start: int) -> Tuple[int, int]:
+    pass
+

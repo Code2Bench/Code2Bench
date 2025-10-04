@@ -1,0 +1,20 @@
+"""Count the number of valid paired tags in a given text.
+
+This function searches for pairs of opening and closing tags in the provided text and counts how many valid pairs exist. A valid pair consists of an opening tag `<tag>` and a corresponding closing tag `</tag>`, where `tag` is the specified tag name. The function iterates through the text, finding and counting these pairs sequentially.
+
+Args:
+    text (str): The text in which to search for valid tag pairs.
+    tag (str): The tag name to search for, without angle brackets (e.g., 'tag' for `<tag>`).
+
+Returns:
+    int: The number of valid paired tags found in the text.
+
+Notes:
+    - The function does not handle nested tags as separate pairs. For example, `<tag><tag></tag></tag>` is counted as one valid pair.
+    - If the text contains unmatched tags (e.g., `<tag>` without `</tag>`), they are ignored.
+    - The search is case-sensitive, so `<Tag>` and `<tag>` are considered different tags.
+"""
+You should write code starting with:
+def count_valid_tags(text: str, tag: str) -> int:
+    pass
+

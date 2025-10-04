@@ -1,0 +1,36 @@
+"""Helper function to safely calculate book value CAGR and return score + reasoning.
+
+This function calculates the Compound Annual Growth Rate (CAGR) of book values over a period of time. It handles various edge cases such as insufficient data, negative book values, and transitions between positive and negative values. The function returns a tuple containing a score and a descriptive message based on the calculated CAGR or specific scenarios.
+
+Args:
+    book_values (list): A list of book values over time, where the first element is the latest value and the last element is the oldest value.
+
+Returns:
+    tuple[int, str]: A tuple containing:
+        - An integer score representing the quality of the book value growth:
+            * 0: Low or negative growth, or insufficient data.
+            * 1: Good growth (CAGR > 10%).
+            * 2: Excellent growth (CAGR > 15%).
+            * 3: Special case where the company improved from negative to positive book value.
+        - A string message describing the reasoning behind the score.
+
+Raises:
+    None: This function does not raise any exceptions but handles edge cases gracefully.
+
+Examples:
+    >>> _calculate_book_value_cagr([100, 120, 140])
+    (0, 'Book value CAGR: -15.5%')
+    >>> _calculate_book_value_cagr([100, 80, 60])
+    (2, 'Excellent book value CAGR: 29.1%')
+    >>> _calculate_book_value_cagr([-100, 120])
+    (0, 'Warning: Company declined from positive to negative book value')
+    >>> _calculate_book_value_cagr([100, -120])
+    (3, 'Excellent: Company improved from negative to positive book value')
+"""
+You should write code starting with:
+from typing import Tuple
+
+def _calculate_book_value_cagr(book_values: list) -> Tuple[int, str]:
+    # TODO: Implement this function based on the docstring.
+    pass
+

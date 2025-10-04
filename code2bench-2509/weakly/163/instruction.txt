@@ -1,0 +1,24 @@
+"""Normalizes a given string by removing diacritics, normalizing quotes and dashes, removing citations, details in parentheses, and outermost quotation marks, and collapsing whitespaces.
+
+The function processes the input string in multiple steps:
+1. Decodes the input to UTF-8 if it is not already a string.
+2. Removes diacritics using Unicode normalization.
+3. Normalizes various types of quotes and dashes to standard characters.
+4. Iteratively removes citations, details in parentheses, and outermost quotation marks until no further changes occur.
+5. Removes a final period if present.
+6. Collapses multiple whitespaces into a single space and converts the string to lowercase.
+
+Args:
+    x (str or bytes): The input string or byte sequence to be normalized.
+
+Returns:
+    str: The normalized string in lowercase with all specified transformations applied.
+"""
+You should write code starting with:
+import re
+import unicodedata
+
+def normalize(x: str | bytes) -> str:
+    # TODO: Implement this function
+    pass
+

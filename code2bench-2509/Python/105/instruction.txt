@@ -1,0 +1,28 @@
+"""Helper function to convert an integer to its English text representation.
+
+This function recursively converts an integer into its corresponding English text form. It handles numbers from 0 up to billions, including special cases for numbers less than 20, tens, hundreds, thousands, millions, and billions. The function uses predefined lists for ones and tens to map numbers to their word equivalents.
+
+Args:
+    num (int): The integer to be converted to text. Must be a non-negative integer.
+
+Returns:
+    str: The English text representation of the input integer.
+
+Examples:
+    >>> _int_to_text(5)
+    'five'
+    >>> _int_to_text(15)
+    'fifteen'
+    >>> _int_to_text(42)
+    'forty two'
+    >>> _int_to_text(123)
+    'one hundred twenty three'
+    >>> _int_to_text(2023)
+    'two thousand twenty three'
+    >>> _int_to_text(1000000)
+    'one million'
+"""
+You should write code starting with:
+def _int_to_text(num: int) -> str:
+    pass
+

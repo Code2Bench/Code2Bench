@@ -1,0 +1,10 @@
+"""Group SSE event files by trace ID and sort by sequence number.
+
+This function processes a list of SSE event files, grouping them by their trace ID and sorting each group by the sequence number. The function handles two types of file patterns: local files and S3 files. For local files, the trace ID and sequence number are extracted from the filename. For S3 files, the trace ID and sequence number are extracted from the file path. The trace ID is normalized by stripping the timestamp for S3 files.
+
+Args:
+    sse_files (List[Dict[str, Any]]): A list of dictionaries, each containing information about an SSE event file. Each dictionary must have a 'name' key for local files or a 'path' key for S3 files, and may contain an optional 'is_local' key to indicate the file type.
+
+Returns:
+    Dict[str, List[Dict[str, Any]]]: A dictionary where each key is a trace ID and the value is a list of dictionaries representing the SSE event files, sorted by their sequence number.
+"""

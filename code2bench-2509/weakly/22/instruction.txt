@@ -1,0 +1,21 @@
+"""Validates the format of a given URL.
+
+This function checks if the provided URL string is valid based on specific criteria:
+- The URL must be a non-empty string.
+- The URL must use either 'http' or 'https' as its scheme.
+- The URL must have a valid network location (netloc).
+- The URL length must be less than 2048 characters.
+
+Args:
+    url (str): The URL string to be validated.
+
+Returns:
+    bool: True if the URL is valid, False otherwise.
+"""
+You should write code starting with:
+from urllib.parse import urlparse
+
+def validate_url(url: str) -> bool:
+    # TODO: Implement this function
+    pass
+

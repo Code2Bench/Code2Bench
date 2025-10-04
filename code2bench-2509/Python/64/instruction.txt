@@ -1,0 +1,26 @@
+"""Safely format improvement metrics for logging by comparing child metrics against parent metrics.
+
+This function calculates the difference between numeric values in child_metrics and parent_metrics for 
+common metrics, and formats the results as a comma-separated string. Only numeric values (int or float) 
+are considered for improvement calculation. Non-numeric values or metrics not present in both dictionaries 
+are ignored.
+
+Args:
+    parent_metrics (Dict[str, Any]): Metrics from the parent program. If empty or None, an empty string is returned.
+    child_metrics (Dict[str, Any]): Metrics from the child program. If empty or None, an empty string is returned.
+
+Returns:
+    str: A formatted string representation of improvements, where each improvement is in the format 
+         "metric=+diff.0000" or "metric=-diff.0000". If no valid improvements are found, an empty string is returned.
+
+Note:
+    - The function handles only numeric comparisons (int or float). Non-numeric values are skipped.
+    - If either parent_metrics or child_metrics is empty or None, the function returns an empty string.
+    - The improvement values are formatted to four decimal places.
+"""
+You should write code starting with:
+from typing import Dict, Any
+
+def format_improvement_safe(parent_metrics: Dict[str, Any], child_metrics: Dict[str, Any]) -> str:
+    pass
+

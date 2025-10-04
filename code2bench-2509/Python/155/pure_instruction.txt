@@ -1,0 +1,17 @@
+"""Extracts the 'Examples:' section from a Google-style docstring.
+
+This function parses a given docstring to locate and extract the 'Examples:' section. It is designed to handle
+docstrings formatted according to the Google Python Style Guide. The function returns the extracted section as a
+single string, preserving the original formatting and indentation.
+
+Args:
+    docstring (Optional[str]): The full docstring of a function. If None or empty, the function returns None.
+
+Returns:
+    Optional[str]: The extracted examples section as a string, or None if the 'Examples:' section is not found.
+
+The function identifies the 'Examples:' section by searching for a line that starts with 'Examples:'. It continues
+to collect lines until it encounters a new section (indicated by a line that starts with a non-space character and
+ends with a colon) or reaches the end of the docstring. The collected lines are then joined into a single string
+and returned.
+"""

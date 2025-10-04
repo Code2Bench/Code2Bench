@@ -1,0 +1,22 @@
+"""Collect candidates from a specified round in a transcript, prioritizing answers and falling back to arguments.
+
+This function iterates over each agent in the transcript and collects their latest record for the specified round. 
+It prioritizes the 'answer' field, and if it is empty or missing, it falls back to the 'argument' field. 
+Only non-empty text is included in the result.
+
+Args:
+    transcript (list): A list of dictionaries representing the transcript records. Each record should contain 
+                       at least 'agent_id', 'round', and optionally 'answer' and 'argument' fields.
+    num_agents (int): The total number of agents to consider in the transcript.
+    round_index (int): The specific round index to collect candidates from.
+
+Returns:
+    list: A list of dictionaries, each containing 'agent_id' and 'text' keys. The 'text' is derived from the 
+          'answer' or 'argument' field, whichever is non-empty and prioritized.
+"""
+You should write code starting with:
+from typing import List, Dict, Any
+
+def collect_round_candidates(transcript: List[Dict[str, Any]], num_agents: int, round_index: int) -> List[Dict[str, str]]:
+    pass
+

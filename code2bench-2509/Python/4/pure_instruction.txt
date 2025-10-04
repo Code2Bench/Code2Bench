@@ -1,0 +1,18 @@
+"""Parse a version string into a tuple of integers for comparison.
+
+This function takes a version string formatted as "major.minor.patch" and converts it into a tuple of three integers (major, minor, patch). If the version string contains fewer than three components, the missing components are set to zero. The function handles edge cases such as empty strings or invalid formats by returning (0, 0, 0).
+
+Args:
+    version_str: A version string formatted as "major.minor.patch" or with fewer components.
+
+Returns:
+    A tuple of three integers representing the major, minor, and patch versions. If the input string is invalid or empty, returns (0, 0, 0).
+
+Examples:
+    >>> parse_version("1.2.3")
+    (1, 2, 3)
+    >>> parse_version("4.5")
+    (4, 5, 0)
+    >>> parse_version("6")
+    (6, 0, 0)
+"""

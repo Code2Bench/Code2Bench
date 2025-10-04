@@ -1,0 +1,11 @@
+"""Check if the authors in the data match the authors in the paper.
+
+This function compares the list of authors from a paper with the authors in a given data dictionary. It processes both lists by removing words shorter than a specified minimum length (AUTHOR_NAME_MIN_LENGTH) and then checks if any of the processed author names from one list are contained within the other list, or vice versa. The function allows for a different number of authors in the two lists.
+
+Args:
+    authors (list[str]): A list of author names from the paper.
+    data (dict): A dictionary containing a list of authors under the key "authors".
+
+Returns:
+    bool: True if any of the processed author names match between the two lists, False otherwise.
+"""

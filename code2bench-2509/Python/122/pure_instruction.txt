@@ -1,0 +1,13 @@
+"""Filters invalid triples from a list of triples and ensures uniqueness.
+
+This function processes a list of triples (lists of three strings) and removes any triples that are invalid or duplicates. A triple is considered invalid if it does not contain exactly three elements, or if any of its elements are not strings or are empty strings after stripping whitespace. The function also ensures that the returned list contains only unique triples.
+
+Args:
+    triples (List[List[str]]): A list of triples, where each triple is a list of three strings.
+
+Returns:
+    List[List[str]]: A list of valid and unique triples, where each triple is a list of three strings.
+
+Note:
+    The function converts each element of the triple to a string to ensure consistency, even if the input elements are not strings.
+"""

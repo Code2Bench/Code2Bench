@@ -1,0 +1,10 @@
+"""Decodes a Base64 encoded URL content into its original string or bytes representation.
+
+This function handles URL-safe Base64 encoding by replacing '-' with '+' and '_' with '/'. It also ensures the input length is a multiple of 4 by appending '=' characters if necessary. The function attempts to decode the content into a UTF-8 string. If decoding fails, it returns the raw bytes as a string.
+
+Args:
+    url_content (str): A Base64 encoded string, potentially URL-safe.
+
+Returns:
+    str: The decoded content as a UTF-8 string if successful, otherwise the raw bytes as a string.
+"""

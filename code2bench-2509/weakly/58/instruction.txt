@@ -1,0 +1,19 @@
+"""Parses the score from a given grade output string.
+
+This function searches through each line of the input string for a line containing the word "score". It then attempts to extract a JSON-like object from that line and parse it to retrieve the score. The function tries multiple methods in sequence: JSON parsing, evaluating the string as a dictionary, and finally using regex to extract the last number in the string.
+
+Args:
+    grade_stdout (str): A string containing the grade output, typically from a grading system.
+
+Returns:
+    Optional[float]: The parsed score as a float if successful, otherwise None.
+"""
+You should write code starting with:
+import re
+import json
+from typing import Optional
+
+def _parsing_score(grade_stdout: str) -> Optional[float]:
+    # TODO: Implement this function
+    pass
+

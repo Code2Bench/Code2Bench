@@ -1,0 +1,13 @@
+"""Validate a batch operation dictionary to ensure it contains all required fields based on its type.
+
+This function checks if the operation dictionary has a 'type' field and then validates the presence of all required fields specific to that operation type. If any required field is missing or the operation type is unsupported, the function returns a tuple indicating the validation failure along with an appropriate error message.
+
+Args:
+    operation (Dict[str, Any]): The operation dictionary to validate. It must contain at least a 'type' field.
+
+Returns:
+    Tuple[bool, str]: A tuple where the first element is a boolean indicating whether the operation is valid (True) or not (False). The second element is an error message describing the reason for validation failure, or an empty string if the operation is valid.
+
+Raises:
+    None: This function does not raise any exceptions but returns a tuple with an error message in case of validation failure.
+"""

@@ -1,0 +1,10 @@
+"""Remove control characters from text.
+
+Control characters are non-printable characters in the Unicode standard that control how text is displayed or processed. This function filters out all characters categorized as control characters (category starting with 'C') in the Unicode standard.
+
+Args:
+    text (str): The input string from which control characters will be removed.
+
+Returns:
+    str: A new string with all control characters removed.
+"""

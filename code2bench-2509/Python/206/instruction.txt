@@ -1,0 +1,20 @@
+"""Formats a list of model names into a readable string representation.
+
+The function handles different cases based on the number of models provided:
+- If the list is empty, returns "No models".
+- If the list contains exactly one model, returns the model name as is.
+- If the list contains 2 or 3 models, returns each model name prefixed with a bullet point, each on a new line.
+- If the list contains more than 3 models, returns the first two model names prefixed with bullet points, followed by a line indicating the count of remaining models.
+
+Args:
+    models (List[str]): A list of model names to be formatted.
+
+Returns:
+    str: A formatted string representation of the model names.
+"""
+You should write code starting with:
+from typing import List
+
+def _format_models(models: List[str]) -> str:
+    pass
+

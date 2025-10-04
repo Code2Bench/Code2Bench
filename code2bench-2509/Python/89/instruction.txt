@@ -1,0 +1,31 @@
+"""Calculate the length of the longest common prefix between elements of two string lists.
+
+This function iterates through all pairs of strings from the two input lists and computes the length of the longest common prefix between any pair. It returns the maximum prefix length found along with the pair of strings that share this prefix.
+
+Args:
+    list1 (List[str]): The first list of strings.
+    list2 (List[str]): The second list of strings.
+
+Returns:
+    Tuple[int, Tuple[str, str]]: A tuple containing:
+        - The length of the longest common prefix found.
+        - A tuple of the two strings that share this longest prefix.
+
+Examples:
+    >>> longest_common_prefix_between_lists_with_elements(['abc'], ['abc'])
+    (3, ('abc', 'abc'))
+    >>> longest_common_prefix_between_lists_with_elements(['abc', 'def'], ['abc', 'ghi'])
+    (3, ('abc', 'abc'))
+    >>> longest_common_prefix_between_lists_with_elements(['abc', 'def'], ['abx', 'dey'])
+    (2, ('abc', 'abx'))
+    >>> longest_common_prefix_between_lists_with_elements(['abc', 'def'], ['abcdef', 'defghi'])
+    (3, ('abc', 'abcdef'))
+    >>> longest_common_prefix_between_lists_with_elements(['abc', 'def'], ['ab', 'de'])
+    (2, ('abc', 'ab'))
+"""
+You should write code starting with:
+from typing import List, Tuple
+
+def longest_common_prefix_between_lists_with_elements(list1: List[str], list2: List[str]) -> Tuple[int, Tuple[str, str]]:
+    pass
+

@@ -1,0 +1,28 @@
+"""Validates input media dimensions and frame count based on specific conditions.
+
+This function checks if the provided height, width, and number of frames meet the required divisibility conditions. The conditions vary depending on whether frame conditioning is enabled.
+
+Args:
+    width (int): The width of the media. Must be divisible by 8.
+    height (int): The height of the media. Must be divisible by 8.
+    with_frame_conditioning (bool): Indicates whether frame conditioning is enabled.
+    num_frames_in (int, optional): The total number of frames in the video. Must be divisible by 16 if provided. If frame conditioning is not enabled, it must also be divisible by 32.
+
+Returns:
+    Tuple[bool, str]: A tuple where the first element is a boolean indicating whether the input is valid. The second element is a string message describing the validation result. If the input is valid, the message is `None`.
+
+Raises:
+    None: This function does not raise any exceptions.
+
+Notes:
+    - In all cases, the height and width must be divisible by 8.
+    - If `num_frames_in` is provided, it must be divisible by 16.
+    - If `with_frame_conditioning` is `True`, the product of height and width must be divisible by 8192.
+    - If `with_frame_conditioning` is `False` and `num_frames_in` is provided, it must be divisible by 32.
+"""
+You should write code starting with:
+from typing import Optional, Tuple
+
+def validate_input_media(width: int, height: int, with_frame_conditioning: bool, num_frames_in: Optional[int] = None) -> Tuple[bool, Optional[str]]:
+    pass
+

@@ -1,0 +1,18 @@
+"""Generates a dandanplay format XML string from a list of comment dictionaries.
+
+The function takes a list of dictionaries, each representing a comment, and constructs an XML string in the dandanplay format. The XML includes metadata such as the number of comments and individual comment details. Each comment's content is escaped to ensure XML compatibility, and its attributes are formatted to meet dandanplay's requirements. Specifically, the function ensures that the 'p' attribute, which contains timing, mode, font size, and color information, is correctly structured. If the font size is missing or invalid, it is defaulted to '25'.
+
+Args:
+    comments (List[dict]): A list of dictionaries where each dictionary contains at least 'm' (the comment content) and 'p' (the comment attributes) keys.
+
+Returns:
+    str: A string representing the XML in dandanplay format.
+"""
+You should write code starting with:
+from typing import List
+from xml.sax.saxutils import escape as xml_escape
+
+def _generate_dandan_xml(comments: List[dict]) -> str:
+    # TODO: Implement this function
+    pass
+

@@ -1,0 +1,24 @@
+"""Aligns the positions of "&" characters in two strings for LaTeX table formatting.
+
+This function takes two strings containing "&" characters and transforms them so that the indices of "&" are aligned. 
+It is particularly useful for ensuring proper alignment in LaTeX tables. The function assumes that both strings contain 
+the same number of "&" characters. If the "&" characters are not aligned, the function inserts spaces in the appropriate 
+positions to align them.
+
+Args:
+    str1 (str): The first input string containing "&" characters.
+    str2 (str): The second input string containing "&" characters.
+
+Returns:
+    Tuple[str, str]: A tuple of two transformed strings with aligned "&" indices.
+
+Raises:
+    AssertionError: If the number of "&" characters in `str1` and `str2` is not equal.
+"""
+You should write code starting with:
+from typing import Tuple
+
+def align_ampersands(str1: str, str2: str) -> Tuple[str, str]:
+    # TODO: Implement this function based on the docstring.
+    pass
+

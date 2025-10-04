@@ -1,0 +1,95 @@
+package p264;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import java.io.*;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
+import net.jqwik.api.*;
+import net.jqwik.api.lifecycle.AfterContainer;
+import p264.GroundTruth;
+
+public class TestCaseGenerator {
+
+    static class TestCase {
+        Map<String, Object> Inputs;
+        Object Expected;
+        TestCase(Map<String, Object> inputs, Object expected) {
+            this.Inputs = inputs;
+            this.Expected = expected;
+        }
+    }
+
+    static List<TestCase> generatedCases = new ArrayList<>();
+    static AtomicInteger caseCount = new AtomicInteger(0);
+    static final int MAX_CASES = 500;
+
+    @Property(tries = 10000)
+    void generateTestCases(@ForAll("byteArray") byte[] d, @ForAll("int32") int start, @ForAll("int32") int end, @ForAll("int32") int key, @ForAll("int32") int skip) {
+        if (caseCount.get() >= MAX_CASES) {
+            return;
+        }
+
+        if (d == null || start < 0 || end < 0 || skip < 0 || start > end || end > d.length) {
+            return;
+        }
+
+        byte[] result;
+        try {
+            result = GroundTruth.decrypt(d, start, end, key, skip);
+        } catch (Exception e) {
+            return;
+        }
+
+        Map<String, Object> inputs = new LinkedHashMap<>();
+        inputs.put("d", d);
+        inputs.put("start", start);
+        inputs.put("end", end);
+        inputs.put("key", key);
+        inputs.put("skip", skip);
+        generatedCases.add(new TestCase(inputs, result));
+        caseCount.incrementAndGet();
+    }
+
+    @Example
+    void example1() {
+        generateTestCases(new byte[]{1, 2, 3}, 0, 3, 123, 0);
+    }
+
+    @Example
+    void example2() {
+        generateTestCases(new byte[]{4, 5, 6, 7}, 1, 3, 456, 1);
+    }
+
+    @Example
+    void example3() {
+        generateTestCases(new byte[]{8, 9}, 0, 2, 789, 2);
+    }
+
+    @Provide
+    Arbitrary<byte[]> byteArray() {
+        return Arbitraries.bytes().array(byte[].class).ofMinSize(0).ofMaxSize(100);
+    }
+
+    @Provide
+    Arbitrary<Integer> int32() {
+        return Arbitraries.integers().between(-2147483648, 2147483647);
+    }
+
+    @AfterContainer
+    static void saveTestCases() throws IOException {
+        if (generatedCases.isEmpty()) {
+            return;
+        }
+        String dirPath = "src/test/java/test_cases";
+        File dir = new File(dirPath);
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+        String filePath = dirPath + "/test_cases.json";
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        try (Writer writer = new FileWriter(filePath)) {
+            gson.toJson(generatedCases, writer);
+        }
+        System.out.println("✅ Saved " + generatedCases.size() + " test cases to " + filePath);
+    }
+}

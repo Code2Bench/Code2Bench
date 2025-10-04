@@ -1,0 +1,32 @@
+"""Calculate the longest common prefix length between sublists of two 2D lists and the lengths of the sublists with the longest common prefix.
+
+This function iterates through all pairs of sublists from the two input lists, computes the length of their common prefix, and tracks the maximum common prefix length found. It also records the lengths of the sublists that have this maximum common prefix.
+
+Args:
+    list1 (List[List[int]]): The first 2D list of integer sublists.
+    list2 (List[List[int]]): The second 2D list of integer sublists.
+
+Returns:
+    Tuple[int, int, int]: A tuple containing:
+        - The length of the longest common prefix found.
+        - The length of the sublist from `list1` that has this longest common prefix.
+        - The length of the sublist from `list2` that has this longest common prefix.
+
+Examples:
+    >>> longest_common_prefix_with_lengths([[1, 2, 3]], [[1, 2, 4]])
+    (2, 3, 3)
+    >>> longest_common_prefix_with_lengths([[1, 2], [3, 4]], [[1, 2], [5, 6]])
+    (2, 2, 2)
+    >>> longest_common_prefix_with_lengths([[1]], [[1]])
+    (1, 1, 1)
+    >>> longest_common_prefix_with_lengths([[1, 2, 3]], [[4, 5, 6]])
+    (0, 0, 0)
+    >>> longest_common_prefix_with_lengths([[1, 2, 3], [4, 5, 6]], [[1, 2, 3], [7, 8, 9]])
+    (3, 3, 3)
+"""
+You should write code starting with:
+from typing import List, Tuple
+
+def longest_common_prefix_with_lengths(list1: List[List[int]], list2: List[List[int]]) -> Tuple[int, int, int]:
+    pass
+

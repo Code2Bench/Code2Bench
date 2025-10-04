@@ -1,0 +1,22 @@
+"""Fixes LaTeX square root expressions in a string by ensuring the argument is enclosed in curly braces.
+
+This function processes a string containing LaTeX square root expressions (`\\sqrt`). It ensures that the argument of each `\\sqrt` is properly enclosed in curly braces. If the argument is not already enclosed in braces, the function adds them. The function handles multiple `\\sqrt` expressions in the string and preserves any surrounding text.
+
+Args:
+    string (str): The input string containing LaTeX square root expressions.
+
+Returns:
+    str: The modified string with all `\\sqrt` arguments properly enclosed in curly braces.
+
+Examples:
+    >>> fix_sqrt('\\sqrtx')
+    '\\sqrt{x}'
+    >>> fix_sqrt('abc\\sqrtxdef')
+    'abc\\sqrt{x}def'
+    >>> fix_sqrt('abc\\sqrt{x}def\\sqrty')
+    'abc\\sqrt{x}def\\sqrt{y}'
+"""
+You should write code starting with:
+def fix_sqrt(string: str) -> str:
+    pass
+

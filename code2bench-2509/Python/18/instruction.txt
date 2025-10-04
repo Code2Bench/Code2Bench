@@ -1,0 +1,23 @@
+"""Merge short sentences in a list by concatenating them with the following sentence.
+
+This function processes a list of sentences and merges any sentence with a length of 2 or fewer characters
+with the subsequent sentence. The merging is done in-place, and the final list is adjusted to ensure no
+short sentences remain at the end.
+
+Args:
+    sens (List[str]): A list of input sentences to be processed.
+
+Returns:
+    List[str]: A list of output sentences with short sentences merged appropriately.
+
+Note:
+    - If the last sentence in the list is short, it is merged with the second-to-last sentence.
+    - The function handles edge cases where the list is empty or contains only one sentence gracefully.
+"""
+You should write code starting with:
+from typing import List
+
+def merge_short_sentences_zh(sens: List[str]) -> List[str]:
+    # TODO: Implement this function based on the docstring.
+    pass
+

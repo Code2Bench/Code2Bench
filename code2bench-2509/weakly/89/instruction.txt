@@ -1,0 +1,21 @@
+"""Parses RTC configuration data to extract STUN and TURN server URIs.
+
+This function takes a JSON string containing RTC configuration data, specifically focusing on the 'iceServers' section. It extracts and formats STUN and TURN server URIs from the provided URLs. The function handles three types of URLs: 'stun:', 'turn:', and 'turns:'. For TURN servers, it also includes the username and credential in the URI.
+
+Args:
+    data (str): A JSON string containing RTC configuration data.
+
+Returns:
+    tuple: A tuple containing three elements:
+        - stun_uris (list): A list of formatted STUN server URIs.
+        - turn_uris (list): A list of formatted TURN server URIs.
+        - data (str): The original input data.
+"""
+You should write code starting with:
+import json
+import urllib.parse
+
+def parse_rtc_config(data: str) -> tuple[list, list, str]:
+    # TODO: Implement this function
+    pass
+

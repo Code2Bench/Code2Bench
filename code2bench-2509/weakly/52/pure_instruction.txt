@@ -1,0 +1,14 @@
+"""Check if a requested resource URL matches a configured resource URL.
+
+A requested resource matches if it has the same scheme, domain, port,
+and its path starts with the configured resource's path. This allows
+hierarchical matching where a token for a parent resource can be used
+for child resources. The comparison is case-insensitive for the scheme and netloc.
+
+Args:
+    requested_resource: The resource URL being requested, as a string.
+    configured_resource: The resource URL that has been configured, as a string.
+
+Returns:
+    True if the requested resource matches the configured resource, otherwise False.
+"""

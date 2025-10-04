@@ -1,0 +1,17 @@
+"""Constructs the metadata URL for a given resource URL following RFC 9728.
+
+This function inserts '/.well-known/oauth-protected-resource' between the host and the path of the resource URL. If the resource URL contains a path, it is appended after the well-known suffix.
+
+Args:
+    resource_url (str): The URL of the resource for which the metadata URL is to be constructed.
+
+Returns:
+    str: The constructed metadata URL following the RFC 9728 specification.
+"""
+You should write code starting with:
+from urllib.parse import urlunsplit, urlsplit
+
+def metadata_url_for_resource(resource_url: str) -> str:
+    # TODO: Implement this function
+    pass
+

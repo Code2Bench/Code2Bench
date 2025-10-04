@@ -1,0 +1,26 @@
+"""Parses LCOV output to calculate branch coverage percentage and identify covered branches.
+
+This function processes a list of LCOV output lines to extract branch coverage information. It identifies
+relevant sections marked by 'tmp_src' and 'end_of_record', then processes 'BRDA' lines to determine
+branch coverage. The function calculates the percentage of covered branches and returns the list of all
+branches and the list of covered branches.
+
+Args:
+    outputs (List[str]): A list of strings representing the LCOV output lines.
+
+Returns:
+    Tuple[float, List[str], List[str]]: A tuple containing:
+        - The percentage of covered branches (float).
+        - A list of all branch signatures in the format 'BR:<lineno>,<blockno>,<branchno>' (List[str]).
+        - A list of covered branch signatures in the same format (List[str]).
+
+Note:
+    - A branch is considered covered if the 'taken' value in the 'BRDA' line is neither '0' nor '-'.
+    - If there are no branches, the coverage percentage is set to 1.0.
+"""
+You should write code starting with:
+from typing import List, Tuple
+
+def parse_lcov(outputs: List[str]) -> Tuple[float, List[str], List[str]]:
+    pass
+

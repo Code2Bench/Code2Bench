@@ -1,0 +1,22 @@
+"""Convert seconds to a more readable time format.
+
+The function takes an integer representing seconds and converts it into a human-readable string
+format that includes hours, minutes, and seconds. The output string only includes the non-zero
+time components, separated by spaces.
+
+Args:
+    seconds (int): The number of seconds to be formatted.
+
+Returns:
+    str: A string representing the formatted time, e.g., "1h 30m 45s".
+
+Note:
+    The function uses caching to optimize repeated calls with the same input.
+"""
+You should write code starting with:
+from functools import cache
+
+def format_seconds(seconds: int) -> str:
+    # TODO: Implement this function
+    pass
+

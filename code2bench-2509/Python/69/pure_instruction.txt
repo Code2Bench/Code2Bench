@@ -1,0 +1,15 @@
+"""Find the end position of the import section in a list of code lines.
+
+This function iterates through a list of code lines to determine where the import section ends. The import section includes lines that start with 'import ', 'from ', 'sys.path.', or 'load_dotenv('. The function skips over docstrings, comments, and empty lines while identifying the import section.
+
+Args:
+    lines (List[str]): A list of strings representing the lines of code.
+
+Returns:
+    int: The index of the line immediately after the last import statement. If no import statements are found, returns 0.
+
+The function handles the following cases:
+- Single or multiple import statements.
+- Import statements followed by non-import statements.
+- Docstrings and comments within the import section.
+"""

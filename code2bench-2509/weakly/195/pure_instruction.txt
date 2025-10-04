@@ -1,0 +1,13 @@
+Implement a Python function that calculates the F1 score between two lists of elements, using the `Counter` class from the `collections` module.
+
+- **Inputs**:
+  - `prediction`: A list of elements representing predicted values.
+  - `ground_truth`: A list of elements representing true values.
+  - `**kwargs`: Optional keyword arguments (not used in the function).
+- **Output**: A float representing the F1 score, which is the harmonic mean of precision and recall.
+- **Special Rules**:
+  - Precision is calculated as the number of common elements between `prediction` and `ground_truth` divided by the length of `prediction`.
+  - Recall is calculated as the number of common elements between `prediction` and `ground_truth` divided by the length of `ground_truth`.
+  - If there are no common elements, the function returns 0.
+  - The F1 score is computed as `(2 * precision * recall) / (precision + recall)`.
+  - Handle edge cases: empty lists or no common elements.

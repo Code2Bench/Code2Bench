@@ -1,0 +1,23 @@
+"""Converts a 4x4 rotation matrix into a quaternion.
+
+Args:
+    matrix (array-like): A 4x4 rotation matrix to be converted into a quaternion.
+    isprecise (bool, optional): If True, uses a more precise but computationally expensive method. Defaults to False.
+
+Returns:
+    numpy.ndarray: A 4-element array representing the quaternion [w, x, y, z], where w is the scalar part.
+
+Notes:
+    - The function handles both precise and approximate methods for quaternion extraction.
+    - The precise method involves calculating the trace of the matrix and selecting the largest diagonal element.
+    - The approximate method uses eigenvalue decomposition to derive the quaternion.
+    - The quaternion is normalized such that the scalar part (w) is non-negative.
+"""
+You should write code starting with:
+import numpy as np
+import math
+
+def quaternion_from_matrix(matrix: np.ndarray, isprecise: bool = False) -> np.ndarray:
+    # TODO: Implement this function
+    pass
+

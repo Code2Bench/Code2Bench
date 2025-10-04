@@ -1,0 +1,40 @@
+from typing import Callable
+
+def _first_divided_difference(
+    d: np.ndarray, 
+    fct: Callable, 
+    fctder: Callable, 
+    atol: float = 1e-12, 
+    rtol: float = 1e-12
+) -> np.ndarray:
+    """
+    Computes the first divided difference of a matrix function applied to the eigenvalues of a symmetric matrix.
+
+    This function calculates the first divided difference for a matrix function `fct` applied to the eigenvalues of a symmetric matrix. The first divided difference is defined as follows:
+
+    - If the eigenvalues `d_i` and `d_j` are close (within the specified tolerances `atol` and `rtol`), the derivative of the function `fct` is applied.
+    - Otherwise, the divided difference formula is used:
+      \[
+      [FDD(d)]_{i,j} =
+      \frac{fct(d_i) - fct(d_j)}{d_i - d_j}
+      \]
+
+    Parameters:
+        d (np.ndarray): Array of eigenvalues of the symmetric matrix. Shape (n,).
+        fct (Callable): Function to apply to the eigenvalues. Must be defined for all possible eigenvalues in `d`.
+        fctder (Callable): Derivative of the function `fct`. Must be defined for all possible eigenvalues in `d`.
+        atol (float, optional): Absolute tolerance for determining equality of eigenvalues. Default is 1e-12.
+        rtol (float, optional): Relative tolerance for determining equality of eigenvalues. Default is 1e-12.
+
+    Returns:
+        np.ndarray: First divided difference matrix of the function applied to the eigenvalues. Shape (n, n).
+
+    Notes:
+        - This function uses `np.isclose` to compare eigenvalues under the given tolerances.
+        - Version added: 0.8.
+
+    References:
+        - "Matrix Analysis", R. Bhatia, Springer, 1997. DOI: 10.1007/978-1-4612-0653-8.
+    """
+    # TODO: Implement this function
+    pass

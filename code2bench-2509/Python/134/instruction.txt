@@ -1,0 +1,27 @@
+"""Parses a string into commands and quoted substrings, tracking quote status.
+
+This function processes a given string, splitting it into commands based on spaces while handling quoted substrings. It tracks whether the string ends with an open quote and extracts the content within quotes separately.
+
+Args:
+    string (str): The input string to be parsed. It may contain spaces and quoted substrings.
+
+Returns:
+    Tuple[List[str], List[str], bool]: A tuple containing three elements:
+        1. A list of commands, where each command is a substring separated by spaces or a quoted substring.
+        2. A list of quoted substrings, where each element corresponds to the content within quotes for each command.
+        3. A boolean indicating whether the string ends with an open quote (True if the last quote is unclosed, False otherwise).
+
+The function handles the following cases:
+    - Simple strings with spaces: splits into commands without quotes.
+    - Strings with quoted words: extracts the content within quotes.
+    - Mixed quoted and unquoted words: processes both types correctly.
+    - Single quoted word with spaces: treats the entire quoted substring as a single command.
+    - Single quoted word at the end: processes the quoted substring correctly.
+    - Single quoted word with multiple spaces: treats the entire quoted substring as a single command.
+"""
+You should write code starting with:
+from typing import List, Tuple
+
+def parse_generator(string: str) -> Tuple[List[str], List[str], bool]:
+    pass
+

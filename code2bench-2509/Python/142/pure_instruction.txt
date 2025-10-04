@@ -1,0 +1,17 @@
+"""Recursively merge defaults into current, overwriting type mismatches and adding missing fields.
+
+This function performs a deep merge of two dictionaries. It recursively combines the contents of `defaults` into `current`, ensuring that any missing fields in `current` are populated with values from `defaults`. If a key exists in both dictionaries but the types of the corresponding values differ, the value from `defaults` will overwrite the value in `current`.
+
+Args:
+    defaults (dict): The dictionary containing default values.
+    current (dict): The dictionary to be updated with default values.
+
+Returns:
+    dict: A new dictionary that is the result of merging `defaults` into `current`.
+
+Notes:
+    - If either `defaults` or `current` is not a dictionary, the function returns `defaults`.
+    - The function does not modify the original dictionaries but returns a new merged dictionary.
+    - If a key exists in both dictionaries and both values are dictionaries, the function recursively merges them.
+    - If a key exists in both dictionaries but the types of the values differ, the value from `defaults` overwrites the value in `current`.
+"""

@@ -1,0 +1,27 @@
+"""Generate executive summary of fuzzing results.
+
+This function processes a dictionary of fuzzing tool results and generates a summary
+that includes the total number of tools, the number of tools that completed successfully,
+the count of critical issues found, and a list of recommendations based on the results.
+The overall status of the fuzzing process is also determined based on the completion
+status and the presence of critical issues.
+
+Args:
+    report_data (Dict[str, Any]): A dictionary containing the results of various fuzzing
+        tools. Each key is a tool name, and the value is a dictionary with at least a
+        'status' key. Additional keys like 'crashes_found' for 'atheris' and 'failures'
+        for 'schemathesis' are used to identify critical issues.
+
+Returns:
+    Dict[str, Any]: A summary dictionary with the following keys:
+        - 'total_tools': The total number of fuzzing tools considered.
+        - 'tools_completed': The number of tools that completed successfully.
+        - 'critical_issues': The number of critical issues found.
+        - 'recommendations': A list of recommendations based on the fuzzing results.
+        - 'overall_status': The overall status of the fuzzing process, which can be one
+          of the following: '✅ PASS', '❌ CRITICAL ISSUES FOUND', '⚠️ PARTIAL', or '❓ NO RESULTS'.
+
+The function specifically checks for critical issues in the 'atheris' and 'schemathesis'
+tools. If 'atheris' reports crashes or 'schemathesis' reports failures, these are counted
+as critical issues, and appropriate recommendations are added to the summary.
+"""

@@ -1,0 +1,23 @@
+/**
+ * Extract the last boxed{…} string from a LaTeX-like answer.
+ *
+ * This function searches for the last occurrence of a LaTeX-like `boxed{...}` pattern in the input text and extracts the content within the braces. It handles nested braces appropriately.
+ *
+ * Args:
+ *     text (str): The input string containing LaTeX-like `boxed{...}` patterns.
+ *
+ * Returns:
+ *     str: The content of the last `boxed{...}` pattern found in the text. Returns an empty string if no such pattern is found.
+ *
+ * The function processes the text by splitting it on `boxed{` and then iterating through the resulting pieces. For each piece, it counts the balance of braces to correctly identify the end of the boxed content.
+ *
+ * Examples:
+ *     >>> extract_boxed_answer('boxed{answer}')
+ *     'answer'
+ *     >>> extract_boxed_answer('boxed{answer}% comment')
+ *     'answer'
+ *     >>> extract_boxed_answer('boxed{answer} more text boxed{another answer}')
+ *     'another answer'
+ *     >>> extract_boxed_answer('boxed{answer{with{nested}braces}}')
+ *     'answer{with{nested}braces}'
+ */

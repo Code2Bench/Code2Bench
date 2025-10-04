@@ -1,0 +1,8 @@
+"""Normalizes a given string by stripping whitespace, converting to lowercase, replacing hyphens with spaces, collapsing multiple spaces into a single space, and normalizing Unicode characters.
+
+Args:
+    name (str): The string to be normalized.
+
+Returns:
+    str: The normalized string in lowercase with standardized spacing and Unicode characters.
+"""

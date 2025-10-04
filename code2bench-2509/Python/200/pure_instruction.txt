@@ -1,0 +1,15 @@
+"""Calculates the temporal balance between recent and evergreen components.
+
+This function determines the balance between recent and evergreen components based on their ratio. The balance is categorized into three types: 'recent_heavy', 'evergreen_heavy', or 'balanced'. If both components sum to zero, the balance is considered 'unknown'.
+
+Args:
+    recent (int): The count of recent components.
+    evergreen (int): The count of evergreen components.
+
+Returns:
+    str: A string indicating the balance type. Possible values are:
+        - 'recent_heavy': If the ratio of recent components to total is greater than 0.7.
+        - 'evergreen_heavy': If the ratio of recent components to total is less than 0.3.
+        - 'balanced': If the ratio of recent components to total is between 0.3 and 0.7.
+        - 'unknown': If the total count of components is zero.
+"""

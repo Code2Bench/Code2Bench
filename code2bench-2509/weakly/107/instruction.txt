@@ -1,0 +1,27 @@
+"""Loads a dataset from a file based on the specified evaluation type.
+
+The function reads a dataset file and processes it according to the evaluation type, returning a list of questions. Each question is represented as a dictionary with keys "Question", "Choices", and "Solution". The structure of the dataset file and the processing logic vary depending on the evaluation type.
+
+Args:
+    dataset_file (str): The path to the dataset file.
+    eval_type (str): The type of evaluation, which determines how the dataset is processed. Supported types are "seceval", "cybermetric", and "cti_bench".
+
+Returns:
+    list: A list of dictionaries, where each dictionary represents a question with the following keys:
+        - "Question" (str): The question text.
+        - "Choices" (str): The available choices, formatted as a string. Empty string if no choices are available.
+        - "Solution" (str): The correct solution to the question.
+
+The function handles different formats for each evaluation type:
+- "seceval": Expects a JSON file with a list of questions, each containing "question", "choices", and "answer".
+- "cybermetric": Expects a JSON file with a "questions" key, where each question contains "question", "answers", and "solution".
+- "cti_bench": Expects a TSV file with varying formats depending on the number of columns (8, 5, or 4), each representing different question types (MCQ, ATE, RCM).
+"""
+You should write code starting with:
+import csv
+import json
+
+def load_dataset(dataset_file: str, eval_type: str) -> list:
+    # TODO: Implement this function
+    pass
+

@@ -1,0 +1,10 @@
+"""Deserialize a base64 encoded string or bytes-like object into bytes.
+
+This function handles both bytes-like objects and base64 encoded strings. If the input is already a bytes-like object, it is returned as is. For base64 encoded strings, the function ensures proper padding and converts URL-safe characters to standard base64 characters before decoding.
+
+Args:
+    attr (Union[bytes, bytearray, str]): The input to deserialize. Can be a bytes-like object or a base64 encoded string.
+
+Returns:
+    bytes: The deserialized bytes object.
+"""

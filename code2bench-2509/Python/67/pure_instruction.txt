@@ -1,0 +1,39 @@
+"""Group metrics with simple 2-level nested structure detection.
+
+This function organizes a list of metric names into a hierarchical structure based on their prefixes. 
+Metrics without a '/' are considered direct metrics under the "charts" group. Metrics with '/' are 
+split into main prefixes and subprefixes, creating a nested structure.
+
+The returned dictionary has the following structure for each prefix group:
+- `direct_metrics`: A list of metrics at the current level (e.g., "train/acc").
+- `subgroups`: A dictionary mapping subprefix names to lists of metrics (e.g., "loss" -> ["train/loss/norm", "train/loss/unnorm"]).
+
+Metrics within `direct_metrics` and `subgroups` are sorted alphabetically. If the "charts" group 
+has no direct metrics, it is removed from the result.
+
+Args:
+    metrics (list[str]): A list of metric names to be grouped.
+
+Returns:
+    dict: A dictionary representing the grouped metrics, with each key being a main prefix 
+    (or "charts") and the value being a dictionary containing `direct_metrics` and `subgroups`.
+
+Example:
+    Input: ["loss", "train/acc", "train/loss/normalized", "train/loss/unnormalized", "val/loss"]
+    Output: {
+        "charts": {
+            "direct_metrics": ["loss"],
+            "subgroups": {}
+        },
+        "train": {
+            "direct_metrics": ["train/acc"],
+            "subgroups": {
+                "loss": ["train/loss/normalized", "train/loss/unnormalized"]
+            }
+        },
+        "val": {
+            "direct_metrics": ["val/loss"],
+            "subgroups": {}
+        }
+    }
+"""

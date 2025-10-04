@@ -1,0 +1,14 @@
+"""Retrieves contest standings and rating changes from a cached data dictionary.
+
+This function checks if the contest data exists in the cache and validates the status of the standings and rating changes. If the data is missing or the status is not 'OK', it returns `None` for both standings and rating changes.
+
+Args:
+    contest_id (int): The ID of the contest to retrieve data for.
+    cached_data (Dict): A dictionary containing cached contest data, where keys are contest IDs as strings.
+
+Returns:
+    Tuple[Optional[Dict], Optional[Dict]]: A tuple containing the standings and rating changes dictionaries if both are valid and have a status of 'OK'. Otherwise, returns `(None, None)`.
+
+Raises:
+    KeyError: If the cached data structure is missing required keys ('standings' or 'rating_changes').
+"""

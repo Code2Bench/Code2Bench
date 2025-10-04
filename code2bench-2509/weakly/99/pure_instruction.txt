@@ -1,0 +1,11 @@
+"""Get the first and last day of the month for a given year and month string.
+
+Args:
+    year_month_str (str): A string representing the year and month in the format '%Y-%m'.
+
+Returns:
+    tuple: A tuple containing two datetime.date objects: the first day and the last day of the month.
+
+Raises:
+    ValueError: If the input string is not in the expected '%Y-%m' format.
+"""

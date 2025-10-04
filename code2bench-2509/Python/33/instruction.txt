@@ -1,0 +1,30 @@
+"""Converts a string representation of a fraction into a LaTeX formatted fraction.
+
+This function takes a string that represents a fraction in the format 'a/b' and converts it into a LaTeX formatted fraction '\\frac{a}{b}'. The function handles cases where 'a' or 'b' contain the substring 'sqrt' by not attempting to convert them to integers. If the string does not contain exactly one '/', it is returned unchanged. If any conversion or assertion fails, the original string is returned.
+
+Args:
+    string (str): The string representation of the fraction to be converted.
+
+Returns:
+    str: The LaTeX formatted fraction if the input is a valid fraction, otherwise the original string.
+
+Examples:
+    >>> _fix_a_slash_b('1/2')
+    '\\frac{1}{2}'
+    >>> _fix_a_slash_b('sqrt/2')
+    '\\frac{sqrt}{2}'
+    >>> _fix_a_slash_b('1/sqrt')
+    '\\frac{1}{sqrt}'
+    >>> _fix_a_slash_b('sqrt/sqrt')
+    '\\frac{sqrt}{sqrt}'
+    >>> _fix_a_slash_b('0/0')
+    '\\frac{0}{0}'
+    >>> _fix_a_slash_b('0/sqrt')
+    '\\frac{0}{sqrt}'
+    >>> _fix_a_slash_b('47902/-174353981')
+    '\\frac{47902}{-174353981}'
+"""
+You should write code starting with:
+def _fix_a_slash_b(string: str) -> str:
+    pass
+

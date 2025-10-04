@@ -1,0 +1,31 @@
+"""Computes the length of the longest common subsequence (LCS) between two strings.
+
+The LCS is the longest sequence of characters that appear left to right (but not necessarily in a contiguous block) in both strings. This function uses dynamic programming to efficiently compute the LCS length.
+
+Args:
+    x (str): The first string.
+    y (str): The second string.
+
+Returns:
+    int: The length of the longest common subsequence between `x` and `y`.
+
+The function constructs a 2D dynamic programming table `dp` where `dp[i][j]` represents the length of the LCS of the first `i` characters of `x` and the first `j` characters of `y`. The table is filled by comparing characters of `x` and `y`:
+- If `x[i - 1] == y[j - 1]`, then `dp[i][j] = dp[i - 1][j - 1] + 1`.
+- Otherwise, `dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])`.
+
+The final result is found in `dp[m][n]`, where `m` and `n` are the lengths of `x` and `y`, respectively.
+
+Example:
+    >>> lcs('abc', 'abc')
+    3
+    >>> lcs('abc', 'bcd')
+    2
+    >>> lcs('abc', 'cde')
+    1
+    >>> lcs('abc', 'ac')
+    2
+"""
+You should write code starting with:
+def lcs(x: str, y: str) -> int:
+    pass
+

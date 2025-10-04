@@ -1,0 +1,100 @@
+package p208;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import java.io.*;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
+import net.jqwik.api.*;
+import net.jqwik.api.lifecycle.AfterContainer;
+import p208.GroundTruth;
+
+public class TestCaseGenerator {
+
+    static class TestCase {
+        Map<String, Object> Inputs;
+        Object Expected;
+        TestCase(Map<String, Object> inputs, Object expected) {
+            this.Inputs = inputs;
+            this.Expected = expected;
+        }
+    }
+
+    static List<TestCase> generatedCases = new ArrayList<>();
+    static AtomicInteger caseCount = new AtomicInteger(0);
+    static final int MAX_CASES = 500;
+
+    @Property(tries = 10000)
+    void generateTestCases(@ForAll("nullableFloat") Float targetVelocity, @ForAll("float32") float initialVelocity, @ForAll("float32") float acceleration) {
+        if (caseCount.get() >= MAX_CASES) {
+            return;
+        }
+
+        Long result;
+        try {
+            result = GroundTruth.computeMillisToReachTarget(targetVelocity, initialVelocity, acceleration);
+        } catch (Exception e) {
+            return;
+        }
+
+        Map<String, Object> inputs = new LinkedHashMap<>();
+        inputs.put("targetVelocity", targetVelocity);
+        inputs.put("initialVelocity", initialVelocity);
+        inputs.put("acceleration", acceleration);
+        generatedCases.add(new TestCase(inputs, result));
+        caseCount.incrementAndGet();
+    }
+
+    @Example
+    void example1() {
+        generateTestCases(null, 10.0f, 2.0f);
+    }
+
+    @Example
+    void example2() {
+        generateTestCases(20.0f, 10.0f, 0.0f);
+    }
+
+    @Example
+    void example3() {
+        generateTestCases(20.0f, 30.0f, 0.0f);
+    }
+
+    @Example
+    void example4() {
+        generateTestCases(20.0f, 10.0f, 5.0f);
+    }
+
+    @Example
+    void example5() {
+        generateTestCases(10.0f, 20.0f, -5.0f);
+    }
+
+    @Provide
+    Arbitrary<Float> nullableFloat() {
+        return Arbitraries.floats().injectNull(0.1);
+    }
+
+    @Provide
+    Arbitrary<Float> float32() {
+        return Arbitraries.floats().between(-Float.MAX_VALUE, Float.MAX_VALUE);
+    }
+
+    @AfterContainer
+    static void saveTestCases() throws IOException {
+        if (generatedCases.isEmpty()) {
+            return;
+        }
+        String dirPath = "src/test/java/test_cases";
+        File dir = new File(dirPath);
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+        String filePath = dirPath + "/test_cases.json";
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        try (Writer writer = new FileWriter(filePath)) {
+            gson.toJson(generatedCases, writer);
+        }
+        System.out.println("✅ Saved " + generatedCases.size() + " test cases to " + filePath);
+    }
+}

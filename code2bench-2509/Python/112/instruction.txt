@@ -1,0 +1,30 @@
+"""Calculates the average percentage of correct answers across three rounds for a set of queries.
+
+This function processes a dictionary of query results, where each query has results for three rounds 
+(round1, round2, round3). It counts the number of correct answers for each round across all queries, 
+computes the average correctness for each round, and then calculates the overall average correctness 
+across all three rounds. The result is returned as a percentage rounded to two decimal places.
+
+Args:
+    query_results (Dict[str, Dict[str, str]]): A dictionary where each key is a query identifier and 
+        the value is another dictionary with keys 'round1', 'round2', 'round3' indicating the result 
+        of the query in each round. The result is either 'Correct' or 'Incorrect'.
+
+Returns:
+    float: The average percentage of correct answers across all three rounds, rounded to two decimal places.
+
+Example:
+    >>> query_results = {
+    ...     'query1': {'round1': 'Correct', 'round2': 'Correct', 'round3': 'Incorrect'},
+    ...     'query2': {'round1': 'Incorrect', 'round2': 'Correct', 'round3': 'Correct'}
+    ... }
+    >>> calculate_avg_pass_at_3(query_results)
+    66.67
+"""
+You should write code starting with:
+from typing import Dict
+
+def calculate_avg_pass_at_3(query_results: Dict[str, Dict[str, str]]) -> float:
+    # TODO: Implement this function based on the docstring.
+    pass
+

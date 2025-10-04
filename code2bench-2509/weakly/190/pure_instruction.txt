@@ -1,0 +1,14 @@
+Implement a Python function that sanitizes HTML content to make it safe for MDX parsing. The function should remove HTML tags, decode HTML entities, and escape problematic characters that could interfere with MDX parsing.
+
+- **Input**: A string containing HTML content or plain text.
+- **Output**: A sanitized string safe for MDX parsing.
+- **Special Rules**:
+  - Remove all HTML tags using regular expressions.
+  - Replace comparison operators (`<`, `>`, `<=`, `>=`) with their textual equivalents (e.g., `<4mb` → `less than 4mb`).
+  - Escape standalone `<` and `>` characters with `&lt;` and `&gt;`, respectively.
+  - Escape pipe characters (`|`) and curly braces (`{}`) to prevent MDX parsing issues.
+  - Replace single and double quotes in JSON-like structures with backticks.
+  - Escape special characters (`$`, `%`) that might trigger MDX parsing.
+  - Decode HTML entities while preserving specific entities (`&lt;`, `&gt;`).
+  - Remove leading and trailing whitespace.
+  - Handle edge cases: empty input, non-string input, or text without HTML content.

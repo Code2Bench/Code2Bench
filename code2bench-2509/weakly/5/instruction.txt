@@ -1,0 +1,19 @@
+"""Parse LLM response and extract trading decisions.
+
+This function attempts to parse a response from a Language Learning Model (LLM) to extract trading decisions. It first tries to extract a JSON object from the response using a regular expression. If successful, it parses the JSON string into a dictionary. If no JSON object is found, it attempts to parse the entire response as JSON. If parsing fails, it returns a dictionary containing an error message and the raw response.
+
+Args:
+    response (str): The raw response string from the LLM.
+
+Returns:
+    Dict[str, Any]: A dictionary containing the parsed trading decisions if successful, or an error message and the raw response if parsing fails.
+"""
+You should write code starting with:
+import json
+import re
+from typing import Dict, Any
+
+def parse_llm_response(response: str) -> Dict[str, Any]:
+    # TODO: Implement this function
+    pass
+

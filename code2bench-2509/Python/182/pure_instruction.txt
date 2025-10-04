@@ -1,0 +1,15 @@
+"""Calculate the displacement vector for non-soldier pieces.
+
+This function computes the displacement vector that describes the movement of a set of pieces from their initial positions to their final positions. The displacement vector is determined by checking if all pieces have moved uniformly by the same amount in both row and column directions.
+
+Args:
+    before (List[List[int]]): A list of lists, where each inner list represents the initial position (row, column) of a piece.
+    after (List[List[int]]): A list of lists, where each inner list represents the final position (row, column) of a piece.
+
+Returns:
+    Optional[Tuple[int, int]]: A tuple representing the displacement vector (delta_row, delta_column) if all pieces have moved uniformly. Returns None if the lengths of `before` and `after` do not match, if `before` is empty, or if no uniform displacement is found.
+
+Notes:
+    - The function assumes that the pieces are non-soldier pieces, meaning their movement is not constrained by specific rules.
+    - The function returns None if the movement of the pieces is not uniform or if the input lists are invalid.
+"""

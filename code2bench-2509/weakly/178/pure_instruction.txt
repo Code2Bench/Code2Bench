@@ -1,0 +1,15 @@
+"""Casts each element of an iterable to a specified type and optionally returns the result in a specified type.
+
+This function takes an iterable and casts each of its elements to the type specified by `dst_type`. The result is returned as an iterable of the cast elements. Optionally, the result can be converted to a specified return type using the `return_type` parameter.
+
+Args:
+    inputs (Iterable): The iterable whose elements are to be cast. Must be an iterable object.
+    dst_type (Type): The type to which each element of the iterable will be cast. Must be a valid type.
+    return_type (Optional[Type]): The type to which the resulting iterable will be converted. If None, the result is returned as an iterable.
+
+Returns:
+    Iterable: An iterable of elements cast to `dst_type`. If `return_type` is specified, the result is converted to that type.
+
+Raises:
+    TypeError: If `inputs` is not an iterable or if `dst_type` is not a valid type.
+"""

@@ -1,0 +1,14 @@
+"""Compute token overlap between prediction and reference.
+
+This function calculates the token-level overlap between two strings, `prediction` and `reference`. It splits both strings into tokens (using whitespace as the delimiter) and counts the number of overlapping tokens, as well as the total number of tokens in each string.
+
+Args:
+    prediction (str): The predicted answer, represented as a string.
+    reference (str): The reference answer, represented as a string.
+
+Returns:
+    Tuple[int, int, int]: A tuple containing three integers:
+        - The number of overlapping tokens between `prediction` and `reference`.
+        - The total number of tokens in `prediction`.
+        - The total number of tokens in `reference`.
+"""

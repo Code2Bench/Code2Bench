@@ -1,0 +1,9 @@
+Implement a Python function that computes the cosine similarity between two text strings using TF-IDF vectorization.
+
+- **Inputs**: Two strings, `text1` and `text2`, representing the text to compare.
+- **Output**: A float representing the cosine similarity between the TF-IDF vector representations of the two texts.
+- **Special Rules**:
+  - Use TF-IDF vectorization to convert the input texts into numerical vectors.
+  - Compute the cosine similarity between the two vectors.
+  - Return the similarity score as a float.
+  - Handle edge cases: empty strings or identical strings.

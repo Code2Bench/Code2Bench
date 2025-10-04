@@ -1,0 +1,12 @@
+"""Validates a list of message dictionaries to ensure they conform to expected structure and content rules.
+
+This function checks that each message in the list is a dictionary containing the required keys 'role' and 'content'.
+The 'role' must be one of 'system', 'user', or 'assistant', and the 'content' must be a string. Additionally, the first
+message in the list must have a 'role' of 'system'. If any of these conditions are not met, the function returns False.
+
+Args:
+    messages (List[Dict[str, str]]): A list of message dictionaries to validate.
+
+Returns:
+    bool: True if all messages are valid and the first message has a 'system' role, otherwise False.
+"""

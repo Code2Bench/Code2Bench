@@ -1,0 +1,91 @@
+package p23;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import java.io.*;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
+import net.jqwik.api.*;
+import net.jqwik.api.lifecycle.AfterContainer;
+import p23.GroundTruth;
+
+public class TestCaseGenerator {
+
+    static class TestCase {
+        Map<String, Object> Inputs;
+        Object Expected;
+        TestCase(Map<String, Object> inputs, Object expected) {
+            this.Inputs = inputs;
+            this.Expected = expected;
+        }
+    }
+
+    static List<TestCase> generatedCases = new ArrayList<>();
+    static AtomicInteger caseCount = new AtomicInteger(0);
+    static final int MAX_CASES = 500;
+
+    @Property(tries = 10000)
+    void generateTestCases(@ForAll("ipAddress") String ip, @ForAll("cidrNotation") String cidr) {
+        if (caseCount.get() >= MAX_CASES) {
+            return;
+        }
+
+        boolean result;
+        try {
+            result = GroundTruth.isInRange(ip, cidr);
+        } catch (Exception e) {
+            return;
+        }
+
+        Map<String, Object> inputs = new LinkedHashMap<>();
+        inputs.put("ip", ip);
+        inputs.put("cidr", cidr);
+        generatedCases.add(new TestCase(inputs, result));
+        caseCount.incrementAndGet();
+    }
+
+    @Example
+    void example1() {
+        generateTestCases("192.168.1.1", "192.168.1.0/24");
+    }
+
+    @Example
+    void example2() {
+        generateTestCases("10.0.0.1", "10.0.0.0/8");
+    }
+
+    @Example
+    void example3() {
+        generateTestCases("172.16.0.1", "172.16.0.0/12");
+    }
+
+    @Provide
+    Arbitrary<String> ipAddress() {
+        return Arbitraries.strings().withChars("0123456789.")
+                .ofMinLength(7).ofMaxLength(15)
+                .filter(s -> s.matches("^(\\d{1,3}\\.){3}\\d{1,3}$"));
+    }
+
+    @Provide
+    Arbitrary<String> cidrNotation() {
+        return Combinators.combine(ipAddress(), Arbitraries.integers().between(0, 32))
+                .as((ip, mask) -> ip + "/" + mask);
+    }
+
+    @AfterContainer
+    static void saveTestCases() throws IOException {
+        if (generatedCases.isEmpty()) {
+            return;
+        }
+        String dirPath = "src/test/java/test_cases";
+        File dir = new File(dirPath);
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+        String filePath = dirPath + "/test_cases.json";
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        try (Writer writer = new FileWriter(filePath)) {
+            gson.toJson(generatedCases, writer);
+        }
+        System.out.println("✅ Saved " + generatedCases.size() + " test cases to " + filePath);
+    }
+}

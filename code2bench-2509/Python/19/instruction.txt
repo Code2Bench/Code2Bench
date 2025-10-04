@@ -1,0 +1,28 @@
+/**
+ * Finds the closest aspect ratio from a list of target ratios based on the given aspect ratio and image dimensions.
+ *
+ * This function calculates the difference between the given aspect ratio and each target aspect ratio. It selects the target ratio with the smallest difference. If there is a tie in the difference, it selects the ratio that results in a larger area when scaled to the image dimensions.
+ *
+ * Args:
+ *     aspect_ratio (float): The aspect ratio of the image, calculated as width / height.
+ *     target_ratios (List[List[int]]): A list of target aspect ratios, where each ratio is represented as a list of two integers [width, height].
+ *     width (int): The width of the image.
+ *     height (int): The height of the image.
+ *
+ * Returns:
+ *     List[int]: The closest aspect ratio from the target ratios, represented as a list of two integers [width, height].
+ *
+ * Example:
+ *     >>> find_closest_aspect_ratio(1.0, [[1, 1]], 100, 100)
+ *     [1, 1]
+ *     >>> find_closest_aspect_ratio(1.5, [[3, 2], [4, 3]], 200, 150)
+ *     [3, 2]
+ *     >>> find_closest_aspect_ratio(0.75, [[3, 4], [1, 1]], 150, 200)
+ *     [3, 4]
+ */
+You should write code starting with:
+from typing import List
+
+def find_closest_aspect_ratio(aspect_ratio: float, target_ratios: List[List[int]], width: int, height: int, image_size: int) -> List[int]:
+    pass
+

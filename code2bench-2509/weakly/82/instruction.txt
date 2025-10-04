@@ -1,0 +1,23 @@
+"""Parse tool call from action text.
+
+This function extracts and parses a tool call from the given action text. It looks for a specific pattern
+`<tool_call>...</tool_call>` in the text and attempts to parse the content within. The content is expected to
+contain a tool name and parameters, which are then formatted into a structured JSON action. If the parsing fails
+or the tool name is missing, the function returns the original action text and indicates the parsing was unsuccessful.
+
+Args:
+    action (str): The action text containing the tool call to be parsed.
+
+Returns:
+    Tuple[str, bool]: A tuple where the first element is the parsed action (as a JSON string) or the original
+    action text if parsing fails. The second element is a boolean indicating whether the parsing was successful.
+"""
+You should write code starting with:
+import re
+import json
+from typing import Tuple
+
+def _parse_tool_call(action: str) -> Tuple[str, bool]:
+    # TODO: Implement this function
+    pass
+

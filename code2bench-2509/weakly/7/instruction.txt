@@ -1,0 +1,22 @@
+"""Canonicalizes the input text by normalizing it for consistency.
+
+This function processes the input text by replacing underscores with spaces, optionally preserving a specified
+exact string of punctuation, removing all other punctuation, converting the text to lowercase, and normalizing
+whitespace to a single space. The final result is stripped of leading and trailing whitespace.
+
+Args:
+    text (str): The input text to be canonicalized.
+    keep_punctuation_exact_string (str, optional): If provided, this exact string of punctuation is preserved
+        in the text while all other punctuation is removed. If None, all punctuation is removed.
+
+Returns:
+    str: The canonicalized text with normalized formatting.
+"""
+You should write code starting with:
+import string
+import re
+
+def canonicalize(text: str, keep_punctuation_exact_string: str = None) -> str:
+    # TODO: Implement this function
+    pass
+

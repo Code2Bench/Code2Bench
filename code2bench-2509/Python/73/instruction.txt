@@ -1,0 +1,29 @@
+"""Filters a list of bounding boxes by removing any box that is fully contained within another.
+
+This function iterates through all pairs of bounding boxes and checks if one box is entirely
+contained within another. If a box is found to be contained, it is marked for removal. The
+function returns a new list of bounding boxes excluding those that were marked for removal.
+
+Args:
+    bboxes (List[Dict[str, int]]): A list of bounding boxes. Each bounding box is represented
+                                   as a dictionary with the following keys:
+                                   - 'column_min': The minimum column index of the box.
+                                   - 'row_min': The minimum row index of the box.
+                                   - 'column_max': The maximum column index of the box.
+                                   - 'row_max': The maximum row index of the box.
+
+Returns:
+    List[Dict[str, int]]: A new list of bounding boxes with the smaller, contained boxes removed.
+
+Note:
+    - If two bounding boxes are identical, one of them will be removed to de-duplicate the list.
+    - The function uses a set to store indices of boxes to be removed, ensuring efficient
+      membership checking and avoiding duplicates.
+"""
+You should write code starting with:
+from typing import List, Dict
+
+def filter_contained_bboxes(bboxes: List[Dict[str, int]]) -> List[Dict[str, int]]:
+    # TODO: Implement this function based on the docstring.
+    pass
+

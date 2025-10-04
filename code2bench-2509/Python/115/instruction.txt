@@ -1,0 +1,34 @@
+"""Calculate the normalized Levenshtein edit distance between two strings.
+
+This function computes the difference rate between two strings based on the Levenshtein edit distance,
+normalized by the maximum length of the two strings. The result is a float in the range [0, 1], where 0
+indicates that the strings are identical, and 1 indicates that they are completely different.
+
+Args:
+    text1 (str): The first string to compare.
+    text2 (str): The second string to compare.
+
+Returns:
+    float: The normalized difference rate between the two strings, ranging from 0.0 (identical) to 1.0 (completely different).
+
+Note:
+    The Levenshtein edit distance is the minimum number of single-character edits (insertions, deletions, or substitutions)
+    required to change one string into the other. The normalization ensures that the result is independent of the string lengths.
+
+Examples:
+    >>> calculate_diff_rate('hello', 'hello')
+    0.0
+    >>> calculate_diff_rate('abc', 'def')
+    1.0
+    >>> calculate_diff_rate('abc', 'abcd')
+    0.25
+    >>> calculate_diff_rate('abcd', 'abc')
+    0.25
+    >>> calculate_diff_rate('abc', 'ab')
+    0.3333333333333333
+"""
+You should write code starting with:
+def calculate_diff_rate(text1: str, text2: str) -> float:
+    # TODO: Implement this function based on the docstring.
+    pass
+

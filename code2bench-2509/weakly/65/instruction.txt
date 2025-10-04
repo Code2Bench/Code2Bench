@@ -1,0 +1,29 @@
+"""Parse a response string formatted with specific XML-like tags into a structured dictionary.
+
+The response is expected to follow the format: `<think><observation>...</observation><reasoning>...</reasoning></think><answer>...</answer>`. The function extracts content from these tags and returns a dictionary with the parsed data.
+
+Args:
+    response (str): The response string to parse, containing XML-like tags.
+    special_token_list (List[str], optional): A list of special tokens to remove from the extracted content. Defaults to None.
+    action_sep (str, optional): The separator used to split actions in the `<answer>` tag. Defaults to ','.
+    max_actions (int, optional): The maximum number of actions to extract from the `<answer>` tag. Defaults to 3.
+
+Returns:
+    Dict: A dictionary containing the following keys:
+        - llm_raw_response (str): The original response string.
+        - llm_response (str): The response string with all tags reconstructed.
+        - observation_content (str): The content inside the `<observation>` tag.
+        - think_content (str): The entire content inside the `<think>` tag.
+        - reasoning_content (str): The content inside the `<reasoning>` tag.
+        - action_content (str): The content inside the `<answer>` tag.
+        - actions (List[str]): A list of actions extracted from the `<answer>` tag.
+        - format_correct (bool): Whether the response strictly follows the expected format.
+"""
+You should write code starting with:
+import re
+from typing import Dict, List
+
+def parse_grounding(response: str, special_token_list: List[str] = None, action_sep: str = ',', max_actions: int = 3) -> Dict:
+    # TODO: Implement this function
+    pass
+

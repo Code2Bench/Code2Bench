@@ -1,0 +1,22 @@
+"""Decodes URL parameters that are encoded in base64 format.
+
+This function processes a dictionary of URL parameters, specifically decoding those values that are prefixed with 'b64_' and whose keys are specified in `apply_on_keys`. The decoding process involves converting the base64 string to a JSON object.
+
+Args:
+    encoded_map (dict): A dictionary containing URL parameters, where some values may be base64 encoded.
+    apply_on_keys (list, optional): A list of keys for which the corresponding values should be decoded if they are base64 encoded. Defaults to None.
+
+Returns:
+    dict: A dictionary with the decoded values for the specified keys. Keys not in `apply_on_keys` or values not prefixed with 'b64_' are not included in the returned dictionary.
+
+Note:
+    The function handles base64 strings that are URL-safe by replacing '-' with '+' and '_' with '/'. It also adds padding characters ('=') as necessary to ensure the base64 string length is a multiple of 4.
+"""
+You should write code starting with:
+import base64
+import json
+
+def decode_url_params(encoded_map: dict, apply_on_keys: list = None) -> dict:
+    # TODO: Implement this function
+    pass
+

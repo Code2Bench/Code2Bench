@@ -1,0 +1,20 @@
+"""Calculate a fast similarity score between two strings based on common prefix and suffix.
+
+The score is inversely proportional to the similarity of the strings, meaning a lower score indicates
+more similar strings. The score is computed by summing the lengths of both strings and subtracting
+twice the combined length of the common prefix and suffix.
+
+Args:
+    s1 (str): The first string to compare.
+    s2 (str): The second string to compare.
+
+Returns:
+    float: A similarity score where a lower value indicates more similar strings. The score is
+           calculated as `len(s1) + len(s2) - 2.0 * (prefix_len + suffix_len)`, where `prefix_len`
+           is the length of the common prefix and `suffix_len` is the length of the common suffix.
+
+Note:
+    - If the strings are identical, the score will be 0.0.
+    - If the strings share a common prefix or suffix, the score will be reduced accordingly.
+    - If the strings have no common prefix or suffix, the score will be the sum of their lengths.
+"""

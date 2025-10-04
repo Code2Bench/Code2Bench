@@ -1,0 +1,11 @@
+"""Creates a detailed diff message between two texts.
+
+This function compares two input texts, `optim_text` and `incr_text`, and generates a message highlighting the lines that are unique to each text. The comparison is performed using `difflib.ndiff`, which identifies lines that are added, removed, or unchanged between the two texts.
+
+Args:
+    optim_text (str): The first text to compare, typically representing an optimized version.
+    incr_text (str): The second text to compare, typically representing an incremental version.
+
+Returns:
+    str: A formatted message that lists lines unique to `optim_text` under "Only in optimized prompt" and lines unique to `incr_text` under "Only in incremental prompt". Each line is indented for clarity.
+"""

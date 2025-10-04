@@ -1,0 +1,26 @@
+"""Removes sequences of three or more consecutive 't' characters from the input string.
+
+This function iterates through the input string and removes any sequences of three or more consecutive 't' characters. Sequences of one or two 't' characters are preserved. The function processes the string in a single pass, ensuring efficient performance.
+
+Args:
+    input_str (str): The input string from which consecutive 't' characters are to be removed.
+
+Returns:
+    str: A new string with sequences of three or more consecutive 't' characters removed.
+
+Examples:
+    >>> remove_consecutive_t('t')
+    't'
+    >>> remove_consecutive_t('tt')
+    'tt'
+    >>> remove_consecutive_t('ttt')
+    ''
+    >>> remove_consecutive_t('atb')
+    'atb'
+    >>> remove_consecutive_t('atttb')
+    'ab'
+"""
+You should write code starting with:
+def remove_consecutive_t(input_str: str) -> str:
+    pass
+

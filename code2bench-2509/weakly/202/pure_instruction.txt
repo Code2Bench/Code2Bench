@@ -1,0 +1,8 @@
+Implement a Python function that flattens a hierarchical dictionary of scalar values into a flat dictionary, where nested keys are concatenated with slashes.
+
+- **Input**: A dictionary where values can be either scalar values or nested dictionaries.
+- **Output**: A flat dictionary where nested keys are represented as strings with slashes separating the levels (e.g., "k1/k2/k3").
+- **Special Rules**:
+  - If a value is a dictionary, recursively flatten it and concatenate its keys with the parent key using a slash.
+  - If a value is a scalar (not a dictionary), include it directly in the output dictionary.
+  - Handle edge cases: empty dictionaries or dictionaries with only scalar values.

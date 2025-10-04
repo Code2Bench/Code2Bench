@@ -1,0 +1,21 @@
+"""Recursively make all properties required in objects within a schema.
+
+This function traverses a schema dictionary and ensures that all properties within objects are marked as required. It modifies the schema in place and returns the modified schema. The function handles nested objects and lists of objects, ensuring that all properties are marked as required at every level.
+
+Args:
+    schema (dict): The schema dictionary to modify. It may contain nested objects and lists of objects.
+
+Returns:
+    dict: The modified schema with all properties marked as required.
+
+The function performs the following steps:
+1. If the input is not a dictionary, it returns the input unchanged.
+2. If the dictionary contains a "properties" key, it sets the "required" key to a list of all property keys.
+3. Recursively applies the same logic to all dictionary values and items within lists.
+"""
+You should write code starting with:
+from typing import Dict, Any
+
+def _set_all_properties_required(schema: Dict[str, Any]) -> Dict[str, Any]:
+    pass
+

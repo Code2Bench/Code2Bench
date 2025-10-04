@@ -1,0 +1,19 @@
+/**
+ * This function processes a list of sentences and merges any sentence that is too short (defined as having 2 or fewer words) with the following sentence. If the last sentence in the list is too short, it is merged with the previous sentence. The function handles edge cases such as empty lists or lists with a single sentence gracefully.
+
+ * Args:
+ *     sens (List[str]): A list of input sentences to be processed.
+
+ * Returns:
+ *     List[str]: A new list of output sentences where short sentences have been merged with the following sentence. The input list remains unmodified.
+
+ * Note:
+ *     - If the list contains only one sentence and it is too short, it will remain unchanged since there is no following or previous sentence to merge with.
+ */
+You should write code starting with:
+from typing import List
+
+def merge_short_sentences_latin(sens: List[str]) -> List[str]:
+    # TODO: Implement this function based on the docstring.
+    pass
+

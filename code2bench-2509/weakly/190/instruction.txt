@@ -1,0 +1,25 @@
+import html
+import re
+
+def sanitize_html(text: str) -> str:
+    """
+    Sanitizes HTML content by removing HTML tags, decoding HTML entities, and escaping problematic characters to ensure the text is safe for MDX parsing.
+
+    This function performs the following operations:
+    1. Removes HTML tags using regex.
+    2. Decodes HTML entities.
+    3. Handles comparison operators (`<`, `<=`, `>`, `>=`) by replacing them with descriptive text to avoid MDX parsing errors.
+    4. Escapes standalone `<` and `>` characters to their HTML-safe equivalents (`&lt;` and `&gt;`).
+    5. Escapes pipe (`|`) characters to prevent table parsing issues in MDX.
+    6. Modifies JSON-like content by replacing single and double quotes with backticks and wrapping curly braces in code tags if necessary.
+    7. Escapes special characters such as `$` and `%` to avoid triggering MDX parsing.
+    8. Ensures the final sanitized text is stripped of leading and trailing whitespaces.
+
+    Args:
+        text (str): The input string containing HTML content or text to be sanitized.
+
+    Returns:
+        str: The sanitized text that is safe for MDX parsing.
+    """
+    # TODO: Implement this function
+    pass

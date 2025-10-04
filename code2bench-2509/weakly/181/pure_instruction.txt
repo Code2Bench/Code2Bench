@@ -1,0 +1,10 @@
+"""Generates all possible subsets of a given list.
+
+This function takes a list and returns a list of tuples, where each tuple represents a unique subset of the input list. The subsets include all possible combinations of elements, ranging from the empty subset to the full list.
+
+Args:
+    ring_list (list): The input list for which subsets are to be generated.
+
+Returns:
+    list: A list of tuples, where each tuple is a unique subset of the input list.
+"""

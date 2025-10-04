@@ -1,0 +1,20 @@
+/**
+ * Generates a list of indices based on a dynamic bucket sampling strategy.
+ *
+ * This function divides the range [0, N) into buckets of dynamically increasing widths, determined by the `stride` and `expand_ratio` parameters. Within each bucket, samples are selected at intervals derived from the bucket width and the `c` parameter. The final list of indices is constructed by concatenating these sampled indices.
+ *
+ * Args:
+ *     N (int): The upper bound of the range from which indices are sampled.
+ *     stride (int): The base width of the initial bucket. Subsequent bucket widths are scaled by `expand_ratio`.
+ *     expand_ratio (float): The factor by which the bucket width increases exponentially with each new bucket.
+ *     c (int): The number of neighboring indices to include around each sampled index.
+ *
+ * Returns:
+ *     List[int]: A list of sampled indices within the range [0, N).
+ */
+You should write code starting with:
+from typing import List
+
+def sample_indices(N: int, stride: int, expand_ratio: float, c: int) -> List[int]:
+    pass
+

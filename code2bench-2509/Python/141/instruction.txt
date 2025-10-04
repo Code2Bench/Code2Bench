@@ -1,0 +1,29 @@
+"""Count the number of 'TODO: translate' entries in a nested dictionary or list.
+
+This function recursively traverses the given object (which can be a dictionary, list, or string) and counts how many times the string 'TODO: translate' appears. The search is case-sensitive and requires the string to start with 'TODO: translate' after stripping any leading or trailing whitespace.
+
+Args:
+    obj (Union[dict, list, str]): The object to search for 'TODO: translate' entries. Can be a dictionary, list, or string.
+
+Returns:
+    int: The total count of 'TODO: translate' entries found in the object.
+
+Examples:
+    >>> count_todos('TODO: translate')
+    1
+    >>> count_todos({'key': 'TODO: translate'})
+    1
+    >>> count_todos(['TODO: translate', 'Not a TODO'])
+    1
+    >>> count_todos({'nested': {'key': 'TODO: translate'}})
+    1
+    >>> count_todos([{'key': 'TODO: translate'}, 'Not a TODO'])
+    1
+"""
+You should write code starting with:
+from typing import Union
+
+def count_todos(obj: Union[dict, list, str]) -> int:
+    # TODO: Implement this function based on the docstring.
+    pass
+

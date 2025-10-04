@@ -1,0 +1,18 @@
+"""Retrieve a value from a nested collection using a sequence of keys.
+
+This function traverses a nested collection (e.g., dictionary, list) using a sequence of keys or indices to retrieve a value. If the traversal fails (e.g., due to a missing key or index), the function either returns a default value or raises an exception, depending on the `no_default` flag.
+
+Args:
+    keys (Sequence): A sequence of keys or indices used to traverse the nested collection.
+    coll (Union[dict, list, tuple]): The nested collection to traverse.
+    default (Optional[Any]): The value to return if the traversal fails. Defaults to None.
+    no_default (bool): If True, raises an exception when the traversal fails instead of returning the default value. Defaults to False.
+
+Returns:
+    Any: The retrieved value from the nested collection, or the default value if the traversal fails and `no_default` is False.
+
+Raises:
+    KeyError: If `no_default` is True and a key is missing in a dictionary.
+    IndexError: If `no_default` is True and an index is out of range in a list or tuple.
+    TypeError: If `no_default` is True and an invalid key type is used for traversal.
+"""

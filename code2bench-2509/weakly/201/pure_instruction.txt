@@ -1,0 +1,8 @@
+Implement a Python function that transforms a list of flat dictionaries into a dictionary of lists. A flat dictionary is defined as a dictionary where none of the values are dictionaries themselves (e.g., values can be NumPy arrays, floats, etc.).
+
+- **Input**: A `list` of flat dictionaries, where each dictionary has keys and non-dictionary values (e.g., `numpy.ndarray`, `float`, etc.).
+- **Output**: A `collections.OrderedDict` where each key corresponds to a list of values from the input dictionaries.
+- **Special Rules**:
+  - The output dictionary should preserve the order of keys as they first appear in the input dictionaries.
+  - If a key exists in multiple dictionaries, its values should be collected into a list in the output dictionary.
+  - Handle edge cases: empty list, dictionaries with no common keys, or dictionaries with varying keys.

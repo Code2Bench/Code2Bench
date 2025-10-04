@@ -1,0 +1,22 @@
+"""Check if a string contains balanced parentheses.
+
+This function validates whether the input string contains balanced pairs of parentheses.
+It ensures that every opening parenthesis '(' has a corresponding closing parenthesis ')'
+and that the parentheses are properly nested.
+
+Args:
+    s (str): The string to be validated.
+
+Returns:
+    bool: True if the string contains balanced parentheses, False otherwise.
+
+Examples:
+    >>> check_valid('')
+    True
+    >>> check_valid('()')
+    True
+    >>> check_valid('(())')
+    True
+    >>> check_valid('()()')
+    True
+"""

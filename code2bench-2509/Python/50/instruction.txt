@@ -1,0 +1,23 @@
+"""Default implementation for getting meta information about the temporary data collected between get_batch calls.
+
+This function calculates and returns a dictionary containing meta information about the temporary data, including the total number of samples, the number of groups, the average group size, and the average reward across all samples.
+
+Args:
+    temp_data (Dict[str, List[Dict[str, Any]]]): A dictionary where each key is a group identifier and each value is a list of samples. Each sample is a dictionary that must contain a 'reward' key.
+
+Returns:
+    Dict[str, Any]: A dictionary with the following keys:
+        - 'total_samples' (int): The total number of samples across all groups.
+        - 'num_groups' (int): The number of groups in the temporary data.
+        - 'avg_group_size' (float): The average number of samples per group.
+        - 'avg_reward' (float): The average reward across all samples.
+
+If the input `temp_data` is empty, the function returns a dictionary with all values set to 0.
+"""
+You should write code starting with:
+from typing import Dict, List, Any
+
+def default_get_group_data_meta_info(temp_data: Dict[str, List[Dict[str, Any]]]) -> Dict[str, Any]:
+    # TODO: Implement this function based on the docstring.
+    pass
+

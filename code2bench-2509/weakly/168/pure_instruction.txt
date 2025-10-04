@@ -1,0 +1,10 @@
+"""Relates angular rates w to changes in eulerZYX coordinates.
+
+This function computes the inverse of the rotation-rate matrix (also known as the S matrix or E matrix in the Lupton paper), which maps angular rates (omega) to the time derivatives of Euler ZYX coordinates. The matrix is used in the equation: dot(euler) = S^-1(euler_coordinates) * omega.
+
+Args:
+    euler_coordinates (numpy.ndarray): A 1D array of shape (3,) representing the Euler ZYX coordinates [roll, pitch, yaw].
+
+Returns:
+    numpy.ndarray: A 3x3 matrix representing the inverse of the rotation-rate matrix.
+"""

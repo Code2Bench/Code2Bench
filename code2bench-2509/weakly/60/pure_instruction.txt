@@ -1,0 +1,10 @@
+"""Extract the first section name from the source code.
+
+The function parses the provided source code and searches for the first occurrence of a `print` function call that contains a string argument matching the pattern "Section: ...". If such a pattern is found, the section name is extracted and returned. If no matching pattern is found, the function returns `None`.
+
+Args:
+    source_code (str): The source code to parse and search for the section name.
+
+Returns:
+    str | None: The extracted section name if a match is found, otherwise `None`.
+"""

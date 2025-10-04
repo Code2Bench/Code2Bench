@@ -1,0 +1,20 @@
+"""Interprets a string operand as an appropriate type.
+
+This function attempts to convert a string operand into an integer or float if it represents a valid number. If the string does not represent a valid number, it is returned as is. The function handles both integer and floating-point representations.
+
+Args:
+    operand (str): The string operand to interpret. If the operand is not a string, it is returned unchanged.
+
+Returns:
+    Union[int, float, str]: The interpreted operand as an integer, float, or the original string if no conversion is possible.
+
+Examples:
+    >>> preprocess_operands('123')
+    123
+    >>> preprocess_operands('123.456')
+    123.456
+    >>> preprocess_operands('abc')
+    'abc'
+    >>> preprocess_operands('123abc')
+    '123abc'
+"""

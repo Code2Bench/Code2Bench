@@ -1,0 +1,146 @@
+{
+    "Statistics": [
+        {
+            "Qwen/qwen3-32b": [
+                {
+                    "Total": 249,
+                    "Success": 107,
+                    "Error": 142,
+                    "Success Rate": 0.42971887550200805,
+                    "Time": "2025-09-22 11:45:06",
+                    "Completed": 249
+                }
+            ],
+            "DeepSeek-V3": [
+                {
+                    "Total": 249,
+                    "Success": 119,
+                    "Error": 130,
+                    "Success Rate": 0.4779116465863454,
+                    "Time": "2025-09-23 10:36:09",
+                    "Completed": 249
+                }
+            ],
+            "Qwen/qwen3-8b": [
+                {
+                    "Total": 249,
+                    "Success": 97,
+                    "Error": 152,
+                    "Success Rate": 0.3895582329317269,
+                    "Time": "2025-09-22 13:36:52",
+                    "Completed": 249
+                }
+            ],
+            "Mistral/mistral-small-3.1-24b-instruct": [
+                {
+                    "Total": 249,
+                    "Success": 108,
+                    "Error": 141,
+                    "Success Rate": 0.43373493975903615,
+                    "Time": "2025-09-22 14:49:39",
+                    "Completed": 249
+                }
+            ],
+            "Qwen/qwen3-235b-a22b": [
+                {
+                    "Total": 249,
+                    "Success": 116,
+                    "Error": 133,
+                    "Success Rate": 0.46586345381526106,
+                    "Time": "2025-09-22 15:41:24",
+                    "Completed": 249
+                }
+            ],
+            "google/gemma-3n-e4b-it": [
+                {
+                    "Total": 2,
+                    "Success": 0,
+                    "Error": 2,
+                    "Success Rate": 0.0,
+                    "Time": "2025-09-23 10:51:38",
+                    "Completed": 2
+                },
+                {
+                    "Total": 249,
+                    "Success": 86,
+                    "Error": 163,
+                    "Success Rate": 0.3453815261044177,
+                    "Time": "2025-09-23 11:37:55",
+                    "Completed": 249
+                }
+            ],
+            "anthropic/claude-sonnet-4": [
+                {
+                    "Total": 1,
+                    "Success": 0,
+                    "Error": 1,
+                    "Success Rate": 0.0,
+                    "Time": "2025-09-23 12:10:31",
+                    "Completed": 1
+                },
+                {
+                    "Total": 249,
+                    "Success": 118,
+                    "Error": 131,
+                    "Success Rate": 0.4738955823293173,
+                    "Time": "2025-09-23 12:56:23",
+                    "Completed": 249
+                }
+            ],
+            "google/gemini-2.5-flash": [
+                {
+                    "Total": 1,
+                    "Success": 0,
+                    "Error": 1,
+                    "Success Rate": 0.0,
+                    "Time": "2025-09-23 16:58:18",
+                    "Completed": 1
+                },
+                {
+                    "Total": 249,
+                    "Success": 112,
+                    "Error": 137,
+                    "Success Rate": 0.4497991967871486,
+                    "Time": "2025-09-23 17:30:58",
+                    "Completed": 249
+                }
+            ],
+            "Meta-Llama/LLAMA-4-scout": [
+                {
+                    "Total": 1,
+                    "Success": 0,
+                    "Error": 1,
+                    "Success Rate": 0.0,
+                    "Time": "2025-09-23 17:58:40",
+                    "Completed": 1
+                },
+                {
+                    "Total": 249,
+                    "Success": 110,
+                    "Error": 139,
+                    "Success Rate": 0.44176706827309237,
+                    "Time": "2025-09-23 18:48:07",
+                    "Completed": 249
+                }
+            ],
+            "Qwen/qwen3-1.7b": [
+                {
+                    "Total": 1,
+                    "Success": 0,
+                    "Error": 1,
+                    "Success Rate": 0.0,
+                    "Time": "2025-09-23 18:49:10",
+                    "Completed": 1
+                },
+                {
+                    "Total": 249,
+                    "Success": 44,
+                    "Error": 205,
+                    "Success Rate": 0.17670682730923695,
+                    "Time": "2025-09-23 19:23:23",
+                    "Completed": 249
+                }
+            ]
+        }
+    ]
+}

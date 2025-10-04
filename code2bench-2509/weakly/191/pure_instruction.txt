@@ -1,0 +1,10 @@
+Implement a Python function that validates and converts a date string into a standardized RFC 3339 format, ensuring compliance with UTC timezone.
+
+- **Input**: A string representing a date in a recognizable format.
+- **Output**: A string representing the date in RFC 3339 format (e.g., "YYYY-MM-DDTHH:MM:SSZ").
+- **Special Rules**:
+  - Parse the input string into a datetime object using `dateutil.parser`.
+  - If the datetime object includes timezone information, convert it to UTC.
+  - If no timezone information is present, assume the input is in local time and localize it to UTC.
+  - Format the datetime object into an RFC 3339-compliant string, ensuring the suffix is "Z" for UTC.
+  - Raise a `ValueError` if the input string cannot be parsed or does not adhere to the expected format.

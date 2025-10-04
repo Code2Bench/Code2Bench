@@ -1,0 +1,27 @@
+"""Extracts a table from a list of strings starting at a specified index.
+
+This function processes a list of strings to identify and extract a table structure. The table is expected to be in a markdown-like format, where columns are separated by '|' and headers are optionally followed by a separator line. The function returns the extracted table as a dictionary containing headers and rows, along with the number of lines consumed.
+
+Args:
+    content (List[str]): A list of strings representing the content from which to extract the table.
+    start_idx (int): The index in `content` from which to start searching for the table.
+
+Returns:
+    Tuple[Optional[Dict[str, Any]], int]: A tuple containing:
+        - A dictionary with keys 'headers' (list of header strings) and 'rows' (list of row lists), or None if no valid table is found.
+        - An integer indicating the number of lines consumed from `content`.
+
+The function performs the following steps:
+1. Checks if `start_idx` is within the bounds of `content`. If not, returns `None` and 0.
+2. Collects consecutive lines that contain '|' and are not empty, starting from `start_idx`.
+3. Validates that at least two lines are collected to form a table.
+4. Extracts headers from the first line.
+5. Skips the separator line if present.
+6. Extracts data rows, ensuring each row has the same number of cells as headers.
+7. Returns the table structure and the number of lines consumed.
+
+Edge Cases:
+    - If `start_idx` is out of bounds, returns `None` and 0.
+    - If fewer than two lines are collected, returns `None` and 1.
+    - If no valid headers or rows are found, returns `None` and the number of lines consumed.
+"""

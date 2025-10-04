@@ -1,0 +1,26 @@
+"""Flatten a nested dictionary or list into a list of (key, value) tuples.
+
+This function recursively traverses a nested dictionary or list, constructing keys by
+concatenating nested keys with a specified separator. The result is a flat list where
+each element is a tuple containing the constructed key and its corresponding value.
+
+Args:
+    d (Union[dict, list]): The nested dictionary or list to be flattened.
+    parent_key (str): A helper string used in recursion to build the key path. Defaults to "".
+    sep (str): The separator used to join nested keys. Defaults to "_".
+    item_key (str): A helper string used in recursion to build the key path. Defaults to "".
+
+Returns:
+    List[Tuple[str, Any]]: A list of tuples, where each tuple contains a constructed key
+    and its corresponding value from the nested structure.
+
+Examples:
+    >>> flatten_nested_dict_list({'a': 1, 'b': {'c': 2}, 'c': 3})
+    [('a', 1), ('b_c', 2), ('c', 3)]
+
+    >>> flatten_nested_dict_list([1, 2])
+    [('0', 1), ('1', 2)]
+
+    >>> flatten_nested_dict_list({'a': [1, 2]})
+    [('a_0', 1), ('a_1', 2)]
+"""

@@ -1,0 +1,14 @@
+"""Transforms a JSON Schema from MCP format into Harmony's variant.
+
+This function processes a given JSON Schema dictionary to conform to Harmony's specific requirements. It performs the following transformations:
+1. Removes the 'title' key if present.
+2. Removes the 'default' key if its value is None.
+3. Converts the 'anyOf' key into a 'type' key, combining the types from the 'anyOf' array while excluding the 'null' type.
+4. Recursively processes nested 'properties' to apply the same transformations.
+
+Args:
+    schema (dict): The JSON Schema dictionary to be transformed.
+
+Returns:
+    dict: The transformed JSON Schema dictionary conforming to Harmony's variant.
+"""

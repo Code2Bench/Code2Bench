@@ -1,0 +1,13 @@
+"""Cleans the content by removing excessive whitespace and empty lines.
+
+This function processes a multi-line string by:
+1. Removing trailing whitespace from each line.
+2. Removing empty lines from the beginning and end of the content.
+3. Preserving the internal structure of the content, including any empty lines between non-empty lines.
+
+Args:
+    content (str): The input string to be cleaned.
+
+Returns:
+    str: The cleaned string with trailing whitespace removed and leading/trailing empty lines stripped.
+"""

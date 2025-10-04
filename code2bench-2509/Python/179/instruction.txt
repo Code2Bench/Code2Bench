@@ -1,0 +1,17 @@
+"""Converts a given number of seconds into a human-readable time string.
+
+The function breaks down the total seconds into hours, minutes, and seconds, and constructs
+a string representation that includes only the non-zero components. The string is formatted
+to handle singular and plural forms of the time units (e.g., '1 sec' vs. '2 secs', '1 min' vs. '2 mins').
+
+Args:
+    seconds (int): The total number of seconds to convert. Must be a non-negative integer.
+
+Returns:
+    str: A human-readable string representing the time in hours, minutes, and/or seconds.
+         Examples include '1 sec', '1 min', '1 hr', '1 hr, 1 min', '2 hrs', '2 hrs, 1 min'.
+"""
+You should write code starting with:
+def seconds_to_time_string(seconds: int) -> str:
+    pass
+

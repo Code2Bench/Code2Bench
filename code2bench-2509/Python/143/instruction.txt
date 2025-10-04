@@ -1,0 +1,21 @@
+"""Avoid short sentences by merging them with the following sentence.
+
+This function processes a list of sentences and merges any short sentences (those with 2 or fewer words) with the subsequent sentence. The merging is done iteratively, ensuring that the final list of sentences does not contain any short sentences unless they are the last sentence in the list.
+
+Args:
+    sens (List[str]): A list of input sentences to be processed.
+
+Returns:
+    List[str]: A list of output sentences where short sentences have been merged with the following sentence.
+
+Note:
+    - If the last sentence in the list is short, it will be merged with the previous sentence.
+    - The function handles edge cases where the input list is empty or contains only one sentence.
+"""
+You should write code starting with:
+from typing import List
+
+def merge_short_sentences_en(sens: List[str]) -> List[str]:
+    # TODO: Implement this function based on the docstring.
+    pass
+

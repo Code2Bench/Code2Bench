@@ -1,0 +1,13 @@
+Implement a Python function that generates a 1D sinusoidal and cosine positional embedding for a given set of positions, using NumPy arrays.
+
+- **Inputs**:
+  - An integer `embed_dim` specifying the output dimension for each position. This must be an even number.
+  - A `numpy.ndarray` of shape (M,) containing the positions to be encoded.
+- **Output**: A `numpy.ndarray` of shape (M, embed_dim) containing the positional embeddings, where each position is encoded using a combination of sine and cosine functions.
+- **Special Rules**:
+  - The embedding dimension `embed_dim` must be even; raise an assertion error if this is not true.
+  - Compute the angular frequencies (`omega`) as a sequence of values derived from `embed_dim`.
+  - Use the outer product of the positions and the angular frequencies to compute intermediate values.
+  - Apply the sine and cosine functions to these intermediate values to generate the sinusoidal and cosine components of the embedding.
+  - Concatenate the sine and cosine components along the last axis to produce the final embedding.
+  - Handle edge cases: empty position array or invalid `embed_dim`.

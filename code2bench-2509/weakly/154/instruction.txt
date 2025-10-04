@@ -1,0 +1,19 @@
+"""Modifies a URL by removing specified query parameters.
+
+This function takes a URL and a list of query parameter keys to remove. It parses the URL, removes the specified query parameters, and reconstructs the URL without those parameters. The function handles both single and multiple values for query parameters.
+
+Args:
+    url (str): The URL to modify.
+    remove (List[str]): A list of query parameter keys to remove from the URL.
+
+Returns:
+    str: The modified URL with the specified query parameters removed.
+"""
+You should write code starting with:
+import urllib.parse
+from typing import List
+
+def modify_url(url: str, remove: List[str]) -> str:
+    # TODO: Implement this function
+    pass
+

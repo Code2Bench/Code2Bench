@@ -1,0 +1,5 @@
+Python:
+  - name: docker-py-revanced
+    url: https://github.com/nikhilbadyal/docker-py-revanced
+  - name: docker-py
+    url: https://github.com/docker/docker-py

@@ -1,0 +1,18 @@
+"""将Goofish商品链接转换为只包含商品ID的手机端格式。
+
+该函数接受一个Goofish商品链接，并尝试将其转换为手机端格式的链接。如果输入链接包含商品ID，则生成一个新的链接，其中仅包含该商品ID，并返回该链接。如果输入链接不包含商品ID，则直接返回原始链接。
+
+Args:
+    url (str): 输入的Goofish商品链接。
+
+Returns:
+    str: 转换后的手机端格式链接，或原始链接（如果未找到商品ID）。
+"""
+You should write code starting with:
+from urllib.parse import quote
+import re
+
+def convert_goofish_link(url: str) -> str:
+    # TODO: Implement this function
+    pass
+

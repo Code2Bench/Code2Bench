@@ -1,0 +1,18 @@
+"""Calculate aggregated scores for metrics (numeric average or categorical frequency).
+
+For each metric in the input dictionary, this function calculates either the numeric average (for int or float values) or the frequency distribution (for categorical values). None values are excluded from the calculation. If no valid scores are present for a metric, the score is set to 0.
+
+Args:
+    metrics_data (Dict[str, list]): A dictionary where keys are metric names and values are lists of scores. Scores can be numeric (int, float) or categorical. None values are allowed but will be excluded.
+
+Returns:
+    Dict[str, Dict]: A dictionary where keys are metric names and values are dictionaries containing the aggregated score under the key "score". For numeric metrics, the score is the average. For categorical metrics, the score is a frequency distribution dictionary.
+"""
+You should write code starting with:
+from collections import Counter
+from typing import Dict
+
+def calculate_aggregated_metrics(metrics_data: Dict[str, list]) -> Dict[str, Dict]:
+    # TODO: Implement this function
+    pass
+

@@ -1,0 +1,16 @@
+"""Validates if the word count in the given text satisfies the specified constraint.
+
+This function checks whether the number of words in the provided text meets the constraint defined by the quantifier and the target word count `N`. The quantifier can be one of the following: "at least", "at most", or "around". For the "around" quantifier, a tolerance of ±10% of `N` (with a minimum of 1 word) is applied to determine if the word count is within the acceptable range.
+
+Args:
+    text (str): The input text to be evaluated.
+    N (int): The target word count to compare against.
+    quantifier (str): The type of constraint to apply. Must be one of "at least", "at most", or "around".
+
+Returns:
+    bool: True if the word count in the text satisfies the constraint, False otherwise.
+
+Note:
+    - The function strips leading and trailing whitespace from the text before counting words.
+    - For the "around" quantifier, the tolerance is calculated as the maximum of 10% of `N` or 1 word.
+"""

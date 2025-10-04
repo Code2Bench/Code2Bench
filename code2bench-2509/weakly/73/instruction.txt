@@ -1,0 +1,15 @@
+"""Normalize text values by stripping leading/trailing whitespace and applying Unicode NFKC normalization.
+
+Args:
+    s (str): The input string to be normalized.
+
+Returns:
+    str: The normalized string with whitespace removed and Unicode NFKC normalization applied.
+"""
+You should write code starting with:
+import unicodedata
+
+def _normalize_text(s: str) -> str:
+    # TODO: Implement this function
+    pass
+

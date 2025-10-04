@@ -1,0 +1,9 @@
+Implement a Python function that computes the prime factors of a given integer and returns them as a sorted list.
+
+- **Input**: An integer `x` for which to compute the prime factors.
+- **Output**: A sorted `list[int]` containing the prime factors of `x`.
+- **Special Rules**:
+  - Start by dividing `x` by 2 until it is no longer divisible, appending 2 to the list of factors each time.
+  - For odd integers starting from 3 up to the square root of `x`, divide `x` by the integer until it is no longer divisible, appending the integer to the list of factors each time.
+  - If `x` is still greater than 1 after the above steps, append `x` to the list of factors.
+  - Return the list of factors sorted in ascending order.

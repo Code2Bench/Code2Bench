@@ -1,0 +1,21 @@
+"""Parses JSON-formatted tool calls from a string, supporting both MCP and Agent types.
+
+The function extracts JSON-like objects from the input string, handling both English and Chinese brackets. It processes the extracted content to ensure valid JSON format by replacing Chinese brackets with English ones and removing trailing commas. The parsed JSON is then used to construct tool calls based on the specified type (MCP or Agent).
+
+Args:
+    content (str): A string containing JSON-like tool call descriptions, potentially with Chinese or English brackets.
+
+Returns:
+    list: A list of dictionaries, each representing a parsed tool call. Each dictionary contains the tool name and its arguments. For Agent type, the arguments include 'agentType', 'agent_name', and 'prompt'. For MCP type, the arguments include 'tool_name' and 'service_name'.
+
+Raises:
+    json.JSONDecodeError: If the extracted content cannot be parsed as valid JSON, it is skipped silently.
+"""
+You should write code starting with:
+import re
+import json
+
+def parse_tool_calls(content: str) -> list:
+    # TODO: Implement this function
+    pass
+

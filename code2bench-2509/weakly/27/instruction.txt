@@ -1,0 +1,21 @@
+"""Extract parameter descriptions from function docstring.
+
+Parses the function's docstring to extract descriptions for each parameter. Looks for lines that start with parameter names followed by descriptions. Parameters without descriptions are omitted.
+
+Args:
+    func: The function to extract parameter descriptions from. Must have a docstring.
+
+Returns:
+    Dict[str, Optional[str]]: A dictionary mapping parameter names to their descriptions. Only parameters with descriptions are included.
+
+Example:
+    For a function with docstring containing "param1: Description of param1", returns {"param1": "Description of param1"}.
+"""
+You should write code starting with:
+from typing import Dict, Optional
+import inspect
+
+def get_docstring_description_input(func) -> Dict[str, Optional[str]]:
+    # TODO: Implement this function
+    pass
+

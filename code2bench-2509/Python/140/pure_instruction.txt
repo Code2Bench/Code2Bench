@@ -1,0 +1,16 @@
+"""Processes a list of content lines by inserting extra lines between specified start and end lines.
+
+This function iterates through the content lines and inserts extra lines between the lines that match the specified start and end lines. The extra lines are formatted with a prefix and suffix. Optionally, empty lines can be added around the inserted extra lines.
+
+Args:
+    content (List[str]): The original list of content lines to process.
+    extras_list (List[str]): The list of extra lines to insert between the start and end lines.
+    start_line (str): The line that marks the start of the section where extras should be inserted.
+    end_line (str): The line that marks the end of the section where extras should be inserted.
+    prefix (str): The prefix to add to each extra line.
+    suffix (str): The suffix to add to each extra line.
+    add_empty_lines (bool): Whether to add empty lines before and after the inserted extra lines.
+
+Returns:
+    List[str]: The processed list of content lines with the extra lines inserted as specified.
+"""

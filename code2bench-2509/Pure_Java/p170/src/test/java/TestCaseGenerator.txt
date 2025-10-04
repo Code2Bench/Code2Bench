@@ -1,0 +1,114 @@
+package p170;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import java.io.*;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
+import net.jqwik.api.*;
+import net.jqwik.api.lifecycle.AfterContainer;
+import p170.GroundTruth;
+
+public class TestCaseGenerator {
+
+    static class TestCase {
+        Map<String, Object> Inputs;
+        Object Expected;
+        TestCase(Map<String, Object> inputs, Object expected) {
+            this.Inputs = inputs;
+            this.Expected = expected;
+        }
+    }
+
+    static List<TestCase> generatedCases = new ArrayList<>();
+    static AtomicInteger caseCount = new AtomicInteger(0);
+    static final int MAX_CASES = 500;
+
+    @Property(tries = 10000)
+    void generateTestCases(@ForAll("byteArray") byte[] array, @ForAll("offset") int offset) {
+        if (caseCount.get() >= MAX_CASES) {
+            return;
+        }
+
+        if (offset < 0 || offset >= array.length) {
+            return;
+        }
+
+        int[] result;
+        try {
+            result = GroundTruth.getUtf8(array, offset);
+        } catch (Exception e) {
+            return;
+        }
+
+        Map<String, Object> inputs = new LinkedHashMap<>();
+        inputs.put("array", array);
+        inputs.put("offset", offset);
+        generatedCases.add(new TestCase(inputs, result));
+        caseCount.incrementAndGet();
+    }
+
+    @Example
+    void example1() {
+        byte[] array = { 0x00, 0x01, 0x02 };
+        int offset = 0;
+        int[] result = GroundTruth.getUtf8(array, offset);
+        Map<String, Object> inputs = new LinkedHashMap<>();
+        inputs.put("array", array);
+        inputs.put("offset", offset);
+        generatedCases.add(new TestCase(inputs, result));
+        caseCount.incrementAndGet();
+    }
+
+    @Example
+    void example2() {
+        byte[] array = { (byte) 0x80, 0x01, 0x02, 0x03 };
+        int offset = 0;
+        int[] result = GroundTruth.getUtf8(array, offset);
+        Map<String, Object> inputs = new LinkedHashMap<>();
+        inputs.put("array", array);
+        inputs.put("offset", offset);
+        generatedCases.add(new TestCase(inputs, result));
+        caseCount.incrementAndGet();
+    }
+
+    @Example
+    void example3() {
+        byte[] array = { 0x00, (byte) 0x80, 0x01, 0x02 };
+        int offset = 0;
+        int[] result = GroundTruth.getUtf8(array, offset);
+        Map<String, Object> inputs = new LinkedHashMap<>();
+        inputs.put("array", array);
+        inputs.put("offset", offset);
+        generatedCases.add(new TestCase(inputs, result));
+        caseCount.incrementAndGet();
+    }
+
+    @Provide
+    Arbitrary<byte[]> byteArray() {
+        return Arbitraries.bytes().array(byte[].class).ofMinSize(1).ofMaxSize(100);
+    }
+
+    @Provide
+    Arbitrary<Integer> offset() {
+        return Arbitraries.integers().between(0, 99);
+    }
+
+    @AfterContainer
+    static void saveTestCases() throws IOException {
+        if (generatedCases.isEmpty()) {
+            return;
+        }
+        String dirPath = "src/test/java/test_cases";
+        File dir = new File(dirPath);
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+        String filePath = dirPath + "/test_cases.json";
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        try (Writer writer = new FileWriter(filePath)) {
+            gson.toJson(generatedCases, writer);
+        }
+        System.out.println("✅ Saved " + generatedCases.size() + " test cases to " + filePath);
+    }
+}

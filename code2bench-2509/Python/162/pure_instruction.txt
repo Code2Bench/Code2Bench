@@ -1,0 +1,33 @@
+"""Parse a prompt line into a dictionary of argument overrides.
+
+This function takes a single line of text, typically representing a prompt with optional
+arguments, and parses it into a dictionary where the keys are argument names and the values
+are the corresponding overrides. The prompt line is expected to follow a specific format where
+the main prompt is followed by optional arguments prefixed with '--'.
+
+Args:
+    line (str): A string representing the prompt line with optional arguments. The main prompt
+               should be the first part of the string, followed by any number of arguments
+               prefixed with '--'.
+
+Returns:
+    Dict[str, Any]: A dictionary containing the parsed prompt and any argument overrides.
+                    The dictionary will always contain a 'prompt' key with the main prompt
+                    text. Additional keys will be added based on the optional arguments
+                    provided in the line. The keys and their corresponding value types are:
+                    - 'image_size_width' (int): Width of the image.
+                    - 'image_size_height' (int): Height of the image.
+                    - 'seed' (int): Random seed.
+                    - 'infer_steps' (int): Number of inference steps.
+                    - 'flow_shift' (float): Flow shift value.
+                    - 'image_path' (str): Path to the image.
+                    - 'control_image_path' (str): Path to the control image.
+
+Example:
+    >>> parse_prompt_line("prompt --w 512 --h 512")
+    {'prompt': 'prompt', 'image_size_width': 512, 'image_size_height': 512}
+    >>> parse_prompt_line("prompt --d 42 --s 50")
+    {'prompt': 'prompt', 'seed': 42, 'infer_steps': 50}
+    >>> parse_prompt_line("prompt --fs 0.5")
+    {'prompt': 'prompt', 'flow_shift': 0.5}
+"""

@@ -1,0 +1,25 @@
+from typing import List
+import pandas as pd
+
+def double_columns(df: pd.DataFrame, shifts: List[int]) -> pd.DataFrame:
+    """
+    Transforms the given DataFrame by appending shifted versions of its columns based on the specified offsets. 
+    This operation allows historical data to be moved and used as features for the current time. 
+
+    The function duplicates all columns in the DataFrame and creates additional columns for each specified shift offset. 
+    The resulting DataFrame includes the original columns followed by the shifted versions.
+
+    Args:
+        df (pd.DataFrame): The input DataFrame containing the original features.
+        shifts (List[int]): A list of integer offsets specifying the row shifts to apply. 
+            Each offset determines how far back the rows should be shifted.
+
+    Returns:
+        pd.DataFrame: A DataFrame that includes the original columns and the shifted columns for each offset.
+
+    Note:
+        - If `shifts` is an empty list, the function returns the original DataFrame unchanged.
+        - The shifts are applied across all columns in the DataFrame, duplicating all features.
+    """
+    # TODO: Implement this function
+    pass

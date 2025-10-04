@@ -1,0 +1,16 @@
+"""Convert a 12-hour formatted time string to a 24-hour formatted time string.
+
+The function accepts a time string in the format (h)h:mm:ssa or (h)h:mm:ssp, where 'a' denotes AM and 'p' denotes PM. It returns the time in the 24-hour format hh:mm:ss.
+
+Args:
+    hhmmss (str): A string representing the time in 12-hour format, including the AM/PM suffix.
+
+Returns:
+    str: The time converted to 24-hour format as a string in the format hh:mm:ss.
+
+Notes:
+    - If the input string does not contain a colon (':'), it is returned as-is.
+    - If the input string does not end with 'a' or 'p' (case insensitive), it is returned as-is.
+    - The function handles the conversion of 12 AM to 00:00:00 and 12 PM to 12:00:00.
+    - The hour part is zero-padded to ensure it is two digits in the output.
+"""

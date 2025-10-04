@@ -1,0 +1,27 @@
+"""Perform a binary search on a sorted list of candidates to find a target value, while tracking the search trajectory.
+
+This function implements a binary search algorithm on a sorted list of candidates to locate a target value. 
+During the search, it records the trajectory of indices visited, including the initial left and right bounds, 
+and the midpoint at each step. The search stops when the target is found or when the search bounds are exhausted.
+
+Args:
+    candidates (List[int]): A sorted list of integers to search within.
+    target (int): The integer value to search for in the candidates list.
+
+Returns:
+    Tuple[List[int], int]: A tuple containing:
+        - A list of integers representing the trajectory of the search, including the initial left and right bounds 
+          and the midpoint at each step.
+        - The value at the final left index after the search completes. This is the value at the position where 
+          the target would be inserted to maintain the sorted order if the target is not found.
+
+Note:
+    The candidates list must be sorted in ascending order for the binary search to work correctly.
+"""
+You should write code starting with:
+from typing import List, Tuple
+
+def binary_search(candidates: List[int], target: int) -> Tuple[List[int], int]:
+    # TODO: Implement this function based on the docstring.
+    pass
+

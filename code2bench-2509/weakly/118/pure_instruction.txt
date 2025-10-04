@@ -1,0 +1,18 @@
+"""Smart parser that attempts to extract structured data from a string using multiple approaches.
+
+Handles:
+1. Pure JSON objects
+2. JSON embedded in text
+3. Key-value pairs in formats like:
+   - key="value"
+   - key=value
+   - Key: "value"
+   - key: value
+4. Plain text (stored under 'message' key)
+
+Args:
+    text (str): Input text to parse
+
+Returns:
+    dict: Parsed data or {'message': text} if no structure found. The parsed data includes key-value pairs extracted from the text, with keys converted to lowercase. Any remaining text that does not match the structured formats is stored under the 'message' key.
+"""

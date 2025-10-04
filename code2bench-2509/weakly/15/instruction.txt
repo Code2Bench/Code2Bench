@@ -1,0 +1,18 @@
+"""Parse options from a string representation of a list.
+
+This function safely evaluates a string representation of a list using `ast.literal_eval` and returns a list of stripped string options. If parsing fails due to a `ValueError` or `SyntaxError`, an empty list is returned.
+
+Args:
+    options_string (str): A string representation of a list, e.g., "['option1', 'option2']".
+
+Returns:
+    List[str]: A list of stripped string options. If parsing fails, an empty list is returned.
+"""
+You should write code starting with:
+import ast
+from typing import List
+
+def _parse_options_string(options_string: str) -> List[str]:
+    # TODO: Implement this function
+    pass
+

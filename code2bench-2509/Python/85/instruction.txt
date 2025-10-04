@@ -1,0 +1,21 @@
+"""Extract all top-level \boxed{...} contents from the input string, handling nested braces correctly.
+
+This function scans the string manually to ensure proper brace matching, allowing for nested expressions inside \boxed{}, but only extracting the outermost matched segments.
+
+Behavior:
+- For nested boxed expressions like \boxed{\boxed{\boxed{42}}}, it returns ['\boxed{\boxed{42}}'] — treating the entire nested structure as one match.
+- For multiple separate boxed expressions like \boxed{42} and \boxed{42}, it returns ['42', '42'].
+
+Args:
+    text (str): The input string containing \boxed{...} expressions.
+
+Returns:
+    list[str]: A list of strings extracted from each top-level \boxed{...} block.
+"""
+You should write code starting with:
+from typing import List
+
+def find_boxed_content_with_boxed(text: str) -> List[str]:
+    # TODO: Implement this function based on the docstring.
+    pass
+

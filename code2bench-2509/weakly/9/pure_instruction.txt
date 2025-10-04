@@ -1,0 +1,14 @@
+"""Finds the closest match to the input string from a dictionary of options.
+
+This function uses `difflib.get_close_matches` to find the closest match to the input string from the keys of the provided dictionary. The match is case-insensitive, and the function ensures that a match is found by raising an assertion error if no valid match is found. If the closest match differs from the input string, a message is printed indicating the correction.
+
+Args:
+    input_str (str): The input string to find a match for.
+    options (dict): A dictionary where keys are the possible options to match against.
+
+Returns:
+    str: The closest match from the dictionary keys.
+
+Raises:
+    AssertionError: If no valid match is found for the input string.
+"""

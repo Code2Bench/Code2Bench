@@ -1,0 +1,17 @@
+"""Create a sanitized provider name from a URL.
+
+The function takes a URL and generates a sanitized provider name by combining the host and path components of the URL. It then replaces invalid characters ('.', '/', '-') with underscores to ensure the name is suitable for use as an identifier.
+
+Args:
+    url (str): The URL from which to create the provider name.
+
+Returns:
+    str: A sanitized provider name with invalid characters replaced by underscores.
+"""
+You should write code starting with:
+from urllib.parse import urlparse
+
+def url_to_provider_name(url: str) -> str:
+    # TODO: Implement this function
+    pass
+

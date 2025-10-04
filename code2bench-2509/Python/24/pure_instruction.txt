@@ -1,0 +1,24 @@
+"""Parse a version string into a tuple of version components.
+
+This function processes a version string, splitting it into its constituent parts based on periods ('.'). 
+Each part is converted to an integer if it is a digit. If a part contains 'rc' (indicating a release candidate), 
+it is split into the patch version and the release candidate suffix, which is then appended as a string.
+
+Args:
+    version_str (str): The version string to parse. Expected format is a series of numbers separated by periods, 
+                       optionally followed by 'rc' and a release candidate number.
+
+Returns:
+    tuple: A tuple containing the parsed version components. Each component is either an integer or a string 
+           representing the release candidate (e.g., 'rc4').
+
+Examples:
+    >>> parse_version_info('1.2.3')
+    (1, 2, 3)
+    >>> parse_version_info('1.2.3rc4')
+    (1, 2, 3, 'rc4')
+    >>> parse_version_info('1.2.3.4')
+    (1, 2, 3, 4)
+    >>> parse_version_info('1.2.3.4rc5')
+    (1, 2, 3, 4, 'rc5')
+"""

@@ -1,0 +1,21 @@
+"""Extract a complete JSON object by counting balanced braces.
+
+This function scans the input text to find the first occurrence of an opening brace '{' and then
+iterates through the text to find the corresponding closing brace '}' that balances the braces.
+It handles nested JSON objects, escaped characters, and strings within the JSON. If the braces
+are not balanced, the function returns the original text.
+
+Args:
+    text (str): The input text containing a potential JSON object.
+
+Returns:
+    str: The extracted JSON object if the braces are balanced, otherwise the original text.
+
+The function uses a state machine approach to track whether it is inside a string and whether
+the next character is escaped. This ensures that braces within strings or escaped characters
+do not affect the brace count.
+"""
+You should write code starting with:
+def _extract_balanced_json(text: str) -> str:
+    pass
+

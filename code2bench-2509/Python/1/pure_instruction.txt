@@ -1,0 +1,15 @@
+"""Collects all unique models from a list of LLM configurations, maintaining their order of first occurrence.
+
+This function processes a list of dictionaries, each representing an LLM configuration. It extracts the 'models' field from each configuration, splits it by commas, and collects unique model names while preserving the order in which they first appear.
+
+Args:
+    llm_configs (List[Dict]): A list of dictionaries where each dictionary contains an LLM configuration. Each configuration may have a 'models' key whose value is a comma-separated string of model names.
+
+Returns:
+    List[str]: A list of unique model names, ordered by their first occurrence in the configurations.
+
+Note:
+    - If the 'models' field is missing or empty in a configuration, it is skipped.
+    - Leading and trailing whitespace in model names is stripped.
+    - Duplicate model names across configurations are removed, and only the first occurrence is retained.
+"""

@@ -1,0 +1,14 @@
+"""Encodes specified values in a dictionary using base64 encoding.
+
+The function takes a dictionary and a list of keys. For each key in the list, the corresponding value is JSON-serialized, base64-encoded, and then modified to be URL-safe. The encoded value is prefixed with "b64_" and stored in a new dictionary.
+
+Args:
+    decoded_map (dict): The dictionary containing key-value pairs to be processed.
+    apply_on_keys (list): A list of keys whose corresponding values should be encoded.
+
+Returns:
+    dict: A new dictionary with the specified values encoded and prefixed with "b64_".
+
+Note:
+    The base64 encoding is manually adjusted to be URL-safe by replacing '+' with '-', '/' with '_', and stripping trailing '=' characters.
+"""

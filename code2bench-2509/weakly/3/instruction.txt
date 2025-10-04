@@ -1,0 +1,19 @@
+"""Generates a list of shifted 720P windows based on the input size and number of windows.
+
+The function calculates the window sizes and shifts for a given 3D size (time, height, width) and the desired number of windows. The windows are resized to fit within a 720P resolution constraint. The function ensures that the windows are non-overlapping and cover the entire input space.
+
+Args:
+    size (Tuple[int, int, int]): A tuple representing the original size in the format (time, height, width).
+    num_windows (Tuple[int, int, int]): A tuple representing the desired number of windows in the format (time, height, width).
+
+Returns:
+    List[Tuple[slice, slice, slice]]: A list of tuples, where each tuple contains three slice objects representing the time, height, and width dimensions of a window.
+"""
+You should write code starting with:
+from typing import Tuple, List
+from math import ceil, sqrt
+
+def make_shifted_720Pwindows_bysize(size: Tuple[int, int, int], num_windows: Tuple[int, int, int]) -> List[Tuple[slice, slice, slice]]:
+    # TODO: Implement this function
+    pass
+

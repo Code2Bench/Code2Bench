@@ -1,0 +1,21 @@
+"""Decode a base-n encoded string back to an integer.
+
+This function decodes a string that was encoded in a specified base (n) back to its integer representation. It supports custom character tables for encoding and handles negative values. The base must be between 2 and the length of the character table. Invalid characters or digits for the specified base will raise a ValueError.
+
+Args:
+    encoded (str): The base-n encoded string to decode.
+    n (int): The base used for encoding. Must be between 2 and the length of the character table.
+    table (Optional[str]): Custom character table used for encoding. Defaults to digits (0-9) followed by lowercase letters (a-z).
+
+Returns:
+    int: The decoded integer.
+
+Raises:
+    ValueError: If the base is not within the valid range, or if the encoded string contains invalid characters or digits for the specified base.
+
+Examples:
+    >>> decode_base_n('ff', 16)
+    255
+    >>> decode_base_n('16', 36)
+    42
+"""

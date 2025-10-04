@@ -1,0 +1,222 @@
+package p183;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import java.io.*;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
+import net.jqwik.api.*;
+import net.jqwik.api.lifecycle.AfterContainer;
+import p183.GroundTruth;
+
+public class TestCaseGenerator {
+
+    static class TestCase {
+        Map<String, Object> Inputs;
+        Object Expected;
+        TestCase(Map<String, Object> inputs, Object expected) {
+            this.Inputs = inputs;
+            this.Expected = expected;
+        }
+    }
+
+    static List<TestCase> generatedCases = new ArrayList<>();
+    static AtomicInteger caseCount = new AtomicInteger(0);
+    static final int MAX_CASES = 500;
+
+    @Property(tries = 10000)
+    void generateTestCases(@ForAll("float32") float rms) {
+        if (caseCount.get() >= MAX_CASES) {
+            return;
+        }
+
+        float result;
+        try {
+            result = GroundTruth.enhanceAudioSensitivity(rms);
+        } catch (Exception e) {
+            return;
+        }
+
+        Map<String, Object> inputs = new LinkedHashMap<>();
+        inputs.put("rms", rms);
+        generatedCases.add(new TestCase(inputs, result));
+        caseCount.incrementAndGet();
+    }
+
+    @Provide
+    Arbitrary<Float> float32() {
+        return Arbitraries.floats().between(0.0f, 1.0f);
+    }
+
+    @AfterContainer
+    static void saveTestCases() throws IOException {
+        if (generatedCases.isEmpty()) {
+            return;
+        }
+        String dirPath = "src/test/java/test_cases";
+        File dir = new File(dirPath);
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+        String filePath = dirPath + "/test_cases.json";
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        try (Writer writer = new FileWriter(filePath)) {
+            gson.toJson(generatedCases, writer);
+        }
+        System.out.println("✅ Saved " + generatedCases.size() + " test cases to " + filePath);
+    }
+
+    @Example
+    void example1() {
+        generateTestCases(0.0001f);
+    }
+
+    @Example
+    void example2() {
+        generateTestCases(0.0005f);
+    }
+
+    @Example
+    void example3() {
+        generateTestCases(0.001f);
+    }
+
+    @Example
+    void example4() {
+        generateTestCases(0.002f);
+    }
+
+    @Example
+    void example5() {
+        generateTestCases(0.005f);
+    }
+
+    @Example
+    void example6() {
+        generateTestCases(0.008f);
+    }
+
+    @Example
+    void example7() {
+        generateTestCases(0.01f);
+    }
+
+    @Example
+    void example8() {
+        generateTestCases(0.02f);
+    }
+
+    @Example
+    void example9() {
+        generateTestCases(0.03f);
+    }
+
+    @Example
+    void example10() {
+        generateTestCases(0.05f);
+    }
+
+    @Example
+    void example11() {
+        generateTestCases(0.07f);
+    }
+
+    @Example
+    void example12() {
+        generateTestCases(0.1f);
+    }
+
+    @Example
+    void example13() {
+        generateTestCases(0.2f);
+    }
+
+    @Example
+    void example14() {
+        generateTestCases(0.00001f);
+    }
+
+    @Example
+    void example15() {
+        generateTestCases(0.0002f);
+    }
+
+    @Example
+    void example16() {
+        generateTestCases(0.0008f);
+    }
+
+    @Example
+    void example17() {
+        generateTestCases(0.0015f);
+    }
+
+    @Example
+    void example18() {
+        generateTestCases(0.003f);
+    }
+
+    @Example
+    void example19() {
+        generateTestCases(0.004f);
+    }
+
+    @Example
+    void example20() {
+        generateTestCases(0.006f);
+    }
+
+    @Example
+    void example21() {
+        generateTestCases(0.007f);
+    }
+
+    @Example
+    void example22() {
+        generateTestCases(0.009f);
+    }
+
+    @Example
+    void example23() {
+        generateTestCases(0.015f);
+    }
+
+    @Example
+    void example24() {
+        generateTestCases(0.025f);
+    }
+
+    @Example
+    void example25() {
+        generateTestCases(0.04f);
+    }
+
+    @Example
+    void example26() {
+        generateTestCases(0.06f);
+    }
+
+    @Example
+    void example27() {
+        generateTestCases(0.08f);
+    }
+
+    @Example
+    void example28() {
+        generateTestCases(0.09f);
+    }
+
+    @Example
+    void example29() {
+        generateTestCases(0.11f);
+    }
+
+    @Example
+    void example30() {
+        generateTestCases(0.15f);
+    }
+
+    @Example
+    void example31() {
+        generateTestCases(0.3f);
+    }
+}

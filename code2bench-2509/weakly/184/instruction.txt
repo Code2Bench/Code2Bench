@@ -1,0 +1,30 @@
+import numpy as np
+
+def get_1d_sincos_pos_embed_from_grid(embed_dim: int, pos: np.ndarray) -> np.ndarray:
+    """
+    Generates a 1D sine-cosine positional embedding for a given set of positions.
+
+    This function computes a positional encoding based on sine and cosine functions 
+    for a list of positions. The encoding is commonly used in transformer models 
+    to inject positional information into input sequences.
+
+    Args:
+        embed_dim (int): The output embedding dimension for each position. 
+            Must be an even number as it is divided into sine and cosine components.
+        pos (np.ndarray): A 1D array of positions to be encoded with size (M,).
+
+    Returns:
+        np.ndarray: A 2D array of shape (M, embed_dim), where each row represents 
+            the positional embedding for the corresponding position in `pos`.
+
+    Raises:
+        AssertionError: If `embed_dim` is not an even number.
+
+    Notes:
+        - The positional embedding is computed using an outer product between 
+          the positions and a frequency scaling factor (`omega`), followed by 
+          applying sine and cosine functions to generate embeddings.
+        - The embedding combines sine and cosine components concatenated along the last axis.
+    """
+    # TODO: Implement this function
+    pass

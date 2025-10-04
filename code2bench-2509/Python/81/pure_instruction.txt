@@ -1,0 +1,22 @@
+"""Groups sentences based on the time interval between them.
+
+This function takes a list of sentence dictionaries, each containing 'start' and 'end' timestamps,
+and groups them into sublists based on the time interval between consecutive sentences. Sentences
+are grouped together if the interval between the end of one sentence and the start of the next is
+less than or equal to the specified threshold.
+
+Args:
+    corrected_srt (List[Dict[str, float]]): A list of dictionaries where each dictionary contains
+        'start' and 'end' keys representing the timestamps of a sentence.
+    threshold (float): The maximum allowed time interval (in seconds) between sentences for them
+        to be grouped together. Defaults to 1.0.
+
+Returns:
+    List[List[Dict[str, float]]]: A list of lists, where each inner list contains dictionaries
+        representing sentences that are grouped together based on the time interval.
+
+Example:
+    >>> corrected_srt = [{'start': 0.0, 'end': 1.0}, {'start': 1.5, 'end': 2.5}, {'start': 3.0, 'end': 4.0}]
+    >>> group_sentences(corrected_srt)
+    [[{'start': 0.0, 'end': 1.0}, {'start': 1.5, 'end': 2.5}, {'start': 3.0, 'end': 4.0}]]
+"""

@@ -1,0 +1,26 @@
+"""Converts a list of dictionaries into a dictionary of lists.
+
+This function takes a list of dictionaries where each dictionary is expected to have the same set of keys. It transforms this list into a single dictionary where each key maps to a list of values from the corresponding keys in the input dictionaries.
+
+Args:
+    list_of_dict (list[dict]): A list of dictionaries with identical keys. If the list is empty, an empty dictionary is returned.
+
+Returns:
+    dict: A dictionary where each key corresponds to a list of values from the input dictionaries.
+
+Raises:
+    AssertionError: If any dictionary in the list contains a key that is not present in the first dictionary.
+
+Example:
+    >>> list_of_dict_to_dict_of_list([{'a': 1}, {'a': 2}])
+    {'a': [1, 2]}
+    >>> list_of_dict_to_dict_of_list([{'a': 1, 'b': 'x'}, {'a': 2, 'b': 'y'}])
+    {'a': [1, 2], 'b': ['x', 'y']}
+"""
+You should write code starting with:
+from typing import List, Dict, Any
+
+def list_of_dict_to_dict_of_list(list_of_dict: List[Dict[Any, Any]]) -> Dict[Any, List[Any]]:
+    # TODO: Implement this function based on the docstring.
+    pass
+

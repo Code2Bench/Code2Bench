@@ -1,0 +1,23 @@
+"""Parses a string of specific attributes into a dictionary.
+
+The function takes a string formatted as query parameters and converts it into a dictionary
+where each key-value pair corresponds to the parsed attributes. If the input string is empty
+or results in no parsed attributes, an empty dictionary is returned.
+
+Args:
+    specific_attributes (str): A string containing query parameters to be parsed. Must be a string.
+
+Returns:
+    dict: A dictionary containing the parsed key-value pairs. Returns an empty dictionary if no
+          attributes are parsed.
+
+Raises:
+    AssertionError: If `specific_attributes` is not a string.
+"""
+You should write code starting with:
+import urllib.parse
+
+def parse_specific_attributes(specific_attributes: str) -> dict:
+    # TODO: Implement this function
+    pass
+

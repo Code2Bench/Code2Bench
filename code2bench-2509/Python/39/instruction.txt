@@ -1,0 +1,23 @@
+"""Split continuous reference tags into individual reference tags.
+
+This function processes a string containing reference tags and splits continuous references into individual tags. 
+For example, it converts patterns like '[1:92ff35fb, 4:bfe6f044]' to '[1:92ff35fb][4:bfe6f044]'. 
+
+The function only processes the text if the following conditions are met:
+1. The character '[' appears exactly once.
+2. The character ']' appears exactly once.
+3. There are commas between the '[' and ']' characters.
+
+If any of these conditions are not met, the function returns the original text unchanged.
+
+Args:
+    text (str): The text containing reference tags to be processed.
+
+Returns:
+    str: The text with split reference tags if conditions are met; otherwise, the original text.
+"""
+You should write code starting with:
+def split_continuous_references(text: str) -> str:
+    # TODO: Implement this function based on the docstring.
+    pass
+

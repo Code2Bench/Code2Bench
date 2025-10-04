@@ -1,0 +1,27 @@
+"""Parse a response string in the format `<answer>...</answer>` and extract relevant information.
+
+The function processes a response string that is expected to follow the format `<answer>...</answer>`. It extracts the content within the `<answer>` tag, removes any special tokens if provided, and splits the content into a list of actions based on a specified separator. The function also checks if the response strictly follows the expected format.
+
+Args:
+    response (str): The response string to be parsed.
+    special_token_list (List[str], optional): A list of special tokens to remove from the action content. Defaults to None.
+    action_sep (str, optional): The separator used to split the action content into individual actions. Defaults to ','.
+    max_actions (int, optional): The maximum number of actions to extract from the action content. Defaults to 3.
+
+Returns:
+    Dict: A dictionary containing the following keys:
+        - llm_raw_response: The original response string.
+        - llm_response: The response string with the `<answer>` tag.
+        - think_content: An empty string (no think content in this format).
+        - action_content: The content extracted from the `<answer>` tag.
+        - actions: A list of actions extracted from the action content.
+        - format_correct: A boolean indicating whether the response strictly follows the expected format.
+"""
+You should write code starting with:
+import re
+from typing import Dict, List
+
+def parse_no_think(response: str, special_token_list: List[str] = None, action_sep: str = ',', max_actions: int = 3) -> Dict:
+    # TODO: Implement this function
+    pass
+

@@ -1,0 +1,20 @@
+"""Organizes imports by category into a formatted string.
+
+This function takes a dictionary where keys are categories and values are lists of file names. It formats these into a structured string with a header and sections for each category. The file names within each category are sorted alphabetically.
+
+Args:
+    files_by_category (Dict[str, List[str]]): A dictionary mapping categories to lists of file names. The keys are category names, and the values are lists of file names.
+
+Returns:
+    str: A formatted string with a header and sections for each category. Each section lists the file names under the corresponding category, sorted alphabetically. If the input dictionary is empty, an empty string is returned.
+
+The output format includes:
+- A header section titled "SuperClaude Framework Components".
+- For each non-empty category, a section header with the category name followed by the sorted list of file names, each prefixed with '@'.
+"""
+You should write code starting with:
+from typing import Dict, List
+
+def organize_imports_by_category(files_by_category: Dict[str, List[str]]) -> str:
+    pass
+

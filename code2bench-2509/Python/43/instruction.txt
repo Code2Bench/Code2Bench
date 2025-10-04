@@ -1,0 +1,28 @@
+/**
+ * Converts an image string to a data URL if it is not already in a recognized format.
+ *
+ * This function processes an input string representing an image and converts it to a data URL if necessary. The function handles several cases:
+ * - If the input is already a data URL or an HTTP/HTTPS URL, it is returned unchanged.
+ * - If the input is a base64 encoded string, it is converted to a data URL with the MIME type 'image/png'.
+ * - If the input is an empty string or not a string, it is returned unchanged.
+ *
+ * Args:
+ *     image_str (str): The input string representing the image. This can be a data URL, HTTP/HTTPS URL, or a base64 encoded string.
+ *
+ * Returns:
+ *     str: The input string converted to a data URL if necessary, or the original string if it is already in a recognized format.
+ *
+ * Examples:
+ *     >>> to_data_url('data:image/png;base64,iVBORw0KGgo')
+ *     'data:image/png;base64,iVBORw0KGgo'
+ *     >>> to_data_url('http://example.com/image.png')
+ *     'http://example.com/image.png'
+ *     >>> to_data_url('iVBORw0KGgoabc123')
+ *     'data:image/png;base64,iVBORw0KGgoabc123'
+ *     >>> to_data_url('randomstring')
+ *     'data:image/png;base64,randomstring'
+ */
+You should write code starting with:
+def to_data_url(image_str: str) -> str:
+    pass
+

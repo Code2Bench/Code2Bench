@@ -1,0 +1,18 @@
+"""Validates if the input time string matches the 'HH:MM:SS' format.
+
+The function checks if the input string adheres to the 24-hour time format, where:
+- HH (hours) ranges from 00 to 23,
+- MM (minutes) ranges from 00 to 59,
+- SS (seconds) ranges from 00 to 59.
+
+If the input string matches the format, it is returned as is. Otherwise, a ValueError is raised with details about the expected format and the invalid input.
+
+Args:
+    time (str): A string representing the time in 'HH:MM:SS' format.
+
+Returns:
+    str: The input time string if it matches the expected format.
+
+Raises:
+    ValueError: If the input string does not match the 'HH:MM:SS' format.
+"""

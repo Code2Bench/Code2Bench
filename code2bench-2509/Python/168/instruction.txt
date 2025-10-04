@@ -1,0 +1,33 @@
+"""Finds all nested parenthetical substrings in the given text.
+
+This function identifies all substrings within the input text that are enclosed by parentheses, 
+including those that are nested within other parenthetical substrings. It uses a stack-based 
+approach to efficiently track the indices of opening parentheses and match them with corresponding 
+closing parentheses.
+
+Args:
+    text (str): The input string to analyze for parenthetical substrings.
+
+Returns:
+    List[str]: A list of all parenthetical substrings found in the input text, in the order they 
+    are encountered. Each substring includes the enclosing parentheses.
+
+Examples:
+    >>> get_parenthetical_substrings('()')
+    ['()']
+    >>> get_parenthetical_substrings('(())')
+    ['()', '(())']
+    >>> get_parenthetical_substrings('(a(b)c)')
+    ['(b)', '(a(b)c)']
+    >>> get_parenthetical_substrings('(a)(b)')
+    ['(a)', '(b)']
+    >>> get_parenthetical_substrings('(a(b)c(d)e)')
+    ['(b)', '(d)', '(a(b)c(d)e)']
+"""
+You should write code starting with:
+from typing import List
+
+def get_parenthetical_substrings(text: str) -> List[str]:
+    # TODO: Implement this function based on the docstring.
+    pass
+

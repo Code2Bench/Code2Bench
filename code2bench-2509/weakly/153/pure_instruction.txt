@@ -1,0 +1,14 @@
+"""Truncates a string to a specified maximum length while ensuring it ends with an ellipsis and avoids breaking combining characters.
+
+The function first normalizes the input string using Unicode normalization form NFC. If the string's length is already within the specified maximum length, it is returned as is. Otherwise, the string is truncated to the maximum length, ensuring that the truncation does not occur in the middle of a combining character sequence. If the truncation point falls on a combining character, the function adjusts the truncation position to the nearest non-combining character.
+
+Args:
+    text (str): The input string to be truncated.
+    max_length (int): The maximum allowed length of the truncated string. Must be greater than 0.
+
+Returns:
+    str: The truncated string, ending with an ellipsis.
+
+Raises:
+    ValueError: If `max_length` is less than or equal to 0.
+"""

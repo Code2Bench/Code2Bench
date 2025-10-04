@@ -1,0 +1,19 @@
+"""Converts a ratio to decibels (dB), representing the equivalent power or amplitude.
+
+The function can handle both power and amplitude ratios. If a second value is provided, the ratio is computed as the first value divided by the second. Special handling is included for a ratio of zero, which is converted to negative infinity.
+
+Args:
+    ratio (float or int): The ratio to convert to dB. If `val2` is provided, this is treated as the numerator.
+    val2 (float or int, optional): The denominator for the ratio calculation. If provided, the ratio is computed as `ratio / val2`.
+    using_amplitude (bool, optional): If True, the ratio is treated as an amplitude ratio (20 * log10(ratio)). If False, it is treated as a power ratio (10 * log10(ratio)). Defaults to True.
+
+Returns:
+    float: The ratio converted to decibels. Returns -infinity if the ratio is zero.
+"""
+You should write code starting with:
+from math import log
+
+def ratio_to_db(ratio: float | int, val2: float | int = None, using_amplitude: bool = True) -> float:
+    # TODO: Implement this function
+    pass
+

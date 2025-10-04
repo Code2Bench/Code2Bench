@@ -1,0 +1,6 @@
+/**
+ * Formats error messages into user-friendly notifications.
+ * 
+ * Returns:
+ *     str: A formatted error message.
+ */

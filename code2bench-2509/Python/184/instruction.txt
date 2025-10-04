@@ -1,0 +1,24 @@
+"""Constructs a map of immediate ancestors for each node based on a given ancestor dictionary and adjacency list.
+
+This function iterates through each node in the `ancestor_dict` and constructs a mapping of immediate ancestors. 
+The immediate ancestor of a node is the first ancestor in its list of ancestors. Additionally, for each ancestor 
+in the list (except the last one), the function ensures that it is mapped to its next ancestor in the sequence.
+
+Args:
+    ancestor_dict (Dict[str, List[int]]): A dictionary where each key is a node and the value is a list of its ancestors.
+    adj_list (List[int]): A list of nodes that are present in the adjacency list.
+
+Returns:
+    Dict[str, int]: A dictionary mapping each node to its immediate ancestor. If a node has no ancestors or is not 
+    present in the adjacency list, it will not be included in the result.
+
+Note:
+    The function assumes that the ancestor lists in `ancestor_dict` are ordered such that the first element is the 
+    immediate ancestor, and subsequent elements are ancestors of the previous one.
+"""
+You should write code starting with:
+from typing import Dict, List
+
+def build_immediate_ancestor_map(ancestor_dict: Dict[str, List[int]], adj_list: List[int]) -> Dict[str, int]:
+    pass
+

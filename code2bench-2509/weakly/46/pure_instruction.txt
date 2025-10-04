@@ -1,0 +1,11 @@
+"""Converts a Julian Day Number (JDN) to a Gregorian date.
+
+The function uses a series of mathematical transformations to convert the given Julian Day Number
+into a Gregorian date, which is returned as a `date` object from the `datetime` module.
+
+Args:
+    jdn (int): The Julian Day Number to be converted. Must be a non-negative integer.
+
+Returns:
+    date: A `date` object representing the Gregorian date corresponding to the given JDN.
+"""

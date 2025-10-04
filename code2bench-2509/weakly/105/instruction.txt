@@ -1,0 +1,17 @@
+"""Normalize Unicode homograph characters to their ASCII equivalents.
+
+This function prevents bypass attempts using visually similar characters from different scripts by replacing them with their ASCII equivalents. It handles common homographs from Cyrillic, Greek, and other scripts, as well as various hyphen-like characters. Additionally, it applies Unicode NFKD normalization to handle compatibility decompositions.
+
+Args:
+    text (str): The input string containing potential Unicode homographs.
+
+Returns:
+    str: The normalized string with homographs replaced by their ASCII equivalents.
+"""
+You should write code starting with:
+import unicodedata
+
+def normalize_unicode_homographs(text: str) -> str:
+    # TODO: Implement this function
+    pass
+

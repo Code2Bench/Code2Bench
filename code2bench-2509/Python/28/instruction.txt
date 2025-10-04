@@ -1,0 +1,28 @@
+"""Format file size in a human-readable format.
+
+This function converts a given size in bytes into a more readable format by scaling it
+to the appropriate unit (B, KB, MB, GB, TB). The function handles edge cases such as
+zero bytes and ensures the output is formatted to one decimal place.
+
+Args:
+    bytes_size (int): The size in bytes to be formatted.
+
+Returns:
+    str: A string representing the size in a human-readable format, rounded to one
+         decimal place and suffixed with the appropriate unit (B, KB, MB, GB, TB).
+
+Examples:
+    >>> format_size(500)
+    '500.0 B'
+    >>> format_size(1024)
+    '1.0 KB'
+    >>> format_size(5242880)
+    '5.0 MB'
+    >>> format_size(1073741824)
+    '1.0 GB'
+"""
+You should write code starting with:
+def format_size(bytes_size: int) -> str:
+    # TODO: Implement this function based on the docstring.
+    pass
+

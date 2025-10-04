@@ -1,0 +1,13 @@
+Implement a Python function that performs Non-Maximum Suppression (NMS) for a single class using NumPy. The function should filter out overlapping bounding boxes based on a given threshold.
+
+- **Inputs**:
+  - `boxes`: A `numpy.ndarray` of shape (N, 4) representing bounding boxes, where each box is defined by its top-left and bottom-right coordinates (x1, y1, x2, y2).
+  - `scores`: A `numpy.ndarray` of shape (N,) containing confidence scores for each bounding box.
+  - `nms_thr`: A float representing the threshold for overlapping boxes to be suppressed.
+- **Output**: A `list[int]` containing the indices of the bounding boxes to keep after applying NMS.
+- **Special Rules**:
+  - Sort the bounding boxes by their scores in descending order.
+  - For each box, calculate the intersection over union (IoU) with all remaining boxes.
+  - Suppress boxes with IoU greater than the threshold.
+  - Continue the process until no boxes are left to compare.
+  - Handle edge cases: empty input arrays or no boxes meeting the threshold.
