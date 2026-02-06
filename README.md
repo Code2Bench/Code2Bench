@@ -1,195 +1,114 @@
 # Code2Bench: Scaling Source and Rigor for Dynamic Benchmark Construction
 
+<div align="center">
+
+[![Venue: ICLR 2026](https://img.shields.io/badge/Venue-ICLR%202026-brightgreen)](https://openreview.net/forum?id=YOUR_PAPER_ID)
+[![arXiv](https://img.shields.io/badge/arXiv-2508.07180-B31B1B.svg)](https://arxiv.org/abs/2508.07180)
+[![Website](https://img.shields.io/badge/Project-Website-blue)](https://code2bench.github.io/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Project Website](https://img.shields.io/badge/Website-code2bench.github.io-blue)](https://code2bench.github.io/)
+[![Python: 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/downloads/)
 
+**The Next Generation Framework for Dynamic and Rigorous Code LLM Evaluation.**
 
-This repository contains the source code for the **CODE2BENCH** framework, a novel, automated, end-to-end pipeline for dynamically constructing rigorous and contamination-resistant benchmarks from recent real-world GitHub repositories. It also hosts the first benchmark instance built using this framework: **CODE2BENCH-2509**.
+[**Features**](#-key-features) | [**News**](#-news) | [**Evaluation**](#-quick-start-evaluation) | [**Construction**](#-benchmark-construction) | [**Paper**](#-citation)
 
-This work is associated with the paper:
-**"Code2Bench: Scaling Source and Rigor for Dynamic Benchmark Construction"**
-Submitted to ICLR 2026
+</div>
 
+---
 
-## ✨ Why CODE2BENCH?
+## 📢 News
+*   **[2026/01]** 🎉 **Code2Bench** has been accepted as a conference paper at **ICLR 2026**!
 
-Evaluating Large Language Models (LLMs) on realistic code generation tasks is crucial but challenging due to data contamination, limited test rigor, and the static nature of existing benchmarks. CODE2BENCH addresses these limitations by:
+---
 
-*   **Automated Dynamism:** Continuously ingesting recent code from GitHub to minimize training data contamination and ensure task relevance.
-*   **Rigorous Control:** Employing Scope Graph-based dependency analysis for structured task classification (Self-Contained/Weakly Self-Contained) and Property-Based Testing (PBT) for generating high-coverage, nuanced test suites.
-*   **Language-Agnostic Core:** Designed with universal programming concepts and PBT methodology to support multi-language extensibility.
+## ✨ Key Features
 
-## 📊 Evaluating LLMs on CODE2BENCH-2509
+The evaluation of code-generating LLMs is currently limited by **static, contaminated problem sources** and **low-rigor testing**. CODE2BENCH introduces the **Dual Scaling** philosophy:
 
-This section guides you through evaluating an LLM's performance on the pre-built CODE2BENCH-2509 benchmark.
+1.  **Scaling the Source (Dynamic & Contamination-Resistant):**
+    *   **Temporal Filtering:** Automatically ingests code from GitHub commits created *after* the knowledge cutoff of the evaluated models.
+    *   **Principled Classification:** Uses language-agnostic **Scope Graph** analysis to classify tasks into *Self-Contained (SC)* and *Weakly Self-Contained (WSC)*.
 
-### Benchmark Data
+2.  **Scaling the Rigor (Deep & Diagnostic):**
+    *   **Property-Based Testing (PBT):** Generates hundreds of nuanced test cases automatically per task.
+    *   **The "Great Filter":** A stringent **100% branch coverage quality gate** ensuring every task is logically verifiable and non-trivial.
+    *   **Diagnostic Fingerprints:** Beyond Pass@1, we provide granular insights into failure modes (Syntax vs. Runtime vs. Logic).
 
-The CODE2BENCH-2509 benchmark data (tasks, instructions, generated test cases in JSON format) is available in the `code2bench-2509/` directory within this repository or can be downloaded from the [Project Code Page](https://github.com/code2bench/code2bench).
- 
-### Integrating New LLMs for Evaluation
+---
 
-CODE2BENCH is designed to be extensible. To evaluate a new LLM, you need to integrate it into the framework by:
+## 🚀 Quick Start: Evaluation
 
-1.  **Implementing an LLM Class:** Create a Python class for your LLM that inherits from the `LLM` abstract base class defined in `code2bench/llm/base.py`. This class must implement the `chat` method to handle interactions with your LLM's API or serving endpoint.
+Evaluate your LLM on the **CODE2BENCH-2509** suite in minutes.
 
-    ```python
-    # code2bench/llm/base.py (Abstract Interface)
-    from abc import ABC, abstractmethod
+### 1. Installation
+```bash
+conda create -n code2bench python=3.10 -y
+conda activate code2bench
+sudo apt-get update && sudo apt-get install graphviz graphviz-dev -y
+pip install -r requirements.txt
+export PYTHONPATH=`pwd`:$PYTHONPATH
+```
 
-    class LLM(ABC):
-        """Abstract base class for interacting with LLMs."""
-        @abstractmethod
-        def chat(self, system_prompt: str, user_input: str, max_tokens: int = None, stream: bool = False) -> str:
-            """Sends a chat request to the LLM and returns the text response."""
-            raise NotImplementedError
-    ```
+### 2. Plug in Your Model
+To evaluate a new model, simply inherit from the `LLM` base class:
 
-2.  **Extending the LLM Caller:** Modify the `call_llm` utility function in `code2bench/utils/llm_caller.py` to include an `elif` block that checks for an instance of your new LLM class and calls its `chat` method with appropriate arguments.
+```python
+# code2bench/llm/my_model.py
+from code2bench.llm.base import LLM
 
-    ```python
-    # code2bench/utils/llm_caller.py (Example Extension)
-    # ... other imports ...
-    from code2bench.llm.your_new_llm_module import NewLLM # Import your new LLM class
+class MyCustomLLM(LLM):
+    def chat(self, system_prompt, user_input, **kwargs):
+        # Integrate your API or local inference here
+        return response_text
+```
 
-    # ... logging configuration ...
+### 3. Run Benchmark
+Execute the evaluation script for Python or Java:
+```bash
+python code2bench/test_runner/benchmark_runner.py --benchmark_name Python --mode weakly
+```
 
-    def call_llm(llm: LLM, system_message: str, user_message: str, clean: bool = True) -> str:
-        # ... existing logic ...
-        response_content = ""
-        if isinstance(llm, DeepSeekLLM):
-            response_content = llm.chat(system_message, user_message)
-        # ... other elif blocks ...
-        elif isinstance(llm, NewLLM):
-            # Call the chat method of your new LLM class
-            response_content = llm.chat(system_prompt=system_message, user_input=user_message)
-        else:
-             logging.error(f"Unsupported LLM type: {type(llm)}")
-             raise TypeError(f"Unsupported LLM type: {type(llm)}")
-        # ... cleaning logic ...
-        return response_content
-    ```
-
-### Performing Evaluation
-
-The evaluation is performed using the `benchmark_runner.py` script.
-
-1.  **Set PYTHONPATH:** Ensure the root directory of the repository is in your `PYTHONPATH` so that modules can be imported correctly.
-    ```bash
-    export PYTHONPATH=`pwd`:$PYTHONPATH
-    ```
-
-2.  **Run Evaluation Script:** Execute `benchmark_runner.py`, specifying the benchmark name and mode, and providing the LLM instance you want to evaluate.
-
-    You will need to **instantiate your LLM client object** (e.g., `llm_client = NewLLM(...)`) and pass it to the `run_benchmark` function *within* the `benchmark_runner.py` script or a similar evaluation entry point. Modify the script's main execution block to use your desired LLM instance and benchmark configuration (language, mode).
-
-    ```python
-    # Example modification in code2bench/test_runner/benchmark_runner.py's main block
-    # ... (argparse setup and parsing) ...
-    # config.BENCHMARK_NAME = args.benchmark_name # This sets the benchmark language
-    # mode = args.mode # This sets the mode (weakly/self)
-
-    # --- Instantiate your LLM client here ---
-    # Example for a QwenLLM:
-    # llm_client = QwenLLM()
-    # Example for your NewLLM:
-    # llm_client = NewLLM(api_key="YOUR_API_KEY") # Replace with your LLM initialization
-    # ---------------------------------------
-
-    # --- Specify Benchmark Configuration (Language and Mode) ---
-    # Directly set the benchmark language and mode for evaluation run
-    benchmark_language = 'Python' # Choose from 'Python', 'Pure_Java', 'weakly'
-
-    print(f"Evaluating {type(llm_client).__name__} on {benchmark_language} {benchmark_mode.upper()} benchmark...")
-
-    run_benchmark(
-        llm=llm_client,
-        benchmark_language=benchmark_language, # Pass language
-        use_ckpt=False # Set to True to resume from checkpoint if needed
-    )
-    ```
-
-    Then, run the script:
-    ```bash
-    python code2bench/test_runner/benchmark_runner.py
-    ```
-    *(Note: The exact command and script structure might vary slightly based on your project's implementation details. Refer to the actual `benchmark_runner.py` and related documentation for precise usage.)*
-
-### Results
-Evaluation results for the LLM will be saved in a subdirectory within the specific benchmark directory, typically under `code2bench-2509/<benchmark_language>/<llm_name>`.
+---
 
 ## 🛠️ Benchmark Construction
 
-This section describes how to use the CODE2BENCH framework to generate new benchmark instances from custom or updated code sources.
-
-The construction pipeline involves several stages: Source Code Acquisition, Filtering (including Preprocessing, Dependency Analysis, Semantic Deduplication, Program Analysis, and LLM Filtering), Test Case Generation, and Test Runner Generation.
+Build your own dynamic benchmark instances from fresh GitHub repositories.
 
 ### Configuration
+1.  **Define Sources:** Add repository URLs to `code2bench/projects.yaml`.
+2.  **Set Time Window:** Define `start_time` and `end_time` in the execution command to target specific commit history (for anti-contamination).
 
-Configure the pipeline using YAML files (e.g., `code2bench/projects.yaml`) to specify:
+### Full Pipeline Run
+The pipeline automates: *Acquisition → Scope Analysis → PBT Generation → Coverage Filtering → Instruction Generation.*
 
-*   **Source Repositories:** List of GitHub repositories to clone and sample from (URLs and name).
-*   **Target Configuration:** Desired benchmark language ('Python', 'weakly'), start/end time for code commits, and other filtering criteria (e.g., complexity ranges).
-*   **LLM Configuration:** API keys or endpoints for LLMs used *during construction* (e.g., for instruction generation, semantic filtering). Set these in .env files or directly in the code.
-*   **Benchmark Version Configuration:** Configure the benchmark version in `code2bench/config.py` by setting `BENCHMARK_VERSION`. The default is `code2bench-2509`.
+```bash
+# Example: Constructing a Python Weakly Self-Contained benchmark
+python code2bench/run.py \
+    --benchmark_name Python \
+    --mode weakly \
+    --start_time 2024-08-01 \
+    --end_time 2025-05-30 \
+    --use_proxy
+```
 
-*(Refer to `code2bench/projects.yaml` and potential other config files in the `code2bench/config.py` directory for configuration details.)*
+For **Java** tasks, use:
+```bash
+python code2bench/run_java.py --benchmark_name Pure_Java --mode self
+```
 
-### Running the Construction Pipeline
+---
 
-The benchmark construction pipeline is also executed using the `benchmark_runner.py` script, controlled by command-line arguments. The `run_all_projects` function orchestrates the pipeline stages.
+## 📈 Analysis & Visualization
 
-1.  **Set PYTHONPATH:** Ensure the root directory of the repository is in your `PYTHONPATH`.
-    ```bash
-    conda create -n code2bench python=3.10 # Create a new conda environment
-    conda activate code2bench # Activate the environment
-    sudo apt-get update # Update system packages (if needed)
-    sudo apt-get install graphviz graphviz-dev # Install Graphviz (if needed)
-    pip install -r requirements.txt # Install dependencies
+CODE2BENCH provides a novel **Diagnostic Fingerprint** visualization to understand *why* models fail.
 
-    export PYTHONPATH=`pwd`:$PYTHONPATH
-    ```
+| Mode | Fail Mode Peak | Insights |
+| :--- | :--- | :--- |
+| **SC (Algorithm)** | LogicErr | Models struggle with core synthesis logic. |
+| **WSC (Library)** | RuntimeErr | Challenges arise from API misapplication. |
+| **Java Native** | Perfect Surge | Static typing acts as a "performance scaffold". |
 
-2.  **Run Construction Script:** Execute `benchmark_runner.py` with arguments that control the pipeline stages (`--skip_pipeline`, `--only_pipeline`) and construction parameters (`--benchmark_name`, `--mode`, `--start_time`, `--end_time`).
+---
 
-    *   **To run the full pipeline (Acquisition -> Filtering -> Generation):**
-        ```bash
-        python code2bench/run.py \
-            --benchmark_name Python \
-            --mode weakly \
-            --start_time 2024-08-01 \
-            --end_time 2025-05-30 \
-            --use_proxy # Optional: Use proxy for cloning/pulling
-        ```
-        *(Note: Omit `--skip_pipeline` and `--only_pipeline` for a full run)*
-
-    *   **To run *only* the Filtering stage (after acquiring code):**
-        ```bash
-        python code2bench/run.py \
-            --benchmark_name Python \
-            --mode weakly \
-            --start_time 2024-08-01 \
-            --end_time 2025-05-30 \
-            --use_proxy \
-            --only_pipeline True # Run only the pipeline stage
-        ```
-
-    *   **To skip the Filtering stage and run subsequent stages (e.g., if filtering results are cached):**
-        ```bash
-        python code2bench/test_runner/benchmark_runner.py \
-            --benchmark_name Python \
-            --mode weakly \
-            --start_time 2024-08-01 \
-            --end_time 2025-05-30 \
-            --use_proxy \
-            --skip_pipeline True # Skip the pipeline stage and proceed
-        ```
-
-The system will automatically clone the specified repositories from GitHub into the benchmark directory: `code2bench/workspace/`
-
-### For Java
-The process is similar to Python, but you need to run `code2bench/run_java.py` instead of `code2bench/run.py`. Ensure you have Java and Maven installed.
-
-### Outputs
-
-The constructed benchmark instance will be generated in the `benchmark/` directory, organized by benchmark language and mode (e.g., `benchmark/Python/weakly/`).
+## 🤝 Contributing
+We welcome contributions! Whether it's adding new language support (C++, Rust, Go) or improving the PBT engines, please feel free to open an Issue or a PR.
